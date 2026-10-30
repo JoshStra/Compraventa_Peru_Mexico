@@ -1,5 +1,14 @@
 # Historial de cambios de CampusTrade
 
+## 0.3.0-rc.2 — 30 de octubre de 2026
+
+- Primer despliegue real HTTPS en Render Free: React y API del mismo origen, PostgreSQL Neon Free y bucket privado Supabase S3 Free.
+- Origen automático seguro a partir de RENDER_EXTERNAL_URL, con prioridad de PUBLIC_URL/CORS_ORIGINS explícitos y cuatro regresiones nuevas; 34 pruebas API/config correctas.
+- Migraciones 001/002 verificadas primero en rama Neon aislada, idempotencia y conexión TLS con certificado validado; después aplicadas a producción.
+- 28 comprobaciones iniciales sobre la URL pública y prueba real del adaptador S3: lectura firmada 200, anónima 403 y contenido coincidente. Evidencias auténticas sin secretos.
+- El correo permanece sin proveedor por decisión del responsable. No se verificaron usuarios artificialmente; las acciones que lo requieren siguen bloqueadas. Continúan pendientes una revisión independiente por PR y los recorridos productivos con alumnos consentidos.
+- La base de paquetes/API conserva 0.3.0; rc.2 identifica esta candidata desplegada y su registro de entrega, sin mover el tag rc.1.
+
 ## 0.3.0-rc.1 — 30 de octubre de 2026
 
 - Primera versión integrada React/Express/PostgreSQL: cuentas institucionales configurables, sesiones HttpOnly revocables, CSRF y recuperación/verificación con tokens de un uso.

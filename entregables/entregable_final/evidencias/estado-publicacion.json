@@ -26,7 +26,19 @@
     }
   ],
   "pull_requests": 0,
-  "public_deployment": null,
+  "public_deployment": {
+    "url": "https://campustrade-mex-per.onrender.com/",
+    "health": "https://campustrade-mex-per.onrender.com/api/v1/health",
+    "provider": "Render Free",
+    "service_id": "srv-dbigt7hsrm7s73bmnvn0",
+    "first_deploy_id": "dep-dbigt81srm7s73bmo19g",
+    "first_live_at": "2026-10-30T21:40:50Z",
+    "first_sha": "f5130c1f6dc30961969a9b42f3765dfae96060b4",
+    "database": "Neon Free / campustrade / production",
+    "storage": "Supabase Free / campustrade-storage / private campustrade-images",
+    "initial_https_checks": "passed",
+    "redeploy_persistence": "awaiting_verification"
+  },
   "mail_provider": "pending_by_user_decision",
   "ci_verified": {
     "sha": "6b0d297",
@@ -35,10 +47,11 @@
   },
   "tests": {
     "frontend": 47,
-    "api": 30,
+    "api": 34,
     "e2e": 10,
     "build": "pass",
     "format": "pass",
-    "npm_audit_production_vulnerabilities": 0
+    "npm_audit_production_vulnerabilities": 0,
+    "https_initial": 28
   }
 }

@@ -2,6 +2,8 @@
 
 Aplicación universitaria para venta, renta, intercambio y donación de materiales académicos. La versión 0.3.0 conserva React 18 y Vite y conecta la interfaz a una API Node.js con PostgreSQL. Las entregas se acuerdan dentro del campus; no se integran pagos en línea.
 
+**Sistema público:** [Abrir CampusTrade](https://campustrade-mex-per.onrender.com/) · [Health de API](https://campustrade-mex-per.onrender.com/api/v1/health). Render Free + Neon PostgreSQL + Supabase S3 privado, comprobados el 30-10-2026. El correo institucional sigue pendiente.
+
 ## Preparación local
 
 Requiere Node.js 24, npm y Docker con el motor iniciado.
@@ -55,6 +57,6 @@ El prototipo anterior sigue en AppShell como demostración explícita con `VITE_
 - [Seguridad y activaciones pendientes](docs/SECURITY.md)
 - [Backlog](docs/BACKLOG.md)
 
-El despliegue anterior de páginas estáticas se retiró porque no publica el backend ni PostgreSQL. La publicación de esta versión requiere servicios reales, credenciales configuradas y verificación HTTPS; compilar no equivale a desplegar. No se ha contratado ningún servicio de pago.
+El despliegue anterior de páginas estáticas se retiró porque no publica el backend ni PostgreSQL. Esta versión está publicada con servicios reales y HTTPS verificado; véanse las evidencias del despliegue. No se ha contratado ningún servicio de pago.
 
-La entrega comprobada y sus siete apartados están en [entregable final](entregables/entregable_final/README.md). La configuración gratuita preparada está en [render.yaml](render.yaml); los pasos, límites vigentes y accesos pendientes se describen en [despliegue](docs/DEPLOYMENT.md). La versión candidata usa la base de código 0.3.0; el correo real y el despliegue público siguen pendientes.
+La entrega comprobada y sus siete apartados están en [entregable final](entregables/entregable_final/README.md). La configuración gratuita preparada está en [render.yaml](render.yaml); los recursos desplegados, variables, validación y límites se describen en [despliegue](docs/DEPLOYMENT.md). La versión candidata usa la base de código 0.3.0; el correo real sigue pendiente y el sistema público ya responde en HTTPS.

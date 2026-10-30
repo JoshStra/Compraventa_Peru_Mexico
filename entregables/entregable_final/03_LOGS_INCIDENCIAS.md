@@ -12,7 +12,7 @@ Fecha de ejecución: 2026-10-30, zona America/Mexico_City. Se omiten credenciale
 | INC-06 rentas / media | API emitía instante con hora para un DATE. | Conversión automática de pg dependiente de zona. | to_char YYYY-MM-DD; 6b0d297, issue #2. | Igualdad exacta de inicio/fin y renta/devolución correctas. |
 | EXT-01 GitHub / media | Conector devuelve Resource not accessible by integration (403) al comentar/cerrar. | Permisos de integración insuficientes. | API oficial con autenticación Git existente, sin exponer secretos. | Issues 1 y 2 leídos como closed, un comentario cada uno. |
 | EXT-02 correo / bloqueo | No hay proveedor ni remitente autorizado. | Decisión del responsable: dejar pendiente. | Adaptadores Resend/SMTP preparados; no bypass de verificación. | Transporte aislado probado; envío real pendiente. |
-| EXT-03 despliegue / bloqueo | Render/Neon sin conexión autorizada y S3 sin credenciales. | Dependencia externa. | render.yaml y procedimiento preparados. | No existe URL pública comprobada. |
+| EXT-03 despliegue / resuelto | Render/Neon inicialmente sin acceso y S3 sin credenciales. | Dependencia externa. | Recursos Free creados con autorización; HTTPS real, Neon TLS y adaptador S3 privado comprobados. | Live 30-10-2026 15:40:50 UTC−06; evidencias/despliegue. |
 
 ## Validaciones de contenido observadas en pruebas reales
 

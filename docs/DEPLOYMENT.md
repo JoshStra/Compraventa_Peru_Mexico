@@ -1,35 +1,44 @@
-# Despliegue gratuito preparado y accesos pendientes
+# Despliegue real de CampusTrade
 
-Estado al 30-10-2026: **BLOQUEADO en la publicación externa**. No hay URL pública verificada. La aplicación local integrada sí funciona y está probada. Render y Neon no estaban conectados mediante herramientas autorizadas; tampoco existen credenciales de almacenamiento externo ni proveedor de correo definido. No se crearon cuentas, no se aceptaron planes de pago y no se generaron cargos.
+Estado comprobado el **30 de octubre de 2026**: frontend React y API Node/Express publicados en **[CampusTrade](https://campustrade-mex-per.onrender.com/)**. [Health HTTPS](https://campustrade-mex-per.onrender.com/api/v1/health): HTTP 200, database=connected, versión base 0.3.0. El primer despliegue quedó Live a las **15:40:50 UTC−06**, desde `f5130c1f6dc30961969a9b42f3765dfae96060b4`. Los registros y capturas auténticos están en [evidencias de despliegue](../entregables/entregable_final/evidencias/despliegue/).
 
-## Arquitectura elegida
+## Infraestructura existente
 
-Un Web Service Node gratuito en Render sirve frontend/dist y /api/v1 desde el mismo HTTPS, conectado a Neon Free por TLS y a un bucket S3 compatible para imágenes. Se evaluó Cloudflare Pages para cliente: es apropiado para estáticos, pero separar dominios complica cookies y CSRF; un solo origen reduce configuración y no necesita otro servicio. render.yaml prepara la aplicación completa, sin crear una base temporal Render Postgres.
+| Componente                | Recurso y configuración comprobada                                                                                                                                 |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Frontend y backend        | Render Web Service `campustrade-mex-per`, ID `srv-dbigt7hsrm7s73bmnvn0`, plan **Free ($0/mes)**, Virginia. Un solo origen HTTPS para interfaz, cookies y API.      |
+| Código                    | Origin original `JoshStra/Compraventa_Peru_Mexico`, rama main. Fuente pública por URL, sin nueva concesión OAuth. Auto-deploy apagado.                             |
+| PostgreSQL                | Neon Free, proyecto `campustrade` (`gentle-leaf-50085647`), PostgreSQL 17.11, AWS us-east-1. Base `campustrade`, rama `production` (`br-divine-king-b8sln8n1`).    |
+| Validación de migraciones | Rama Neon aislada `deployment-validation` (`br-rapid-sea-b86fer0f`). Migraciones 001/002 aplicadas dos veces sin duplicación y luego aplicadas en producción.      |
+| Imágenes                  | Supabase Free, proyecto aislado `campustrade-storage` (`vqwplhthmcdujjtnxqgr`), us-east-1. Bucket `campustrade-images`, **privado**, máximo 5 MB, MIME image/webp. |
+| Correo                    | **Pendiente por decisión del responsable**. Sin proveedor ni remitente configurado; no se envían enlaces ni se verifican cuentas automáticamente.                  |
 
-Condiciones consultadas el 30-10-2026 en fuentes oficiales:
+La conexión directa de Neon usa `sslmode=verify-full`; se comprobaron cifrado TLS y certificado autorizado desde Node. Ambas bases tienen 15 tablas (incluida schema_migrations), 33 índices, 30 CHECK y 25 claves foráneas. No se usa Render Postgres temporal ni disco local para imágenes. La Data API de Supabase está desactivada.
 
-| Servicio                    | Condiciones relevantes                                                                                                                                      | Decisión                                                                                                                                                                                           |
-| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Render Free                 | 750 horas compartidas/mes; suspensión tras 15 min sin uso y arranque frío; disco efímero; SMTP 25/465/587 bloqueado. Render Postgres Free caduca a 30 días. | Solo Web Service free, sin disco persistente local ni Postgres temporal. La cuenta puede requerir verificación de pago; no introducir tarjeta ni cambiar de plan sin intervención del responsable. |
-| Neon Free                   | 100 proyectos, 100 CU-h/mes y 1 GB por proyecto, 5 GB de transferencia/proyecto; escala a cero.                                                             | PostgreSQL externo persistente sujeto a cuotas; no promesa de disponibilidad continua.                                                                                                             |
-| Supabase Free, candidato S3 | 1 GB de archivos; proyectos gratis sujetos a pausa por inactividad; protocolo S3 documentado.                                                               | Alternativa preparada pero no creada ni probada. Confirmar plan, cuotas y endpoint/región al conectar; bucket privado.                                                                             |
-| Correo                      | Proveedor por decidir; el responsable pidió dejarlo pendiente.                                                                                              | Sin entrega institucional real. En Render Free usar una API HTTPS si se elige Resend; SMTP estándar no funciona allí.                                                                              |
+La clave S3 `campustrade-render` se creó con autorización explícita para este proyecto aislado. Supabase le concede acceso completo a sus buckets y omite RLS: es un secreto exclusivamente de backend. No es una clave limitada a un prefijo ni se entrega al navegador. No se contrató un servicio de pago.
 
-Fuentes: [Render Free](https://render.com/docs/free), [Blueprint](https://render.com/docs/blueprint-spec), [Neon Free vigente](https://neon.com/blog/neon-free-plan-1-gb-per-project), [cuotas Neon](https://github.com/neondatabase/website/blob/main/content/faqs/free-plan-limits-and-quotas.md), [Supabase precios](https://supabase.com/pricing), [S3 Supabase](https://supabase.com/docs/guides/storage/s3/authentication). Son condiciones actuales consultadas, no garantía futura. El responsable debe comprobar privacidad, región y cuotas antes de incorporar datos reales.
+## Configuración aplicada
 
-## Pasos exactos del responsable
+Build: `npm ci --include=dev && npm run build`. Inicio: `npm start`. Health: `/api/v1/health`. Node 24.12.0; HOST=0.0.0.0; NODE_ENV=production; TRUST_PROXY=1; ALLOWED_EMAIL_DOMAINS=itesa.edu.mx; STORAGE_DRIVER=s3.
 
-1. Conectar Render y Neon con las cuentas del proyecto y seleccionar exclusivamente Free. Si se pide tarjeta, aceptar términos o plan de pago, resolverlo personalmente; esta ejecución no lo hizo.
-2. Crear proyecto Neon en región cercana al backend. Obtener DATABASE_URL de conexión directa con TLS (`sslmode=require`), conservarla solo en secretos de Render. La conexión directa evita problemas de search_path y bloqueos asesores con agrupación por transacción.
-3. Crear bucket privado compatible S3, por ejemplo Supabase Free; generar credenciales restringidas y obtener endpoint HTTPS y región. Introducir S3_ENDPOINT, S3_REGION, S3_BUCKET, S3_ACCESS_KEY_ID y S3_SECRET_ACCESS_KEY en Render. No usar disco efímero para imágenes.
-4. Crear Web Service del origin y main, runtime Node 24, plan free. Usar render.yaml o configurar build `npm ci --include=dev && npm run build`, start `npm start`, health `/api/v1/health`, HOST=0.0.0.0, NODE_ENV=production, TRUST_PROXY=1. Mantener despliegue automático apagado hasta verificar.
-5. Configurar PUBLIC_URL y CORS_ORIGINS con el mismo origen HTTPS asignado, sin barra final. APP_SECRET aleatorio de al menos 32 caracteres; ALLOWED_EMAIL_DOMAINS=itesa.edu.mx; STORAGE_DRIVER=s3. No publicar secretos en el repo ni en el frontend. El arranque aplica migraciones y solo escucha después de conectar.
-6. El correo queda pendiente por decisión explícita. Antes de aceptar alumnos reales elegir proveedor, autorizar remitente, establecer MAIL_FROM y RESEND_API_KEY o SMTP compatible; comprobar un enlace real con una cuenta institucional consentida. Nunca usar el transporte de pruebas en producción.
-7. Verificar GET health y catálogo, registro/login/logout, subida/consulta de imagen, publicación, favorito, mensaje con dos usuarios, solicitud, finalización, reporte y resolución. Reiniciar/redeploy y confirmar que la publicación y el objeto continúan. Capturar URL HTTPS y respuestas sin tokens. El health por sí solo no valida la aplicación completa.
-8. Promover solo una cuenta real ya verificada mediante la CLI administrativa en un entorno seguro con la misma base. No existe contraseña administrativa predeterminada.
+PUBLIC_URL y CORS_ORIGINS usan `https://campustrade-mex-per.onrender.com`, sin barra final. Se guardaron explícitamente después del primer arranque. El código también admite RENDER_EXTERNAL_URL para el primer despliegue, conserva el origen exacto y rechaza HTTP o rutas adicionales.
+
+DATABASE_URL, APP_SECRET y las cinco variables S3 se guardan en Render Environment. El endpoint S3 es `https://vqwplhthmcdujjtnxqgr.storage.supabase.co/storage/v1/s3`, región us-east-1. Los valores secretos y las credenciales de la cuenta sintética están en configuración local privada excluida de Git, nunca en frontend ni evidencias. APP_SECRET se conserva entre despliegues.
+
+## Validación pública y límites
+
+Pasaron **28 comprobaciones HTTPS iniciales**: frontend, health, catálogo y listados; dominio incorrecto rechazado; registro sintético válido sin verificación ni entrega de correo; login y sesión; cookies Secure/HttpOnly/SameSite=Lax; perfil, favoritos y publicaciones propias; rechazo de CSRF ausente, origen ajeno, acceso anónimo y rol administrativo indebido. Publicar, subir imágenes, conversar y operar devuelven 403 a la cuenta sin verificar. El navegador mostró el perfil desde la base remota y no registró errores de consola.
+
+Se probó S3 real con el mismo adaptador del backend, ejecutado desde un entorno local autorizado: WebP sintético de 76 bytes, GET firmado 200, acceso sin firma 403, tipo y SHA-256 coincidentes. Esta prueba acredita proveedor/adaptador/privacidad; no acredita publicación por un alumno verificado a través de Render. Los resultados de reinicio se registran por separado al terminar la comprobación.
+
+Los recorridos completos de publicación, mensajería, operaciones y moderación se probaron con PostgreSQL local y transporte de correo aislado. **No se simularon estudiantes verificados en producción**. RF-02 y esos recorridos productivos continúan pendientes de proveedor de correo, remitente y cuenta institucional consentida. Tampoco se ha probado restauración de respaldos ni carga sostenida.
 
 ## Actualización y recuperación
 
-Antes de un cambio importante guardar cambios pendientes probados o identificar HEAD limpio. Ejecutar CI, respaldar base/objetos y desplegar el SHA aprobado. Migraciones nuevas deben ser compatibles con la versión anterior; no editar las aplicadas. Para revertir código elegir el SHA previo en Render sin reset ni push forzado. Una migración destructiva requiere respaldo y plan propio; no se revierte automáticamente.
+Antes de un cambio importante revisar Git y guardar cambios pendientes probados; con árbol limpio registrar HEAD. Ejecutar las pruebas pertinentes, conservar origin y subir un incremento coherente. En Render elegir Manual Deploy → Deploy latest commit, confirmar SHA, esperar Live y revisar health/logs. Con auto-deploy apagado, un push no publica por sí solo. Mantener el plan Free y no introducir tarjeta o aceptar un cambio de pago.
 
-Restaurar backups primero en una base nueva; comprobar health, relaciones y operaciones, restaurar objetos y después cambiar secretos de conexión. La rotación de APP_SECRET invalida HMAC de matrículas y CSRF: requiere migración planificada, no reemplazo improvisado. La restauración y el comportamiento S3 externo no se probaron por falta de accesos. Mantener límites de cuota y no habilitar facturación automática.
+El inicio aplica migraciones antes de escuchar. Migraciones nuevas deben ser compatibles; no editar las ya aplicadas. Para revertir código elegir el SHA previo en Render, sin reset ni push forzado. Una migración destructiva necesita respaldo y plan específico. La rotación de APP_SECRET afecta matrículas HMAC y CSRF y requiere planificación.
+
+Restaurar respaldos primero en una base nueva, comprobar relaciones y objetos y después cambiar la conexión. Esa restauración sigue sin ensayo. Neon y Supabase externos conservan los datos fuera del disco efímero de Render, sujetos a cuotas, pausas e inactividad de planes gratuitos; no se promete disponibilidad continua.
+
+Referencias oficiales consultadas el 30-10-2026: [Render Free](https://render.com/docs/free), [Blueprint](https://render.com/docs/blueprint-spec), [Neon Free](https://neon.com/blog/neon-free-plan-1-gb-per-project), [Supabase precios](https://supabase.com/pricing), [S3 Supabase](https://supabase.com/docs/guides/storage/s3/authentication). Verificar condiciones vigentes antes de incorporar datos reales.

@@ -3,7 +3,7 @@
 Instituto Tecnológico Superior del Oriente del Estado de Hidalgo  
 Ingeniería en Sistemas Computacionales · Equipo 3 MEX-PER  
 Integrantes confirmados: Alexis Martin Cortés De Lucio y Brandon Joshua Labastida Jiménez.  
-Fecha de documentación: 30 de octubre de 2026. Versión candidata: 0.3.0-rc.1.  
+Fecha de documentación: 30 de octubre de 2026. Versión candidata: 0.3.0-rc.2.
 Repositorio: https://github.com/JoshStra/Compraventa_Peru_Mexico
 
 ## Índice
@@ -22,7 +22,7 @@ Las pruebas usan datos sintéticos y PostgreSQL local real. El control del domin
 
 ## 1. Avance del backlog
 
-El [apartado 1](01_AVANCE_BACKLOG.md) incluye catorce historias RF-01 a RF-14, prioridades, criterios, dependencias, responsable verificable, fechas reales y commits. Todos tienen código. La verificación institucional completa necesita correo real; las imágenes productivas requieren S3 externo probado. RF-05 tiene flujo común de donación pero falta un recorrido dedicado. Por ello no se usa un porcentaje arbitrario de cumplimiento total.
+El [apartado 1](01_AVANCE_BACKLOG.md) incluye catorce historias RF-01 a RF-14, prioridades, criterios, dependencias, responsable verificable, fechas reales y commits. Todos tienen código. La verificación institucional completa necesita correo real; el adaptador S3 externo ya se probó con bucket privado; el recorrido de publicación productivo exige una cuenta verificada con consentimiento. RF-05 tiene flujo común de donación pero falta un recorrido dedicado. Por ello no se usa un porcentaje arbitrario de cumplimiento total.
 
 Hitos reales: auditoría 09:49, API/PostgreSQL 09:52, cuentas 09:58, publicaciones 10:04, mensajes 10:08, operaciones 10:12, moderación 10:15, interfaz 10:35 y 10:47, correcciones 10:51 del 30 de octubre (UTC−06). El trabajo externo siguiente no tiene una fecha acordada con el curso.
 
@@ -36,7 +36,7 @@ Figura 1. [Issue de arquitectura cerrado con comentario](evidencias/02-issue-1-c
 
 La bitácora registra fallos de formato en CI, lectura de imágenes bajo .data, enlace hash de verificación, selectores ambiguos de pruebas y los dos defectos del issue #2. No se ocultan ejecuciones fallidas: antes de corregir operaciones pasaron 27 de 29 pruebas; después pasaron treinta incluyendo reinicio de procesos. El [apartado 3](03_LOGS_INCIDENCIAS.md) detalla reproducción, severidad, causa, solución y estado.
 
-Validación final: 47 pruebas frontend (44 de regresión local y tres de cliente HTTP), 30 API/PostgreSQL y diez E2E (cinco recorridos en escritorio y móvil), compilación y formato. Las entradas inválidas de dominio, roles, campos vacíos, precios, imágenes, acceso ajeno y calificación anticipada se rechazan. Los logs de evidencias contienen las salidas reales y fecha de ejecución.
+Validación final: 47 pruebas frontend (44 de regresión local y tres de cliente HTTP), 34 API/config y diez E2E (cinco recorridos en escritorio y móvil), compilación y formato. Las entradas inválidas de dominio, roles, campos vacíos, precios, imágenes, acceso ajeno y calificación anticipada se rechazan. Los logs de evidencias contienen las salidas reales y fecha de ejecución.
 
 Figura 2. [Conversación entre dos usuarios sintéticos](evidencias/desktop-mensajes.png). El navegador y la API usan sesiones distintas y la información persiste en PostgreSQL local.
 
@@ -44,7 +44,7 @@ Figura 2. [Conversación entre dos usuarios sintéticos](evidencias/desktop-mens
 
 React → HTTP JSON con cookie/CSRF → Express → middleware de identidad y permisos → servicios → PostgreSQL. Las imágenes se guardan fuera de la base; el correo utiliza un adaptador. El servidor sirve frontend y API desde el mismo origen. Las migraciones 001/002 crean relaciones, rangos y unicidad; las reservas bloquean filas dentro de una transacción. El [apartado 4](04_ESTRUCTURA_FUNCIONAL.md) contiene el árbol real, diagrama de componentes y ER, enlazados a las migraciones.
 
-La mensajería comprueba participación; la operación deriva identidad de la sesión; la calificación exige finalización. La moderación conserva auditoría y el administrador se promueve por CLI sobre cuenta activa verificada. No hay administrador predeterminado. Los listados recientes tienen límites documentados y no se afirman microservicios ni servicios remotos desplegados.
+La mensajería comprueba participación; la operación deriva identidad de la sesión; la calificación exige finalización. La moderación conserva auditoría y el administrador se promueve por CLI sobre cuenta activa verificada. No hay administrador predeterminado. Los listados recientes tienen límites documentados y no se afirman microservicios; frontend/API, PostgreSQL y S3 remotos están comprobados.
 
 ## 5. Uso activo del repositorio colaborativo
 
@@ -60,9 +60,9 @@ La consulta de todos los PR devolvió cero resultados. El desarrollo directo en 
 
 La candidata v0.3.0-rc.1 refleja la primera integración full stack y conserva limitaciones explícitas. El tag apunta a `addc154` y el [release real](https://github.com/JoshStra/Compraventa_Peru_Mexico/releases/tag/v0.3.0-rc.1) se publicó el 30-10-2026 a las 17:07:25Z. Una publicación de fuentes no prueba un despliegue.
 
-Se preparó Render Free para Node y frontend del mismo origen, Neon Free para PostgreSQL y un adaptador S3 compatible. La alternativa Cloudflare Pages se evaluó, pero separar el cliente complicaba cookies/CSRF. Render Free suspende por inactividad y su disco es efímero; su PostgreSQL gratuito caduca a treinta días, por lo que no se eligió. El correo SMTP estándar está bloqueado allí. La documentación detalla cuotas de Neon y una alternativa S3 gratuita sin afirmar que se haya conectado.
+Se desplegó Render Free para Node y frontend del mismo origen, Neon Free para PostgreSQL y Supabase Free para S3 privado. La alternativa Cloudflare Pages se evaluó, pero separar el cliente complicaba cookies/CSRF. Render Free suspende por inactividad y su disco es efímero; su PostgreSQL gratuito caduca a treinta días, por lo que no se eligió. El correo SMTP estándar está bloqueado allí. Neon usa TLS con certificado validado y migraciones comprobadas en rama aislada; Supabase conserva imágenes fuera del disco efímero.
 
-No hay frontend/backend públicos comprobados: faltan cuentas conectadas y secretos externos. El correo permanece pendiente por decisión del responsable. No existe captura de aplicación desplegada. [Apartado 7](07_RELEASES_DESPLIEGUE.md) y [procedimiento](../../docs/DEPLOYMENT.md).
+Frontend y API públicos: [CampusTrade](https://campustrade-mex-per.onrender.com/), [health conectado](https://campustrade-mex-per.onrender.com/api/v1/health). Primer despliegue Live el 30-10-2026 a las 15:40:50 UTC−06, SHA f5130c1. Pasaron 28 comprobaciones HTTPS y una prueba directa de S3 privado (firmada 200, anónima 403). [Captura auténtica](evidencias/despliegue/render-primer-despliegue-live.jpg). El correo permanece pendiente; no se simularon alumnos verificados. [Apartado 7](07_RELEASES_DESPLIEGUE.md) y [procedimiento](../../docs/DEPLOYMENT.md).
 
 ## Matriz final de la rúbrica
 
@@ -74,15 +74,15 @@ No hay frontend/backend públicos comprobados: faltan cuentas conectadas y secre
 | 4. Estructura funcional | CUMPLIDO | Árbol real, componentes, flujo y ER de las migraciones; 04. |
 | 5. Repositorio colaborativo | CUMPLIDO | Origin compartido, dos cuentas contribuyentes y conversación verificable; 05. No acredita revisión independiente. |
 | 6. PR revisados | PENDIENTE | Cero PR; revisión real de otro integrante por realizar. La comprobación de issues sí está completa. |
-| 7. Releases y despliegue | PARCIAL | Candidata probada y configuración de publicación; sin aplicación pública verificada. Release de fuentes no equivale a despliegue. |
+| 7. Releases y despliegue | CUMPLIDO | Sistema público HTTPS en Render Free con Neon y S3 privado; health 200, pruebas y capturas auténticas en 07. El correo permanece pendiente. |
 
 ## Conclusiones
 
-CampusTrade dispone de cliente, API y persistencia compartida funcionales y probados localmente. La evidencia conecta requisitos con código, pruebas, commits e issues. Permanecen pendientes la revisión real por PR, los accesos para publicación y la activación de correo/almacenamiento externos. Es una candidata verificable de fuentes; el entorno no permite declarar una entrega productiva completamente desplegada.
+CampusTrade está desplegado en HTTPS con cliente, API, PostgreSQL Neon y S3 privado Supabase. La evidencia conecta requisitos, pruebas, commits e issues y acredita el criterio 7. Permanecen pendientes el correo institucional, los recorridos productivos con alumnos consentidos y la revisión independiente por PR. La infraestructura publicada no acredita por sí sola aceptación funcional productiva completa.
 
 ## Anexos y referencias
 
-Los siete apartados amplían el contenido de este documento. Los PNG desktop/mobile muestran localhost con fixtures campus.test; los JPG muestran GitHub auténtico. No se capturaron contraseñas ni tokens. Archivos técnicos: API.md, DATABASE.md, ARCHITECTURE.md, SECURITY.md, TESTING.md, TRACEABILITY.md y RELEASE_CHECKLIST.md en docs.
+Los siete apartados amplían el contenido de este documento. Los PNG desktop/mobile muestran localhost con fixtures campus.test; los JPG muestran GitHub y proveedores/despliegue auténticos, según su carpeta. No se capturaron contraseñas ni tokens. Archivos técnicos: API.md, DATABASE.md, ARCHITECTURE.md, SECURITY.md, TESTING.md, TRACEABILITY.md y RELEASE_CHECKLIST.md en docs.
 
 Documentos de referencia: CampusTrade_Especificacion_Tecnica_ISC_Equipo_3_MEX_PER.docx (1).pdf; CampusTrade_Fase2_Sistemas_ISC_Equipo_3_MEX_PER.docx (1).pdf; ENTREGABLE 4. REPOSITORIO (2) (1).pdf; 7. Validación técnica del diseño (1).pdf. Las conclusiones actuales se basan en implementación y pruebas, no en el estado histórico descrito en esos PDF.
 

@@ -1,13 +1,19 @@
-# Release y despliegue
+# Release y despliegue real
 
-Versión candidata: **v0.3.0-rc.1**, base de paquetes 0.3.0. El salto menor refleja el primer cliente HTTP completo con API/PostgreSQL; rc.1 expresa que faltan activaciones externas y revisión independiente. No es una versión productiva certificada.
+**Criterio 7: CUMPLIDO.** [Abrir CampusTrade](https://campustrade-mex-per.onrender.com/) · [Health de API](https://campustrade-mex-per.onrender.com/api/v1/health). Frontend y backend HTTPS 200; health status=ok, database=connected, versión base 0.3.0.
 
-[Tag y GitHub Release reales](https://github.com/JoshStra/Compraventa_Peru_Mexico/releases/tag/v0.3.0-rc.1) publicados el 30-10-2026 a las 17:07:25Z, sobre `addc154bc6f34a7b324749269f8bbece83c0adfe`, con prerrelease explícita. [Captura auténtica](evidencias/07-release-candidata.jpg). CHANGELOG resume los cambios reales. El tag apunta al código/documentación integrado; las evidencias posteriores no alteran ese tag.
+Primer despliegue real: **30-10-2026 15:40:50 UTC−06** (21:40:50Z), Render Free `campustrade-mex-per`, servicio `srv-dbigt7hsrm7s73bmnvn0`, despliegue `dep-dbigt81srm7s73bmo19g`, SHA `f5130c1f6dc30961969a9b42f3765dfae96060b4`. Build `npm ci --include=dev && npm run build`, inicio `npm start`; compilación y arranque correctos. [Panel del despliegue](https://dashboard.render.com/web/srv-dbigt7hsrm7s73bmnvn0/deploys/dep-dbigt81srm7s73bmo19g).
 
-Incluye cuentas, publicaciones, imágenes locales validadas, favoritos, mensajes, reservas de venta/renta/intercambio/donación, calificaciones, reportes y administración. Se corrigieron los issues #1 y #2. Validación: 47 pruebas frontend, 30 API/PostgreSQL y 10 recorridos E2E; consultar logs finales y CI. No hay transporte real de correo ni validación externa S3.
+![Render confirma Live](evidencias/despliegue/render-primer-despliegue-live.jpg)
 
-**Despliegue público: PENDIENTE.** No existe URL de frontend ni backend públicos verificados, fecha de despliegue o captura de un sistema remoto. Las imágenes `desktop-*` y `mobile-*` son del servidor local de pruebas con datos sintéticos; no se presentan como despliegue. Un release de fuentes no cumple por sí solo este criterio.
+![Aplicación pública real](evidencias/despliegue/campustrade-publico-inicio.jpg)
 
-Procedimiento completo, alternativas gratuitas, variables, migraciones, health, actualización y recuperación: [DEPLOYMENT.md](../../docs/DEPLOYMENT.md). Configuración preparada: [render.yaml](../../render.yaml). La intervención pendiente consiste en conectar cuentas Free de Render/Neon y almacenamiento compatible S3; el correo seguirá pendiente hasta que el responsable elija proveedor. No se contrató ningún servicio de pago.
+Neon Free conserva PostgreSQL 17, migraciones 001/002 y datos. Supabase Free conserva imágenes en bucket privado de 5 MB/image-webp. Se comprobaron TLS/certificado, 15 tablas, índices y restricciones; primero se ensayaron migraciones idempotentes en una rama aislada. Los secretos se guardaron únicamente en backend/Render y configuración privada excluida de Git.
 
-Documento principal: [Google Docs verificado](https://docs.google.com/document/d/1h3fI6tzXEtdbv4iEQHsKf1KkHpNK_m08HOVxQkKW9W8/edit) y [PDF exportado](CampusTrade_Entregable_Final.pdf). CI de las correcciones: [resultado success](https://github.com/JoshStra/Compraventa_Peru_Mexico/actions/runs/41093729623).
+Validación inicial: **28 comprobaciones HTTPS correctas**, incluyendo registro sintético sin verificación, login, cookie segura, sesión, CSRF y permisos; [resultado](evidencias/despliegue/https-before.json). La prueba del adaptador backend S3, desde un cliente local autorizado contra Supabase real, obtuvo GET firmado 200, anónimo 403 y WebP/hash coincidentes; [resultado](evidencias/despliegue/storage-create.json). No equivale a un recorrido productivo de publicación por alumno verificado. El [perfil público](evidencias/despliegue/campustrade-perfil-no-verificado.jpg) mantiene la verificación pendiente.
+
+Versión candidata siguiente: **v0.3.0-rc.2**, base de paquetes 0.3.0, documentada en CHANGELOG. Se conserva [v0.3.0-rc.1](https://github.com/JoshStra/Compraventa_Peru_Mexico/releases/tag/v0.3.0-rc.1), publicada sobre addc154 el 30-10-2026 a las 17:07:25Z; su tag no se mueve. El registro final de publicación conserva el SHA y enlace de la nueva candidata cuando quede publicado.
+
+**Pendientes explícitos:** proveedor/remitente de correo por decisión del responsable; prueba consentida con alumno real; recorridos productivos que exigen verificación; PR con revisión independiente; donación dedicada y restauración de respaldo. No se verificaron cuentas artificialmente ni se enviaron correos. No se contrató un servicio de pago. Las capturas desktop/mobile anteriores siguen siendo pruebas locales.
+
+[Recursos y mantenimiento](../../docs/DEPLOYMENT.md) · [Pruebas](../../docs/TESTING.md) · [Google Docs](https://docs.google.com/document/d/1h3fI6tzXEtdbv4iEQHsKf1KkHpNK_m08HOVxQkKW9W8/edit) · [PDF](CampusTrade_Entregable_Final.pdf).

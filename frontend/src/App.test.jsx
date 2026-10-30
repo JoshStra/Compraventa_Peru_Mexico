@@ -1,7 +1,7 @@
 import { expect, it, vi } from "vitest";
 import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import App from "./App.jsx";
+import App from "./AppShell.jsx";
 import { STORAGE_KEY } from "./services/campusRepository.js";
 
 async function fillListing(user) {

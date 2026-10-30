@@ -1,10 +1,14 @@
 import { defineConfig, devices } from "@playwright/test";
-
-const baseURL = `http://127.0.0.1:4173${process.env.VITE_BASE_PATH || "/"}`;
+import { randomUUID } from "node:crypto";
+import { fileURLToPath } from "node:url";
+process.env.E2E_TEST_KEY ||= randomUUID();
+const baseURL = "http://127.0.0.1:4180";
 
 export default defineConfig({
   testDir: "./e2e",
   fullyParallel: true,
+  workers: 2,
+  globalTeardown: "./e2e/teardown.js",
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 1 : 0,
   reporter: [["list"], ["html", { open: "never" }]],
@@ -19,8 +23,10 @@ export default defineConfig({
     { name: "mobile", use: { ...devices["Pixel 7"] } },
   ],
   webServer: {
-    command: "npm run preview -- --port 4173 --strictPort",
+    command: "npm run e2e:server --workspace backend",
+    cwd: fileURLToPath(new URL("..", import.meta.url)),
     url: baseURL,
-    reuseExistingServer: !process.env.CI,
+    reuseExistingServer: false,
+    env: { NODE_ENV: "test", E2E_TEST_KEY: process.env.E2E_TEST_KEY },
   },
 });

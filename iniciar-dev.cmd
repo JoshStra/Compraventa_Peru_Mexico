@@ -9,7 +9,8 @@ if errorlevel 1 (
   exit /b 1
 )
 
-if not exist "node_modules" (
+call npm ls --workspaces --depth=0 >nul 2>nul
+if errorlevel 1 (
   echo Instalando dependencias por primera vez...
   if exist "package-lock.json" (
     call npm ci
@@ -24,6 +25,17 @@ if not exist "node_modules" (
 )
 
 echo.
-echo Iniciando CampusTrade...
-call npm run dev -- --open
+if not exist "backend\.env" (
+  echo Configura backend\.env siguiendo README.md antes de iniciar.
+  pause
+  exit /b 1
+)
+echo Compilando CampusTrade...
+call npm run build
+if errorlevel 1 (
+  pause
+  exit /b 1
+)
+echo Iniciando la aplicacion completa. Abre la URL indicada por el servidor.
+call npm start
 pause

@@ -14,6 +14,8 @@ import { createObjectStorage } from "./services/objectStorage.js";
 import { conversationRoutes } from "./routes/conversations.js";
 import { operationRoutes } from "./routes/operations.js";
 import { moderationRoutes } from "./routes/moderation.js";
+import { existsSync } from "node:fs";
+import { fileURLToPath } from "node:url";
 
 export function createApp({ db, config, mailer = createMailer(config) }) {
   const app = express();
@@ -104,6 +106,15 @@ export function createApp({ db, config, mailer = createMailer(config) }) {
     });
   });
   app.use("/api", () => fail(404, "NOT_FOUND", "Ruta no encontrada."));
+  const frontend = fileURLToPath(
+    new URL("../../frontend/dist/", import.meta.url),
+  );
+  if (existsSync(new URL("../../frontend/dist/index.html", import.meta.url))) {
+    app.use(express.static(frontend, { index: false }));
+    app.get("/{*path}", (req, res) =>
+      res.sendFile("index.html", { root: frontend }),
+    );
+  }
   app.use(handleError);
   return app;
 }

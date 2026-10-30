@@ -7,7 +7,13 @@ const config = loadConfig();
 const db = createDatabase(config.databaseUrl);
 await migrate(db);
 const server = createApp({ db, config }).listen(config.port, config.host, () =>
-  console.log(JSON.stringify({ event: "server_started", port: config.port })),
+  console.log(
+    JSON.stringify({
+      event: "server_started",
+      port: config.port,
+      url: config.publicUrl,
+    }),
+  ),
 );
 for (const signal of ["SIGINT", "SIGTERM"])
   process.once(signal, () => {

@@ -1,69 +1,58 @@
 # CampusTrade
 
-Aplicación alfa para comprar, rentar, intercambiar y donar materiales académicos. La versión 0.2.0 permite publicar y administrar artículos, guardar favoritos y conservar conversaciones y reportes en el navegador.
+Aplicación universitaria para venta, renta, intercambio y donación de materiales académicos. La versión 0.3.0 conserva React 18 y Vite y conecta la interfaz a una API Node.js con PostgreSQL. Las entregas se acuerdan dentro del campus; no se integran pagos en línea.
 
-## Ejecutar el proyecto
+## Preparación local
 
-Requiere Node.js 24 y npm. Ejecuta desde la raíz del repositorio:
+Requiere Node.js 24, npm y Docker con el motor iniciado.
+
+1. Ejecuta `npm ci` desde la raíz.
+2. Copia `.env.example` a `.env` y `backend/.env.example` a `backend/.env`.
+3. Genera contraseñas aleatorias locales y una clave APP_SECRET de al menos 32 caracteres. Usa la misma contraseña PostgreSQL en ambos archivos, sin subirlos a Git.
+4. Mantén `ALLOWED_EMAIL_DOMAINS=itesa.edu.mx`, dominio confirmado para este proyecto. Configura el transporte de correo antes de verificar cuentas reales.
+5. Inicia la base y aplica las migraciones:
 
 ```bash
-npm ci
-npm run dev
-```
-
-Para compilar y revisar la salida:
-
-```bash
+docker compose up -d db
+npm run migrate
 npm run build
-npm run preview
+npm start
 ```
 
-Abre la URL que indique Vite. La compilación se genera en `frontend/dist/`; se sirve por HTTP y no se abre mediante `file://`.
+Abre la URL que imprime el servidor, normalmente http://127.0.0.1:3000. Node sirve la API y `frontend/dist/` desde el mismo origen. `iniciar-dev.cmd` revisa dependencias, compila e inicia ese servidor; PostgreSQL y los archivos de configuración deben estar preparados.
 
-En Windows puedes abrir `iniciar-dev.cmd`: instala dependencias si hacen falta y abre la aplicación en el navegador.
+Para desarrollar con recarga, usa dos terminales: `npm run dev:api` y `npm run dev`. Vite reenvía `/api` al backend local en el puerto 3000.
 
-## Alcance de esta versión
+## Estado comprobado
 
-- Búsqueda sin distinguir acentos; filtros por carrera, categoría, modalidad, condición, precio y disponibilidad.
-- Publicaciones con validación de contenido, precio e imagen opcional de hasta 500 KB.
-- Favoritos, publicaciones, perfil, mensajes y reportes persistentes tras recargar.
-- Edición de artículos propios y estados Disponible, Reservado y Finalizado.
-- Perfil editable, estadísticas calculadas y exportación de datos en JSON.
-- Mensajes separados por conversación y reportes locales consultables en el perfil.
-- Modales con control de foco y Escape; interfaz adaptable a móvil y escritorio.
+- API con cuentas, sesiones revocables, CSRF, verificación por enlace y recuperación de contraseña.
+- Catálogo paginado, búsqueda, filtros, publicaciones autorizadas, imágenes de hasta 5 MB y favoritos persistentes.
+- API de conversaciones privadas, operaciones transaccionales, rentas, intercambios, calificaciones, reportes y administración.
+- Interfaz conectada para registro, login, verificación, perfil, catálogo, creación y edición, imágenes, favoritos y reportes. Las pantallas de mensajería, operaciones y gestión se integran en el siguiente incremento.
 
-El almacenamiento es **local a cada navegador y origen**. No existe autenticación institucional, entrega de mensajes entre personas, moderación, pagos ni base de datos compartida. Los artículos iniciales son ejemplos y los perfiles de demostración están identificados. No se deben usar datos sensibles en esta alfa.
+La cuenta se crea sin verificar y necesita el enlace enviado a su correo. El dominio por sí solo no concede una insignia. El envío real queda pendiente de configurar Resend o SMTP y un remitente autorizado. Las pruebas usan cuentas campus.test y un transporte aislado; no verifican estudiantes reales.
 
-## Pruebas
+## Validación
 
 ```bash
 npm test
+npm run test:api
 npm run build
 npx playwright install chromium
 npm run test:e2e
+npm run format:check
 ```
 
-En Windows, para usar Edge instalado:
+Las pruebas de API y navegador requieren PostgreSQL local. Cada ejecución full stack crea un esquema separado y cuentas sintéticas; el servidor de pruebas solo escucha en loopback, exige una clave de ejecución y no forma parte de la aplicación productiva. Los recorridos usan el compilado real, cookies de sesión y datos PostgreSQL.
 
-```powershell
-$env:PLAYWRIGHT_CHANNEL = 'msedge'
-npm run test:e2e
-```
+El prototipo anterior sigue en AppShell como demostración explícita con `VITE_DEMO_MODE=true`. No se usa como sustituto de una API ausente y no es el modo predeterminado. Sus pruebas de regresión se conservan.
 
-Las pruebas E2E sirven el compilado y generan capturas de escritorio y móvil en `entregables/evidencias/`. Los detalles y límites de la validación están en [docs/PRUEBAS.md](docs/PRUEBAS.md).
+## Documentación
 
-## Despliegue y colaboración
+- [Auditoría inicial](docs/AUDITORIA_INICIAL.md)
+- [Contrato de API](docs/API.md)
+- [Base de datos y migraciones](docs/DATABASE.md)
+- [Seguridad y activaciones pendientes](docs/SECURITY.md)
+- [Backlog](docs/BACKLOG.md)
 
-La integración continua ejecuta las pruebas al recibir un PR o un push a main. El despliegue a GitHub Pages es manual: después de subir y revisar los cambios, activa **Settings → Pages → Source → GitHub Actions** y ejecuta **Publicar alfa en GitHub Pages**. El workflow comprueba el proyecto antes de publicar y devuelve la URL real en el entorno github-pages. Sigue la [guía oficial de Vite](https://vite.dev/guide/static-deploy.html#github-pages).
-
-El flujo para issues, revisiones, releases y evidencias está en [docs/COLABORACION.md](docs/COLABORACION.md). Estos archivos preparan el proceso; no representan aprobaciones ni despliegues ya realizados.
-
-## Preparación para la siguiente fase
-
-Los datos iniciales viven en `frontend/src/data/mockListings.js`. `campusRepository.js` centraliza las operaciones y `domain/catalog.js` sus reglas. `listingRepository.js` conserva una fachada asíncrona para catálogo. El siguiente incremento requiere sustituir la persistencia local por una API con autenticación, autorización y base de datos.
-
-Consulta la [arquitectura actual](docs/ARQUITECTURA.md), el [backlog actualizado](docs/BACKLOG.md), el [registro de incidencias](docs/INCIDENCIAS.md) y el [historial de cambios](CHANGELOG.md).
-
-## Decisiones de producto
-
-La versión prioriza búsqueda visible, categorías académicas, condición del artículo y entrega dentro del campus. Los documentos de fase 2 en `entregables/` conservan el contexto de requerimientos y encuesta; describen la fase anterior y componentes futuros.
+El despliegue anterior de páginas estáticas se retiró porque no publica el backend ni PostgreSQL. La publicación de esta versión requiere servicios reales, credenciales configuradas y verificación HTTPS; compilar no equivale a desplegar. No se ha contratado ningún servicio de pago.

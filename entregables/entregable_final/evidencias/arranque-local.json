@@ -1,0 +1,17 @@
+{
+  "fecha": "2026-10-30T11:11:21.2204655-06:00",
+  "comando": "npm start; GET /api/v1/health; GET /api/v1/catalog; GET /",
+  "entorno": "localhost con PostgreSQL del proyecto, arranque normal",
+  "healthStatus": 200,
+  "health": {
+    "status": "ok",
+    "database": "connected",
+    "version": "0.3.0"
+  },
+  "frontendStatus": 200,
+  "frontendHtml": true,
+  "catalogoDominios": [
+    "itesa.edu.mx"
+  ],
+  "categorias": 4
+}

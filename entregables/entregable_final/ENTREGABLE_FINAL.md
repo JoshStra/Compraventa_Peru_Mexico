@@ -58,7 +58,7 @@ La consulta de todos los PR devolvió cero resultados. El desarrollo directo en 
 
 ## 7. Releases y despliegue
 
-La candidata v0.3.0-rc.1 refleja la primera integración full stack y conserva limitaciones explícitas. El tag y enlace de release se registran después de publicarse y verificarse en el README del entregable. Una publicación de fuentes no prueba un despliegue.
+La candidata v0.3.0-rc.1 refleja la primera integración full stack y conserva limitaciones explícitas. El tag apunta a `addc154` y el [release real](https://github.com/JoshStra/Compraventa_Peru_Mexico/releases/tag/v0.3.0-rc.1) se publicó el 30-10-2026 a las 17:07:25Z. Una publicación de fuentes no prueba un despliegue.
 
 Se preparó Render Free para Node y frontend del mismo origen, Neon Free para PostgreSQL y un adaptador S3 compatible. La alternativa Cloudflare Pages se evaluó, pero separar el cliente complicaba cookies/CSRF. Render Free suspende por inactividad y su disco es efímero; su PostgreSQL gratuito caduca a treinta días, por lo que no se eligió. El correo SMTP estándar está bloqueado allí. La documentación detalla cuotas de Neon y una alternativa S3 gratuita sin afirmar que se haya conectado.
 
@@ -87,3 +87,5 @@ Los siete apartados amplían el contenido de este documento. Los PNG desktop/mob
 Documentos de referencia: CampusTrade_Especificacion_Tecnica_ISC_Equipo_3_MEX_PER.docx (1).pdf; CampusTrade_Fase2_Sistemas_ISC_Equipo_3_MEX_PER.docx (1).pdf; ENTREGABLE 4. REPOSITORIO (2) (1).pdf; 7. Validación técnica del diseño (1).pdf. Las conclusiones actuales se basan en implementación y pruebas, no en el estado histórico descrito en esos PDF.
 
 Referencias de despliegue: [Render Free](https://render.com/docs/free), [Neon Free](https://neon.com/blog/neon-free-plan-1-gb-per-project), [Supabase S3](https://supabase.com/docs/guides/storage/s3/authentication). Referencias de controles: [Express](https://expressjs.com/advanced/best-practice-security/), [transacciones node-postgres](https://node-postgres.com/features/transactions), [OWASP contraseñas](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html).
+
+Versión nativa comprobada: [Google Docs](https://docs.google.com/document/d/1h3fI6tzXEtdbv4iEQHsKf1KkHpNK_m08HOVxQkKW9W8/edit). [PDF con capturas y tablas](CampusTrade_Entregable_Final.pdf).

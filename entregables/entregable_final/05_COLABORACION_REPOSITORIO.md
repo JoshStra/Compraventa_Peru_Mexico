@@ -4,6 +4,7 @@ Repositorio compartido: [https://github.com/JoshStra/Compraventa_Peru_Mexico](ht
 
 | SHA | Fecha de autor real | Autor Git | Cambio |
 |---|---|---|---|
+| addc154 | 2026-10-30T11:06:41-06:00 | mora8292 | docs(delivery): preparar siete apartados y despliegue gratuito |
 | 6b0d297 | 2026-10-30T10:51:45-06:00 | mora8292 | fix(operations): cancelar ofertas retiradas y conservar fechas civiles |
 | ff48d53 | 2026-10-30T10:47:35-06:00 | mora8292 | feat(frontend): integrar mensajes operaciones y moderacion |
 | c4e2553 | 2026-10-30T10:35:11-06:00 | mora8292 | feat(frontend): conectar cuentas catalogo y publicaciones a la API |
@@ -25,4 +26,4 @@ La colaboración tiene evidencia real: JoshStra abrió el issue #1 solicitando s
 
 Archivos: `git show --stat <SHA>` permite comprobar cada incremento. Los commits abarcan frontend/src/connected, backend/src, backend/migrations, backend/test, pruebas Playwright y documentación. Capturas auténticas: [repositorio](evidencias/05-repositorio-main.jpg), [historial](evidencias/05-historial-commits.jpg), [conversación del issue](evidencias/02-issue-1-cerrado.jpg). [Historial íntegro consultable](https://github.com/JoshStra/Compraventa_Peru_Mexico/commits/main/).
 
-Todos los SHAs de esta tabla hasta 6b0d297 se publicaron en origin/main. Los commits documentales posteriores deben comprobarse en el historial remoto; el estado local no acredita por sí solo un push.
+Todos los SHAs de esta tabla hasta addc154 se publicaron en origin/main. Los commits documentales posteriores deben comprobarse en el historial remoto; el estado local no acredita por sí solo un push.

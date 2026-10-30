@@ -1,0 +1,44 @@
+{
+  "verified_at": "2026-10-30T11:09:38.566413-06:00",
+  "repository": "https://github.com/JoshStra/Compraventa_Peru_Mexico",
+  "branch": "main",
+  "release": {
+    "id": 429289803,
+    "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/releases/tag/v0.3.0-rc.1",
+    "tag": "v0.3.0-rc.1",
+    "prerelease": true,
+    "published_at": "2026-10-30T17:07:25Z",
+    "target": "addc154bc6f34a7b324749269f8bbece83c0adfe"
+  },
+  "google_docs": "https://docs.google.com/document/d/1h3fI6tzXEtdbv4iEQHsKf1KkHpNK_m08HOVxQkKW9W8/edit",
+  "issues": [
+    {
+      "number": 1,
+      "state": "closed",
+      "closed_at": "2026-10-30T16:49:31Z",
+      "comment": "https://github.com/JoshStra/Compraventa_Peru_Mexico/issues/1#issuecomment-6528281194"
+    },
+    {
+      "number": 2,
+      "state": "closed",
+      "closed_at": "2026-10-30T16:52:06Z",
+      "comment": "https://github.com/JoshStra/Compraventa_Peru_Mexico/issues/2#issuecomment-6528334000"
+    }
+  ],
+  "pull_requests": 0,
+  "public_deployment": null,
+  "mail_provider": "pending_by_user_decision",
+  "ci_verified": {
+    "sha": "6b0d297",
+    "result": "success",
+    "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/actions/runs/41093729623"
+  },
+  "tests": {
+    "frontend": 47,
+    "api": 30,
+    "e2e": 10,
+    "build": "pass",
+    "format": "pass",
+    "npm_audit_production_vulnerabilities": 0
+  }
+}

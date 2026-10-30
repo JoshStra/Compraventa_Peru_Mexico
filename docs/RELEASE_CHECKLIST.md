@@ -12,4 +12,7 @@
 - [ ] Revisión independiente real mediante PR.
 - [ ] Recorrido específico de donación y restauración de respaldo.
 
-El tag/release de fuentes y el Google Docs se registran con sus URL reales en el README del entregable después de publicarlos; no se marcan aquí anticipadamente. Los pendientes externos impiden declarar entrega productiva completa.
+- [x] Tag y [release de fuentes publicados](https://github.com/JoshStra/Compraventa_Peru_Mexico/releases/tag/v0.3.0-rc.1) sobre addc154.
+- [x] [Google Docs creado y leído de vuelta](https://docs.google.com/document/d/1h3fI6tzXEtdbv4iEQHsKf1KkHpNK_m08HOVxQkKW9W8/edit); PDF exportado e inspeccionado.
+
+Los enlaces y captura de publicación están en el README del entregable. Los pendientes externos impiden declarar entrega productiva completa.

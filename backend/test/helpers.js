@@ -103,3 +103,23 @@ export async function createTestUser(
   };
   return { agent, user: login.body.user, csrf: login.body.csrfToken, send };
 }
+
+export async function createTestListing(context, user, overrides = {}) {
+  const catalog = (await request(context.app).get("/api/v1/catalog")).body;
+  const input = {
+    title: "Calculadora científica Casio",
+    description: "Calculadora funcionando con funda y batería incluida.",
+    location: "Biblioteca del campus",
+    modality: "sale",
+    condition: "good",
+    price: 350.5,
+    career: "Mecatrónica",
+    categoryId: catalog.categories[0].id,
+    imageIds: [],
+    ...overrides,
+  };
+  const response = await user.send("post", "/listings", input);
+  if (response.status !== 201)
+    throw new Error("Fixture listing failed: " + response.status);
+  return response.body.item;
+}

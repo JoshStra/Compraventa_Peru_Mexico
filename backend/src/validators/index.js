@@ -18,7 +18,16 @@ export function validate(schema, value) {
   );
 }
 export const uuid = (value) => validate(z.uuid(), value);
-export const trimmed = (min, max) => z.string().trim().min(min).max(max);
+export const trimmed = (min, max) =>
+  z
+    .string()
+    .trim()
+    .min(min)
+    .max(max)
+    .regex(
+      /^[^\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]*$/,
+      "El texto contiene caracteres de control no permitidos.",
+    );
 export const email = z.string().trim().toLowerCase().max(254).pipe(z.email());
 export const password = z
   .string()

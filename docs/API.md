@@ -40,3 +40,11 @@ La carga valida formato declarado, extensión, decodificación y tamaño de hast
 GET /conversations devuelve hasta cien conversaciones propias ordenadas por actividad. POST /conversations recibe listingId y crea o reutiliza una conversación entre el interesado y el propietario. GET /conversations/:id/messages devuelve mensajes paginados, con los más recientes en la primera página y orden de lectura ascendente. POST en esa ruta recibe body de 1 a 2000 caracteres y asigna el emisor desde la sesión.
 
 Abrir y escribir requiere correo verificado. La lectura exige sesión y participación; terceros no pueden leer ni enviar mensajes. Los textos se conservan como texto, sin HTML ejecutable, y se rechazan caracteres de control.
+
+## Operaciones y calificaciones
+
+GET /operations devuelve operaciones del usuario como propietario o solicitante. POST /operations recibe listingId y, según modalidad, rentalStart, rentalEnd u offeredListingId. PATCH /operations/:id recibe status: accepted, rejected, cancelled o completed. Solo el propietario acepta, rechaza y finaliza; los participantes cancelan cuando la transición es válida.
+
+La aceptación bloquea todas las publicaciones relacionadas por UUID ordenado, valida disponibilidad y reserva ambos artículos en un intercambio. Las solicitudes incompatibles pendientes se rechazan. Una restricción parcial evita dos aceptaciones sobre el mismo artículo. Los estados terminales bloquean nuevas solicitudes. La renta admite de 1 a 90 días y conserva el importe acordado. POST /operations/:id/return permite al propietario registrar la devolución de una renta completada.
+
+POST /operations/:id/ratings recibe score de 1 a 5 y comment de 5 a 1000 caracteres. Solo participa quien intervino en una operación completada y solo puede calificar una vez. GET /users/:id devuelve perfil público y calificaciones; no expone correo ni matrícula.

@@ -15,7 +15,7 @@ test("migraciones PostgreSQL idempotentes y catálogo inicial", async () => {
   assert.equal(
     (await db.query("SELECT count(*)::int AS total FROM schema_migrations"))
       .rows[0].total,
-    1,
+    2,
   );
   const response = await request(createApp({ db, config })).get(
     "/api/v1/catalog",

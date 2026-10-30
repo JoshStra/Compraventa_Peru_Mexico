@@ -12,6 +12,7 @@ import { authRoutes } from "./routes/auth.js";
 import { listingRoutes } from "./routes/listings.js";
 import { createObjectStorage } from "./services/objectStorage.js";
 import { conversationRoutes } from "./routes/conversations.js";
+import { operationRoutes } from "./routes/operations.js";
 
 export function createApp({ db, config, mailer = createMailer(config) }) {
   const app = express();
@@ -71,6 +72,7 @@ export function createApp({ db, config, mailer = createMailer(config) }) {
   app.use("/api", sessionMiddleware(auth));
   app.use("/api/v1/auth", authRoutes({ auth, config }));
   app.use("/api/v1", conversationRoutes({ db }));
+  app.use("/api/v1", operationRoutes({ db }));
   app.use(
     "/api/v1",
     listingRoutes({ db, storage: createObjectStorage(config) }),

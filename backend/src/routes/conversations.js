@@ -20,15 +20,9 @@ export function conversationRoutes(dependencies) {
     "/conversations/:id/messages",
     requireVerified,
     async (req, res) =>
-      res
-        .status(201)
-        .json({
-          message: await service.send(
-            req.session.user,
-            req.params.id,
-            req.body,
-          ),
-        }),
+      res.status(201).json({
+        message: await service.send(req.session.user, req.params.id, req.body),
+      }),
   );
   return router;
 }

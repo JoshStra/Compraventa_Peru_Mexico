@@ -20,6 +20,13 @@ import {
   ReportDialog,
   ConfirmDialog,
 } from "./Forms.jsx";
+import { Messenger } from "./Messenger.jsx";
+import {
+  OperationDialog,
+  RatingDialog,
+  OperationsPage,
+} from "./Operations.jsx";
+import { AdminPage, ResolutionDialog, CatalogDialog } from "./Admin.jsx";
 
 const emptyFilters = {
   q: "",
@@ -45,6 +52,8 @@ const nav = [
   ["home", "Inicio"],
   ["search", "Explorar"],
   ["heart", "Favoritos"],
+  ["message", "Mensajes"],
+  ["calendar", "Operaciones"],
   ["user", "Perfil"],
 ];
 
@@ -79,6 +88,7 @@ export default function ConnectedApp() {
   const [accountLoading, setAccountLoading] = useState(false);
   const [busy, setBusy] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
+  const [messageThread, setMessageThread] = useState(null);
   useEffect(() => {
     const changed = () => {
       const link = initialLink();
@@ -213,7 +223,15 @@ export default function ConnectedApp() {
     setDialog(null);
   }
   function navigate(next) {
-    if (["Favoritos", "Perfil"].includes(next) && !authenticated()) return;
+    if (
+      ["Favoritos", "Perfil", "Mensajes", "Operaciones", "Gestión"].includes(
+        next,
+      ) &&
+      !authenticated()
+    )
+      return;
+    if (next === "Gestión" && user?.role !== "admin") return;
+    if (user) setRevision((value) => value + 1);
     setDialog(null);
     setError("");
     setView(next);
@@ -289,9 +307,19 @@ export default function ConnectedApp() {
         <p role="status">Conectando con tu comunidad…</p>
       </main>
     );
-  const favoriteItems = result.items.filter((item) =>
-    account.favorites.includes(item.id),
-  );
+  const refresh = () => setRevision((value) => value + 1);
+  const saved = (message) => {
+    close();
+    refresh();
+    setToast(message);
+  };
+  const transition = (operation, status) =>
+    setDialog({
+      type: "confirm",
+      title: "Confirmar operación",
+      text: `Se cambiará la solicitud de ${operation.title} a ${statusLabels[status]}.`,
+      action: () => api.transition(operation.id, status),
+    });
   const cards = (items) => (
     <div className="product-grid">
       {items.map((item) => (
@@ -324,7 +352,10 @@ export default function ConnectedApp() {
           </span>
         </button>
         <nav className="main-nav" aria-label="Navegación principal">
-          {nav.map(([icon, label]) => (
+          {[
+            ...nav,
+            ...(user?.role === "admin" ? [["tool", "Gestión"]] : []),
+          ].map(([icon, label]) => (
             <button
               key={label}
               className={view === label ? "active" : ""}
@@ -822,6 +853,71 @@ export default function ConnectedApp() {
             </div>
           </section>
         )}
+        {view === "Mensajes" && user && (
+          <Messenger
+            user={user}
+            threads={account.threads}
+            initialId={messageThread}
+            onExplore={() => browse()}
+          />
+        )}
+        {view === "Operaciones" && user && (
+          <OperationsPage
+            items={account.operations}
+            user={user}
+            loading={accountLoading}
+            onRefresh={refresh}
+            onTransition={transition}
+            onRate={(operation) => setDialog({ type: "rating", operation })}
+            onReturn={(operation) =>
+              setDialog({
+                type: "confirm",
+                title: "Registrar devolución",
+                text: `Confirma que recibiste de vuelta ${operation.title} en las condiciones acordadas. El artículo volverá a estar disponible.`,
+                action: () => api.returnRental(operation.id),
+              })
+            }
+          />
+        )}
+        {view === "Gestión" && user?.role === "admin" && (
+          <AdminPage
+            revision={revision}
+            onRefresh={refresh}
+            onResolve={(report) => setDialog({ type: "resolution", report })}
+            onCancel={(operation) => transition(operation, "cancelled")}
+            onSuspend={(account) =>
+              setDialog({
+                type: "confirm",
+                title: account.suspended
+                  ? "Reactivar cuenta"
+                  : "Suspender cuenta",
+                text: `Se ${account.suspended ? "reactivará" : "suspenderá"} la cuenta de ${account.name}. Las reservas activas deben resolverse antes de suspender.`,
+                action: () => api.suspend(account.id, !account.suspended),
+              })
+            }
+            onModerate={(item) =>
+              setDialog({
+                type: "confirm",
+                title: "Retirar por moderación",
+                text: `Se retirará ${item.title} del catálogo conservando el historial.`,
+                action: () => api.moderate(item.id),
+              })
+            }
+            onCatalog={(entry) =>
+              entry.item
+                ? setDialog({
+                    type: "confirm",
+                    title: "Actualizar catálogo",
+                    text: `Se ${entry.item.active ? "desactivará" : "activará"} ${entry.item.name}.`,
+                    action: () =>
+                      entry.kind === "category"
+                        ? api.category(entry.item.id, !entry.item.active)
+                        : api.career(entry.item.name, !entry.item.active),
+                  })
+                : setDialog({ type: "catalog", kind: entry.kind })
+            }
+          />
+        )}
       </main>
       <footer>
         <span>CampusTrade</span>
@@ -886,6 +982,18 @@ export default function ConnectedApp() {
           onFavorite={() => favorite(dialog.item.id)}
           onClose={close}
           onSeller={() => sellerProfile(dialog.item.seller.id)}
+          onMessage={() => {
+            if (verified())
+              perform(async () => {
+                const result = await api.openConversation(dialog.item.id);
+                setMessageThread(result.id);
+                setView("Mensajes");
+                close();
+              });
+          }}
+          onOperation={() => {
+            if (verified()) setDialog({ type: "operation", item: dialog.item });
+          }}
           onReport={() => {
             if (authenticated())
               setDialog({ type: "report", item: dialog.item });
@@ -945,6 +1053,63 @@ export default function ConnectedApp() {
             close();
             setRevision((value) => value + 1);
             setToast("Publicación retirada.");
+          }}
+        />
+      )}
+      {dialog?.type === "operation" && (
+        <OperationDialog
+          item={dialog.item}
+          own={account.own}
+          onClose={close}
+          onSave={async (body) => {
+            await api.createOperation(body);
+            saved("Solicitud enviada.");
+            setView("Operaciones");
+          }}
+        />
+      )}
+      {dialog?.type === "rating" && (
+        <RatingDialog
+          operation={dialog.operation}
+          onClose={close}
+          onSave={async (body) => {
+            await api.rate(dialog.operation.id, body);
+            saved("Calificación guardada.");
+          }}
+        />
+      )}
+      {dialog?.type === "resolution" && (
+        <ResolutionDialog
+          report={dialog.report}
+          onClose={close}
+          onSave={async (body) => {
+            await api.resolve(dialog.report.id, body);
+            saved("Resolución guardada.");
+          }}
+        />
+      )}
+      {dialog?.type === "catalog" && (
+        <CatalogDialog
+          kind={dialog.kind}
+          onClose={close}
+          onSave={async (name) => {
+            await (dialog.kind === "category"
+              ? api.addCategory(name)
+              : api.addCareer(name));
+            setCatalog(await api.catalog());
+            saved("Catálogo actualizado.");
+          }}
+        />
+      )}
+      {dialog?.type === "confirm" && (
+        <ConfirmDialog
+          title={dialog.title}
+          text={dialog.text}
+          onClose={close}
+          onConfirm={async () => {
+            await dialog.action();
+            setCatalog(await api.catalog());
+            saved("Cambio guardado.");
           }}
         />
       )}

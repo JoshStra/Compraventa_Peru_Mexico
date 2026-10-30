@@ -1,6 +1,6 @@
 # Arquitectura implementada
 
-React 18/Vite presenta la aplicación HTTP. Node/Express sirve frontend/dist y /api/v1 desde un mismo origen. PostgreSQL 17 conserva datos compartidos. Las imágenes se almacenan fuera de PostgreSQL: archivos locales en desarrollo y adaptador S3 preparado para producción. El modo anterior de demostración solo se selecciona explícitamente con VITE_DEMO_MODE=true.
+React 18/Vite presenta la aplicación HTTP. Node/Express sirve frontend/dist y /api/v1 desde un mismo origen. PostgreSQL 17 conserva datos compartidos. Las imágenes se almacenan fuera de PostgreSQL: archivos locales en desarrollo y Supabase S3 privado probado para producción. El modo anterior de demostración solo se selecciona explícitamente con VITE_DEMO_MODE=true.
 
 ```mermaid
 flowchart LR
@@ -13,7 +13,7 @@ flowchart LR
   S --> M[Adaptador de correo Resend o SMTP]
 ```
 
-El diagrama distingue componentes implementados de servicios externos: PostgreSQL y almacenamiento local están verificados; la conexión S3 y el transporte real de correo todavía no. Los endpoints administrativos validan el rol en el servidor. El frontend no decide identidad ni propiedad.
+El sistema está desplegado en Render Free, con PostgreSQL Neon Free y Supabase S3 privado. Se comprobaron HTTPS, conexión TLS, migraciones y persistencia tras redeploy. La prueba de S3 usa el adaptador del backend desde un cliente autorizado; los recorridos productivos con alumnos verificados siguen pendientes de correo. Los endpoints administrativos validan el rol en el servidor. El frontend no decide identidad ni propiedad.
 
 ```text
 frontend/

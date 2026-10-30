@@ -1,0 +1,19 @@
+{
+  "dateUtc": "2026-10-30T21:59:33.977Z",
+  "publicUrl": "https://campustrade-mex-per.onrender.com",
+  "scannedFiles": 178,
+  "configuredSecretsFound": 0,
+  "httpsChecks": {
+    "before": 28,
+    "afterRedeploy": 26
+  },
+  "sameAccountAndSession": true,
+  "samePrivateStorageObject": true,
+  "deployedSha": "e4b14ffa95585c7e706573c6320a2d62338e2fd7",
+  "ci": {
+    "sha": "e4b14ffa95585c7e706573c6320a2d62338e2fd7",
+    "result": "success",
+    "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/actions/runs/41134124583"
+  },
+  "release": "https://github.com/JoshStra/Compraventa_Peru_Mexico/releases/tag/v0.3.0-rc.2"
+}

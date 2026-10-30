@@ -1,0 +1,171 @@
+{
+  "dateUtc": "2026-10-30T21:53:15.882Z",
+  "origin": "https://campustrade-mex-per.onrender.com",
+  "phase": "after",
+  "version": "0.3.0",
+  "syntheticAccount": true,
+  "institutionalMailSent": false,
+  "automaticallyVerified": false,
+  "results": [
+    {
+      "name": "Frontend público HTTPS",
+      "expected": 200,
+      "observed": 200,
+      "passed": true
+    },
+    {
+      "name": "HTML de la aplicación real",
+      "expected": true,
+      "observed": true,
+      "passed": true
+    },
+    {
+      "name": "Health público",
+      "expected": 200,
+      "observed": 200,
+      "passed": true
+    },
+    {
+      "name": "PostgreSQL conectado",
+      "expected": "connected",
+      "observed": "connected",
+      "passed": true
+    },
+    {
+      "name": "Catálogo API",
+      "expected": 200,
+      "observed": 200,
+      "passed": true
+    },
+    {
+      "name": "Dominio autorizado",
+      "expected": "itesa.edu.mx",
+      "observed": "itesa.edu.mx",
+      "passed": true
+    },
+    {
+      "name": "Listado público",
+      "expected": 200,
+      "observed": 200,
+      "passed": true
+    },
+    {
+      "name": "Sesión persiste tras redespliegue",
+      "expected": "da858407-6683-4b6a-9723-d5b379fc9e55",
+      "observed": "da858407-6683-4b6a-9723-d5b379fc9e55",
+      "passed": true
+    },
+    {
+      "name": "Verificación sigue pendiente",
+      "expected": false,
+      "observed": false,
+      "passed": true
+    },
+    {
+      "name": "Login real",
+      "expected": 200,
+      "observed": 200,
+      "passed": true
+    },
+    {
+      "name": "Cuenta conserva identidad",
+      "expected": "da858407-6683-4b6a-9723-d5b379fc9e55",
+      "observed": "da858407-6683-4b6a-9723-d5b379fc9e55",
+      "passed": true
+    },
+    {
+      "name": "Cookie HttpOnly",
+      "expected": true,
+      "observed": true,
+      "passed": true
+    },
+    {
+      "name": "Cookie Secure",
+      "expected": true,
+      "observed": true,
+      "passed": true
+    },
+    {
+      "name": "Cookie SameSite Lax",
+      "expected": true,
+      "observed": true,
+      "passed": true
+    },
+    {
+      "name": "Sesión no almacenada en caché",
+      "expected": "no-store",
+      "observed": "no-store",
+      "passed": true
+    },
+    {
+      "name": "Sin envío real de correo",
+      "expected": false,
+      "observed": false,
+      "passed": true
+    },
+    {
+      "name": "Favoritos propios consultables",
+      "expected": 200,
+      "observed": 200,
+      "passed": true
+    },
+    {
+      "name": "Perfil propio consultable",
+      "expected": 200,
+      "observed": 200,
+      "passed": true
+    },
+    {
+      "name": "Publicar exige verificación",
+      "expected": 403,
+      "observed": 403,
+      "passed": true
+    },
+    {
+      "name": "Subir imágenes por API exige verificación",
+      "expected": 403,
+      "observed": 403,
+      "passed": true
+    },
+    {
+      "name": "Abrir mensajes exige verificación",
+      "expected": 403,
+      "observed": 403,
+      "passed": true
+    },
+    {
+      "name": "Solicitar operaciones exige verificación",
+      "expected": 403,
+      "observed": 403,
+      "passed": true
+    },
+    {
+      "name": "Administración bloqueada a estudiante",
+      "expected": 403,
+      "observed": 403,
+      "passed": true
+    },
+    {
+      "name": "Sin sesión no consulta favoritos",
+      "expected": 401,
+      "observed": 401,
+      "passed": true
+    },
+    {
+      "name": "CSRF inválido rechazado",
+      "expected": 403,
+      "observed": 403,
+      "passed": true
+    },
+    {
+      "name": "Origen ajeno rechazado",
+      "expected": 403,
+      "observed": 403,
+      "passed": true
+    }
+  ],
+  "blockedFlows": [
+    "Publicación, carga HTTP, mensajes y operaciones requieren correo verificado; no se burlaron esos controles.",
+    "Prueba S3 directa registrada por separado; no equivale a publicación por un alumno verificado."
+  ]
+}

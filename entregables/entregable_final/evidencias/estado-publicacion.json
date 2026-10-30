@@ -1,14 +1,14 @@
 {
-  "verified_at": "2026-10-30T11:09:38.566413-06:00",
+  "verified_at": "2026-10-30T21:56:11.091567+00:00",
   "repository": "https://github.com/JoshStra/Compraventa_Peru_Mexico",
   "branch": "main",
   "release": {
-    "id": 429289803,
-    "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/releases/tag/v0.3.0-rc.1",
-    "tag": "v0.3.0-rc.1",
+    "id": 429525411,
+    "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/releases/tag/v0.3.0-rc.2",
+    "tag": "v0.3.0-rc.2",
     "prerelease": true,
-    "published_at": "2026-10-30T17:07:25Z",
-    "target": "addc154bc6f34a7b324749269f8bbece83c0adfe"
+    "published_at": "2026-10-30T21:54:26Z",
+    "target": "e4b14ffa95585c7e706573c6320a2d62338e2fd7"
   },
   "google_docs": "https://docs.google.com/document/d/1h3fI6tzXEtdbv4iEQHsKf1KkHpNK_m08HOVxQkKW9W8/edit",
   "issues": [
@@ -37,13 +37,18 @@
     "database": "Neon Free / campustrade / production",
     "storage": "Supabase Free / campustrade-storage / private campustrade-images",
     "initial_https_checks": "passed",
-    "redeploy_persistence": "awaiting_verification"
+    "redeploy_persistence": "passed: same account, session and private S3 object",
+    "redeploy_id": "dep-dbih306k1f9s73d683rg",
+    "redeploy_live_at": "2026-10-30T21:52:56Z",
+    "deployed_sha": "e4b14ffa95585c7e706573c6320a2d62338e2fd7",
+    "auto_deploy": false,
+    "verified_student_production_workflows": "pending_mail_provider"
   },
   "mail_provider": "pending_by_user_decision",
   "ci_verified": {
-    "sha": "6b0d297",
+    "sha": "e4b14ffa95585c7e706573c6320a2d62338e2fd7",
     "result": "success",
-    "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/actions/runs/41093729623"
+    "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/actions/runs/41134124583"
   },
   "tests": {
     "frontend": 47,
@@ -52,6 +57,22 @@
     "build": "pass",
     "format": "pass",
     "npm_audit_production_vulnerabilities": 0,
-    "https_initial": 28
+    "https_initial": 28,
+    "https_after_redeploy": 26,
+    "storage_after_redeploy": "same object/hash; signed 200, unsigned 403; backend adapter from authorized local environment"
+  },
+  "previous_release": {
+    "id": 429289803,
+    "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/releases/tag/v0.3.0-rc.1",
+    "tag": "v0.3.0-rc.1",
+    "prerelease": true,
+    "published_at": "2026-10-30T17:07:25Z",
+    "target": "addc154bc6f34a7b324749269f8bbece83c0adfe"
+  },
+  "google_docs_export": {
+    "pages": 9,
+    "inline_images": 5,
+    "criterion_7": "CUMPLIDO",
+    "criterion_6": "PENDIENTE"
   }
 }

@@ -24,3 +24,5 @@ El arranque normal `npm start` también se comprobó fuera del servidor E2E: fro
 ## Validación del despliegue real
 
 El 30-10-2026 se publicaron frontend y API en https://campustrade-mex-per.onrender.com/. Pasaron 28 comprobaciones HTTPS iniciales con una cuenta sintética sin verificar; cookies seguras, CSRF, origen, permisos y restricciones institucionales. Neon respondió por TLS con certificado validado; migraciones idempotentes comprobadas en rama aislada. El adaptador S3 local autorizado accedió al bucket remoto: imagen WebP firmada 200 y anónima 403, MIME y hash correctos. No es una prueba del flujo de publicación de un alumno verificado. [Resultados JSON y capturas](../entregables/entregable_final/evidencias/despliegue/).
+
+El redespliegue real de e4b14ff quedó Live a las 15:52:56 UTC−06. Pasaron 26 comprobaciones HTTPS posteriores: identidad y sesión persistentes, controles de verificación, cookie/CSRF/origen/permisos. Se recuperó el mismo objeto S3 y hash, firmado 200/anónimo 403. [CI e4b14ff: success](https://github.com/JoshStra/Compraventa_Peru_Mexico/actions/runs/41134124583). No se volvió a registrar otra cuenta ni se alteró su verificación.

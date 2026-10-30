@@ -89,3 +89,7 @@ Documentos de referencia: CampusTrade_Especificacion_Tecnica_ISC_Equipo_3_MEX_PE
 Referencias de despliegue: [Render Free](https://render.com/docs/free), [Neon Free](https://neon.com/blog/neon-free-plan-1-gb-per-project), [Supabase S3](https://supabase.com/docs/guides/storage/s3/authentication). Referencias de controles: [Express](https://expressjs.com/advanced/best-practice-security/), [transacciones node-postgres](https://node-postgres.com/features/transactions), [OWASP contraseñas](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html).
 
 Versión nativa comprobada: [Google Docs](https://docs.google.com/document/d/1h3fI6tzXEtdbv4iEQHsKf1KkHpNK_m08HOVxQkKW9W8/edit). [PDF con capturas y tablas](CampusTrade_Entregable_Final.pdf).
+
+## Evidencia final del despliegue real
+
+Redespliegue Live el 30-10-2026 a las 15:52:56 UTC−06, SHA e4b14ff. [Release rc.2](https://github.com/JoshStra/Compraventa_Peru_Mexico/releases/tag/v0.3.0-rc.2) publicada sobre ese mismo commit a las 21:54:26Z. Pasaron 28 comprobaciones HTTPS iniciales y 26 posteriores; identidad y sesión persistieron en Neon y el mismo WebP de Supabase mantuvo su hash y privacidad. [Captura auténtica del redespliegue](evidencias/despliegue/render-redespliegue-live.jpg). Google Docs actualizado en su ubicación original y PDF de nueve páginas con figura del servicio Live. Correo y recorridos productivos con estudiantes verificados siguen pendientes.

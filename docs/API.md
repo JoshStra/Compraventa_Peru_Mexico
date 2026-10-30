@@ -48,3 +48,11 @@ GET /operations devuelve operaciones del usuario como propietario o solicitante.
 La aceptación bloquea todas las publicaciones relacionadas por UUID ordenado, valida disponibilidad y reserva ambos artículos en un intercambio. Las solicitudes incompatibles pendientes se rechazan. Una restricción parcial evita dos aceptaciones sobre el mismo artículo. Los estados terminales bloquean nuevas solicitudes. La renta admite de 1 a 90 días y conserva el importe acordado. POST /operations/:id/return permite al propietario registrar la devolución de una renta completada.
 
 POST /operations/:id/ratings recibe score de 1 a 5 y comment de 5 a 1000 caracteres. Solo participa quien intervino en una operación completada y solo puede calificar una vez. GET /users/:id devuelve perfil público y calificaciones; no expone correo ni matrícula.
+
+## Reportes y administración
+
+POST /reports recibe listingId, reason y detail. GET /reports muestra los reportes propios y su resolución. Las razones admitidas son spam, inappropriate, fraud y prohibited; el detalle requiere de 10 a 1000 caracteres. Un índice impide repetir un reporte abierto.
+
+Solo el rol admin accede a GET /admin/overview, PATCH /admin/reports/:id, PATCH /admin/users/:id, DELETE /admin/listings/:id, POST y PATCH /admin/categories y POST y PATCH /admin/careers. Los listados administrativos muestran hasta los cien registros más recientes. El cierre de un reporte exige resolución y conserva auditoría. No pueden retirarse artículos con reserva o renta activa sin resolver antes esa operación. Suspender una cuenta revoca sus sesiones, oculta su catálogo y exige cancelar reservas activas.
+
+El registro público nunca concede administración. El responsable puede promover una cuenta existente, activa y verificada mediante npm run admin --workspace backend -- correo-institucional. Esta ejecución no creó administradores reales ni elevó cuentas de estudiantes.

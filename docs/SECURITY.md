@@ -27,3 +27,9 @@ La autorización de publicaciones, conversación, operaciones, calificaciones y 
 - [Seguridad en Express](https://expressjs.com/advanced/best-practice-security/)
 - [Almacenamiento de contraseñas de OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)
 - [Transacciones con node-postgres](https://node-postgres.com/features/transactions)
+
+## Autorización de recursos comprobada
+
+Las rutas de publicación, imagen, favoritos, conversación y operación asignan identidad desde la sesión. Los terceros no pueden modificar artículos ni acceder a mensajes privados. Las reservas y los intercambios bloquean filas PostgreSQL antes de transicionar; las calificaciones se vinculan a operaciones completadas y al otro participante.
+
+La moderación exige rol admin en middleware y servicio, deja registros de decisión y conserva los historiales. La promoción inicial se realiza por una herramienta local y solo sobre una cuenta activa con correo verificado. Los datos privados de la API usan Cache-Control no-store. El almacenamiento de imágenes productivo exige S3; la implementación de desarrollo se prueba con archivos aislados.

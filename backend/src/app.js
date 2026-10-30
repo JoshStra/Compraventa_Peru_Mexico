@@ -13,6 +13,7 @@ import { listingRoutes } from "./routes/listings.js";
 import { createObjectStorage } from "./services/objectStorage.js";
 import { conversationRoutes } from "./routes/conversations.js";
 import { operationRoutes } from "./routes/operations.js";
+import { moderationRoutes } from "./routes/moderation.js";
 
 export function createApp({ db, config, mailer = createMailer(config) }) {
   const app = express();
@@ -44,6 +45,10 @@ export function createApp({ db, config, mailer = createMailer(config) }) {
   );
   app.use(express.json({ limit: "64kb" }));
   app.use(cookieParser());
+  app.use("/api", (req, res, next) => {
+    res.set("Cache-Control", "no-store");
+    next();
+  });
   app.use(
     "/api",
     rateLimit({
@@ -73,6 +78,7 @@ export function createApp({ db, config, mailer = createMailer(config) }) {
   app.use("/api/v1/auth", authRoutes({ auth, config }));
   app.use("/api/v1", conversationRoutes({ db }));
   app.use("/api/v1", operationRoutes({ db }));
+  app.use("/api/v1", moderationRoutes({ db }));
   app.use(
     "/api/v1",
     listingRoutes({ db, storage: createObjectStorage(config) }),

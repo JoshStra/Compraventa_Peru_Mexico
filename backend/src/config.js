@@ -4,8 +4,10 @@ import { fileURLToPath } from "node:url";
 export const backendRoot = fileURLToPath(new URL("..", import.meta.url));
 export function loadConfig(env = process.env) {
   const production = env.NODE_ENV === "production";
+  const publicUrl = env.PUBLIC_URL || env.RENDER_EXTERNAL_URL;
   const origins = (
     env.CORS_ORIGINS ||
+    publicUrl ||
     "http://127.0.0.1:3000,http://127.0.0.1:5173,http://127.0.0.1:4173"
   )
     .split(",")
@@ -18,7 +20,7 @@ export function loadConfig(env = process.env) {
     databaseUrl: env.DATABASE_URL,
     secret: env.APP_SECRET,
     origins,
-    publicUrl: env.PUBLIC_URL || origins[0],
+    publicUrl: publicUrl || origins[0],
     domains: (env.ALLOWED_EMAIL_DOMAINS || "")
       .toLowerCase()
       .split(",")

@@ -9,13 +9,31 @@ export const fail = (status, code, message, fields) => {
 };
 export function handleError(error, request, response, next) {
   if (response.headersSent) return next(error);
-  const status =
-    error.status ||
-    (error.code === "23505" || error.code === "40001" || error.code === "40P01"
-      ? 409
-      : error.code === "23503" || error.code === "22P02"
-        ? 400
-        : 500);
+  let status = error.status;
+  let code = error.code || "REQUEST_FAILED";
+  let message = error.message;
+  if (error.code === "LIMIT_FILE_SIZE") {
+    status = 413;
+    code = "IMAGE_TOO_LARGE";
+    message = "La imagen supera 5 MB.";
+  } else if (error.code?.startsWith("LIMIT_")) {
+    status = 400;
+    code = "INVALID_UPLOAD";
+    message = "La carga contiene archivos o campos no permitidos.";
+  } else if (error.type === "entity.parse.failed") {
+    status = 400;
+    code = "INVALID_JSON";
+    message = "El contenido JSON no es válido.";
+  } else if (!status && ["23505", "40001", "40P01"].includes(error.code)) {
+    status = 409;
+    code = "CONFLICT";
+    message = "La operación entra en conflicto con los datos actuales.";
+  } else if (!status && ["23503", "22P02"].includes(error.code)) {
+    status = 400;
+    code = "INVALID_REFERENCE";
+    message = "Referencia o formato no válido.";
+  }
+  if (!status) status = 500;
   if (status >= 500)
     console.error(
       JSON.stringify({
@@ -26,15 +44,8 @@ export function handleError(error, request, response, next) {
     );
   response.status(status).json({
     error: {
-      code: status === 500 ? "INTERNAL_ERROR" : error.code || "REQUEST_FAILED",
-      message:
-        status === 500
-          ? "No se pudo completar la operación."
-          : status === 409 && !error.status
-            ? "La operación entra en conflicto con los datos actuales."
-            : status === 400 && !error.status
-              ? "Referencia o formato no válido."
-              : error.message,
+      code: status >= 500 ? "INTERNAL_ERROR" : code,
+      message: status >= 500 ? "No se pudo completar la operación." : message,
       ...(error.fields ? { fields: error.fields } : {}),
       requestId: request.requestId,
     },

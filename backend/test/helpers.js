@@ -3,6 +3,10 @@ import { loadConfig } from "../src/config.js";
 import { createDatabase } from "../src/repositories/database.js";
 import { migrate } from "../src/models/migrate.js";
 import { createApp } from "../src/app.js";
+import request from "supertest";
+import path from "node:path";
+import { readdir, unlink, rmdir } from "node:fs/promises";
+import { backendRoot } from "../src/config.js";
 
 export async function testContext() {
   const config = loadConfig({
@@ -16,6 +20,7 @@ export async function testContext() {
       "Las pruebas necesitan PostgreSQL local, nunca producción.",
     );
   const schema = `test_${randomUUID().replaceAll("-", "")}`;
+  config.storagePath = path.resolve(backendRoot, ".data", schema);
   const root = createDatabase(config.databaseUrl);
   await root.query(`CREATE SCHEMA "${schema}"`);
   url.searchParams.set("options", `-c search_path=${schema}`);
@@ -40,6 +45,17 @@ export async function testContext() {
       await db.close();
       await root.query(`DROP SCHEMA "${schema}" CASCADE`);
       await root.close();
+      if (
+        path.dirname(config.storagePath) !==
+          path.resolve(backendRoot, ".data") ||
+        !/^test_[a-f0-9]+$/.test(path.basename(config.storagePath))
+      )
+        throw new Error("Ruta de pruebas no válida");
+      for (const file of await readdir(config.storagePath).catch(() => []))
+        await unlink(path.join(config.storagePath, file));
+      await rmdir(config.storagePath).catch((error) => {
+        if (error.code !== "ENOENT") throw error;
+      });
     },
   };
 }
@@ -51,3 +67,39 @@ export const registration = (suffix = "a") => ({
   career: "Mecatrónica",
   semester: 5,
 });
+
+export async function createTestUser(
+  context,
+  suffix,
+  { verified = true } = {},
+) {
+  const input = registration(suffix);
+  const origin = context.config.origins[0];
+  const registered = await request(context.app)
+    .post("/api/v1/auth/register")
+    .set("Origin", origin)
+    .send(input);
+  if (registered.status !== 201)
+    throw new Error(`Fixture registration failed: ${registered.status}`);
+  if (verified) {
+    const mail = context.mail.findLast(
+      (item) => item.to === input.email && item.purpose === "verify",
+    );
+    await request(context.app)
+      .post("/api/v1/auth/verify")
+      .set("Origin", origin)
+      .send({ token: mail.token });
+  }
+  const agent = request.agent(context.app);
+  const login = await agent
+    .post("/api/v1/auth/login")
+    .set("Origin", origin)
+    .send({ email: input.email, password: input.password });
+  const send = (method, route, body) => {
+    const call = agent[method](`/api/v1${route}`)
+      .set("Origin", origin)
+      .set("X-CSRF-Token", login.body.csrfToken);
+    return body === undefined ? call : call.send(body);
+  };
+  return { agent, user: login.body.user, csrf: login.body.csrfToken, send };
+}

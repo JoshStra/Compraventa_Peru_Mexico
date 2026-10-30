@@ -9,6 +9,8 @@ import { createAuth } from "./services/auth.js";
 import { createMailer } from "./services/mailer.js";
 import { sessionMiddleware, requireUser } from "./middleware/auth.js";
 import { authRoutes } from "./routes/auth.js";
+import { listingRoutes } from "./routes/listings.js";
+import { createObjectStorage } from "./services/objectStorage.js";
 
 export function createApp({ db, config, mailer = createMailer(config) }) {
   const app = express();
@@ -67,6 +69,10 @@ export function createApp({ db, config, mailer = createMailer(config) }) {
   });
   app.use("/api", sessionMiddleware(auth));
   app.use("/api/v1/auth", authRoutes({ auth, config }));
+  app.use(
+    "/api/v1",
+    listingRoutes({ db, storage: createObjectStorage(config) }),
+  );
   app.patch("/api/v1/me", requireUser, async (req, res) =>
     res.json({ user: await auth.updateProfile(req.session.user.id, req.body) }),
   );

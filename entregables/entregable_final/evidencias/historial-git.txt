@@ -1,0 +1,16 @@
+git log --format=%h|%aI|%an|%s
+6b0d297|2026-10-30T10:51:45-06:00|mora8292|fix(operations): cancelar ofertas retiradas y conservar fechas civiles
+ff48d53|2026-10-30T10:47:35-06:00|mora8292|feat(frontend): integrar mensajes operaciones y moderacion
+c4e2553|2026-10-30T10:35:11-06:00|mora8292|feat(frontend): conectar cuentas catalogo y publicaciones a la API
+9fec130|2026-10-30T10:15:48-06:00|mora8292|feat(moderation): administrar reportes cuentas y catalogos
+15452f9|2026-10-30T10:12:18-06:00|mora8292|feat(operations): asegurar reservas rentas e intercambios transaccionales
+4c4a5d2|2026-10-30T10:08:00-06:00|mora8292|feat(messages): conectar conversaciones privadas entre usuarios
+be03335|2026-10-30T10:04:10-06:00|mora8292|feat(listings): persistir publicaciones favoritos e imagenes seguras
+15164a2|2026-10-30T09:58:06-06:00|mora8292|feat(auth): implementar cuentas institucionales y sesiones revocables
+82c6954|2026-10-30T09:52:59-06:00|mora8292|feat(database): crear esquema PostgreSQL y API base
+8e47fee|2026-10-30T09:49:34-06:00|mora8292|docs(audit): contrastar requisitos y validar la linea base
+3427ed5|2026-10-29T23:03:05-06:00|mora8292|feat: completar alfa persistente y evidencias de CampusTrade
+019a4ee|2026-10-16T16:31:53-06:00|JoshStra|Create CHANGELOG.md
+0f91601|2026-10-16T16:17:01-06:00|Brandon Labastida|refactor: reorganizar estructura del frontend
+5b7ea43|2026-10-14T21:12:51-06:00|Brandon Labastida|Primer commit de mi proyecto
+

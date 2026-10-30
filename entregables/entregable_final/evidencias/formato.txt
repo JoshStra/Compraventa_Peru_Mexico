@@ -1,0 +1,12 @@
+Fecha real: 2026-10-30T10:59:42.4684188-06:00
+Comando: npm run format:check
+Entorno: PostgreSQL local, esquemas de prueba aislados, sin usuarios reales.
+
+> campustrade@0.3.0 format:check
+> prettier --check .
+
+Checking formatting...
+All matched files use Prettier code style!
+Exit code: 0
+Fin real: 2026-10-30T10:59:44.1546907-06:00
+

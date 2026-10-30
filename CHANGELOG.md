@@ -1,5 +1,13 @@
 # Historial de cambios de CampusTrade
 
+## 0.3.0-rc.1 — 30 de octubre de 2026
+
+- Primera versión integrada React/Express/PostgreSQL: cuentas institucionales configurables, sesiones HttpOnly revocables, CSRF y recuperación/verificación con tokens de un uso.
+- Publicaciones y favoritos compartidos, imágenes validadas hasta 5 MB con referencias externas, mensajes privados, operaciones transaccionales, rentas/devoluciones, intercambios, calificaciones, reportes y administración con auditoría.
+- Corrección de separación de componentes (#1) y de cancelación de ofertas retiradas/fechas civiles de renta (#2).
+- Validación: 47 pruebas frontend, 30 PostgreSQL/API, 10 recorridos de navegador en dos tamaños y compilación. Se conservan logs y capturas auténticas.
+- Despliegue gratuito preparado con Render y Neon; no publicado por falta de cuentas conectadas y S3. Correo real pendiente por decisión del responsable. Sin PR revisados; candidata de fuentes, no entrega productiva completa.
+
 ## 0.2.0 versión de trabajo
 
 ### Funciones

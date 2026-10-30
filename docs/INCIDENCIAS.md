@@ -1,3 +1,5 @@
+> Documento histórico de la alfa local 0.2.0. Estado full stack vigente: [INCIDENT_LOG.md](INCIDENT_LOG.md). No usar los pendientes de esta versión anterior como estado actual.
+
 # Registro de incidencias y soluciones
 
 Las siguientes incidencias se observaron en el código previo y se corrigieron en la versión de trabajo 0.2.0. El estado local de una corrección no equivale a cerrar un issue en GitHub.

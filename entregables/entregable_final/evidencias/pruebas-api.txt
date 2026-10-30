@@ -1,0 +1,52 @@
+Fecha real: 2026-10-30T10:58:59.0093128-06:00
+Comando: npm run test:api
+Entorno: PostgreSQL local, esquemas de prueba aislados, sin usuarios reales.
+
+> campustrade@0.3.0 test:api
+> npm run test --workspace backend
+
+
+> campustrade-api@0.3.0 test
+> node --env-file-if-exists=.env --test --test-concurrency=1 test/*.test.js
+
+✔ registro institucional almacena hash y nunca inventa la verificación (211.476ms)
+✔ rechaza dominios ajenos, contraseñas cortas, roles y duplicados (62.8394ms)
+✔ el enlace de verificación es de un solo uso (36.8553ms)
+✔ sesión HttpOnly, CSRF, persistencia y cierre revocable (68.0308ms)
+✔ recuperación cambia la contraseña y revoca las sesiones previas (150.7649ms)
+✔ rechaza orígenes extraños y tokens vencidos (60.0495ms)
+✔ conversación única entre participantes distintos (611.9359ms)
+✔ mensaje del comprador llega al vendedor y persiste (26.4505ms)
+✔ bloquea lectura escritura y suplantación por terceros (25.8169ms)
+✔ migraciones PostgreSQL idempotentes y catálogo inicial (68.2147ms)
+✔ health confirma la conexión real y no expone secretos (12.8528ms)
+✔ rollback conserva la integridad cuando falla una escritura (7.3498ms)
+✔ publicar exige sesión y correo verificado; no acepta suplantar propietario (606.2842ms)
+✔ contenido inválido se rechaza y las consultas están parametrizadas (37.6987ms)
+✔ solo el propietario edita y retira; persiste con una nueva instancia de API (33.8239ms)
+✔ favoritos idempotentes se conservan en PostgreSQL (58.5421ms)
+✔ la carga verifica MIME contenido extensión y tamaño antes de publicar (121.304ms)
+✔ retirar conserva historial y excluye el artículo del catálogo (16.6502ms)
+✔ reporte persistente evita duplicados y limita acceso administrativo (593.2543ms)
+✔ administrador revisa resuelve y registra una decisión real (48.1451ms)
+✔ moderación retira contenido sin borrar su historial (44.2758ms)
+✔ suspensión revoca sesiones y oculta publicaciones; no modifica administradores (57.1698ms)
+✔ categorías y carreras se administran sin modificar referencias históricas (23.396ms)
+✔ dos aceptaciones simultáneas solo reservan el artículo una vez (543.3139ms)
+✔ estados terminales bloquean solicitudes y las calificaciones exigen finalización (60.0382ms)
+✔ cancelar una reserva libera disponibilidad y rechaza terceros (61.5508ms)
+✔ renta valida fechas e importe y permite registrar devolución (99.3028ms)
+✔ intercambio reserva ambos artículos y no permite reutilizar el ofrecido (89.0898ms)
+✔ retirar una oferta de intercambio cancela las solicitudes pendientes relacionadas (61.4163ms)
+✔ publicación y sesión sobreviven al reinicio real del proceso Node (1891.4805ms)
+ℹ tests 30
+ℹ suites 0
+ℹ pass 30
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 11707.5767
+Exit code: 0
+Fin real: 2026-10-30T10:59:11.6566317-06:00
+

@@ -1,3 +1,5 @@
+> Documento histórico de la alfa local 0.2.0. Estado full stack vigente: [ARCHITECTURE.md](ARCHITECTURE.md). No usar los pendientes de esta versión anterior como estado actual.
+
 # Estructura funcional de CampusTrade
 
 La versión 0.2.0 es una aplicación React con persistencia local. El catálogo de demostración permite recorrer los flujos sin servidor. Las publicaciones nuevas, favoritos, conversaciones, perfil y reportes se guardan en el navegador que los creó.

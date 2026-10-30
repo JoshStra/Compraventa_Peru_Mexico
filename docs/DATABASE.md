@@ -1,13 +1,35 @@
-# Base de datos PostgreSQL
+# Base de datos y migraciones
 
-La migración `backend/migrations/001_initial.sql` crea usuarios, sesiones y tokens de acceso; categorías y carreras; publicaciones y referencias de imágenes; favoritos; conversaciones y mensajes; operaciones; calificaciones; reportes y auditoría. PostgreSQL genera los UUID, conserva las fechas y verifica claves foráneas, rangos y unicidad. Los importes se guardan en centavos enteros.
+PostgreSQL 17 real, no almacenamiento del navegador. `001_initial.sql` crea catorce tablas de negocio; `schema_migrations` registra versiones. `002_operation_amounts.sql` amplía el importe a bigint para rentas de hasta noventa días. UUID, claves foráneas, CHECK de rangos, unicidad de email/matrícula HMAC, índices de participantes y favoritos preservan integridad.
 
-El ejecutor aplica migraciones ordenadas dentro de una transacción y bloqueo asesor. Guarda su checksum y rechaza modificaciones retroactivas a una migración aplicada. Cada transacción de negocio utiliza la misma conexión hasta COMMIT o ROLLBACK.
+```mermaid
+erDiagram
+  USERS ||--o{ SESSIONS : inicia
+  USERS ||--o{ ACCESS_TOKENS : verifica_recupera
+  CAREERS ||--o{ USERS : pertenece
+  USERS ||--o{ LISTINGS : publica
+  CATEGORIES ||--o{ LISTINGS : clasifica
+  LISTINGS ||--o{ LISTING_IMAGES : referencia
+  USERS ||--o{ FAVORITES : guarda
+  LISTINGS ||--o{ FAVORITES : favorito
+  LISTINGS ||--o{ CONVERSATIONS : origina
+  USERS ||--o{ CONVERSATIONS : participa
+  CONVERSATIONS ||--o{ MESSAGES : contiene
+  LISTINGS ||--o{ OPERATIONS : solicita
+  USERS ||--o{ OPERATIONS : interesado
+  OPERATIONS ||--o{ RATINGS : permite
+  USERS ||--o{ RATINGS : autor_destinatario
+  LISTINGS ||--o{ REPORTS : recibe
+  USERS ||--o{ REPORTS : reporta
+  USERS ||--o{ AUDIT_EVENTS : administra
+```
 
-Para desarrollo, copia los archivos `.env.example` a `.env` y `backend/.env`, introduce secretos aleatorios, ejecuta `docker compose up -d db` y `npm run migrate`. El puerto 55432 solo escucha en 127.0.0.1 y el volumen `campustrade_postgres_data` conserva los datos entre reinicios. No uses `docker compose down -v` si necesitas conservarlos.
+Los precios se guardan en centavos; las fechas de renta son DATE y la API devuelve YYYY-MM-DD. Fechas de eventos usan timestamptz. No se guardan binarios de imágenes ni contraseñas en claro. listing_images contiene propietario, publicación, object_key, tipo y tamaño. La tabla operations referencia publicación principal, solicitante y oferta opcional; ratings infiere el destinatario desde la operación.
 
-Las pruebas de backend requieren una base dedicada. La configuración de pruebas se ampliará con aislamiento de esquema antes de insertar fixtures; no se deben ejecutar sobre datos de producción. El primer incremento verifica migraciones idempotentes, catálogo, health y rollback.
+La aceptación bloquea filas de publicaciones en orden UUID dentro de una misma conexión y transacción. El índice parcial one_accepted_operation_idx complementa las reglas del servicio. Se rechazan solicitudes incompatibles; los terminales no se reabren. Retirar una oferta cancela solicitudes pendientes relacionadas. Eliminar imágenes pendientes bloquea su fila antes de borrar la referencia, evitando competir con su asociación a una publicación.
 
-La restricción parcial `one_accepted_operation_idx` impide dos operaciones aceptadas sobre una publicación. Los servicios de operaciones deberán combinarla con bloqueo de las publicaciones involucradas y validación de transiciones; el índice por sí solo no implementa el flujo.
+El ejecutor toma bloqueo asesor, normaliza CRLF/LF para el checksum, aplica migraciones pendientes en transacción y rechaza cambios a archivos aplicados. Ejecutar `npm run migrate` o `npm start` (migra antes de escuchar). Para cambios posteriores crear otra migración; no editar 001 ni 002.
 
-La migración 002_operation_amounts amplía a bigint el importe de operaciones para representar hasta noventa días de renta sin desbordamiento. El backend verifica estados y bloquea las filas implicadas dentro de la misma transacción, además del índice de unicidad. Las pruebas incluyen aceptaciones simultáneas y reutilización concurrente de un artículo ofrecido en intercambio.
+Desarrollo: Docker, puerto 127.0.0.1:55432, volumen campustrade_postgres_data. Las pruebas rechazan hosts remotos, crean un esquema test_UUID por suite y eliminan solo ese esquema y sus archivos. La prueba persistence.test.js inicia dos procesos Node sucesivos y comprueba publicación y sesión conservadas. No demuestra todavía recuperación ante pérdida de disco o restauración de backup.
+
+Respaldo operativo: `pg_dump --format=custom` hacia un archivo fuera de Git usando DATABASE_URL solo desde el entorno; guardar también objetos e inventario. Probar `pg_restore` primero en una base nueva, verificar migraciones/health y los flujos antes de cambiar el servicio. No usar docker compose down -v para reiniciar. No se ejecutó restauración productiva ni existe una base remota creada.

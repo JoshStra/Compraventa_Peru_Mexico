@@ -31,7 +31,7 @@ Base: `/api/v1`. Las respuestas son JSON. Los errores contienen `error.code`, `e
 
 El catálogo acepta q, career, categoryId, modality, condition, status, minPrice, maxPrice, page y limit. page empieza en 1; limit admite de 1 a 50. Devuelve items, page, limit y total. Los precios son MXN; en renta se interpreta tarifa diaria. La base guarda centavos enteros.
 
-Las modalidades son sale, rental, exchange y donation. Las condiciones son new, like_new, good y fair. Los estados de operación y el módulo de moderación se documentarán cuando sus rutas estén conectadas y probadas.
+Las modalidades son sale, rental, exchange y donation. Las condiciones son new, like_new, good y fair. Las secciones siguientes describen las operaciones y la moderación implementadas.
 
 La carga valida formato declarado, extensión, decodificación y tamaño de hasta 5 MB; admite JPG PNG y WebP. Rechaza animación y más de veinte millones de píxeles, retira metadatos y normaliza a WebP. Cada publicación admite hasta cuatro referencias propias. La base no contiene binarios de imágenes. En producción el almacenamiento exige S3 compatible; la variante de desarrollo usa un directorio persistente local.
 

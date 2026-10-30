@@ -20,7 +20,7 @@ Las consultas usan parámetros y las migraciones incluyen claves foráneas, rang
 
 Las pruebas se ejecutan en esquemas PostgreSQL con prefijo test y nombres aleatorios; se rechazan conexiones de pruebas a hosts ajenos a localhost. Los fixtures no representan alumnos reales. Las pruebas iniciales del esquema únicamente verifican catálogo y rollback en la base local del proyecto.
 
-La autorización de publicaciones, conversación, operaciones, calificaciones y administración se implementará y verificará en sus incrementos. Este documento no acredita controles que todavía no estén conectados a rutas reales.
+La autorización de publicaciones, conversaciones, operaciones, calificaciones y administración está conectada a las rutas y comprobada con pruebas PostgreSQL. La sección final detalla esos controles.
 
 ## Referencias técnicas
 

@@ -1,3 +1,5 @@
+> Documento histórico de la alfa local 0.2.0. Estado full stack vigente: [TESTING.md](TESTING.md). No usar los pendientes de esta versión anterior como estado actual.
+
 # Validación de la versión alfa
 
 ## Resultado local del 29 de octubre de 2026

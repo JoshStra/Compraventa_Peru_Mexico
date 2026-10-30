@@ -28,7 +28,7 @@ Para desarrollar con recarga, usa dos terminales: `npm run dev:api` y `npm run d
 - API con cuentas, sesiones revocables, CSRF, verificación por enlace y recuperación de contraseña.
 - Catálogo paginado, búsqueda, filtros, publicaciones autorizadas, imágenes de hasta 5 MB y favoritos persistentes.
 - API de conversaciones privadas, operaciones transaccionales, rentas, intercambios, calificaciones, reportes y administración.
-- Interfaz conectada para registro, login, verificación, perfil, catálogo, creación y edición, imágenes, favoritos y reportes. Las pantallas de mensajería, operaciones y gestión se integran en el siguiente incremento.
+- Interfaz conectada para registro, login, verificación, perfil, catálogo, creación y edición, imágenes, favoritos, mensajes entre cuentas, operaciones, calificaciones, reportes y gestión administrativa.
 
 La cuenta se crea sin verificar y necesita el enlace enviado a su correo. El dominio por sí solo no concede una insignia. El envío real queda pendiente de configurar Resend o SMTP y un remitente autorizado. Las pruebas usan cuentas campus.test y un transporte aislado; no verifican estudiantes reales.
 
@@ -56,3 +56,5 @@ El prototipo anterior sigue en AppShell como demostración explícita con `VITE_
 - [Backlog](docs/BACKLOG.md)
 
 El despliegue anterior de páginas estáticas se retiró porque no publica el backend ni PostgreSQL. La publicación de esta versión requiere servicios reales, credenciales configuradas y verificación HTTPS; compilar no equivale a desplegar. No se ha contratado ningún servicio de pago.
+
+La entrega comprobada y sus siete apartados están en [entregable final](entregables/entregable_final/README.md). La configuración gratuita preparada está en [render.yaml](render.yaml); los pasos, límites vigentes y accesos pendientes se describen en [despliegue](docs/DEPLOYMENT.md). La versión candidata usa la base de código 0.3.0; el correo real y el despliegue público siguen pendientes.

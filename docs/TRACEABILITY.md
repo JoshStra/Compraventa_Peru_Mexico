@@ -1,0 +1,22 @@
+# Trazabilidad de requerimientos
+
+Fuente: Fase 2, páginas 2–3; contraste de los cuatro PDF en AUDITORIA_INICIAL.md. Corte 2026-10-30. Los documentos son referencias de requisitos; las instrucciones operativas aplicadas proceden del usuario y AGENTS.md.
+
+| RF    | Función                     | Código / pruebas                                                | Commit                                                                        | Estado                                            |
+| ----- | --------------------------- | --------------------------------------------------------------- | ----------------------------------------------------------------------------- | ------------------------------------------------- |
+| RF-01 | Registro e inicio de sesión | `auth.js; auth.test.js`                                         | [15164a2](https://github.com/JoshStra/Compraventa_Peru_Mexico/commit/15164a2) | Implementado y verificado                         |
+| RF-02 | Verificación universitaria  | `auth.js; auth.test.js; fullstack.spec.js`                      | [15164a2](https://github.com/JoshStra/Compraventa_Peru_Mexico/commit/15164a2) | Parcial: bloqueo externo                          |
+| RF-03 | Perfil de estudiante        | `users.js; Forms.jsx; operations.test.js`                       | [c4e2553](https://github.com/JoshStra/Compraventa_Peru_Mexico/commit/c4e2553) | Implementado y verificado                         |
+| RF-04 | Publicar artículo           | `listings.js; listings.test.js; fullstack.spec.js`              | [be03335](https://github.com/JoshStra/Compraventa_Peru_Mexico/commit/be03335) | Implementado y verificado localmente              |
+| RF-05 | Cuatro modalidades          | `operations.js; operations.test.js`                             | [15452f9](https://github.com/JoshStra/Compraventa_Peru_Mexico/commit/15452f9) | Implementado; venta/renta/intercambio verificados |
+| RF-06 | Buscador visible            | `repositories/listings.js; listings.test.js; fullstack.spec.js` | [c4e2553](https://github.com/JoshStra/Compraventa_Peru_Mexico/commit/c4e2553) | Implementado y verificado                         |
+| RF-07 | Filtros combinados          | `validators/listings.js; listings.test.js`                      | [be03335](https://github.com/JoshStra/Compraventa_Peru_Mexico/commit/be03335) | Implementado y verificado                         |
+| RF-08 | Detalle del artículo        | `ConnectedApp.jsx; fullstack.spec.js; workflows.spec.js`        | [c4e2553](https://github.com/JoshStra/Compraventa_Peru_Mexico/commit/c4e2553) | Implementado y verificado                         |
+| RF-09 | Mensajería privada          | `conversations.js; conversations.test.js; workflows.spec.js`    | [ff48d53](https://github.com/JoshStra/Compraventa_Peru_Mexico/commit/ff48d53) | Implementado y verificado                         |
+| RF-10 | Favoritos                   | `listings.js; listings.test.js; fullstack.spec.js`              | [c4e2553](https://github.com/JoshStra/Compraventa_Peru_Mexico/commit/c4e2553) | Implementado y verificado                         |
+| RF-11 | Calificaciones              | `operations.js; operations.test.js; workflows.spec.js`          | [ff48d53](https://github.com/JoshStra/Compraventa_Peru_Mexico/commit/ff48d53) | Implementado y verificado                         |
+| RF-12 | Reportes                    | `moderation.js; moderation.test.js; workflows.spec.js`          | [9fec130](https://github.com/JoshStra/Compraventa_Peru_Mexico/commit/9fec130) | Implementado y verificado                         |
+| RF-13 | Entrega dentro del campus   | `Forms.jsx; Messenger.jsx; workflows.spec.js`                   | [ff48d53](https://github.com/JoshStra/Compraventa_Peru_Mexico/commit/ff48d53) | Implementado y verificado como acuerdo            |
+| RF-14 | Gestión del sistema         | `moderation.js; moderation.test.js; Admin.jsx`                  | [9fec130](https://github.com/JoshStra/Compraventa_Peru_Mexico/commit/9fec130) | Implementado y verificado                         |
+
+Issue #1: separación frontend/backend; commits 0f91601/82c6954/ff48d53. Issue #2: reglas de operaciones y fechas; commit 6b0d297, operations.test.js. Las pruebas de navegador workflows.spec.js abarcan RF-09, 11, 12, 13 y 14 con usuarios sintéticos. La evidencia local no sustituye las dependencias externas señaladas en BACKLOG.md. Las siete salidas académicas se encuentran en entregables/entregable_final.

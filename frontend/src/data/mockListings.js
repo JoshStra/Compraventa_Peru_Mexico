@@ -1,6 +1,4 @@
-export const careers = ["Todas", "Automotriz", "Industrias Alimentarias", "Mecatrónica"];
-export const modalities = ["Todos", "Venta", "Renta", "Intercambio", "Donación"];
-export const conditions = ["Todas", "Nuevo", "Excelente", "Bueno"];
+export { careers, modalities, conditions } from "../domain/catalog.js";
 
 export const mockListings = [
   {
@@ -12,8 +10,14 @@ export const mockListings = [
     career: "Mecatrónica",
     condition: "Excelente",
     image: "arduino",
-    seller: { name: "Mariana López", initials: "ML", rating: 4.9, verified: true },
-    description: "Incluye Arduino Uno, protoboard, cables Dupont, LEDs y sensores. Todo funciona y está listo para prácticas.",
+    seller: {
+      name: "Mariana López",
+      initials: "ML",
+      rating: 4.9,
+      verified: true,
+    },
+    description:
+      "Incluye Arduino Uno, protoboard, cables Dupont, LEDs y sensores. Todo funciona y está listo para prácticas.",
     location: "Edificio de talleres",
     posted: "Hace 2 h",
   },
@@ -26,8 +30,14 @@ export const mockListings = [
     career: "Industrias Alimentarias",
     condition: "Bueno",
     image: "coat",
-    seller: { name: "Regina Morales", initials: "RM", rating: 4.8, verified: true },
-    description: "Bata blanca de algodón, limpia y en muy buen estado. La utilicé un semestre.",
+    seller: {
+      name: "Regina Morales",
+      initials: "RM",
+      rating: 4.8,
+      verified: true,
+    },
+    description:
+      "Bata blanca de algodón, limpia y en muy buen estado. La utilicé un semestre.",
     location: "Biblioteca",
     posted: "Hace 5 h",
   },
@@ -42,7 +52,8 @@ export const mockListings = [
     condition: "Excelente",
     image: "caliper",
     seller: { name: "Diego Torres", initials: "DT", rating: 5, verified: true },
-    description: "Vernier digital con estuche. Renta por día para mediciones y prácticas de taller.",
+    description:
+      "Vernier digital con estuche. Renta por día para mediciones y prácticas de taller.",
     location: "Cafetería central",
     posted: "Ayer",
   },
@@ -55,8 +66,14 @@ export const mockListings = [
     career: "Mecatrónica",
     condition: "Bueno",
     image: "book",
-    seller: { name: "Sofía Herrera", initials: "SH", rating: 4.7, verified: true },
-    description: "Octava edición con algunas notas a lápiz y ejercicios resueltos.",
+    seller: {
+      name: "Sofía Herrera",
+      initials: "SH",
+      rating: 4.7,
+      verified: true,
+    },
+    description:
+      "Octava edición con algunas notas a lápiz y ejercicios resueltos.",
     location: "Explanada",
     posted: "Ayer",
   },
@@ -69,8 +86,14 @@ export const mockListings = [
     career: "Industrias Alimentarias",
     condition: "Nuevo",
     image: "gloves",
-    seller: { name: "Valeria Sánchez", initials: "VS", rating: 4.9, verified: true },
-    description: "Caja cerrada de 100 guantes talla M. Prefiero que alguien los aproveche este semestre.",
+    seller: {
+      name: "Valeria Sánchez",
+      initials: "VS",
+      rating: 4.9,
+      verified: true,
+    },
+    description:
+      "Caja cerrada de 100 guantes talla M. Prefiero que alguien los aproveche este semestre.",
     location: "Laboratorio 3",
     posted: "Hace 2 días",
   },
@@ -83,8 +106,14 @@ export const mockListings = [
     career: "Mecatrónica",
     condition: "Bueno",
     image: "circuit",
-    seller: { name: "Emilio García", initials: "EG", rating: 4.6, verified: true },
-    description: "Tengo resistencias, capacitores y cables. Busco intercambiarlos por una calculadora científica.",
+    seller: {
+      name: "Emilio García",
+      initials: "EG",
+      rating: 4.6,
+      verified: true,
+    },
+    description:
+      "Tengo resistencias, capacitores y cables. Busco intercambiarlos por una calculadora científica.",
     location: "Edificio B",
     posted: "Hace 3 días",
   },

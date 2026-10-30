@@ -1,0 +1,45 @@
+
+> campustrade@0.2.0 test:e2e
+> npm run test:e2e --workspace frontend
+
+
+> campustrade-alpha@0.2.0 test:e2e
+> playwright test
+
+[WebServer] (node:44312) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 10 tests using 8 workers
+
+(node:45692) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:41020) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:42604) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:7216) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:47964) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:41724) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:32000) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:37364) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  8 [desktop] › e2e\campustrade.spec.js:204:1 › capturas reales y pantalla sin desbordamiento horizontal (1.9s)
+  ok  4 [desktop] › e2e\campustrade.spec.js:153:1 › validaciones, imagen y navegación por teclado (2.2s)
+  ok  3 [desktop] › e2e\campustrade.spec.js:8:1 › catálogo, búsqueda, categorías y favoritos persistentes (2.2s)
+  ok  7 [mobile] › e2e\campustrade.spec.js:8:1 › catálogo, búsqueda, categorías y favoritos persistentes (2.3s)
+  ok  2 [desktop] › e2e\campustrade.spec.js:117:1 › mensajes y reportes locales restaurados tras recargar (2.5s)
+  ok  5 [mobile] › e2e\campustrade.spec.js:117:1 › mensajes y reportes locales restaurados tras recargar (2.4s)
+(node:24332) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:15436) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 10 [mobile] › e2e\campustrade.spec.js:153:1 › validaciones, imagen y navegación por teclado (813ms)
+  ok  9 [mobile] › e2e\campustrade.spec.js:204:1 › capturas reales y pantalla sin desbordamiento horizontal (1.0s)
+  ok  1 [desktop] › e2e\campustrade.spec.js:51:1 › publicar, editar, reservar y finalizar con perfil actualizado (4.2s)
+  ok  6 [mobile] › e2e\campustrade.spec.js:51:1 › publicar, editar, reservar y finalizar con perfil actualizado (6.1s)
+
+  10 passed (9.7s)

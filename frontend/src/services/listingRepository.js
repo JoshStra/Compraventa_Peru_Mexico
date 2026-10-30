@@ -1,15 +1,16 @@
-import { mockListings } from "../data/mockListings";
+import { campusRepository } from "./campusRepository.js";
 
-// Capa temporal: su API asíncrona permite sustituirla por fetch/Axios y una base de datos sin tocar la interfaz.
-let listings = [...mockListings];
-
+// Compatibility facade for an eventual HTTP repository with the same contract.
 export const listingRepository = {
   async getAll() {
-    return Promise.resolve([...listings]);
+    return campusRepository.getSnapshot().listings;
   },
-  async create(listing) {
-    const created = { ...listing, id: `ct-${Date.now()}` };
-    listings = [created, ...listings];
-    return Promise.resolve(created);
+  async create(input) {
+    return campusRepository.createListing(input).listings[0];
+  },
+  async update(id, input) {
+    return campusRepository
+      .updateListing(id, input)
+      .listings.find((item) => item.id === id);
   },
 };

@@ -11,7 +11,11 @@ if errorlevel 1 (
 
 if not exist "node_modules" (
   echo Instalando dependencias por primera vez...
-  call npm install
+  if exist "package-lock.json" (
+    call npm ci
+  ) else (
+    call npm install
+  )
   if errorlevel 1 (
     echo La instalacion no se pudo completar.
     pause
@@ -21,5 +25,5 @@ if not exist "node_modules" (
 
 echo.
 echo Iniciando CampusTrade...
-call npm run dev
+call npm run dev -- --open
 pause

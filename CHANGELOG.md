@@ -1,17 +1,51 @@
-# Registro de Iteraciones del Diseño - CampusTrade
+# Historial de cambios de CampusTrade
 
-## Iteración 1: Fase de Diseño Estático
+## 0.2.0 versión de trabajo
+
+### Funciones
+
+- Publicaciones favoritos perfil mensajes y reportes conservados en el navegador.
+- Edición de publicaciones propias y disponibilidad con finalización irreversible desde la interfaz.
+- Carga opcional de imágenes locales con validación de tamaño formato y firma.
+- Filtros por categoría precio y disponibilidad; búsqueda que ignora acentos.
+- Perfil editable con estadísticas derivadas de los datos y exportación JSON.
+
+### Correcciones
+
+- Publicar ya no usa un evento React después de await.
+- Se rechazan campos con espacios precios inválidos y opciones fuera de catálogo.
+- Los mensajes enviados se muestran en su conversación y se recuperan al recargar.
+- Se informa de errores de guardado y de datos dañados.
+- Las búsquedas vacías muestran el mensaje correspondiente.
+- Los comandos npm funcionan desde la raíz y preview sirve el mismo compilado de Vite.
+- Los modales permiten Escape y gestionan el foco.
+
+### Ingeniería
+
+- Pruebas de dominio repositorio React y navegador en escritorio y móvil.
+- Plantillas para bugs y PR; workflows de validación y despliegue manual.
+- Arquitectura backlog e incidencias documentados en docs.
+
+Esta entrada describe cambios locales. La release de GitHub y el despliegue deben crearse después de una revisión real.
+
+## Iteraciones anteriores del diseño
+
+### Iteración 1: Fase de Diseño Estático
+
 - Creación de la estructura base en HTML5 y CSS3.
-- Diseño de la interfaz de usuario con enfoque *Mobile First*.
+- Diseño de la interfaz de usuario con enfoque _Mobile First_.
 
-## Iteración 2: Migración a React y Componentes
+### Iteración 2: Migración a React y Componentes
+
 - Configuración del entorno de desarrollo utilizando Vite[cite: 1].
 - Creación del componente principal `App.jsx` y punto de entrada `main.jsx` para modularizar la vista[cite: 1].
 
-## Iteración 3: Datos Simulados (Mocking)
+### Iteración 3: Datos Simulados (Mocking)
+
 - Integración de `mockListings.js` para visualizar el catálogo de publicaciones y categorías sin depender de un backend[cite: 1].
 
-## Iteración 4: Especificación Técnica y Arquitectura
+### Iteración 4: Especificación Técnica y Arquitectura
+
 - Definición de la arquitectura de 3 capas (Presentación, Aplicación, Servicios, Datos)[cite: 1].
 - Estructuración de los endpoints de la futura API REST bajo `/api/v1`[cite: 1].
 - Propuesta del modelo de base de datos relacional con entidades principales como `User`, `Listing` y `Operation`[cite: 1].

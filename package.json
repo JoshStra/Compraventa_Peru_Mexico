@@ -1,0 +1,26 @@
+{
+  "name": "campustrade",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "frontend"
+  ],
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "npm run dev --workspace frontend --",
+    "build": "npm run build --workspace frontend",
+    "preview": "npm run preview --workspace frontend --",
+    "test": "npm run test --workspace frontend",
+    "test:e2e": "npm run test:e2e --workspace frontend",
+    "test:watch": "npm run test:watch --workspace frontend",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "jsdom": "^26.1.0",
+    "prettier": "^3.9.10"
+  }
+}

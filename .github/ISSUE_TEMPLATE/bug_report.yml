@@ -1,0 +1,34 @@
+name: Reportar un bug
+description: Registrar una incidencia reproducible y su solución.
+title: "[Bug] "
+labels: [bug]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Comportamiento observado
+      description: Incluye versión y navegador.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Pasos para reproducir
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Resultado esperado
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidencia
+      description: Captura, log o prueba que reproduce el fallo.
+  - type: textarea
+    id: resolution
+    attributes:
+      label: Solución y validación
+      description: Al resolver, añade un comentario con causa, cambio, prueba ejecutada y enlace al PR antes de cerrar.

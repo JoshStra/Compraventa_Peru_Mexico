@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.npm-cache/
+.playwright/
+entregables/
+playwright-report/
+test-results/
+coverage/
+build_*.py
+iniciar-dev.cmd
+package-lock.json

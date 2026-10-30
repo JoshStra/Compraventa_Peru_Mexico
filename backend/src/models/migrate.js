@@ -14,7 +14,10 @@ export async function migrate(db) {
     for (const name of (await readdir(directory))
       .filter((value) => value.endsWith(".sql"))
       .sort()) {
-      const sql = await readFile(new URL(name, directory), "utf8");
+      const sql = (await readFile(new URL(name, directory), "utf8")).replace(
+        /\r\n/g,
+        "\n",
+      );
       const checksum = createHash("sha256").update(sql).digest("hex");
       const applied = (
         await client.query(

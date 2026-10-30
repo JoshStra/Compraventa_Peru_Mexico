@@ -4,10 +4,15 @@ import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import { rateLimit } from "express-rate-limit";
 import { randomUUID } from "node:crypto";
-import { fail, handleError } from "./middleware/errors.js";
+import { fail, handleError, HttpError } from "./middleware/errors.js";
+import { createAuth } from "./services/auth.js";
+import { createMailer } from "./services/mailer.js";
+import { sessionMiddleware, requireUser } from "./middleware/auth.js";
+import { authRoutes } from "./routes/auth.js";
 
-export function createApp({ db, config }) {
+export function createApp({ db, config, mailer = createMailer(config) }) {
   const app = express();
+  const auth = createAuth({ db, config, mailer });
   app.disable("x-powered-by");
   if (config.trustProxy) app.set("trust proxy", config.trustProxy);
   app.use((req, res, next) => {
@@ -18,7 +23,10 @@ export function createApp({ db, config }) {
   app.use(
     helmet({
       contentSecurityPolicy: {
-        directives: { imgSrc: ["'self'", "data:", "https:"] },
+        directives: {
+          imgSrc: ["'self'", "data:", "https:"],
+          upgradeInsecureRequests: config.production ? [] : null,
+        },
       },
       crossOriginResourcePolicy: { policy: "cross-origin" },
     }),
@@ -53,16 +61,15 @@ export function createApp({ db, config }) {
       !config.origins.includes(req.get("origin"))
     )
       return next(
-        new (class extends Error {
-          constructor() {
-            super("Origen no autorizado.");
-            this.status = 403;
-            this.code = "ORIGIN_FORBIDDEN";
-          }
-        })(),
+        new HttpError(403, "ORIGIN_FORBIDDEN", "Origen no autorizado."),
       );
     next();
   });
+  app.use("/api", sessionMiddleware(auth));
+  app.use("/api/v1/auth", authRoutes({ auth, config }));
+  app.patch("/api/v1/me", requireUser, async (req, res) =>
+    res.json({ user: await auth.updateProfile(req.session.user.id, req.body) }),
+  );
   app.get("/api/v1/health", async (req, res) => {
     await db.query("SELECT 1");
     res.json({ status: "ok", database: "connected", version: "0.3.0" });

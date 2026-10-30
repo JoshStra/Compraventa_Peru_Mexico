@@ -24,22 +24,19 @@ export function handleError(error, request, response, next) {
         code: error.code || "INTERNAL_ERROR",
       }),
     );
-  response
-    .status(status)
-    .json({
-      error: {
-        code:
-          status === 500 ? "INTERNAL_ERROR" : error.code || "REQUEST_FAILED",
-        message:
-          status === 500
-            ? "No se pudo completar la operación."
-            : status === 409 && !error.status
-              ? "La operación entra en conflicto con los datos actuales."
-              : status === 400 && !error.status
-                ? "Referencia o formato no válido."
-                : error.message,
-        ...(error.fields ? { fields: error.fields } : {}),
-        requestId: request.requestId,
-      },
-    });
+  response.status(status).json({
+    error: {
+      code: status === 500 ? "INTERNAL_ERROR" : error.code || "REQUEST_FAILED",
+      message:
+        status === 500
+          ? "No se pudo completar la operación."
+          : status === 409 && !error.status
+            ? "La operación entra en conflicto con los datos actuales."
+            : status === 400 && !error.status
+              ? "Referencia o formato no válido."
+              : error.message,
+      ...(error.fields ? { fields: error.fields } : {}),
+      requestId: request.requestId,
+    },
+  });
 }

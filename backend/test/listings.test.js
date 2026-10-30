@@ -152,6 +152,16 @@ test("la carga verifica MIME contenido extensión y tamaño antes de publicar", 
   assert.equal((await upload(owner, png, "test.jpg", "image/png")).status, 400);
   const image = await upload(owner, png, "test.png", "image/png");
   assert.equal(image.status, 201);
+  const disposable = await upload(owner, png, "unused.png", "image/png");
+  assert.equal(
+    (await owner.send("delete", `/uploads/${disposable.body.id}`)).status,
+    200,
+  );
+  assert.equal(
+    (await owner.send("get", disposable.body.url.replace("/api/v1", "")))
+      .status,
+    404,
+  );
   assert.equal(image.body.object_key, undefined);
   assert.equal((await request(context.app).get(image.body.url)).status, 404);
   assert.equal(

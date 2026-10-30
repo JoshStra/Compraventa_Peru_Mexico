@@ -157,6 +157,11 @@ test("renta valida fechas e importe y permite registrar devolución", async () =
   });
   assert.equal(response.status, 201);
   const operation = response.body.operation;
+  const listedRental = (await first.send("get", "/operations")).body.items.find(
+    (entry) => entry.id === operation.id,
+  );
+  assert.equal(listedRental.rentalStart, start);
+  assert.equal(listedRental.rentalEnd, end);
   assert.equal(
     (await first.send("get", "/operations")).body.items.find(
       (entry) => entry.id === operation.id,
@@ -221,5 +226,32 @@ test("intercambio reserva ambos artículos y no permite reutilizar el ofrecido",
     (await request(context.app).get(`/api/v1/listings/${offered.id}`)).body.item
       .status,
     "reserved",
+  );
+});
+test("retirar una oferta de intercambio cancela las solicitudes pendientes relacionadas", async () => {
+  const target = await createTestListing(context, seller, {
+    title: "Libro para oferta retirada",
+    modality: "exchange",
+    price: 0,
+  });
+  const offered = await createTestListing(context, first, {
+    title: "Oferta que será retirada",
+    modality: "exchange",
+    price: 0,
+  });
+  const response = await first.send("post", "/operations", {
+    listingId: target.id,
+    offeredListingId: offered.id,
+  });
+  assert.equal(response.status, 201);
+  assert.equal(
+    (await first.send("delete", `/listings/${offered.id}`)).status,
+    200,
+  );
+  assert.equal(
+    (await first.send("get", "/operations")).body.items.find(
+      (entry) => entry.id === response.body.operation.id,
+    ).status,
+    "cancelled",
   );
 });

@@ -36,6 +36,7 @@ export async function testContext() {
   };
   const app = createApp({ db, config, mailer });
   return {
+    databaseUrl: url.href,
     db,
     app,
     config,

@@ -117,7 +117,7 @@ export function createOperations({ db }) {
     async list(user) {
       const rows = (
         await db.query(
-          `SELECT o.*,l.title,l.seller_id,l.status AS listing_status,s.name AS seller_name,r.name AS requester_name,offered.title AS offered_title,
+          `SELECT o.*,to_char(o.rental_start,'YYYY-MM-DD') AS rental_start_date,to_char(o.rental_end,'YYYY-MM-DD') AS rental_end_date,l.title,l.seller_id,l.status AS listing_status,s.name AS seller_name,r.name AS requester_name,offered.title AS offered_title,
         EXISTS(SELECT 1 FROM ratings rating WHERE rating.operation_id=o.id AND rating.author_id=$1) AS rated
         FROM operations o JOIN listings l ON l.id=o.listing_id JOIN users s ON s.id=l.seller_id JOIN users r ON r.id=o.requester_id
         LEFT JOIN listings offered ON offered.id=o.offered_listing_id WHERE o.requester_id=$1 OR l.seller_id=$1 ORDER BY o.created_at DESC,o.id DESC LIMIT 100`,
@@ -138,8 +138,8 @@ export function createOperations({ db }) {
         status: row.status,
         listingStatus: row.listing_status,
         amount: Number(row.amount_cents) / 100,
-        rentalStart: row.rental_start,
-        rentalEnd: row.rental_end,
+        rentalStart: row.rental_start_date,
+        rentalEnd: row.rental_end_date,
         rated: row.rated,
         createdAt: row.created_at,
       }));

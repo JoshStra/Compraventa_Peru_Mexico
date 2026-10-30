@@ -146,7 +146,7 @@ export function createListings({ db, storage }) {
           [id],
         );
         await client.query(
-          "UPDATE operations SET status='cancelled',updated_at=now() WHERE listing_id=$1 AND status='pending'",
+          "UPDATE operations SET status='cancelled',updated_at=now() WHERE (listing_id=$1 OR offered_listing_id=$1) AND status='pending'",
           [id],
         );
       });
@@ -267,21 +267,24 @@ export function createListings({ db, storage }) {
       };
     },
     async removeUpload(user, id) {
-      const image = (
-        await db.query(
-          "SELECT object_key,owner_id,listing_id FROM listing_images WHERE id=$1",
-          [uuid(id)],
-        )
-      ).rows[0];
-      if (!image) fail(404, "IMAGE_NOT_FOUND", "La imagen no existe.");
-      if (image.owner_id !== user.id || image.listing_id)
-        fail(
-          403,
-          "IMAGE_FORBIDDEN",
-          "Solo puedes eliminar tus imágenes sin publicar.",
-        );
+      const image = await db.transaction(async (client) => {
+        const row = (
+          await client.query(
+            "SELECT object_key,owner_id,listing_id FROM listing_images WHERE id=$1 FOR UPDATE",
+            [uuid(id)],
+          )
+        ).rows[0];
+        if (!row) fail(404, "IMAGE_NOT_FOUND", "La imagen no existe.");
+        if (row.owner_id !== user.id || row.listing_id)
+          fail(
+            403,
+            "IMAGE_FORBIDDEN",
+            "Solo puedes eliminar tus imágenes sin publicar.",
+          );
+        await client.query("DELETE FROM listing_images WHERE id=$1", [id]);
+        return row;
+      });
       await storage.remove(image.object_key);
-      await db.query("DELETE FROM listing_images WHERE id=$1", [id]);
       return { message: "Imagen eliminada." };
     },
   };

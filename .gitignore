@@ -4,6 +4,10 @@ dist/
 *.log
 .npm-cache/
 .playwright/
+tmp/
+output/
+backend/.data/
+backend/.env
 playwright-report/
 test-results/
 coverage/

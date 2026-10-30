@@ -2,6 +2,9 @@ node_modules/
 dist/
 .npm-cache/
 .playwright/
+tmp/
+output/
+backend/.data/
 entregables/
 playwright-report/
 test-results/

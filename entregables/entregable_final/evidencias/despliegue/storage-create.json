@@ -1,0 +1,14 @@
+{
+  "dateUtc": "2026-10-30T21:41:38.811Z",
+  "executionContext": "equipo autorizado, adaptador S3 real del backend",
+  "phase": "create",
+  "provider": "Supabase",
+  "bucket": "campustrade-images",
+  "signedGetStatus": 200,
+  "unsignedGetStatus": 403,
+  "contentType": "image/webp",
+  "size": 76,
+  "sha256": "d977286cd324faa31fc208e31549fc6917125f38b833b9289eee9c2ce4b2d08c",
+  "objectCreatedAt": "2026-10-30T21:41:37.381Z",
+  "persistedSameObject": false
+}

@@ -1,0 +1,76 @@
+{
+  "dateUtc": "2026-10-30T21:38:18.215Z",
+  "environment": "validation",
+  "sslmode": "verify-full",
+  "clientTlsEncrypted": true,
+  "certificateAuthorized": true,
+  "migrations": [
+    {
+      "name": "001_initial.sql",
+      "checksum": "bb808edc430b8bb98e545c17d25d14bc0f3d7f8acfb556f21ed8f8ea4d90e519",
+      "applied_at": "2026-10-30T21:34:33.714Z"
+    },
+    {
+      "name": "002_operation_amounts.sql",
+      "checksum": "0bfa695a2f81aff28f88987977d182adbad8e86f1496be377cb303da1c0e7b0f",
+      "applied_at": "2026-10-30T21:34:33.714Z"
+    }
+  ],
+  "constraints": [
+    {
+      "contype": "c",
+      "count": 30
+    },
+    {
+      "contype": "f",
+      "count": 25
+    },
+    {
+      "contype": "p",
+      "count": 15
+    },
+    {
+      "contype": "u",
+      "count": 6
+    }
+  ],
+  "indexes": [
+    "access_tokens_pkey",
+    "access_tokens_user_idx",
+    "audit_events_pkey",
+    "careers_pkey",
+    "categories_name_key",
+    "categories_pkey",
+    "conversations_listing_id_buyer_id_key",
+    "conversations_pkey",
+    "conversations_seller_idx",
+    "favorites_pkey",
+    "listing_images_listing_idx",
+    "listing_images_object_key_key",
+    "listing_images_pkey",
+    "listings_catalog_idx",
+    "listings_filter_idx",
+    "listings_owner_idx",
+    "listings_pkey",
+    "messages_conversation_idx",
+    "messages_pkey",
+    "one_accepted_operation_idx",
+    "one_active_request_idx",
+    "one_open_report_idx",
+    "operations_pkey",
+    "operations_requester_idx",
+    "ratings_operation_id_author_id_key",
+    "ratings_pkey",
+    "reports_pkey",
+    "schema_migrations_pkey",
+    "sessions_expiry_idx",
+    "sessions_pkey",
+    "users_email_key",
+    "users_pkey",
+    "users_student_hash_key"
+  ],
+  "counts": {
+    "users": 0,
+    "listings": 0
+  }
+}

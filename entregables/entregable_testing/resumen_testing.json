@@ -139,11 +139,30 @@
     "5": "CUMPLIDO",
     "6": "CUMPLIDO",
     "7": "CUMPLIDO",
-    "8": "PENDIENTE"
+    "8": "DOCUMENTADO POR CODEX"
   },
   "pdf": {
-    "pages": 31,
+    "pages": 36,
     "editableFields": 15,
-    "humanRecords": 0
+    "humanRecords": 0,
+    "agentRecords": 13
+  },
+  "documentUpdatedDate": "2026-11-08",
+  "agentReview": {
+    "status": "REALIZADA",
+    "reviewer": "Codex, agente de IA, evaluación técnica autorizada",
+    "type": "Evaluación exploratoria mediante navegador",
+    "session": "COD-20261108",
+    "source": "evidencias/sesion_codex_2026-11-08/sesion_codex.json",
+    "observedFromUtc": "2026-11-08T18:30:45.967Z",
+    "completedUtc": "2026-11-08T18:36:45.214Z",
+    "checks": 13,
+    "comments": 13,
+    "passed": 12,
+    "passedWithObservation": 1,
+    "humanParticipants": 0,
+    "visibleVersion": "0.3.0",
+    "repositoryStartingPoint": "125056948553f3494aa52e0bd8fb1a131ce5f7ae",
+    "scope": "Cuenta sintética sin verificar; sin publicar artículos ni enviar correo."
   }
 }

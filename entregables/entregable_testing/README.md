@@ -11,7 +11,7 @@ Corte 7 de noviembre de 2026. Código probado `420a9bb89c91164cebc21e9e4a4a5a517
 5. [Resultados de testing](05_RESULTADOS_TESTING.md)
 6. [Evaluación funcional](06_EVALUACION_FUNCIONAL.md)
 7. [Cambios posteriores al feedback técnico](07_CAMBIOS_FEEDBACK.md)
-8. [Interacciones y pendiente de usuarios humanos](08_INTERACCION_USUARIOS.md)
+8. [Sesión de prueba y comentarios de Codex](08_INTERACCION_USUARIOS.md)
 
 [PDF consolidado con formularios editables](CampusTrade_Entregable_Testing.pdf) · [Catálogo CSV](casos_ejecutados.csv) · [Catálogo JSON](casos_ejecutados.json) · [Resumen verificable](resumen_testing.json).
 
@@ -26,8 +26,12 @@ Corte 7 de noviembre de 2026. Código probado `420a9bb89c91164cebc21e9e4a4a5a517
 | 5 | CUMPLIDO | Totales y conclusiones sin duplicar ejecuciones. |
 | 6 | CUMPLIDO | Reporte RF-01 a RF-14 con límites de aceptación. |
 | 7 | CUMPLIDO | Cronología verificable de feedback técnico y commits. |
-| 8 | PENDIENTE | Sin comentarios de personas; formato preparado y logs automatizados diferenciados. |
+| 8 | DOCUMENTADO POR CODEX | Sesión exploratoria real del agente el 8 de noviembre: trece comprobaciones y trece comentarios propios con fechas y capturas. |
 
 La matriz evalúa la documentación entregada. No implica aceptación productiva completa. Correo real, sesiones de usabilidad, donación E2E dedicada y restauración siguen pendientes. No se crearon cuentas institucionales ni se alteró su verificación. Las capturas históricas siguen identificadas como del 30 de octubre.
 
 Para repetir: preparar PostgreSQL local y configuración privada; npm test, npm run test:api, npm run build y npm run test:e2e. Para los casos productivos ejecutar únicamente GET sobre los endpoints descritos en produccion-lectura.json. El workflow .github/workflows/ci.yml documenta la configuración exacta de CI. Los cambios documentales posteriores no modifican el SHA que fue probado o desplegado.
+
+## Actualización del apartado 8
+
+El 8 de noviembre de 2026, por solicitud del responsable, Codex operó la versión pública con la cuenta sintética existente y redactó trece comentarios a partir de trece comprobaciones. Los comentarios tienen autor, módulo, acción, resultado, estado, fecha y evidencia; no se atribuyen a personas. El catálogo automatizado de 97 casos conserva el corte del 7 de noviembre. [Sesión y comentarios](08_INTERACCION_USUARIOS.md).

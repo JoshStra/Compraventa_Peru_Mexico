@@ -1,5 +1,7 @@
 {
   "baseline": "420a9bb89c91164cebc21e9e4a4a5a5173f81ff8",
+  "reviewRepositoryStartingPoint": "125056948553f3494aa52e0bd8fb1a131ce5f7ae",
+  "reviewSession": "COD-20261108",
   "files": [
     {
       "path": "01_CASOS_PRUEBA.md",
@@ -33,23 +35,23 @@
     },
     {
       "path": "07_CAMBIOS_FEEDBACK.md",
-      "bytes": 1712,
-      "sha256": "3d0171ed203d819ed730e99a8b1bc75b7cec1e187231032133717d96cd964bc7"
+      "bytes": 2108,
+      "sha256": "d9f62a7e37564a90954cb7a1736ad09a77bca1e3a96711e36d15a2f84e5666bc"
     },
     {
       "path": "08_INTERACCION_USUARIOS.md",
-      "bytes": 2163,
-      "sha256": "18f77398039855d704de84944b34d6f1aa9a2d7b292916f6bd0233c1659fca6b"
+      "bytes": 14039,
+      "sha256": "a0797d94c5c94c5e9da7793d04c1170d6e4244e4146fa55a5b65f7b4bd56cc03"
     },
     {
       "path": "CampusTrade_Entregable_Testing.pdf",
-      "bytes": 181652,
-      "sha256": "a4529923c60738d6ac6bcf38ec6f35733e2cd683b72b058c1aaedf4719668ec2"
+      "bytes": 283592,
+      "sha256": "32fbd62257cbe047a2342d0faa4eca7cd5315c05c84990caeda82c8642319dca"
     },
     {
       "path": "README.md",
-      "bytes": 2673,
-      "sha256": "71d634189feda0539b47451ccc92daf9d776aafa1e9f70158846c7e090796215"
+      "bytes": 3193,
+      "sha256": "c08c5591d33d5503a0295200aa0e7bb2f1b3d0e4b205d8e4d71e8357b12e3960"
     },
     {
       "path": "casos_ejecutados.csv",
@@ -132,9 +134,134 @@
       "sha256": "b5769e751ceea9b5a868da725f3d41c0798103ccd720d64ede964d5f76a0f7e2"
     },
     {
+      "path": "evidencias/sesion_codex_2026-11-08/COD-01.jpg",
+      "bytes": 95750,
+      "sha256": "15ecd22278b673f56f762047baffebe0cada6fb9cfb6ad673b089d2adc28af95"
+    },
+    {
+      "path": "evidencias/sesion_codex_2026-11-08/COD-01.txt",
+      "bytes": 1909,
+      "sha256": "5949a1cfd0fb016483fd3aa9884591575bd659fe8122718afc322f18668af62a"
+    },
+    {
+      "path": "evidencias/sesion_codex_2026-11-08/COD-02.jpg",
+      "bytes": 34007,
+      "sha256": "b0e939e11c104e4f4e92d8e75a6352d7d96d542c9d1cc9af6c19af908ceb0f8f"
+    },
+    {
+      "path": "evidencias/sesion_codex_2026-11-08/COD-02.txt",
+      "bytes": 1139,
+      "sha256": "cdd1bbbf00154556978fcda14fa0f257797a0c6c6b77626bc781ea5954c7ef02"
+    },
+    {
+      "path": "evidencias/sesion_codex_2026-11-08/COD-03.jpg",
+      "bytes": 59851,
+      "sha256": "4cfb5a804c8c7f04fe246980801868b9ca23983edc92b0395aa8447490c7d8d7"
+    },
+    {
+      "path": "evidencias/sesion_codex_2026-11-08/COD-03.txt",
+      "bytes": 3002,
+      "sha256": "39f65e481790bfae93f0dff73f6dc7005c2b2b4bef99772a31b0f10f3d165843"
+    },
+    {
+      "path": "evidencias/sesion_codex_2026-11-08/COD-04.txt",
+      "bytes": 2964,
+      "sha256": "1920a46a581050f70f1011d58eb5f56987ade0224943a295c1b656d2d71a1111"
+    },
+    {
+      "path": "evidencias/sesion_codex_2026-11-08/COD-05.jpg",
+      "bytes": 47319,
+      "sha256": "e347df5fdef5f695f8028ae309b930ebcd5a6595e11a5603182270e176393224"
+    },
+    {
+      "path": "evidencias/sesion_codex_2026-11-08/COD-05.txt",
+      "bytes": 4112,
+      "sha256": "1e371490a8eb2290559f452cd35f339bc8c7bafcfa7aa517dc3dacf8987aa39f"
+    },
+    {
+      "path": "evidencias/sesion_codex_2026-11-08/COD-06.txt",
+      "bytes": 1738,
+      "sha256": "4ee01c736ec4a950c5ff966f73124abdd86effe21b3e7b3815f7ff84333b7f9a"
+    },
+    {
+      "path": "evidencias/sesion_codex_2026-11-08/COD-07.txt",
+      "bytes": 1877,
+      "sha256": "67b39b7ecf2df8a8ea08be62446982b53e70cab05ef4ac79d017f8107cddc19e"
+    },
+    {
+      "path": "evidencias/sesion_codex_2026-11-08/COD-08.jpg",
+      "bytes": 33019,
+      "sha256": "71cc8df8e113a67a6769085fac58a53e30d2ee8d676402ba28a73f103bffbf3f"
+    },
+    {
+      "path": "evidencias/sesion_codex_2026-11-08/COD-08.txt",
+      "bytes": 1123,
+      "sha256": "327bd8f54243acdf5fd0ad32955eff49c79e6d6a5741af4bdd41f0b7506297cb"
+    },
+    {
+      "path": "evidencias/sesion_codex_2026-11-08/COD-09.jpg",
+      "bytes": 32031,
+      "sha256": "2f1ac10f4d0202df7f3e2b6714648b409aa35e2b16d71c86e6c9bf277fa9affb"
+    },
+    {
+      "path": "evidencias/sesion_codex_2026-11-08/COD-09.txt",
+      "bytes": 1105,
+      "sha256": "87b08c34a536a40e6fea235c38576aff16fef8a77fde8d810f18e2b8029826c6"
+    },
+    {
+      "path": "evidencias/sesion_codex_2026-11-08/COD-10.jpg",
+      "bytes": 33301,
+      "sha256": "659f331e84e4e9ea83fb75f796001945cff89355cb0e2aa43e4dd6a393044c00"
+    },
+    {
+      "path": "evidencias/sesion_codex_2026-11-08/COD-10.txt",
+      "bytes": 1141,
+      "sha256": "1485a9eefdf9dd9d780e5c2414ce0a5559b68654b8324f8080866c364501efb4"
+    },
+    {
+      "path": "evidencias/sesion_codex_2026-11-08/COD-11.txt",
+      "bytes": 1708,
+      "sha256": "e18447a6641501c1c63ebddbff2cadfde2f51f8b70fc73eff176950353cf7bdc"
+    },
+    {
+      "path": "evidencias/sesion_codex_2026-11-08/COD-12.jpg",
+      "bytes": 50919,
+      "sha256": "a4748e40e25fa6778d0804d1c9d8c1a8e4f8399213b7b7173f1dc1f9b91bea95"
+    },
+    {
+      "path": "evidencias/sesion_codex_2026-11-08/COD-12.txt",
+      "bytes": 2329,
+      "sha256": "24d1de6738d59fcf77c971b1f592d5ca70c9133893893118a6f2ec62b132f2f9"
+    },
+    {
+      "path": "evidencias/sesion_codex_2026-11-08/COD-13.jpg",
+      "bytes": 96220,
+      "sha256": "5474a238bea9238321fd4ff395b728210c0ea907a215bcfe1506711fcef8fa01"
+    },
+    {
+      "path": "evidencias/sesion_codex_2026-11-08/COD-13.txt",
+      "bytes": 1865,
+      "sha256": "c4f3a2d2a54322311bdf8965c443acb260b52bff08a5d7e2278842b0974d212e"
+    },
+    {
+      "path": "evidencias/sesion_codex_2026-11-08/consola-y-layout.json",
+      "bytes": 191,
+      "sha256": "be33b7b365255a8bb262ab2e6e30ebe479fd5c723a4cd79981a3d806f2ec413b"
+    },
+    {
+      "path": "evidencias/sesion_codex_2026-11-08/inicio-cargado.txt",
+      "bytes": 1909,
+      "sha256": "5949a1cfd0fb016483fd3aa9884591575bd659fe8122718afc322f18668af62a"
+    },
+    {
+      "path": "evidencias/sesion_codex_2026-11-08/sesion_codex.json",
+      "bytes": 11525,
+      "sha256": "1ea737fa2927d24e34cd00ab610bff337a39bac637d838d3b675ea95647627ee"
+    },
+    {
       "path": "evidencias/verificacion-entregable.json",
-      "bytes": 489,
-      "sha256": "ea3abb3bd708f930b0634c267deff7fa34b24034301a1f9f69bb4249341c5886"
+      "bytes": 777,
+      "sha256": "b96284985a508375bcc6ca4118dc663d73fd5986691b33869e1e509c7dc2a519"
     },
     {
       "path": "interacciones_automatizadas.json",
@@ -143,8 +270,8 @@
     },
     {
       "path": "resumen_testing.json",
-      "bytes": 4904,
-      "sha256": "0474d5b57e9e10d40dfdd58d036c3a7d54fea793976a11537b33b0e056658083"
+      "bytes": 5673,
+      "sha256": "ce4ec1d5ce155af864b4a74d32da1c7ca3bfbcc33e7d0131abf10b6fa33cb1f2"
     }
   ],
   "digestScope": "Bytes canonicos de los blobs de Git publicados; los finales de linea locales de Windows pueden ser CRLF."

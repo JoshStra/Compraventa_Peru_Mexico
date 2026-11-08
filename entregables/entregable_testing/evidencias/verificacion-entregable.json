@@ -1,5 +1,5 @@
 {
-  "verifiedUtc": "2026-11-08T01:24:54.853Z",
+  "verifiedUtc": "2026-11-08T18:45:08.425Z",
   "configuredSecretsFound": 0,
   "cases": 97,
   "passed": 97,
@@ -7,7 +7,7 @@
   "api": 34,
   "browser": 10,
   "publicReadOnly": 6,
-  "pdfPages": 31,
+  "pdfPages": 36,
   "editableFields": 15,
   "technicalBaseline": "420a9bb89c91164cebc21e9e4a4a5a5173f81ff8",
   "humanFeedback": "PENDIENTE",
@@ -16,5 +16,12 @@
   "localEvidenceLinks": "checked",
   "pdfCaseIdsAndFields": "checked",
   "ciAttempt": 2,
-  "ciResult": "success"
+  "ciResult": "success",
+  "baselineTestCut": "2026-11-07",
+  "agentReviewDate": "2026-11-08",
+  "agentReviewChecks": 13,
+  "agentReviewComments": 13,
+  "agentReviewer": "Codex, agente de IA",
+  "agentReviewEvidence": "evidencias/sesion_codex_2026-11-08/sesion_codex.json",
+  "section8": "DOCUMENTADO POR CODEX"
 }

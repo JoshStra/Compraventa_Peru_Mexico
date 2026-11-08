@@ -63,8 +63,8 @@
     },
     {
       "path": "evidencias/api-ci.log",
-      "bytes": 5653,
-      "sha256": "2263e4ad42cf2764bf543666b201a4407a07641570d0f0be734439519bfb6598"
+      "bytes": 5585,
+      "sha256": "f9fd59c07fe1e115163188040215e0d33231a9c63ebdf5418f6ab63b02c47cdf"
     },
     {
       "path": "evidencias/build-ejecucion.json",
@@ -73,8 +73,8 @@
     },
     {
       "path": "evidencias/build.log",
-      "bytes": 1130,
-      "sha256": "7a497630b84902b1ee5b928abf1123d30878975a432c8e4810f96b1251731d84"
+      "bytes": 1093,
+      "sha256": "9f9050be6a69737d96b27b9a29948bc3c51d791babd5f9ab2d17477d41490375"
     },
     {
       "path": "evidencias/ci-ejecucion.json",
@@ -88,8 +88,8 @@
     },
     {
       "path": "evidencias/frontend-ci.log",
-      "bytes": 1808,
-      "sha256": "51f52482b1576f386ef8529feb3725679ca86239edaa8830c704f9356817060a"
+      "bytes": 1776,
+      "sha256": "f0ffdabf2c50240aa8fc63a68fc3af8475d2bce9568e7cadf74b18dadd087715"
     },
     {
       "path": "evidencias/frontend-ejecucion.json",
@@ -103,8 +103,8 @@
     },
     {
       "path": "evidencias/frontend.log",
-      "bytes": 1779,
-      "sha256": "e4d396abfc737fad965842059d74297e10457b27f0d50a2cfc22cdfdb5817439"
+      "bytes": 1738,
+      "sha256": "cc90c1dffbd467152b29d53e5cf88a9e3e40b0c0a4354bc88083775e0966294f"
     },
     {
       "path": "evidencias/github-comentarios-1.json",
@@ -123,8 +123,8 @@
     },
     {
       "path": "evidencias/navegador-ci.log",
-      "bytes": 2621,
-      "sha256": "0a81b3f4e2d89663df4dd33bb344bc6f0ca222f04b0ce237431ff27243e77e3d"
+      "bytes": 2588,
+      "sha256": "058d1a5e378df5e1ffc62c8524bc3ff3a68637eaf17e7d2e5a7e5eb00833ac49"
     },
     {
       "path": "evidencias/produccion-lectura.json",
@@ -146,5 +146,6 @@
       "bytes": 4904,
       "sha256": "0474d5b57e9e10d40dfdd58d036c3a7d54fea793976a11537b33b0e056658083"
     }
-  ]
+  ],
+  "digestScope": "Bytes canonicos de los blobs de Git publicados; los finales de linea locales de Windows pueden ser CRLF."
 }

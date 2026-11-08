@@ -1,0 +1,51 @@
+Browser tab: 1, Title: "CampusTrade", URL: "https://campustrade-mex-per.onrender.com/".
+1 AXWebArea CampusTrade, URL: campustrade-mex-per.onrender.com/
+	2 container
+		3 link Description: Ir al contenido, Value: campustrade-mex-per.onrender.com/#contenido
+		4 button Ir a inicio
+			5 text ct
+			6 text Campus
+			7 text Trade
+		8 container Navegación principal
+			9 button Inicio
+			10 button Explorar
+			11 button Favoritos
+			12 button Mensajes
+			13 button Operaciones
+			14 button Perfil
+		15 button Iniciar sesión
+		47 container contenido
+			48 container
+				49 text COMERCIO ENTRE ESTUDIANTES
+				50 heading Lo que ya no usas, alguien lo necesita., Value: 1
+					51 text Lo que ya no usas,
+					52 text alguien lo necesita.
+				53 text Compra, renta, intercambia o dona materiales académicos con estudiantes de tu comunidad.
+				54 button Explorar artículos
+				55 button Publicar artículo
+				56 text Verificación por correo institucional Entrega en el campus
+			57 container
+				58 text ENCUENTRA LO QUE BUSCAS
+				59 heading Explora por categoría, Value: 2
+					60 text Explora por categoría
+				61 button Ver todo
+				62 button Electrónica
+					63 text Electrónica
+				64 button Herramientas
+					65 text Herramientas
+				66 button Laboratorio
+					67 text Laboratorio
+				68 button Libros
+					69 text Libros
+			70 container
+				71 text CATÁLOGO COMUNITARIO
+				72 heading Recién publicados, Value: 2
+					73 text Recién publicados
+				74 button Ver catálogo
+				75 heading El catálogo está listo para tu primera publicación, Value: 2
+					76 text El catálogo está listo para tu primera publicación
+				77 text Comparte un material que alguien más pueda aprovechar.
+				78 button Publicar artículo
+		46 text CampusTrade Equipo 3 MEX-PER · Versión 0.3.0 Reutiliza · Comparte · Conecta
+
+The focused UI element is 11 button Favoritos

@@ -1,0 +1,86 @@
+Browser tab: 1, Title: "CampusTrade", URL: "https://campustrade-mex-per.onrender.com/".
+1 AXWebArea CampusTrade, URL: campustrade-mex-per.onrender.com/
+	2 container
+		3 link Description: Ir al contenido, Value: campustrade-mex-per.onrender.com/#contenido
+		4 button Ir a inicio
+			5 text ct
+			6 text Campus
+			7 text Trade
+		8 container Navegación principal
+			9 button Inicio
+			10 button Explorar
+			11 button Favoritos
+			12 button Mensajes
+			13 button Operaciones
+			14 button Perfil
+		15 button Iniciar sesión
+		49 container
+			50 text CAMPUSTRADE
+			51 heading Explora el catálogo, Value: 1
+				52 text Explora el catálogo
+			53 text Encuentra materiales para tu siguiente proyecto.
+			54 button Publicar
+			55 text field (settable) Buscar artículos
+			56 button (expanded) Description: Mostrar filtros, Secondary Actions: Collapse
+			58 container filtros
+				59 container
+					60 text CARRERA
+					61 pop up button (collapsed, settable) Description: Carrera, Value: Todas las opciones, Secondary Actions: Expand
+						62 menu
+							63 (selected) Todas las opciones
+							64 Automotriz
+							65 Industrias Alimentarias
+							66 Mecatrónica
+				67 container
+					68 text CATEGORÍA
+					69 pop up button (collapsed, settable) Description: Categoría, Value: Todas las opciones, Secondary Actions: Expand
+						70 menu
+							71 (selected) Todas las opciones
+							72 Electrónica
+							73 Herramientas
+							74 Laboratorio
+							75 Libros
+				76 container
+					77 text MODALIDAD
+					78 pop up button (collapsed, settable) Description: Modalidad, Value: Todas las opciones, Secondary Actions: Expand
+						79 menu
+							80 (selected) Todas las opciones
+							81 Venta
+							82 Renta
+							83 Intercambio
+							84 Donación
+				85 container
+					86 text CONDICIÓN
+					87 pop up button (collapsed, settable) Description: Condición, Value: Todas las opciones, Secondary Actions: Expand
+						88 menu
+							89 (selected) Todas las opciones
+							90 Nuevo
+							91 Excelente
+							92 Bueno
+							93 Regular
+				94 container
+					95 text DISPONIBILIDAD
+					96 pop up button (collapsed, settable) Description: Disponibilidad, Value: Disponible, Secondary Actions: Expand
+						97 menu
+							98 Todas las opciones
+							99 (selected) Disponible
+							100 Reservado
+							101 Vendido
+							102 Rentado
+							103 Intercambiado
+							104 Donado
+				105 container
+					106 text PRECIO MÍNIMO
+					107 stepper (settable) PRECIO MÍNIMO
+				108 container
+					109 text PRECIO MÁXIMO
+					110 stepper (settable) PRECIO MÁXIMO
+				111 button Limpiar filtros
+			57 text 0 resultados Más recientes primero
+			112 heading No encontramos artículos, Value: 2
+				113 text No encontramos artículos
+			114 text Prueba otra búsqueda o limpia los filtros.
+			115 button Limpiar búsqueda y filtros
+		48 text CampusTrade Equipo 3 MEX-PER · Versión 0.3.0 Reutiliza · Comparte · Conecta
+
+The focused UI element is 15 button Iniciar sesión

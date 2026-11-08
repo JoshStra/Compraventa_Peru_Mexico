@@ -1,0 +1,28 @@
+Browser tab: 1, Title: "CampusTrade", URL: "https://campustrade-mex-per.onrender.com/".
+1 AXWebArea CampusTrade, URL: campustrade-mex-per.onrender.com/
+	2 container
+		3 link Description: Ir al contenido, Value: campustrade-mex-per.onrender.com/#contenido
+		4 button Ir a inicio
+			5 text ct
+			6 text Campus
+			7 text Trade
+		8 container Navegación principal
+			9 button Inicio
+			10 button Explorar
+			11 button Favoritos
+			12 button Mensajes
+			13 button Operaciones
+			14 button Perfil
+		15 button Iniciar sesión
+		49 container
+			50 text CAMPUSTRADE
+			51 heading Explora el catálogo, Value: 1
+				52 text Explora el catálogo
+			53 text Encuentra materiales para tu siguiente proyecto.
+			54 button Publicar
+			55 text field (settable) Description: Buscar artículos, Value: calculadora
+			56 button (collapsed) Description: Mostrar filtros, Secondary Actions: Expand
+			57 text 0 resultados Más recientes primero Buscando artículos…
+		48 text CampusTrade Equipo 3 MEX-PER · Versión 0.3.0 Reutiliza · Comparte · Conecta
+
+The focused UI element is 55 text field (settable) Description: Buscar artículos, Value: calculadora

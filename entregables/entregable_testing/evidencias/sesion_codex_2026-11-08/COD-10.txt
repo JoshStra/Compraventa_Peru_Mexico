@@ -1,0 +1,30 @@
+Browser tab: 1, Title: "CampusTrade", URL: "https://campustrade-mex-per.onrender.com/".
+1 AXWebArea CampusTrade, URL: campustrade-mex-per.onrender.com/
+	2 container
+		3 link Description: Ir al contenido, Value: campustrade-mex-per.onrender.com/#contenido
+		4 button Ir a inicio
+			5 text ct
+			6 text Campus
+			7 text Trade
+		8 container Navegación principal
+			9 button Inicio
+			10 button Explorar
+			11 button Favoritos
+			12 button Mensajes
+			13 button Operaciones
+			14 button Perfil
+		15 button Abrir mi perfil
+		112 text Tu correo institucional está pendiente de verificación.
+		113 button Reenviar enlace
+		114 container
+			115 text ACUERDOS ENTRE ESTUDIANTES
+			116 heading Operaciones, Value: 1
+				117 text Operaciones
+			118 text Consulta tus solicitudes y las de tus publicaciones.
+			119 button Actualizar operaciones
+			120 heading Aún no tienes operaciones, Value: 2
+				121 text Aún no tienes operaciones
+			122 text Solicita un artículo del catálogo para comenzar.
+		48 text CampusTrade Equipo 3 MEX-PER · Versión 0.3.0 Reutiliza · Comparte · Conecta
+
+The focused UI element is 119 button Actualizar operaciones

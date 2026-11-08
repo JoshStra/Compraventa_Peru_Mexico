@@ -1,0 +1,216 @@
+{
+  "session": "COD-20261108",
+  "reviewer": "Codex, agente de IA, evaluación técnica autorizada",
+  "origin": "https://campustrade-mex-per.onrender.com/",
+  "humanParticipants": 0,
+  "reviewType": "Interacción exploratoria ejecutada mediante navegador por Codex",
+  "completedUtc": "2026-11-08T18:36:45.214Z",
+  "credentials": "Cuenta sintética preexistente. Credenciales omitidas de la evidencia.",
+  "records": [
+    {
+      "id": "COD-01",
+      "observedUtc": "2026-11-08T18:30:45.967Z",
+      "observedMexico": "2026-11-08 12:30:45",
+      "reviewer": "Codex, agente de IA, evaluación técnica autorizada",
+      "module": "Acceso e inicio",
+      "action": "Abrir la URL pública y observar el arranque hasta ver la página de inicio.",
+      "expected": "Acceder a CampusTrade con navegación y acciones principales.",
+      "observed": "Apareció primero la pantalla de arranque de Render; después cargó CampusTrade 0.3.0 con Inicio, Explorar e Iniciar sesión.",
+      "status": "APROBADA CON OBSERVACIÓN",
+      "comment": "La propuesta de venta, renta, intercambio y donación es clara en la portada. La espera inicial de Render puede confundir a quien entra por primera vez; conviene avisarla antes de una demostración.",
+      "evidence": [
+        "COD-01.txt",
+        "COD-01.jpg"
+      ]
+    },
+    {
+      "id": "COD-02",
+      "observedUtc": "2026-11-08T18:31:04.533Z",
+      "observedMexico": "2026-11-08 12:31:04",
+      "reviewer": "Codex, agente de IA, evaluación técnica autorizada",
+      "module": "Búsqueda del catálogo",
+      "action": "Entrar a Explorar y buscar calculadora.",
+      "expected": "Mostrar coincidencias o un estado vacío explicativo.",
+      "observed": "Se muestran 0 resultados, No encontramos artículos y el botón Limpiar búsqueda y filtros.",
+      "status": "APROBADA",
+      "comment": "El estado sin resultados es claro y ofrece una forma de recuperarse. El catálogo está vacío, por lo que en esta sesión no pude valorar tarjetas ni detalles de productos.",
+      "evidence": [
+        "COD-02.txt",
+        "COD-02.jpg"
+      ]
+    },
+    {
+      "id": "COD-03",
+      "observedUtc": "2026-11-08T18:31:24.711Z",
+      "observedMexico": "2026-11-08 12:31:24",
+      "reviewer": "Codex, agente de IA, evaluación técnica autorizada",
+      "module": "Filtros y recuperación",
+      "action": "Combinar Herramientas, Renta y precios de 100 a 300; pulsar Limpiar búsqueda y filtros.",
+      "expected": "Cambiar criterios y recuperar valores iniciales al limpiar.",
+      "observed": "La categoría y modalidad vuelven a Todas las opciones, la búsqueda y los importes quedan vacíos; se conserva Disponible como filtro inicial.",
+      "status": "APROBADA",
+      "comment": "Los filtros cubren criterios útiles y la acción de limpieza funciona. Como el catálogo no contiene artículos, solo pude comprobar cambios de controles y estados vacíos, no la exactitud de coincidencias.",
+      "evidence": [
+        "COD-03.txt",
+        "COD-03.jpg"
+      ]
+    },
+    {
+      "id": "COD-04",
+      "observedUtc": "2026-11-08T18:31:44.738Z",
+      "observedMexico": "2026-11-08 12:31:44",
+      "reviewer": "Codex, agente de IA, evaluación técnica autorizada",
+      "module": "Acceso y teclado",
+      "action": "Abrir Iniciar sesión, comprobar foco del correo y pulsar Escape.",
+      "expected": "Foco inicial en correo; cierre con Escape y retorno al botón que abrió el modal.",
+      "observed": "Foco inicial en correo: true. Foco restaurado en Iniciar sesión: true. El diálogo desaparece.",
+      "status": "APROBADA",
+      "comment": "El recorrido básico con teclado es cómodo: Escape permite salir y el foco regresa al botón de acceso. Esta comprobación puntual no equivale a una auditoría completa de accesibilidad.",
+      "evidence": [
+        "COD-04.txt"
+      ]
+    },
+    {
+      "id": "COD-05",
+      "observedUtc": "2026-11-08T18:32:33.516Z",
+      "observedMexico": "2026-11-08 12:32:33",
+      "reviewer": "Codex, agente de IA, evaluación técnica autorizada",
+      "module": "Registro institucional",
+      "action": "Completar el registro con datos de prueba y correo example.invalid; intentar Crear cuenta.",
+      "expected": "Rechazar el dominio ajeno y explicar el dominio permitido.",
+      "observed": "El formulario permanece abierto y muestra Usa un correo del dominio institucional autorizado; arriba indica itesa.edu.mx.",
+      "status": "APROBADA",
+      "comment": "El dominio autorizado se informa antes del envío y el rechazo se entiende. El mensaje general podría señalar también el campo Correo institucional para localizar antes el problema.",
+      "evidence": [
+        "COD-05.txt",
+        "COD-05.jpg"
+      ]
+    },
+    {
+      "id": "COD-06",
+      "observedUtc": "2026-11-08T18:33:16.632Z",
+      "observedMexico": "2026-11-08 12:33:16",
+      "reviewer": "Codex, agente de IA, evaluación técnica autorizada",
+      "module": "Inicio de sesión y perfil",
+      "action": "Iniciar sesión con la cuenta sintética existente y abrir Perfil.",
+      "expected": "Mostrar la identidad de prueba y conservar su estado sin verificar.",
+      "observed": "La sesión abre el perfil Prueba técnica de despliegue, con VERIFICACIÓN PENDIENTE, cero publicaciones y cero operaciones finalizadas.",
+      "status": "APROBADA",
+      "comment": "El acceso ofrece un estado Procesando y después permite consultar el perfil. La verificación pendiente queda visible; conviene explicar ahí el siguiente paso disponible mientras no se active el correo.",
+      "evidence": [
+        "COD-06.txt"
+      ]
+    },
+    {
+      "id": "COD-07",
+      "observedUtc": "2026-11-08T18:33:51.637Z",
+      "observedMexico": "2026-11-08 12:33:51",
+      "reviewer": "Codex, agente de IA, evaluación técnica autorizada",
+      "module": "Publicación y permisos",
+      "action": "Desde Perfil pulsar Publicar artículo con la cuenta sin verificar.",
+      "expected": "Mantener bloqueada la publicación y explicar el motivo.",
+      "observed": "Se muestra Verifica tu correo institucional antes de publicar, escribir o solicitar una operación; no se abre el formulario.",
+      "status": "APROBADA",
+      "comment": "El bloqueo protege la publicación y explica las acciones restringidas. El aviso debería acompañarse de una alternativa útil, como volver al catálogo, mientras no se habilite el envío de verificación.",
+      "evidence": [
+        "COD-07.txt"
+      ]
+    },
+    {
+      "id": "COD-08",
+      "observedUtc": "2026-11-08T18:34:16.841Z",
+      "observedMexico": "2026-11-08 12:34:16",
+      "reviewer": "Codex, agente de IA, evaluación técnica autorizada",
+      "module": "Favoritos",
+      "action": "Abrir Favoritos con la cuenta de prueba.",
+      "expected": "Mostrar la lista propia o un estado vacío con una salida útil.",
+      "observed": "La pantalla muestra Aún no hay favoritos, Guarda los artículos que quieras revisar después y el botón Explorar artículos.",
+      "status": "APROBADA",
+      "comment": "La explicación del estado vacío y el botón para explorar son útiles. No pude comprobar agregar o quitar artículos porque no hay publicaciones en el catálogo.",
+      "evidence": [
+        "COD-08.txt",
+        "COD-08.jpg"
+      ]
+    },
+    {
+      "id": "COD-09",
+      "observedUtc": "2026-11-08T18:34:27.446Z",
+      "observedMexico": "2026-11-08 12:34:27",
+      "reviewer": "Codex, agente de IA, evaluación técnica autorizada",
+      "module": "Mensajes",
+      "action": "Abrir Mensajes sin conversaciones previas.",
+      "expected": "Mostrar un estado vacío y cómo iniciar una conversación.",
+      "observed": "Se muestran Aún no tienes conversaciones, la indicación de abrir un artículo y Explorar artículos.",
+      "status": "APROBADA",
+      "comment": "La pantalla explica el siguiente paso y recuerda que la entrega se acuerda dentro del campus. Esta sesión solo valida la navegación y el estado vacío; no el intercambio de mensajes.",
+      "evidence": [
+        "COD-09.txt",
+        "COD-09.jpg"
+      ]
+    },
+    {
+      "id": "COD-10",
+      "observedUtc": "2026-11-08T18:35:20.380Z",
+      "observedMexico": "2026-11-08 12:35:20",
+      "reviewer": "Codex, agente de IA, evaluación técnica autorizada",
+      "module": "Operaciones",
+      "action": "Abrir Operaciones y pulsar Actualizar operaciones.",
+      "expected": "Consultar la lista propia y mostrar un estado vacío si no existen solicitudes.",
+      "observed": "La consulta termina con Aún no tienes operaciones y Solicita un artículo del catálogo para comenzar; el botón de actualización sigue disponible.",
+      "status": "APROBADA",
+      "comment": "El estado vacío se entiende y existe actualización manual. Desde esa pantalla sería útil un acceso directo al catálogo, además de la indicación de solicitar un artículo.",
+      "evidence": [
+        "COD-10.txt",
+        "COD-10.jpg"
+      ]
+    },
+    {
+      "id": "COD-11",
+      "observedUtc": "2026-11-08T18:36:14.849Z",
+      "observedMexico": "2026-11-08 12:36:14",
+      "reviewer": "Codex, agente de IA, evaluación técnica autorizada",
+      "module": "Sesión después de recargar",
+      "action": "Recargar la página autenticada y abrir de nuevo Perfil.",
+      "expected": "Conservar la sesión de prueba y su estado institucional.",
+      "observed": "El perfil vuelve a mostrar Prueba técnica de despliegue y VERIFICACIÓN PENDIENTE sin pedir otro login.",
+      "status": "APROBADA",
+      "comment": "La sesión se conserva al recargar, lo que evita repetir el acceso durante la navegación. La identidad y el estado de verificación se mantienen visibles en el perfil.",
+      "evidence": [
+        "COD-11.txt"
+      ]
+    },
+    {
+      "id": "COD-12",
+      "observedUtc": "2026-11-08T18:36:44.776Z",
+      "observedMexico": "2026-11-08 12:36:44",
+      "reviewer": "Codex, agente de IA, evaluación técnica autorizada",
+      "module": "Cierre de sesión y acceso privado",
+      "action": "Cerrar sesión y después intentar abrir Favoritos.",
+      "expected": "Salir de la cuenta y exigir acceso para volver a la lista privada.",
+      "observed": "Se muestra Sesión cerrada, vuelve Iniciar sesión y al abrir Favoritos aparece el diálogo de acceso.",
+      "status": "APROBADA",
+      "comment": "La salida se confirma y el acceso privado vuelve a pedir identificación. El comportamiento es consistente y evita que la lista privada quede accesible tras salir.",
+      "evidence": [
+        "COD-12.txt",
+        "COD-12.jpg"
+      ]
+    },
+    {
+      "id": "COD-13",
+      "observedUtc": "2026-11-08T18:36:45.114Z",
+      "observedMexico": "2026-11-08 12:36:45",
+      "reviewer": "Codex, agente de IA, evaluación técnica autorizada",
+      "module": "Presentación y consola",
+      "action": "Al terminar la navegación, revisar errores de consola y anchura del documento en la vista actual.",
+      "expected": "No registrar errores de consola ni desbordamiento horizontal en la portada revisada.",
+      "observed": "Errores de consola: 0. Vista 1280 x 720; ancho del documento 1265.",
+      "status": "APROBADA",
+      "comment": "La portada se ajusta a la anchura observada y la consola no registró errores durante la sesión. Esta revisión corresponde a esa vista y no certifica todos los tamaños o dispositivos.",
+      "evidence": [
+        "COD-13.txt",
+        "COD-13.jpg",
+        "consola-y-layout.json"
+      ]
+    }
+  ]
+}

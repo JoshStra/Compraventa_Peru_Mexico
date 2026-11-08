@@ -3,43 +3,43 @@
   "files": [
     {
       "path": "01_CASOS_PRUEBA.md",
-      "bytes": 76358,
-      "sha256": "4fc703247ef738429c113cf4fc3c2f3f6d1a3439c432263c7fb34e0857fd5e59"
+      "bytes": 75385,
+      "sha256": "47cbed8254231cd9ea6334cee6e386b6df6216361ed84e89dd82c23d71704df3"
     },
     {
       "path": "02_REPORTE_EJECUCION.md",
-      "bytes": 2508,
-      "sha256": "ba834d370710c3e79b60fa49f9bdbd6a1f6b507e0a03c631009b95702a618780"
+      "bytes": 2488,
+      "sha256": "3e2b2d32be7e4d6e28bc2e73be4905f5d0d387ad7b42a43a19b6599b98488f78"
     },
     {
       "path": "03_CORRECCION_ERRORES.md",
-      "bytes": 3098,
-      "sha256": "38dc50b6d0d5cd2d997d55becf31f04649fceedcb90c96449f940a02bd199e95"
+      "bytes": 3064,
+      "sha256": "e8ff0b3e928114d7e8a4e1051a5ed8c8a880821bae4f4347dd895af8d457f57d"
     },
     {
       "path": "04_REGISTRO_INCIDENCIAS.md",
-      "bytes": 2151,
-      "sha256": "2444942994c1fdc348fec9a664dd95525d207c6f0eab1aecadcceb554f75a4ad"
+      "bytes": 2136,
+      "sha256": "02a07a7e8aa1ef3dbdf79f1f90ff6a397d68bd922914e8726fb0ab2ab4ea563f"
     },
     {
       "path": "05_RESULTADOS_TESTING.md",
-      "bytes": 2060,
-      "sha256": "e3ca8d085bcbbbf07d782634991cb5eea6d3b79187fdb01fa7056f77649f1e86"
+      "bytes": 2042,
+      "sha256": "4cd1ff69e423c12d33b7554dde384903b95e799901ba52b19401618e93555a77"
     },
     {
       "path": "06_EVALUACION_FUNCIONAL.md",
-      "bytes": 2643,
-      "sha256": "331347e918fdeabee598bfb31d5d55d28145d17e8e7d95712f228d79a7cb294b"
+      "bytes": 2619,
+      "sha256": "2402fdc323f0a9b2c8ff381f7bf18089db4a78f711d8d3d3dadfee8d56c82d45"
     },
     {
       "path": "07_CAMBIOS_FEEDBACK.md",
-      "bytes": 1727,
-      "sha256": "0447cb56ab8fa4077ecbdcfb1a67b32ddbb5cdb7faf689b4e963c2ad68e03e33"
+      "bytes": 1712,
+      "sha256": "3d0171ed203d819ed730e99a8b1bc75b7cec1e187231032133717d96cd964bc7"
     },
     {
       "path": "08_INTERACCION_USUARIOS.md",
-      "bytes": 2186,
-      "sha256": "e9d10b8d38798e1d2de2ea22f73aef7bc60e17ba1756996e3656053018c1c47c"
+      "bytes": 2163,
+      "sha256": "18f77398039855d704de84944b34d6f1aa9a2d7b292916f6bd0233c1659fca6b"
     },
     {
       "path": "CampusTrade_Entregable_Testing.pdf",
@@ -48,18 +48,18 @@
     },
     {
       "path": "README.md",
-      "bytes": 2706,
-      "sha256": "7f3787d0af3ad473b72d9c3d32a2ac53563dd6fd7718b69ee3a38d82b944927d"
+      "bytes": 2673,
+      "sha256": "71d634189feda0539b47451ccc92daf9d776aafa1e9f70158846c7e090796215"
     },
     {
       "path": "casos_ejecutados.csv",
-      "bytes": 61362,
-      "sha256": "a02c71488612441d1ca2b35216039ccdce52bad867c9266e3cfac2393517a602"
+      "bytes": 61264,
+      "sha256": "306d0fe46808cd3429ddd4d9e3930693577f8ebdf4ce26ba145b1fd2b3f103c1"
     },
     {
       "path": "casos_ejecutados.json",
-      "bytes": 92498,
-      "sha256": "1c13fb7abff2d38e33b2d78a9133f62992d8f17b1194924376637e787cdcc578"
+      "bytes": 90750,
+      "sha256": "2e5504f6dc42a6f68bc5f18a3e60227e493fa643bc4c150e4e63ef53a9a47561"
     },
     {
       "path": "evidencias/api-ci.log",
@@ -73,8 +73,8 @@
     },
     {
       "path": "evidencias/build.log",
-      "bytes": 1130,
-      "sha256": "7a497630b84902b1ee5b928abf1123d30878975a432c8e4810f96b1251731d84"
+      "bytes": 1093,
+      "sha256": "9f9050be6a69737d96b27b9a29948bc3c51d791babd5f9ab2d17477d41490375"
     },
     {
       "path": "evidencias/ci-ejecucion.json",
@@ -83,8 +83,8 @@
     },
     {
       "path": "evidencias/ci-solicitud.json",
-      "bytes": 175,
-      "sha256": "b06eb95a7dabb089ed0015e3a23e814357049a7a8bcc92bd9160eba3f3e69a76"
+      "bytes": 168,
+      "sha256": "d0ff27eb7a267dde63257b333a209c4f58d8b311322adfe6277cb9722b77226f"
     },
     {
       "path": "evidencias/frontend-ci-ci.log",
@@ -98,13 +98,13 @@
     },
     {
       "path": "evidencias/frontend.json",
-      "bytes": 23214,
-      "sha256": "e284767a2d4899073e5f545852f73138fbb447eec322830262e0a84a9c2c62e5"
+      "bytes": 22553,
+      "sha256": "f3606f674e023ac3de041aeaea5f8b01fcd745fe219e92fbb15802c8fb20bdeb"
     },
     {
       "path": "evidencias/frontend.log",
-      "bytes": 1779,
-      "sha256": "e4d396abfc737fad965842059d74297e10457b27f0d50a2cfc22cdfdb5817439"
+      "bytes": 1738,
+      "sha256": "cc90c1dffbd467152b29d53e5cf88a9e3e40b0c0a4354bc88083775e0966294f"
     },
     {
       "path": "evidencias/github-comentarios-1.json",
@@ -134,17 +134,17 @@
     {
       "path": "evidencias/verificacion-entregable.json",
       "bytes": 489,
-      "sha256": "df8a97760fbf8ec3238cb66ff6ffee2c05876798a45c14106b65fcbc6a2cf659"
+      "sha256": "3b75b0e3c59c17a4a45a801e206323ac8b4d57935c28fe918d788a1e29e3d7cd"
     },
     {
       "path": "interacciones_automatizadas.json",
-      "bytes": 8531,
-      "sha256": "32ceef3c6aaf6a298e4f53fd375bd8457369fab603498d636b5eeded7df604cc"
+      "bytes": 8353,
+      "sha256": "fb5572c8f5762ef0fd93bdd2fd134c2ea5adc2a1bbace62d176be1b1e8946252"
     },
     {
       "path": "resumen_testing.json",
-      "bytes": 5053,
-      "sha256": "2c362d924d97fc16a9e920985f53725e10d599befd3a9b359217de81bfdf5480"
+      "bytes": 4904,
+      "sha256": "0474d5b57e9e10d40dfdd58d036c3a7d54fea793976a11537b33b0e056658083"
     }
   ]
 }

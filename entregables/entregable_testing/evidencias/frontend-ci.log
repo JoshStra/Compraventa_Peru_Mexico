@@ -1,0 +1,32 @@
+Fuente: https://github.com/JoshStra/Compraventa_Peru_Mexico/actions/runs/41135024269/job/128585456662
+Commit: 420a9bb89c91164cebc21e9e4a4a5a5173f81ff8
+Intento: 2. Variables de entorno omitidas.
+
+2026-11-08T01:08:17.1227665Z ##[group]Run npm test
+2026-11-08T01:08:17.1227904Z npm test
+2026-11-08T01:08:17.1284693Z shell: /usr/bin/bash -e {0}
+2026-11-08T01:08:17.1284924Z env:
+2026-11-08T01:08:17.1286285Z ##[endgroup]
+2026-11-08T01:08:17.2070776Z
+2026-11-08T01:08:17.2071346Z > campustrade@0.3.0 test
+2026-11-08T01:08:17.2071764Z > npm run test --workspace frontend
+2026-11-08T01:08:17.2071939Z
+2026-11-08T01:08:17.2832252Z
+2026-11-08T01:08:17.2832667Z > campustrade-alpha@0.3.0 test
+2026-11-08T01:08:17.2832886Z > vitest run
+2026-11-08T01:08:17.2832965Z
+2026-11-08T01:08:17.5438544Z
+2026-11-08T01:08:17.5441076Z  RUN  v5.0.5 /home/runner/work/Compraventa_Peru_Mexico/Compraventa_Peru_Mexico/frontend
+2026-11-08T01:08:17.5441477Z
+2026-11-08T01:08:18.0511051Z  ✓ src/domain/catalog.test.js (20 tests) 6ms
+2026-11-08T01:08:18.0646968Z  ✓ src/services/campusRepository.test.js (14 tests) 20ms
+2026-11-08T01:08:18.4743762Z  ✓ src/services/listingImage.test.js (3 tests) 6ms
+2026-11-08T01:08:18.4779409Z  ✓ src/services/apiClient.test.js (3 tests) 12ms
+2026-11-08T01:08:19.3994412Z  ✓ src/App.test.jsx (7 tests) 1247ms
+2026-11-08T01:08:19.3995267Z    ✓ publica sin errores de evento asíncrono y conserva el artículo al recargar 675ms
+2026-11-08T01:08:19.4034553Z
+2026-11-08T01:08:19.4037260Z  Test Files  5 passed (5)
+2026-11-08T01:08:19.4037725Z       Tests  47 passed (47)
+2026-11-08T01:08:19.4038226Z    Start at  01:08:17
+2026-11-08T01:08:19.4040489Z    Duration  1.86s (environment 40%, tests 40%, setup 10%, transform 7%, import 2%)
+2026-11-08T01:08:19.4047552Z

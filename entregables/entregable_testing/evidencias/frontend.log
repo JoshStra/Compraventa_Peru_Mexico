@@ -1,0 +1,41 @@
+{
+  "suite": "frontend",
+  "startedUtc": "2026-11-08T01:05:08.034Z",
+  "finishedUtc": "2026-11-08T01:05:33.616Z",
+  "startedMexico": "2026-11-07 19:05:08 GMT−6",
+  "durationSeconds": 25.582,
+  "command": "npm.cmd run test --workspace frontend -- --reporter=default --reporter=json --outputFile.json=<repo>\\entregables\\entregable_testing\\evidencias\\frontend.json",
+  "cwd": "<repo>",
+  "exitCode": 0,
+  "sha": "420a9bb89c91164cebc21e9e4a4a5a5173f81ff8",
+  "node": "v24.12.0"
+}
+
+
+> campustrade-alpha@0.3.0 test
+> vitest run --reporter=default --reporter=json --outputFile.json=<repo>\entregables\entregable_testing\evidencias\frontend.json
+
+
+ RUN  v5.0.5 <repo>/frontend
+
+ ✓ src/services/listingImage.test.js (3 tests) 14ms
+ ✓ src/services/apiClient.test.js (3 tests) 17ms
+ ✓ src/domain/catalog.test.js (20 tests) 15ms
+ ✓ src/services/campusRepository.test.js (14 tests) 33ms
+ ✓ src/App.test.jsx (7 tests) 5936ms
+   ✓ publica sin errores de evento asíncrono y conserva el artículo al recargar 2564ms
+   ✓ muestra el error de almacenamiento sin cerrar ni borrar el formulario 2050ms
+   ✓ filtra categorías completas y distingue la búsqueda vacía de los favoritos 316ms
+   ✓ guarda mensajes visibles en su conversación y los restaura al recargar 679ms
+
+ Test Files  5 passed (5)
+      Tests  47 passed (47)
+   Start at  19:05:17
+   Duration  15.81s (environment 61%, setup 23%, tests 13%, import 2%, transform 2%)
+
+JSON report written to <repo>/entregables/entregable_testing/evidencias/frontend.json
+npm notice
+npm notice New minor version of npm available! 11.6.2 -> 11.21.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.21.2
+npm notice To update run: npm install -g npm@11.21.2
+npm notice

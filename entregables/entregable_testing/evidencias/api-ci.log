@@ -1,0 +1,68 @@
+Fuente: https://github.com/JoshStra/Compraventa_Peru_Mexico/actions/runs/41135024269/job/128585456662
+Commit: 420a9bb89c91164cebc21e9e4a4a5a5173f81ff8
+Intento: 2. Variables de entorno omitidas.
+
+2026-11-08T01:08:19.4472846Z ##[group]Run npm run test:api
+2026-11-08T01:08:19.4473022Z npm run test:api
+2026-11-08T01:08:19.4514491Z shell: /usr/bin/bash -e {0}
+2026-11-08T01:08:19.4514625Z env:
+2026-11-08T01:08:19.4515660Z ##[endgroup]
+2026-11-08T01:08:19.5176860Z
+2026-11-08T01:08:19.5177304Z > campustrade@0.3.0 test:api
+2026-11-08T01:08:19.5177817Z > npm run test --workspace backend
+2026-11-08T01:08:19.5178015Z
+2026-11-08T01:08:19.5919710Z
+2026-11-08T01:08:19.5920277Z > campustrade-api@0.3.0 test
+2026-11-08T01:08:19.5920650Z > node --env-file-if-exists=.env --test --test-concurrency=1 test/*.test.js
+2026-11-08T01:08:19.5920866Z
+2026-11-08T01:08:19.5972640Z .env not found. Continuing without it.
+2026-11-08T01:08:19.6418705Z .env not found. Continuing without it.
+2026-11-08T01:08:20.0832881Z ✔ registro institucional almacena hash y nunca inventa la verificación (201.663733ms)
+2026-11-08T01:08:20.1430424Z ✔ rechaza dominios ajenos, contraseñas cortas, roles y duplicados (59.282198ms)
+2026-11-08T01:08:20.1568704Z ✔ el enlace de verificación es de un solo uso (14.862335ms)
+2026-11-08T01:08:20.2205953Z ✔ sesión HttpOnly, CSRF, persistencia y cierre revocable (63.771053ms)
+2026-11-08T01:08:20.3807490Z ✔ recuperación cambia la contraseña y revoca las sesiones previas (159.598189ms)
+2026-11-08T01:08:20.4480479Z ✔ rechaza orígenes extraños y tokens vencidos (66.769309ms)
+2026-11-08T01:08:20.5662980Z .env not found. Continuing without it.
+2026-11-08T01:08:20.6106165Z ✔ Render proporciona el origen HTTPS inicial sin adivinar el dominio asignado (2.024784ms)
+2026-11-08T01:08:20.6110746Z ✔ PUBLIC_URL y CORS_ORIGINS explícitos prevalecen sobre el dominio de Render (1.908459ms)
+2026-11-08T01:08:20.6149146Z ✔ la detección de Render no permite HTTP ni orígenes con rutas (0.664209ms)
+2026-11-08T01:08:20.6154751Z ✔ producción sigue rechazando URL ausente y almacenamiento local (0.836658ms)
+2026-11-08T01:08:20.6359761Z .env not found. Continuing without it.
+2026-11-08T01:08:21.3880205Z ✔ conversación única entre participantes distintos (517.328748ms)
+2026-11-08T01:08:21.3993286Z ✔ mensaje del comprador llega al vendedor y persiste (11.421624ms)
+2026-11-08T01:08:21.4105594Z ✔ bloquea lectura escritura y suplantación por terceros (11.033565ms)
+2026-11-08T01:08:21.4963504Z .env not found. Continuing without it.
+2026-11-08T01:08:21.8523015Z ✔ migraciones PostgreSQL idempotentes y catálogo inicial (122.782541ms)
+2026-11-08T01:08:21.8564914Z ✔ health confirma la conexión real y no expone secretos (6.056422ms)
+2026-11-08T01:08:21.8649823Z ✔ rollback conserva la integridad cuando falla una escritura (9.082744ms)
+2026-11-08T01:08:21.9511331Z .env not found. Continuing without it.
+2026-11-08T01:08:22.7664677Z ✔ publicar exige sesión y correo verificado; no acepta suplantar propietario (584.198013ms)
+2026-11-08T01:08:22.7877235Z ✔ contenido inválido se rechaza y las consultas están parametrizadas (21.416223ms)
+2026-11-08T01:08:22.8094591Z ✔ solo el propietario edita y retira; persiste con una nueva instancia de API (20.650863ms)
+2026-11-08T01:08:22.8445168Z ✔ favoritos idempotentes se conservan en PostgreSQL (33.902495ms)
+2026-11-08T01:08:22.9092990Z ✔ la carga verifica MIME contenido extensión y tamaño antes de publicar (66.648104ms)
+2026-11-08T01:08:22.9183233Z ✔ retirar conserva historial y excluye el artículo del catálogo (6.504321ms)
+2026-11-08T01:08:23.0001509Z .env not found. Continuing without it.
+2026-11-08T01:08:23.7316032Z ✔ reporte persistente evita duplicados y limita acceso administrativo (505.025183ms)
+2026-11-08T01:08:23.7591045Z ✔ administrador revisa resuelve y registra una decisión real (27.592583ms)
+2026-11-08T01:08:23.7724664Z ✔ moderación retira contenido sin borrar su historial (13.284344ms)
+2026-11-08T01:08:23.7951085Z ✔ suspensión revoca sesiones y oculta publicaciones; no modifica administradores (22.621091ms)
+2026-11-08T01:08:23.8068641Z ✔ categorías y carreras se administran sin modificar referencias históricas (8.77045ms)
+2026-11-08T01:08:23.8918309Z .env not found. Continuing without it.
+2026-11-08T01:08:24.6227974Z ✔ dos aceptaciones simultáneas solo reservan el artículo una vez (503.692704ms)
+2026-11-08T01:08:24.6482014Z ✔ estados terminales bloquean solicitudes y las calificaciones exigen finalización (25.387797ms)
+2026-11-08T01:08:24.6697100Z ✔ cancelar una reserva libera disponibilidad y rechaza terceros (21.544792ms)
+2026-11-08T01:08:24.7016822Z ✔ renta valida fechas e importe y permite registrar devolución (32.04085ms)
+2026-11-08T01:08:24.7304359Z ✔ intercambio reserva ambos artículos y no permite reutilizar el ofrecido (28.625199ms)
+2026-11-08T01:08:24.7611535Z ✔ retirar una oferta de intercambio cancela las solicitudes pendientes relacionadas (28.911101ms)
+2026-11-08T01:08:24.8538225Z .env not found. Continuing without it.
+2026-11-08T01:08:26.4300238Z ✔ publicación y sesión sobreviven al reinicio real del proceso Node (1260.428679ms)
+2026-11-08T01:08:26.4449349Z ℹ tests 34
+2026-11-08T01:08:26.4449724Z ℹ suites 0
+2026-11-08T01:08:26.4450002Z ℹ pass 34
+2026-11-08T01:08:26.4450243Z ℹ fail 0
+2026-11-08T01:08:26.4450452Z ℹ cancelled 0
+2026-11-08T01:08:26.4450708Z ℹ skipped 0
+2026-11-08T01:08:26.4450909Z ℹ todo 0
+2026-11-08T01:08:26.4451151Z ℹ duration_ms 6820.512632

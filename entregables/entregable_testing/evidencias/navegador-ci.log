@@ -1,0 +1,33 @@
+Fuente: https://github.com/JoshStra/Compraventa_Peru_Mexico/actions/runs/41135024269/job/128585456662
+Commit: 420a9bb89c91164cebc21e9e4a4a5a5173f81ff8
+Intento: 2. Variables de entorno omitidas.
+
+2026-11-08T01:08:40.2983959Z ##[group]Run npm run test:e2e
+2026-11-08T01:08:40.2984150Z npm run test:e2e
+2026-11-08T01:08:40.3026291Z shell: /usr/bin/bash -e {0}
+2026-11-08T01:08:40.3026433Z env:
+2026-11-08T01:08:40.3027362Z ##[endgroup]
+2026-11-08T01:08:40.3726064Z
+2026-11-08T01:08:40.3726525Z > campustrade@0.3.0 test:e2e
+2026-11-08T01:08:40.3726851Z > npm run test:e2e --workspace frontend
+2026-11-08T01:08:40.3726976Z
+2026-11-08T01:08:40.4453078Z
+2026-11-08T01:08:40.4453526Z > campustrade-alpha@0.3.0 test:e2e
+2026-11-08T01:08:40.4453774Z > playwright test
+2026-11-08T01:08:40.4453857Z
+2026-11-08T01:08:40.9053820Z [WebServer] .env not found. Continuing without it.
+2026-11-08T01:08:41.7168317Z
+2026-11-08T01:08:41.7168945Z Running 10 tests using 2 workers
+2026-11-08T01:08:41.7169289Z
+2026-11-08T01:08:44.5981208Z   ✓   2 [desktop] › e2e/fullstack.spec.js:114:1 › catálogo y favoritos persisten entre sesiones del navegador (2.3s)
+2026-11-08T01:08:44.9647963Z   ✓   1 [desktop] › e2e/fullstack.spec.js:21:1 › registro verificación publicación con imagen y edición persistentes (2.6s)
+2026-11-08T01:08:45.4958780Z   ✓   3 [desktop] › e2e/fullstack.spec.js:157:1 › una cuenta sin verificar no publica ni obtiene una insignia falsa (886ms)
+2026-11-08T01:08:48.2963473Z   ✓   5 [desktop] › e2e/workflows.spec.js:130:1 › reporte y resolución real desde la administración (2.8s)
+2026-11-08T01:08:50.3059881Z   ✓   6 [mobile] › e2e/fullstack.spec.js:21:1 › registro verificación publicación con imagen y edición persistentes (1.7s)
+2026-11-08T01:08:51.5436605Z   ✓   7 [mobile] › e2e/fullstack.spec.js:114:1 › catálogo y favoritos persisten entre sesiones del navegador (1.2s)
+2026-11-08T01:08:52.3507484Z   ✓   8 [mobile] › e2e/fullstack.spec.js:157:1 › una cuenta sin verificar no publica ni obtiene una insignia falsa (799ms)
+2026-11-08T01:08:57.5646652Z   ✓   4 [desktop] › e2e/workflows.spec.js:27:1 › mensajes entre dos sesiones y venta con calificación (12.6s)
+2026-11-08T01:09:00.6265054Z   ✓  10 [mobile] › e2e/workflows.spec.js:130:1 › reporte y resolución real desde la administración (2.7s)
+2026-11-08T01:09:04.9301562Z   ✓   9 [mobile] › e2e/workflows.spec.js:27:1 › mensajes entre dos sesiones y venta con calificación (12.6s)
+2026-11-08T01:09:05.0176894Z
+2026-11-08T01:09:05.0180597Z   10 passed (24.2s)

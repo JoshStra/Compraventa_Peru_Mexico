@@ -1,0 +1,73 @@
+{
+  "origin": "https://campustrade-mex-per.onrender.com",
+  "dateUtc": "2026-11-08T01:08:33.042Z",
+  "scope": "Solo lectura, sin crear usuarios ni verificar cuentas ni probar publicación productiva.",
+  "results": [
+    {
+      "id": "PUB-01",
+      "module": "Frontend",
+      "procedure": "GET /",
+      "expected": "HTML de CampusTrade",
+      "expectedStatus": 200,
+      "observed": "HTTP 200; HTML raíz presente",
+      "status": "APROBADA",
+      "startedUtc": "2026-11-08T01:08:31.741Z",
+      "finishedUtc": "2026-11-08T01:08:32.259Z"
+    },
+    {
+      "id": "PUB-02",
+      "module": "Base de datos",
+      "procedure": "GET /api/v1/health",
+      "expected": "status=ok y database=connected",
+      "expectedStatus": 200,
+      "observed": "HTTP 200; status=ok, database=connected, version=0.3.0",
+      "status": "APROBADA",
+      "startedUtc": "2026-11-08T01:08:32.259Z",
+      "finishedUtc": "2026-11-08T01:08:32.405Z"
+    },
+    {
+      "id": "PUB-03",
+      "module": "Catálogo institucional",
+      "procedure": "GET /api/v1/catalog",
+      "expected": "emailDomains exactamente itesa.edu.mx",
+      "expectedStatus": 200,
+      "observed": "HTTP 200; dominios=[\"itesa.edu.mx\"]",
+      "status": "APROBADA",
+      "startedUtc": "2026-11-08T01:08:32.405Z",
+      "finishedUtc": "2026-11-08T01:08:32.672Z"
+    },
+    {
+      "id": "PUB-04",
+      "module": "Catálogo de artículos",
+      "procedure": "GET /api/v1/listings",
+      "expected": "Listado paginado de la API",
+      "expectedStatus": 200,
+      "observed": "HTTP 200; items=0",
+      "status": "APROBADA",
+      "startedUtc": "2026-11-08T01:08:32.672Z",
+      "finishedUtc": "2026-11-08T01:08:32.820Z"
+    },
+    {
+      "id": "PUB-05",
+      "module": "Autorización",
+      "procedure": "GET /api/v1/me/favorites",
+      "expected": "Sin sesión no accede a favoritos",
+      "expectedStatus": 401,
+      "observed": "HTTP 401",
+      "status": "APROBADA",
+      "startedUtc": "2026-11-08T01:08:32.820Z",
+      "finishedUtc": "2026-11-08T01:08:32.924Z"
+    },
+    {
+      "id": "PUB-06",
+      "module": "Sesión pública",
+      "procedure": "GET /api/v1/auth/session",
+      "expected": "Sin usuario y correo sin proveedor",
+      "expectedStatus": 200,
+      "observed": "HTTP 200; user=null, emailDeliveryConfigured=false",
+      "status": "APROBADA",
+      "startedUtc": "2026-11-08T01:08:32.924Z",
+      "finishedUtc": "2026-11-08T01:08:33.042Z"
+    }
+  ]
+}

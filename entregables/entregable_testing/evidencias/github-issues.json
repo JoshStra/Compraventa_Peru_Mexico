@@ -1,0 +1,25 @@
+{
+  "consultedUtc": "2026-11-08 01:07:53 UTC",
+  "items": [
+    {
+      "number": 2,
+      "title": "Operaciones: oferta retirada permanece pendiente y fechas de renta incluyen zona horaria",
+      "body": "Detectado en main ff48d53 el 30-10-2026. Reproducción real: crear dos publicaciones de intercambio, solicitar una ofreciendo la otra y retirar la ofrecida. GET /api/v1/operations conserva status=pending cuando corresponde cancelled. Además, solicitar renta y consultar operaciones devuelve rentalStart como 2026-10-31T06:00:00.000Z en lugar de la fecha civil 2026-10-31. Causas: retiro solo comprueba listing_id, y pg convierte DATE a Date de JavaScript. Regresión añadida a backend/test/operations.test.js. npm run test:api: 27 pasan y 2 fallan; se corregirá antes del cierre.",
+      "author": "mora8292",
+      "createdUtc": "2026-10-30T16:49:32Z",
+      "closedUtc": "2026-10-30T16:52:06Z",
+      "state": "closed",
+      "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/issues/2"
+    },
+    {
+      "number": 1,
+      "title": "Revisión de arquitectura y separación de componentes",
+      "body": "Revisando el repositorio, noto que los archivos CSS y JS están sueltos en la raíz. Según nuestra Especificación Técnica, sugiero moverlos a la carpeta frontend/ para mantener el orden",
+      "author": "JoshStra",
+      "createdUtc": "2026-10-16T22:20:27Z",
+      "closedUtc": "2026-10-30T16:49:31Z",
+      "state": "closed",
+      "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/issues/1"
+    }
+  ]
+}

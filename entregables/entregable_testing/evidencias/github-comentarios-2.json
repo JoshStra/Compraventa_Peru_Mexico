@@ -1,0 +1,11 @@
+{
+  "consultedUtc": "2026-11-08 01:07:55 UTC",
+  "items": [
+    {
+      "body": "Corregido en 6b0d297. El retiro cancela solicitudes pendientes cuando la publicación es principal u ofrecida, dentro de la misma transacción. Las fechas DATE de renta se proyectan con to_char(...,'YYYY-MM-DD'), independientes del huso horario. Se añadieron regresiones que antes fallaban; npm run test:api ahora termina con 30 pruebas correctas, incluyendo persistencia tras reinicio real del proceso y concurrencia de reservas. npm run format:check también correcto. Archivos: backend/src/services/listings.js, backend/src/services/operations.js, backend/test/operations.test.js y backend/test/persistence.test.js.",
+      "author": "mora8292",
+      "createdUtc": "2026-10-30T16:52:05Z",
+      "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/issues/2#issuecomment-6528334000"
+    }
+  ]
+}

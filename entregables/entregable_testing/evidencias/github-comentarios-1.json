@@ -1,0 +1,11 @@
+{
+  "consultedUtc": "2026-11-08 01:07:54 UTC",
+  "items": [
+    {
+      "body": "Resolución verificada en main: la reorganización 0f91601 separó el cliente en frontend/. Actualmente React, sus componentes y estilos están en frontend/src/; la API Node/Express está en backend/src/ con rutas, servicios, validadores, repositorios y migraciones. No quedan archivos de aplicación CSS/JS sueltos en la raíz; package.json coordina los workspaces.\n\nImplementación: 82c6954 (PostgreSQL/API), c4e2553 (cuentas y publicaciones conectadas) y ff48d53 (mensajes, operaciones y moderación). Validación local del 30-10-2026: npm test (47 pruebas), npm run test:api (28 pruebas en el último incremento backend), npm run build, npm run test:e2e (10 casos en escritorio y móvil) y npm run format:check. CI de c4e2553: https://github.com/JoshStra/Compraventa_Peru_Mexico/actions/runs/41091269918 .\n\nLa separación solicitada y el funcionamiento integrado están comprobados. El despliegue público y el envío de correo institucional se documentan por separado.",
+      "author": "mora8292",
+      "createdUtc": "2026-10-30T16:49:30Z",
+      "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/issues/1#issuecomment-6528281194"
+    }
+  ]
+}

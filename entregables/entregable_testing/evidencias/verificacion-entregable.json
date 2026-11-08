@@ -1,0 +1,20 @@
+{
+  "verifiedUtc": "2026-11-08T01:22:22.540Z",
+  "configuredSecretsFound": 0,
+  "cases": 97,
+  "passed": 97,
+  "frontend": 47,
+  "api": 34,
+  "browser": 10,
+  "publicReadOnly": 6,
+  "pdfPages": 31,
+  "editableFields": 15,
+  "technicalBaseline": "420a9bb89c91164cebc21e9e4a4a5a5173f81ff8",
+  "humanFeedback": "PENDIENTE",
+  "humanParticipants": 0,
+  "formatCheck": "passed",
+  "localEvidenceLinks": "checked",
+  "pdfCaseIdsAndFields": "checked",
+  "ciAttempt": 2,
+  "ciResult": "success"
+}

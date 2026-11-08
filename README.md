@@ -60,3 +60,5 @@ El prototipo anterior sigue en AppShell como demostración explícita con `VITE_
 El despliegue anterior de páginas estáticas se retiró porque no publica el backend ni PostgreSQL. Esta versión está publicada con servicios reales y HTTPS verificado; véanse las evidencias del despliegue. No se ha contratado ningún servicio de pago.
 
 La entrega comprobada y sus siete apartados están en [entregable final](entregables/entregable_final/README.md). La configuración gratuita preparada está en [render.yaml](render.yaml); los recursos desplegados, variables, validación y límites se describen en [despliegue](docs/DEPLOYMENT.md). La versión candidata usa la base de código 0.3.0; el correo real sigue pendiente y el sistema público ya responde en HTTPS.
+
+La evaluación del 7 de noviembre de 2026 está en el [entregable de testing](entregables/entregable_testing/README.md): ocho apartados, 97 casos ejecutados con resultados y un PDF con formularios editables. Las sesiones y comentarios de personas usuarias siguen pendientes; los registros automatizados se identifican por separado.

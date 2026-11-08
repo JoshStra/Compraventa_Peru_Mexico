@@ -1,0 +1,178 @@
+[
+  {
+    "dateMexico": "2026-11-07T19:08:44-06:00",
+    "case": "E2E-DESKTOP-01",
+    "module": "Recorrido desktop",
+    "actor": "Roles sintéticos estudiante, comprador, vendedor y administrador; sin correos reales",
+    "action": "Crear cuenta sintética por UI; obtener enlace del transporte aislado; verificar e iniciar sesión; publicar imagen y recargar; editar título y comprobar consola/ancho.",
+    "result": "Playwright aprobó el caso sin error en desktop; duración 2.6s.",
+    "status": "APROBADA",
+    "kind": "AUTOMATIZADA NO HUMANA",
+    "evidence": "evidencias/navegador-ci.log"
+  },
+  {
+    "dateMexico": "2026-11-07T19:08:44-06:00",
+    "case": "E2E-DESKTOP-02",
+    "module": "Recorrido desktop",
+    "actor": "Roles sintéticos estudiante, comprador, vendedor y administrador; sin correos reales",
+    "action": "Crear vendedor y comprador aislados; buscar artículo; agregar favorito; recargar; salir y volver a iniciar sesión.",
+    "result": "Playwright aprobó el caso sin error en desktop; duración 2.3s.",
+    "status": "APROBADA",
+    "kind": "AUTOMATIZADA NO HUMANA",
+    "evidence": "evidencias/navegador-ci.log"
+  },
+  {
+    "dateMexico": "2026-11-07T19:08:45-06:00",
+    "case": "E2E-DESKTOP-03",
+    "module": "Recorrido desktop",
+    "actor": "Roles sintéticos estudiante, comprador, vendedor y administrador; sin correos reales",
+    "action": "Crear cuenta sintética sin verificar; iniciar sesión y pulsar Publicar artículo.",
+    "result": "Playwright aprobó el caso sin error en desktop; duración 886ms.",
+    "status": "APROBADA",
+    "kind": "AUTOMATIZADA NO HUMANA",
+    "evidence": "evidencias/navegador-ci.log"
+  },
+  {
+    "dateMexico": "2026-11-07T19:08:57-06:00",
+    "case": "E2E-DESKTOP-04",
+    "module": "Recorrido desktop",
+    "actor": "Roles sintéticos estudiante, comprador, vendedor y administrador; sin correos reales",
+    "action": "Abrir dos contextos; comprador y vendedor intercambian mensajes sobre biblioteca; solicitar, aceptar y finalizar venta; calificar.",
+    "result": "Playwright aprobó el caso sin error en desktop; duración 12.6s.",
+    "status": "APROBADA",
+    "kind": "AUTOMATIZADA NO HUMANA",
+    "evidence": "evidencias/navegador-ci.log"
+  },
+  {
+    "dateMexico": "2026-11-07T19:08:48-06:00",
+    "case": "E2E-DESKTOP-05",
+    "module": "Recorrido desktop",
+    "actor": "Roles sintéticos estudiante, comprador, vendedor y administrador; sin correos reales",
+    "action": "Crear reporte como estudiante; entrar como admin del esquema de pruebas; resolverlo; volver al perfil del reportante.",
+    "result": "Playwright aprobó el caso sin error en desktop; duración 2.8s.",
+    "status": "APROBADA",
+    "kind": "AUTOMATIZADA NO HUMANA",
+    "evidence": "evidencias/navegador-ci.log"
+  },
+  {
+    "dateMexico": "2026-11-07T19:08:50-06:00",
+    "case": "E2E-MOBILE-01",
+    "module": "Recorrido mobile",
+    "actor": "Roles sintéticos estudiante, comprador, vendedor y administrador; sin correos reales",
+    "action": "Crear cuenta sintética por UI; obtener enlace del transporte aislado; verificar e iniciar sesión; publicar imagen y recargar; editar título y comprobar consola/ancho.",
+    "result": "Playwright aprobó el caso sin error en mobile; duración 1.7s.",
+    "status": "APROBADA",
+    "kind": "AUTOMATIZADA NO HUMANA",
+    "evidence": "evidencias/navegador-ci.log"
+  },
+  {
+    "dateMexico": "2026-11-07T19:08:51-06:00",
+    "case": "E2E-MOBILE-02",
+    "module": "Recorrido mobile",
+    "actor": "Roles sintéticos estudiante, comprador, vendedor y administrador; sin correos reales",
+    "action": "Crear vendedor y comprador aislados; buscar artículo; agregar favorito; recargar; salir y volver a iniciar sesión.",
+    "result": "Playwright aprobó el caso sin error en mobile; duración 1.2s.",
+    "status": "APROBADA",
+    "kind": "AUTOMATIZADA NO HUMANA",
+    "evidence": "evidencias/navegador-ci.log"
+  },
+  {
+    "dateMexico": "2026-11-07T19:08:52-06:00",
+    "case": "E2E-MOBILE-03",
+    "module": "Recorrido mobile",
+    "actor": "Roles sintéticos estudiante, comprador, vendedor y administrador; sin correos reales",
+    "action": "Crear cuenta sintética sin verificar; iniciar sesión y pulsar Publicar artículo.",
+    "result": "Playwright aprobó el caso sin error en mobile; duración 799ms.",
+    "status": "APROBADA",
+    "kind": "AUTOMATIZADA NO HUMANA",
+    "evidence": "evidencias/navegador-ci.log"
+  },
+  {
+    "dateMexico": "2026-11-07T19:09:04-06:00",
+    "case": "E2E-MOBILE-04",
+    "module": "Recorrido mobile",
+    "actor": "Roles sintéticos estudiante, comprador, vendedor y administrador; sin correos reales",
+    "action": "Abrir dos contextos; comprador y vendedor intercambian mensajes sobre biblioteca; solicitar, aceptar y finalizar venta; calificar.",
+    "result": "Playwright aprobó el caso sin error en mobile; duración 12.6s.",
+    "status": "APROBADA",
+    "kind": "AUTOMATIZADA NO HUMANA",
+    "evidence": "evidencias/navegador-ci.log"
+  },
+  {
+    "dateMexico": "2026-11-07T19:09:00-06:00",
+    "case": "E2E-MOBILE-05",
+    "module": "Recorrido mobile",
+    "actor": "Roles sintéticos estudiante, comprador, vendedor y administrador; sin correos reales",
+    "action": "Crear reporte como estudiante; entrar como admin del esquema de pruebas; resolverlo; volver al perfil del reportante.",
+    "result": "Playwright aprobó el caso sin error en mobile; duración 2.7s.",
+    "status": "APROBADA",
+    "kind": "AUTOMATIZADA NO HUMANA",
+    "evidence": "evidencias/navegador-ci.log"
+  },
+  {
+    "dateMexico": "2026-11-07T19:08:32-06:00",
+    "case": "PUB-01",
+    "module": "Frontend",
+    "actor": "Sonda automática anónima de solo lectura",
+    "action": "Abrir conexión HTTPS al origen público y ejecutar GET /. Comprobar estado y contenido esperado.",
+    "result": "HTTP 200; HTML raíz presente",
+    "status": "APROBADA",
+    "kind": "AUTOMATIZADA NO HUMANA",
+    "evidence": "evidencias/produccion-lectura.json"
+  },
+  {
+    "dateMexico": "2026-11-07T19:08:32-06:00",
+    "case": "PUB-02",
+    "module": "Base de datos",
+    "actor": "Sonda automática anónima de solo lectura",
+    "action": "Abrir conexión HTTPS al origen público y ejecutar GET /api/v1/health. Comprobar estado y contenido esperado.",
+    "result": "HTTP 200; status=ok, database=connected, version=0.3.0",
+    "status": "APROBADA",
+    "kind": "AUTOMATIZADA NO HUMANA",
+    "evidence": "evidencias/produccion-lectura.json"
+  },
+  {
+    "dateMexico": "2026-11-07T19:08:32-06:00",
+    "case": "PUB-03",
+    "module": "Catálogo institucional",
+    "actor": "Sonda automática anónima de solo lectura",
+    "action": "Abrir conexión HTTPS al origen público y ejecutar GET /api/v1/catalog. Comprobar estado y contenido esperado.",
+    "result": "HTTP 200; dominios=[\"itesa.edu.mx\"]",
+    "status": "APROBADA",
+    "kind": "AUTOMATIZADA NO HUMANA",
+    "evidence": "evidencias/produccion-lectura.json"
+  },
+  {
+    "dateMexico": "2026-11-07T19:08:32-06:00",
+    "case": "PUB-04",
+    "module": "Catálogo de artículos",
+    "actor": "Sonda automática anónima de solo lectura",
+    "action": "Abrir conexión HTTPS al origen público y ejecutar GET /api/v1/listings. Comprobar estado y contenido esperado.",
+    "result": "HTTP 200; items=0",
+    "status": "APROBADA",
+    "kind": "AUTOMATIZADA NO HUMANA",
+    "evidence": "evidencias/produccion-lectura.json"
+  },
+  {
+    "dateMexico": "2026-11-07T19:08:32-06:00",
+    "case": "PUB-05",
+    "module": "Autorización",
+    "actor": "Sonda automática anónima de solo lectura",
+    "action": "Abrir conexión HTTPS al origen público y ejecutar GET /api/v1/me/favorites. Comprobar estado y contenido esperado.",
+    "result": "HTTP 401",
+    "status": "APROBADA",
+    "kind": "AUTOMATIZADA NO HUMANA",
+    "evidence": "evidencias/produccion-lectura.json"
+  },
+  {
+    "dateMexico": "2026-11-07T19:08:33-06:00",
+    "case": "PUB-06",
+    "module": "Sesión pública",
+    "actor": "Sonda automática anónima de solo lectura",
+    "action": "Abrir conexión HTTPS al origen público y ejecutar GET /api/v1/auth/session. Comprobar estado y contenido esperado.",
+    "result": "HTTP 200; user=null, emailDeliveryConfigured=false",
+    "status": "APROBADA",
+    "kind": "AUTOMATIZADA NO HUMANA",
+    "evidence": "evidencias/produccion-lectura.json"
+  }
+]

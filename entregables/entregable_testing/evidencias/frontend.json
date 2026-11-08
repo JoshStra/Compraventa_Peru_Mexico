@@ -1,0 +1,661 @@
+{
+  "numTotalTestSuites": 9,
+  "numPassedTestSuites": 9,
+  "numFailedTestSuites": 0,
+  "numPendingTestSuites": 0,
+  "numTotalTests": 47,
+  "numPassedTests": 47,
+  "numFailedTests": 0,
+  "numPendingTests": 0,
+  "numTodoTests": 0,
+  "snapshot": {
+    "added": 0,
+    "failure": false,
+    "filesAdded": 0,
+    "filesRemoved": 0,
+    "filesRemovedList": [],
+    "filesUnmatched": 0,
+    "filesUpdated": 0,
+    "matched": 0,
+    "total": 0,
+    "unchecked": 0,
+    "uncheckedKeysByFile": [],
+    "unmatched": 0,
+    "updated": 0,
+    "didUpdate": false
+  },
+  "startTime": 1794099917713,
+  "success": true,
+  "testResults": [
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [],
+          "fullName": "publica sin errores de evento asíncrono y conserva el artículo al recargar",
+          "status": "passed",
+          "title": "publica sin errores de evento asíncrono y conserva el artículo al recargar",
+          "duration": 2564.2944000000007,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "muestra el error de almacenamiento sin cerrar ni borrar el formulario",
+          "status": "passed",
+          "title": "muestra el error de almacenamiento sin cerrar ni borrar el formulario",
+          "duration": 2049.9891000000007,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "filtra categorías completas y distingue la búsqueda vacía de los favoritos",
+          "status": "passed",
+          "title": "filtra categorías completas y distingue la búsqueda vacía de los favoritos",
+          "duration": 315.5069000000003,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "guarda mensajes visibles en su conversación y los restaura al recargar",
+          "status": "passed",
+          "title": "guarda mensajes visibles en su conversación y los restaura al recargar",
+          "duration": 678.7628999999997,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "permite cerrar un modal con Escape y restaura el foco",
+          "status": "passed",
+          "title": "permite cerrar un modal con Escape y restaura el foco",
+          "duration": 155.15509999999995,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "muestra errores de favoritos dentro del modal y conserva el estado",
+          "status": "passed",
+          "title": "muestra errores de favoritos dentro del modal y conserva el estado",
+          "duration": 166.95410000000084,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "detecta datos dañados sin sobrescribirlos",
+          "status": "passed",
+          "title": "detecta datos dañados sin sobrescribirlos",
+          "duration": 3.4688999999998487,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1794099927587,
+      "endTime": 1794099933521.469,
+      "status": "passed",
+      "message": "",
+      "name": "frontend/src/App.test.jsx"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [],
+          "fullName": "envía cookie y CSRF sin guardar la credencial en localStorage",
+          "status": "passed",
+          "title": "envía cookie y CSRF sin guardar la credencial en localStorage",
+          "duration": 11.036700000000565,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "rechaza respuestas HTML sin mostrarlas como contenido de la aplicación",
+          "status": "passed",
+          "title": "rechaza respuestas HTML sin mostrarlas como contenido de la aplicación",
+          "duration": 2.878600000000006,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "mapea el catálogo de API a las tarjetas sin datos inventados",
+          "status": "passed",
+          "title": "mapea el catálogo de API a las tarjetas sin datos inventados",
+          "duration": 1.0968999999986409,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1794099926837,
+      "endTime": 1794099926852.097,
+      "status": "passed",
+      "message": "",
+      "name": "frontend/src/services/apiClient.test.js"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "persistencia y administración del catálogo"
+          ],
+          "fullName": "persistencia y administración del catálogo conserva publicaciones y favoritos al crear una sesión nueva",
+          "status": "passed",
+          "title": "conserva publicaciones y favoritos al crear una sesión nueva",
+          "duration": 10.074299999998402,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "persistencia y administración del catálogo"
+          ],
+          "fullName": "persistencia y administración del catálogo genera identificadores únicos incluso en el mismo milisegundo",
+          "status": "passed",
+          "title": "genera identificadores únicos incluso en el mismo milisegundo",
+          "duration": 1.9684999999990396,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "persistencia y administración del catálogo"
+          ],
+          "fullName": "persistencia y administración del catálogo no permite modificar publicaciones de demostración ajenas",
+          "status": "passed",
+          "title": "no permite modificar publicaciones de demostración ajenas",
+          "duration": 2.297500000000582,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "persistencia y administración del catálogo"
+          ],
+          "fullName": "persistencia y administración del catálogo edita, reserva y finaliza una publicación propia sin reabrirla",
+          "status": "passed",
+          "title": "edita, reserva y finaliza una publicación propia sin reabrirla",
+          "duration": 2.307700000001205,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "persistencia y administración del catálogo"
+          ],
+          "fullName": "persistencia y administración del catálogo no muta el estado cuando una entrada es inválida",
+          "status": "passed",
+          "title": "no muta el estado cuando una entrada es inválida",
+          "duration": 0.8662999999996828,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "persistencia y administración del catálogo"
+          ],
+          "fullName": "persistencia y administración del catálogo propaga el perfil a sus publicaciones sin inventar verificación",
+          "status": "passed",
+          "title": "propaga el perfil a sus publicaciones sin inventar verificación",
+          "duration": 1.4169999999994616,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "persistencia y administración del catálogo"
+          ],
+          "fullName": "persistencia y administración del catálogo no sobrescribe datos dañados silenciosamente",
+          "status": "passed",
+          "title": "no sobrescribe datos dañados silenciosamente",
+          "duration": 0.7803999999996449,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "persistencia y administración del catálogo"
+          ],
+          "fullName": "persistencia y administración del catálogo detecta un documento JSON válido con estructura incompatible",
+          "status": "passed",
+          "title": "detecta un documento JSON válido con estructura incompatible",
+          "duration": 0.666800000000876,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "persistencia y administración del catálogo"
+          ],
+          "fullName": "persistencia y administración del catálogo informa de falta de espacio y conserva el estado anterior",
+          "status": "passed",
+          "title": "informa de falta de espacio y conserva el estado anterior",
+          "duration": 3.560699999999997,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "persistencia y administración del catálogo"
+          ],
+          "fullName": "persistencia y administración del catálogo lee los cambios guardados desde otra instancia antes de escribir",
+          "status": "passed",
+          "title": "lee los cambios guardados desde otra instancia antes de escribir",
+          "duration": 1.7145000000000437,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "mensajes y reportes locales"
+          ],
+          "fullName": "mensajes y reportes locales reutiliza conversaciones y mantiene sus mensajes separados",
+          "status": "passed",
+          "title": "reutiliza conversaciones y mantiene sus mensajes separados",
+          "duration": 1.5637000000006083,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "mensajes y reportes locales"
+          ],
+          "fullName": "mensajes y reportes locales rechaza mensajes vacíos y conversaciones inexistentes",
+          "status": "passed",
+          "title": "rechaza mensajes vacíos y conversaciones inexistentes",
+          "duration": 0.5077000000001135,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "mensajes y reportes locales"
+          ],
+          "fullName": "mensajes y reportes locales impide abrir una conversación con una publicación propia",
+          "status": "passed",
+          "title": "impide abrir una conversación con una publicación propia",
+          "duration": 0.8561000000008789,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "mensajes y reportes locales"
+          ],
+          "fullName": "mensajes y reportes locales registra reportes válidos y evita duplicados abiertos",
+          "status": "passed",
+          "title": "registra reportes válidos y evita duplicados abiertos",
+          "duration": 1.4627000000000407,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1794099926841,
+      "endTime": 1794099926871.4626,
+      "status": "passed",
+      "message": "",
+      "name": "frontend/src/services/campusRepository.test.js"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [],
+          "fullName": "rechaza archivos que solo declaran ser imágenes",
+          "status": "passed",
+          "title": "rechaza archivos que solo declaran ser imágenes",
+          "duration": 7.558700000000499,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "rechaza formatos no permitidos y archivos grandes",
+          "status": "passed",
+          "title": "rechaza formatos no permitidos y archivos grandes",
+          "duration": 2.1096999999999753,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "lee una firma PNG compatible como data URL",
+          "status": "passed",
+          "title": "lee una firma PNG compatible como data URL",
+          "duration": 2.386700000000019,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1794099926824,
+      "endTime": 1794099926836.3867,
+      "status": "passed",
+      "message": "",
+      "name": "frontend/src/services/listingImage.test.js"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "validación de contenido"
+          ],
+          "fullName": "validación de contenido recorta espacios y conserva importes decimales",
+          "status": "passed",
+          "title": "recorta espacios y conserva importes decimales",
+          "duration": 5.170599999999467,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "validación de contenido"
+          ],
+          "fullName": "validación de contenido rechaza title inválido (        )",
+          "status": "passed",
+          "title": "rechaza title inválido (        )",
+          "duration": 1.2401000000008935,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "validación de contenido"
+          ],
+          "fullName": "validación de contenido rechaza description inválido (                  )",
+          "status": "passed",
+          "title": "rechaza description inválido (                  )",
+          "duration": 0.5303999999996449,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "validación de contenido"
+          ],
+          "fullName": "validación de contenido rechaza location inválido ( )",
+          "status": "passed",
+          "title": "rechaza location inválido ( )",
+          "duration": 0.5394999999989523,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "validación de contenido"
+          ],
+          "fullName": "validación de contenido rechaza price inválido ()",
+          "status": "passed",
+          "title": "rechaza price inválido ()",
+          "duration": 0.6858999999985826,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "validación de contenido"
+          ],
+          "fullName": "validación de contenido rechaza price inválido (-2)",
+          "status": "passed",
+          "title": "rechaza price inválido (-2)",
+          "duration": 0.39689999999973224,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "validación de contenido"
+          ],
+          "fullName": "validación de contenido rechaza price inválido (0)",
+          "status": "passed",
+          "title": "rechaza price inválido (0)",
+          "duration": 0.25280000000020664,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "validación de contenido"
+          ],
+          "fullName": "validación de contenido rechaza price inválido (Infinity)",
+          "status": "passed",
+          "title": "rechaza price inválido (Infinity)",
+          "duration": 0.1929999999993015,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "validación de contenido"
+          ],
+          "fullName": "validación de contenido rechaza price inválido (1.234)",
+          "status": "passed",
+          "title": "rechaza price inválido (1.234)",
+          "duration": 0.27670000000034634,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "validación de contenido"
+          ],
+          "fullName": "validación de contenido rechaza price inválido (1000001)",
+          "status": "passed",
+          "title": "rechaza price inválido (1000001)",
+          "duration": 0.341099999999642,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "validación de contenido"
+          ],
+          "fullName": "validación de contenido rechaza category inválido (Otra)",
+          "status": "passed",
+          "title": "rechaza category inválido (Otra)",
+          "duration": 0.23040000000037253,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "validación de contenido"
+          ],
+          "fullName": "validación de contenido rechaza career inválido (Todas)",
+          "status": "passed",
+          "title": "rechaza career inválido (Todas)",
+          "duration": 0.1396999999997206,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "validación de contenido"
+          ],
+          "fullName": "validación de contenido rechaza condition inválido (Todas)",
+          "status": "passed",
+          "title": "rechaza condition inválido (Todas)",
+          "duration": 0.12370000000009895,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "validación de contenido"
+          ],
+          "fullName": "validación de contenido rechaza modality inválido (Todos)",
+          "status": "passed",
+          "title": "rechaza modality inválido (Todos)",
+          "duration": 0.12620000000060827,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "validación de contenido"
+          ],
+          "fullName": "validación de contenido normaliza donaciones e intercambios sin precio",
+          "status": "passed",
+          "title": "normaliza donaciones e intercambios sin precio",
+          "duration": 0.43139999999948486,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "validación de contenido"
+          ],
+          "fullName": "validación de contenido guarda la tarifa de renta en su campo correcto",
+          "status": "passed",
+          "title": "guarda la tarifa de renta en su campo correcto",
+          "duration": 0.2150999999994383,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "validación de contenido"
+          ],
+          "fullName": "validación de contenido rechaza SVG y URLs externas en las imágenes",
+          "status": "passed",
+          "title": "rechaza SVG y URLs externas en las imágenes",
+          "duration": 0.4318999999995867,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "búsqueda y filtros combinados"
+          ],
+          "fullName": "búsqueda y filtros combinados encuentra palabras sin distinguir mayúsculas ni acentos",
+          "status": "passed",
+          "title": "encuentra palabras sin distinguir mayúsculas ni acentos",
+          "duration": 0.7468000000008033,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "búsqueda y filtros combinados"
+          ],
+          "fullName": "búsqueda y filtros combinados filtra la categoría completa y usa el precio diario para rentas",
+          "status": "passed",
+          "title": "filtra la categoría completa y usa el precio diario para rentas",
+          "duration": 0.3280000000013388,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "búsqueda y filtros combinados"
+          ],
+          "fullName": "búsqueda y filtros combinados acumula filtros y excluye publicaciones finalizadas",
+          "status": "passed",
+          "title": "acumula filtros y excluye publicaciones finalizadas",
+          "duration": 0.3098999999983789,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1794099926839,
+      "endTime": 1794099926852.328,
+      "status": "passed",
+      "message": "",
+      "name": "frontend/src/domain/catalog.test.js"
+    }
+  ]
+}

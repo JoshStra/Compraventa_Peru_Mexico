@@ -1,0 +1,12 @@
+{
+  "suite": "build",
+  "startedUtc": "2026-11-08T01:05:08.034Z",
+  "finishedUtc": "2026-11-08T01:05:18.758Z",
+  "startedMexico": "2026-11-07 19:05:08 GMT−6",
+  "durationSeconds": 10.724,
+  "command": "npm.cmd run build",
+  "cwd": "<repo>",
+  "exitCode": 0,
+  "sha": "420a9bb89c91164cebc21e9e4a4a5a5173f81ff8",
+  "node": "v24.12.0"
+}

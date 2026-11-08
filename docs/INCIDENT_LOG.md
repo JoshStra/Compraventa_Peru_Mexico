@@ -34,3 +34,11 @@ Fecha de ejecución: 2026-10-30, zona America/Mexico_City. Se omiten credenciale
 ## Logs
 
 Los archivos `pruebas-frontend.txt`, `pruebas-api.txt`, `pruebas-navegador.txt`, `compilacion.txt`, `formato.txt` y `dependencias.txt` en evidencias contienen comandos, fechas reales y salidas de la validación final. [CI de la interfaz](https://github.com/JoshStra/Compraventa_Peru_Mexico/actions/runs/41093113611). Historial de ejecuciones fallidas disponible en [Actions](https://github.com/JoshStra/Compraventa_Peru_Mexico/actions), sin presentar esos intentos como aprobados. La prueba entre procesos verifica persistencia, sin afirmar que se haya probado recuperación ante desastre.
+
+## Actualización del 7 de noviembre de 2026
+
+EXT-03 dejó de bloquear la publicación el 30 de octubre: Render, Neon y Supabase se desplegaron y sus evidencias están en DEPLOYMENT.md. La fila anterior conserva el diagnóstico inicial de esta bitácora. En este nuevo corte frontend, health y catálogo públicos siguen respondiendo; se ejecutaron seis sondas de lectura y se repitió la regresión en CI.
+
+Las dos regresiones de operaciones del issue #2 volvieron a aprobarse en API-OPERATIONS-04 y API-OPERATIONS-06. Los issues #1/#2 continúan cerrados y con comentarios de resolución, consultados mediante la API de GitHub. No se detectaron nuevos defectos funcionales en las 97 comprobaciones ejecutadas.
+
+Docker Desktop tuvo un fallo de arranque de dockerInference en el equipo local; API y navegador se ejecutaron con éxito en CI. Correo institucional y sesiones con personas siguen pendientes. [Registro actualizado de incidencias](../entregables/entregable_testing/04_REGISTRO_INCIDENCIAS.md) y [resultados](../entregables/entregable_testing/05_RESULTADOS_TESTING.md).

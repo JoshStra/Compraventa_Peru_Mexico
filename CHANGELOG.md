@@ -1,5 +1,12 @@
 # Historial de cambios de CampusTrade
 
+## Cambios preparados — 9 de noviembre de 2026
+
+- Interfaz de galería blanca: portada editorial compartida, botones azules y neutros, tarjetas de 28 px y superficies sin sombras ni degradados.
+- Catálogo, perfiles, formularios, mensajes, operaciones y administración adaptados a escritorio y móvil; fotografías de publicaciones conservadas y alternativa neutra para artículos sin imagen.
+- Iconos de categorías asociados por nombre y carpeta de evidencias E2E configurable para preservar entregas anteriores.
+- Validación local: 47 pruebas frontend, 34 API/PostgreSQL, 10 recorridos E2E y revisión visual a 320, 390 y 1440 px. Imagen generada con herramienta integrada y procedencia documentada.
+
 ## 0.3.0-rc.2 — 30 de octubre de 2026
 
 - Primer despliegue real HTTPS en Render Free: React y API del mismo origen, PostgreSQL Neon Free y bucket privado Supabase S3 Free.

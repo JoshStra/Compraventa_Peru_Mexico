@@ -1,0 +1,33 @@
+
+> campustrade@0.3.0 test:e2e
+> npm run test:e2e --workspace frontend
+
+
+> campustrade-alpha@0.3.0 test:e2e
+> playwright test
+
+[WebServer] (node:57136) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 10 tests using 2 workers
+
+(node:77496) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:46656) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [desktop] › e2e\fullstack.spec.js:113:1 › catálogo y favoritos persisten entre sesiones del navegador (3.5s)
+  ok  2 [desktop] › e2e\fullstack.spec.js:21:1 › registro verificación publicación con imagen y edición persistentes (4.0s)
+  ok  3 [desktop] › e2e\fullstack.spec.js:156:1 › una cuenta sin verificar no publica ni obtiene una insignia falsa (755ms)
+  ok  5 [desktop] › e2e\workflows.spec.js:130:1 › reporte y resolución real desde la administración (2.6s)
+(node:58320) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  6 [mobile] › e2e\fullstack.spec.js:21:1 › registro verificación publicación con imagen y edición persistentes (1.8s)
+  ok  7 [mobile] › e2e\fullstack.spec.js:113:1 › catálogo y favoritos persisten entre sesiones del navegador (1.5s)
+  ok  8 [mobile] › e2e\fullstack.spec.js:156:1 › una cuenta sin verificar no publica ni obtiene una insignia falsa (683ms)
+  ok  4 [desktop] › e2e\workflows.spec.js:27:1 › mensajes entre dos sesiones y venta con calificación (12.7s)
+(node:57956) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 10 [mobile] › e2e\workflows.spec.js:130:1 › reporte y resolución real desde la administración (3.0s)
+  ok  9 [mobile] › e2e\workflows.spec.js:27:1 › mensajes entre dos sesiones y venta con calificación (12.6s)
+
+  10 passed (28.5s)

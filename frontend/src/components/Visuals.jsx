@@ -118,111 +118,21 @@ export function Icon({ name, size = 20, stroke = 1.8 }) {
   );
 }
 
-export function ListingVisual({
-  type,
-  large = false,
-  imageUrl,
-  title = "Artículo",
-}) {
+export function ListingVisual({ large = false, imageUrl, title = "Artículo" }) {
   if (imageUrl)
     return (
       <div className={`listing-visual ${large ? "is-large" : ""}`}>
         <img src={imageUrl} alt={title} />
       </div>
     );
-  const graphic =
-    {
-      arduino: (
-        <>
-          <rect x="22" y="31" width="76" height="49" rx="9" fill="#167c68" />
-          <circle cx="41" cy="55" r="9" fill="#d6f2d6" />
-          <circle cx="78" cy="55" r="9" fill="#d6f2d6" />
-          <path
-            d="M28 80v13m13-13v8m30-8v13m14-13v8"
-            stroke="#134c42"
-            strokeWidth="4"
-          />
-          <path d="M34 31V18m51 13V18" stroke="#f3b849" strokeWidth="4" />
-        </>
-      ),
-      coat: (
-        <>
-          <path
-            d="M48 22 60 14l12 8 18 9-8 18-10-4v51H48V45l-10 4-8-18z"
-            fill="#f8fbf9"
-            stroke="#b4c9c1"
-            strokeWidth="3"
-          />
-          <path
-            d="m48 22 12 13 12-13M60 35v61"
-            stroke="#b4c9c1"
-            strokeWidth="3"
-          />
-        </>
-      ),
-      caliper: (
-        <>
-          <path
-            d="M25 47h77v11H25zM38 47V26h10v21m15 11v19h13V58m13-11V30h9v17"
-            fill="#dce9e5"
-            stroke="#47736a"
-            strokeWidth="3"
-          />
-          <path d="M25 58h77" stroke="#47736a" strokeWidth="3" />
-        </>
-      ),
-      book: (
-        <>
-          <path d="M34 27c15-8 27 2 27 2v63s-12-10-27-2z" fill="#f7b94e" />
-          <path d="M88 27c-15-8-27 2-27 2v63s12-10 27-2z" fill="#e59438" />
-          <path
-            d="M61 29v63M38 42h18m9 0h18"
-            stroke="#774716"
-            strokeWidth="3"
-          />
-        </>
-      ),
-      gloves: (
-        <>
-          <path
-            d="M44 87c-10-5-12-18-6-30l7-14c3-6 10-4 9 2l-3 10 7-19c3-7 11-4 9 3l-5 17 8-15c4-6 11-1 8 5l-6 14 6-8c5-6 11 0 6 7L64 80c-5 11-12 15-20 7Z"
-            fill="#a7cfe4"
-            stroke="#4685a8"
-            strokeWidth="3"
-          />
-        </>
-      ),
-      circuit: (
-        <>
-          <rect
-            x="26"
-            y="27"
-            width="70"
-            height="65"
-            rx="8"
-            fill="#d7eee5"
-            stroke="#4c927c"
-            strokeWidth="3"
-          />
-          <path
-            d="M39 45h16v-9h25m-41 28h20v14h27M75 45v18h12"
-            stroke="#4c927c"
-            strokeWidth="4"
-          />
-          <circle cx="80" cy="36" r="5" fill="#f4b746" />
-          <circle cx="86" cy="78" r="5" fill="#f4b746" />
-        </>
-      ),
-    }[type] ?? null;
   return (
-    <div className={`listing-visual ${large ? "is-large" : ""} visual-${type}`}>
-      <svg
-        viewBox="0 0 120 120"
-        role="img"
-        aria-label="Ilustración del artículo"
-      >
-        {graphic}
-      </svg>
+    <div
+      className={`listing-visual is-placeholder ${large ? "is-large" : ""}`}
+      role="img"
+      aria-label={`Sin fotografía: ${title}`}
+    >
+      <Icon name="image" size={32} />
+      <span>Sin fotografía</span>
     </div>
   );
 }

@@ -1,5 +1,4 @@
 import { test, expect, request as requestFactory } from "@playwright/test";
-import { mkdirSync } from "node:fs";
 import {
   actor,
   identity,
@@ -8,6 +7,7 @@ import {
   verificationMail,
   fixtureImage,
   origin,
+  evidencePath,
 } from "./helpers.js";
 
 const clients = [];
@@ -86,9 +86,8 @@ test("registro verificación publicación con imagen y edición persistentes", a
   await expect(
     page.getByRole("heading", { name: input.name, exact: true }),
   ).toBeVisible();
-  mkdirSync("../entregables/entregable_final/evidencias", { recursive: true });
   await page.screenshot({
-    path: `../entregables/entregable_final/evidencias/${info.project.name}-perfil-postgresql.png`,
+    path: evidencePath(info, "perfil-postgresql"),
     fullPage: true,
   });
   await page.getByRole("button", { name: "Editar", exact: true }).click();

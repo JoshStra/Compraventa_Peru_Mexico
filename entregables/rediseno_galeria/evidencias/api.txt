@@ -1,0 +1,50 @@
+
+> campustrade@0.3.0 test:api
+> npm run test --workspace backend
+
+
+> campustrade-api@0.3.0 test
+> node --env-file-if-exists=.env --test --test-concurrency=1 test/*.test.js
+
+✔ registro institucional almacena hash y nunca inventa la verificación (217.6626ms)
+✔ rechaza dominios ajenos, contraseñas cortas, roles y duplicados (54.9707ms)
+✔ el enlace de verificación es de un solo uso (25.4139ms)
+✔ sesión HttpOnly, CSRF, persistencia y cierre revocable (66.0099ms)
+✔ recuperación cambia la contraseña y revoca las sesiones previas (140.1827ms)
+✔ rechaza orígenes extraños y tokens vencidos (54.1165ms)
+✔ Render proporciona el origen HTTPS inicial sin adivinar el dominio asignado (1.2671ms)
+✔ PUBLIC_URL y CORS_ORIGINS explícitos prevalecen sobre el dominio de Render (0.1871ms)
+✔ la detección de Render no permite HTTP ni orígenes con rutas (1.0065ms)
+✔ producción sigue rechazando URL ausente y almacenamiento local (0.2343ms)
+✔ conversación única entre participantes distintos (459.3024ms)
+✔ mensaje del comprador llega al vendedor y persiste (18.9809ms)
+✔ bloquea lectura escritura y suplantación por terceros (17.7033ms)
+✔ migraciones PostgreSQL idempotentes y catálogo inicial (73.8754ms)
+✔ health confirma la conexión real y no expone secretos (8.562ms)
+✔ rollback conserva la integridad cuando falla una escritura (7.0134ms)
+✔ publicar exige sesión y correo verificado; no acepta suplantar propietario (452.3834ms)
+✔ contenido inválido se rechaza y las consultas están parametrizadas (35.2649ms)
+✔ solo el propietario edita y retira; persiste con una nueva instancia de API (39.9816ms)
+✔ favoritos idempotentes se conservan en PostgreSQL (57.2087ms)
+✔ la carga verifica MIME contenido extensión y tamaño antes de publicar (92.6067ms)
+✔ retirar conserva historial y excluye el artículo del catálogo (11.6487ms)
+✔ reporte persistente evita duplicados y limita acceso administrativo (515.0448ms)
+✔ administrador revisa resuelve y registra una decisión real (38.6472ms)
+✔ moderación retira contenido sin borrar su historial (20.2612ms)
+✔ suspensión revoca sesiones y oculta publicaciones; no modifica administradores (45.4597ms)
+✔ categorías y carreras se administran sin modificar referencias históricas (24.2823ms)
+✔ dos aceptaciones simultáneas solo reservan el artículo una vez (485.9549ms)
+✔ estados terminales bloquean solicitudes y las calificaciones exigen finalización (48.8787ms)
+✔ cancelar una reserva libera disponibilidad y rechaza terceros (56.2858ms)
+✔ renta valida fechas e importe y permite registrar devolución (89.9753ms)
+✔ intercambio reserva ambos artículos y no permite reutilizar el ofrecido (98.9302ms)
+✔ retirar una oferta de intercambio cancela las solicitudes pendientes relacionadas (61.8919ms)
+✔ publicación y sesión sobreviven al reinicio real del proceso Node (1741.109ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10483.2749

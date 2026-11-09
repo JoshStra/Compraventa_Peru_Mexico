@@ -1,6 +1,16 @@
 import { request as requestFactory, expect } from "@playwright/test";
 import { randomUUID } from "node:crypto";
 import { fileURLToPath } from "node:url";
+import { mkdirSync } from "node:fs";
+import path from "node:path";
+
+export function evidencePath(info, name) {
+  const directory =
+    process.env.E2E_EVIDENCE_DIR ||
+    "../entregables/entregable_final/evidencias";
+  mkdirSync(directory, { recursive: true });
+  return path.join(directory, `${info.project.name}-${name}.png`);
+}
 
 export const origin = "http://127.0.0.1:4180";
 export const fixtureImage = fileURLToPath(

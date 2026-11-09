@@ -1,3 +1,4 @@
+import { HomeHero } from "./components/HomeHero.jsx";
 import { useEffect, useMemo, useState } from "react";
 import {
   careers,
@@ -8,7 +9,7 @@ import {
   modalities,
 } from "./domain/catalog.js";
 import { campusRepository, STORAGE_KEY } from "./services/campusRepository.js";
-import { Icon, ListingVisual } from "./components/Visuals.jsx";
+import { Icon } from "./components/Visuals.jsx";
 import {
   EmptyState,
   ProductCard,
@@ -231,67 +232,10 @@ export default function App() {
       <main id="contenido">
         {activeView === "Inicio" && (
           <>
-            <section className="hero">
-              <div className="hero-copy">
-                <p className="hero-kicker">
-                  <span />
-                  Comercio entre estudiantes
-                </p>
-                <h1>
-                  Lo que ya no usas,
-                  <br />
-                  <em>alguien lo necesita.</em>
-                </h1>
-                <p>
-                  Compra, renta, intercambia o dona materiales académicos de tu
-                  comunidad.
-                </p>
-                <div className="hero-actions">
-                  <button
-                    className="button button-primary"
-                    onClick={() => browse()}
-                  >
-                    Explorar artículos <Icon name="arrow" size={18} />
-                  </button>
-                  <button
-                    className="button button-secondary"
-                    onClick={() => setEditing({})}
-                  >
-                    <Icon name="plus" size={18} />
-                    Publicar artículo
-                  </button>
-                </div>
-                <div className="trust-line">
-                  <span>
-                    <Icon name="check" size={15} />
-                    Cuatro formas de reutilizar
-                  </span>
-                  <span>
-                    <Icon name="pin" size={15} />
-                    Entrega en el campus
-                  </span>
-                </div>
-              </div>
-              <div className="hero-art" aria-hidden="true">
-                <div className="hero-circle" />
-                <div className="hero-card hero-card-main">
-                  <ListingVisual type="arduino" large />
-                  <div>
-                    <span>Kit Arduino Uno</span>
-                    <strong>$480</strong>
-                  </div>
-                </div>
-                <div className="hero-card hero-card-float">
-                  <span className="avatar avatar-small">CT</span>
-                  <div>
-                    <strong>Más vida a tus materiales</strong>
-                    <small>Venta, renta, intercambio y donación</small>
-                  </div>
-                </div>
-                <div className="hero-spark spark-one">✦</div>
-                <div className="hero-spark spark-two">✦</div>
-              </div>
-            </section>
+            <HomeHero
+              onBrowse={() => browse()}
+              onPublish={() => setEditing({})}
+            />
             <section className="category-section">
               <div className="section-title">
                 <div>

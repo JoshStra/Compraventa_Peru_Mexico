@@ -1,0 +1,54 @@
+{
+  "date": "2026-11-09T19:58:26.203Z",
+  "environment": "PostgreSQL local, esquema aislado, usuarios sintéticos; no producción",
+  "checks": [
+    {
+      "heroImage": 1200,
+      "scroll": 1265,
+      "shadow": "none",
+      "vista": "portada escritorio",
+      "width": 1280
+    },
+    {
+      "navScroll": 375,
+      "navWidth": 375,
+      "scroll": 375,
+      "vista": "portada móvil 390",
+      "width": 390
+    },
+    {
+      "navItems": [
+        "Inicio",
+        "Explorar",
+        "Favoritos",
+        "Mensajes",
+        "Operaciones",
+        "Perfil",
+        "Gestión"
+      ],
+      "navOverflow": "auto",
+      "navScroll": 406,
+      "navWidth": 375,
+      "scroll": 375,
+      "vista": "administración móvil 390",
+      "width": 390
+    },
+    {
+      "overflowing": [],
+      "scroll": 320,
+      "vista": "administración móvil 320",
+      "width": 320
+    },
+    {
+      "overflowing": [],
+      "scroll": 320,
+      "vista": "catálogo móvil 320",
+      "width": 320
+    },
+    {
+      "scroll": 1440,
+      "vista": "administración escritorio 1440",
+      "width": 1440
+    }
+  ]
+}

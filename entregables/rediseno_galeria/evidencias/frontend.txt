@@ -1,0 +1,16 @@
+
+> campustrade@0.3.0 test
+> npm run test --workspace frontend
+
+
+> campustrade-alpha@0.3.0 test
+> vitest run
+
+
+ RUN  v5.0.5 C:/Users/Alexm/OneDrive/Documentos/Mex-Cerru/Compraventa_Peru_Mexico/frontend
+
+
+ Test Files  5 passed (5)
+      Tests  47 passed (47)
+   Start at  13:50:38
+   Duration  7.32s (tests 42%, environment 39%, setup 16%, import 1%, transform 1%)

@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { actor, listing, login, origin } from "./helpers.js";
+import { actor, listing, login, origin, evidencePath } from "./helpers.js";
 const clients = [];
 test.afterEach(async () => {
   await Promise.all(clients.splice(0).map((client) => client.dispose()));
@@ -66,7 +66,7 @@ test("mensajes entre dos sesiones y venta con calificación", async ({
       { timeout: 15000 },
     );
     await page.screenshot({
-      path: `../entregables/entregable_final/evidencias/${info.project.name}-mensajes.png`,
+      path: evidencePath(info, "mensajes"),
       fullPage: true,
     });
     await open(page, item);
@@ -110,7 +110,7 @@ test("mensajes entre dos sesiones y venta con calificación", async ({
       .click();
     await expect(card).toContainText("Calificación registrada");
     await page.screenshot({
-      path: `../entregables/entregable_final/evidencias/${info.project.name}-operacion-finalizada.png`,
+      path: evidencePath(info, "operacion-finalizada"),
       fullPage: true,
     });
     const result = await (
@@ -189,7 +189,7 @@ test("reporte y resolución real desde la administración", async ({
       ),
   ).toBeVisible();
   await page.screenshot({
-    path: `../entregables/entregable_final/evidencias/${info.project.name}-administracion.png`,
+    path: evidencePath(info, "administracion"),
     fullPage: true,
   });
   await page.getByRole("button", { name: "Perfil", exact: true }).click();

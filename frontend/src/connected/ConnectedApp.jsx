@@ -1,3 +1,4 @@
+import { HomeHero } from "../components/HomeHero.jsx";
 import { useEffect, useState } from "react";
 import {
   api,
@@ -333,7 +334,6 @@ export default function ConnectedApp() {
       ))}
     </div>
   );
-  const featured = result.items.find((item) => item.status === "available");
 
   return (
     <div className="app-shell" aria-busy={busy}>
@@ -403,75 +403,7 @@ export default function ConnectedApp() {
       <main id="contenido">
         {view === "Inicio" && (
           <>
-            <section className="hero">
-              <div className="hero-copy">
-                <p className="hero-kicker">
-                  <span />
-                  Comercio entre estudiantes
-                </p>
-                <h1>
-                  Lo que ya no usas,
-                  <br />
-                  <em>alguien lo necesita.</em>
-                </h1>
-                <p>
-                  Compra, renta, intercambia o dona materiales académicos con
-                  estudiantes de tu comunidad.
-                </p>
-                <div className="hero-actions">
-                  <button
-                    className="button button-primary"
-                    onClick={() => browse()}
-                  >
-                    Explorar artículos <Icon name="arrow" size={18} />
-                  </button>
-                  <button
-                    className="button button-secondary"
-                    onClick={() => publish()}
-                  >
-                    <Icon name="plus" size={18} />
-                    Publicar artículo
-                  </button>
-                </div>
-                <div className="trust-line">
-                  <span>
-                    <Icon name="check" size={15} />
-                    Verificación por correo institucional
-                  </span>
-                  <span>
-                    <Icon name="pin" size={15} />
-                    Entrega en el campus
-                  </span>
-                </div>
-              </div>
-              <div className="hero-art" aria-hidden="true">
-                <div className="hero-circle" />
-                <div className="hero-card hero-card-main">
-                  <ListingVisual
-                    type={featured ? decorateListing(featured).image : "book"}
-                    imageUrl={
-                      featured?.images[0]
-                        ? imageUrl(featured.images[0].url)
-                        : ""
-                    }
-                    large
-                  />
-                  <div>
-                    <span>
-                      {featured?.title || "Dale otra vida a tus materiales"}
-                    </span>
-                    {featured && <strong>{money(featured.price)}</strong>}
-                  </div>
-                </div>
-                <div className="hero-card hero-card-float">
-                  <span className="avatar avatar-small">CT</span>
-                  <div>
-                    <strong>Tu comunidad universitaria</strong>
-                    <small>Venta, renta, intercambio y donación</small>
-                  </div>
-                </div>
-              </div>
-            </section>
+            <HomeHero onBrowse={() => browse()} onPublish={() => publish()} />
             <section className="category-section">
               <div className="section-title">
                 <div>
@@ -483,7 +415,7 @@ export default function ConnectedApp() {
                 </button>
               </div>
               <div className="category-grid">
-                {catalog.categories.map((category, index) => (
+                {catalog.categories.map((category) => (
                   <button
                     className="category-card"
                     key={category.id}
@@ -491,7 +423,14 @@ export default function ConnectedApp() {
                   >
                     <span className="category-icon">
                       <Icon
-                        name={["chip", "flask", "book", "tool"][index % 4]}
+                        name={
+                          {
+                            Electrónica: "chip",
+                            Herramientas: "tool",
+                            Laboratorio: "flask",
+                            Libros: "book",
+                          }[category.name] || "image"
+                        }
                         size={25}
                       />
                     </span>
@@ -521,7 +460,7 @@ export default function ConnectedApp() {
                   text="Comparte un material que alguien más pueda aprovechar."
                   action={
                     <button
-                      className="button button-primary"
+                      className="button button-secondary"
                       onClick={() => publish()}
                     >
                       Publicar artículo

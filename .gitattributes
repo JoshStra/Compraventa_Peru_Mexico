@@ -2,3 +2,6 @@
 entregables/rediseno_galeria/evidencias/*.txt text eol=lf
 entregables/rediseno_galeria/evidencias/*.json text eol=lf
 entregables/rediseno_galeria/evidencias/checksums.sha256 text eol=lf
+entregables/rediseno_galeria/evidencias/despliegue/*.txt text eol=lf
+entregables/rediseno_galeria/evidencias/despliegue/*.json text eol=lf
+entregables/rediseno_galeria/evidencias/despliegue/checksums.sha256 text eol=lf

@@ -1,0 +1,16 @@
+{
+  "source": "Estado y logs visibles en el panel de Render mediante navegador integrado",
+  "serviceId": "srv-dbigt7hsrm7s73bmnvn0",
+  "deployId": "dep-dbp2j6mk1f9s73a1m230",
+  "dashboardUrl": "https://dashboard.render.com/web/srv-dbigt7hsrm7s73bmnvn0/deploys/dep-dbp2j6mk1f9s73a1m230",
+  "publicUrl": "https://campustrade-mex-per.onrender.com/",
+  "commit": "3a55ee7c29827902712812b09c9f1fcc76728d68",
+  "status": "Deploy succeeded | Live",
+  "plan": "Free",
+  "startedAt": "2026-11-09T14:14:18-06:00",
+  "liveAt": "2026-11-09T14:15:21-06:00",
+  "durationSeconds": 63,
+  "trigger": "Manual, commit específico",
+  "browserConsoleErrorsObserved": 0,
+  "productionWritesDuringValidation": false
+}

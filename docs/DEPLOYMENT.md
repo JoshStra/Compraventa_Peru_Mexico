@@ -1,5 +1,15 @@
 # Despliegue real de CampusTrade
 
+## Estado actual · 9 de noviembre de 2026
+
+El rediseño de galería blanca está publicado en [CampusTrade](https://campustrade-mex-per.onrender.com/) desde el commit `3a55ee7c29827902712812b09c9f1fcc76728d68`. El [despliegue manual de Render](https://dashboard.render.com/web/srv-dbigt7hsrm7s73bmnvn0/deploys/dep-dbp2j6mk1f9s73a1m230) comenzó a las 14:14:18 y quedó Live a las **14:15:21 CST (UTC−06)**, con duración de 1 min 3 s. Se utilizó el mismo servicio Free, sin modificar secretos, infraestructura ni configuración de correo.
+
+Las ocho comprobaciones públicas HTTPS fueron correctas: health 200 con PostgreSQL conectado, dominio institucional exacto `itesa.edu.mx`, portada y cabeceras de seguridad, entradas de distribución actualizadas y SHA-256 coincidente de los cuatro recursos JS/CSS/WebP frente a la compilación local del commit. La portada y el formulario de acceso se verificaron en el navegador integrado sin errores de consola observados. [Resultados y capturas](../entregables/rediseno_galeria/evidencias/despliegue/https.json).
+
+El proveedor de correo continúa pendiente por decisión del responsable. Esta revisión productiva solo realizó lecturas públicas; no creó usuarios, publicaciones ni operaciones. Las 91 regresiones funcionales previas se ejecutaron en entorno local aislado. Auto-deploy continúa apagado: los commits documentales posteriores al despliegue se conservan en main sin cambiar el SHA publicado.
+
+## Registro del primer despliegue
+
 Estado comprobado el **30 de octubre de 2026**: frontend React y API Node/Express publicados en **[CampusTrade](https://campustrade-mex-per.onrender.com/)**. [Health HTTPS](https://campustrade-mex-per.onrender.com/api/v1/health): HTTP 200, database=connected, versión base 0.3.0. El primer despliegue quedó Live a las **15:40:50 UTC−06**, desde `f5130c1f6dc30961969a9b42f3765dfae96060b4`. Los registros y capturas auténticos están en [evidencias de despliegue](../entregables/entregable_final/evidencias/despliegue/).
 
 ## Infraestructura existente

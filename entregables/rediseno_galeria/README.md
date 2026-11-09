@@ -46,3 +46,13 @@ npm run format:check
 `E2E_EVIDENCE_DIR` permite guardar cada revisión en su carpeta sin sustituir las evidencias históricas. Las pruebas rechazan conexiones a PostgreSQL remoto.
 
 La referencia, decisiones de estilo y prompt de la imagen se documentan en [DESIGN_REFERENCE.md](../../docs/DESIGN_REFERENCE.md).
+
+## Publicación real
+
+Publicado en [CampusTrade](https://campustrade-mex-per.onrender.com/) el **9 de noviembre de 2026 a las 14:15:21 CST**, commit `3a55ee7c29827902712812b09c9f1fcc76728d68`. [Render confirma Deploy succeeded | Live](evidencias/despliegue/render-live.jpg), despliegue `dep-dbp2j6mk1f9s73a1m230`, duración 1 min 3 s. El servicio mantiene su plan Free y la configuración existente.
+
+Las [ocho comprobaciones HTTPS](evidencias/despliegue/https.json) fueron aprobadas: health/PostgreSQL, dominio autorizado exacto `itesa.edu.mx`, portada/cabeceras de seguridad, entradas de la distribución y cuatro recursos estáticos con SHA-256 idéntico al build local del commit desplegado. La [compilación del commit publicado](evidencias/despliegue/build-commit-desplegado.txt) complementa el build previo de la revisión local; sus nombres finales de recursos son los utilizados en producción.
+
+Capturas productivas: [portada](evidencias/despliegue/portada-publica.jpg), [página completa](evidencias/despliegue/portada-publica-completa.jpg) y [dominio institucional](evidencias/despliegue/dominio-institucional.jpg). La revisión del navegador no registró errores de consola. No se realizaron escrituras productivas ni se verificaron artificialmente usuarios. El proveedor real de correo permanece pendiente.
+
+El commit documental posterior registra estas evidencias en main; auto-deploy está apagado, por lo que el código publicado sigue siendo `3a55ee7`.

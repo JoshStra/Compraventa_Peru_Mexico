@@ -1,11 +1,12 @@
 # Historial de cambios de CampusTrade
 
-## Cambios preparados — 9 de noviembre de 2026
+## Rediseño publicado — 9 de noviembre de 2026
 
 - Interfaz de galería blanca: portada editorial compartida, botones azules y neutros, tarjetas de 28 px y superficies sin sombras ni degradados.
 - Catálogo, perfiles, formularios, mensajes, operaciones y administración adaptados a escritorio y móvil; fotografías de publicaciones conservadas y alternativa neutra para artículos sin imagen.
 - Iconos de categorías asociados por nombre y carpeta de evidencias E2E configurable para preservar entregas anteriores.
 - Validación local: 47 pruebas frontend, 34 API/PostgreSQL, 10 recorridos E2E y revisión visual a 320, 390 y 1440 px. Imagen generada con herramienta integrada y procedencia documentada.
+- Commit `3a55ee7` publicado en el servicio existente de Render Free; Live a las 14:15:21 CST. Ocho comprobaciones HTTPS correctas, incluyendo PostgreSQL, dominio `itesa.edu.mx` y hashes exactos de los recursos publicados.
 
 ## 0.3.0-rc.2 — 30 de octubre de 2026
 

@@ -1,0 +1,81 @@
+{
+  "date": "2026-11-09T20:16:27.385Z",
+  "url": "https://campustrade-mex-per.onrender.com",
+  "commit": "3a55ee7c29827902712812b09c9f1fcc76728d68",
+  "environment": "Producción, solo lecturas públicas HTTPS, sin creación de cuentas",
+  "checks": [
+    {
+      "name": "HTTPS health y PostgreSQL",
+      "pass": true,
+      "detail": {
+        "http": 200,
+        "status": "ok",
+        "database": "connected",
+        "version": "0.3.0"
+      }
+    },
+    {
+      "name": "Dominio institucional itesa.edu.mx",
+      "pass": true,
+      "detail": {
+        "http": 200,
+        "emailDomains": [
+          "itesa.edu.mx"
+        ]
+      }
+    },
+    {
+      "name": "Portada React y cabeceras de seguridad",
+      "pass": true,
+      "detail": {
+        "http": 200,
+        "contentType": "text/html; charset=utf-8",
+        "csp": true,
+        "nosniff": "nosniff"
+      }
+    },
+    {
+      "name": "Entradas de distribución actualizadas",
+      "pass": true,
+      "detail": {
+        "entrypoints": []
+      }
+    },
+    {
+      "name": "Activo exacto: ConnectedApp-BUhcrE2O.js",
+      "pass": true,
+      "detail": {
+        "http": 200,
+        "bytes": 62680,
+        "sha256": "90f7a45e71b8df5c3413d1a529e67956cf47a2a8b4c4a7287e2f099d9535abf6"
+      }
+    },
+    {
+      "name": "Activo exacto: campus-essentials-CAy3ksIO.webp",
+      "pass": true,
+      "detail": {
+        "http": 200,
+        "bytes": 88108,
+        "sha256": "20e20552c219ead05f617d295fc27061656f306e2606a07cfb985b5d6144e4b2"
+      }
+    },
+    {
+      "name": "Activo exacto: index-BS05YWAV.css",
+      "pass": true,
+      "detail": {
+        "http": 200,
+        "bytes": 35478,
+        "sha256": "7c166fc0a67bb45b94afb93d4aabf37637ff379ebc998b5c6e52f7635f983f01"
+      }
+    },
+    {
+      "name": "Activo exacto: index-BmhDUBao.js",
+      "pass": true,
+      "detail": {
+        "http": 200,
+        "bytes": 142425,
+        "sha256": "64757fb9cda78207a06c0fc6eff1754af58a0d3dccf269b4f1b15391ea9f828d"
+      }
+    }
+  ]
+}

@@ -44,7 +44,7 @@ export function HomeHero({ onBrowse, onPublish }) {
             alt="Libros de texto y una calculadora sobre fondo blanco"
             width="1200"
             height="800"
-            fetchPriority="high"
+            fetchpriority="high"
             decoding="async"
           />
           <figcaption>

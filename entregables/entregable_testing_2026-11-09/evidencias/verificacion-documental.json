@@ -1,0 +1,21 @@
+{
+  "cases": 101,
+  "pages": 50,
+  "fields": 8,
+  "widgets": 8,
+  "allCaseIdsInPdf": true,
+  "textOutsidePageMargins": 0,
+  "agentTasks": 8,
+  "agentRecords": 9,
+  "humanParticipants": 0,
+  "initialExploratoryFailures": 1,
+  "latestExploratoryPassedTasks": 8,
+  "renderedPages": 50,
+  "pdfSha256": "5200e6b642a35e270fd929c10ded10c643c78f3c1d1242b692bffa0e7c05a560",
+  "visualReview": {
+    "pagesReviewed": 50,
+    "method": "Contactos de todas las páginas y revisión individual de tablas, casos y formulario",
+    "textClippingObserved": false,
+    "formInteractiveValuesAndAppearancesVerified": true
+  }
+}

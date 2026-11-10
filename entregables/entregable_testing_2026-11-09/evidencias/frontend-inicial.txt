@@ -1,0 +1,45 @@
+{
+  "suite": "frontend",
+  "startedUtc": "2026-11-10T01:17:04.374Z",
+  "finishedUtc": "2026-11-10T01:17:17.137Z",
+  "startedMexico": "2026-11-09 19:17:04 GMT−6",
+  "durationSeconds": 12.763,
+  "command": "npm.cmd run test --workspace frontend -- --reporter=default --reporter=json --outputFile.json=<repo>\\entregables\\entregable_testing_2026-11-09\\evidencias\\frontend.json",
+  "cwd": "<repo>",
+  "exitCode": 0,
+  "sha": "4a98809593a61a6b3d47b23c8f5ba143168a4779",
+  "node": "v24.12.0"
+}
+
+
+> campustrade-alpha@0.3.0 test
+> vitest run --reporter=default --reporter=json --outputFile.json=<repo>\entregables\entregable_testing_2026-11-09\evidencias\frontend.json
+
+
+ RUN  v5.0.5 <repo>/frontend
+
+ ✓ src/services/apiClient.test.js (3 tests) 13ms
+ ✓ src/services/listingImage.test.js (3 tests) 12ms
+ ✓ src/domain/catalog.test.js (20 tests) 10ms
+ ✓ src/services/campusRepository.test.js (14 tests) 27ms
+stderr | src/App.test.jsx > publica sin errores de evento asíncrono y conserva el artículo al recargar
+Warning: React does not recognize the `fetchPriority` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `fetchpriority` instead. If you accidentally passed it from a parent component, remove it from the DOM element.
+    at img
+    at figure
+    at section
+    at HomeHero (<repo>/frontend/src/components/HomeHero.jsx:9:21)
+    at main
+    at div
+    at App (<repo>/frontend/src/AppShell.jsx:52:64)
+
+ ✓ src/App.test.jsx (7 tests) 5523ms
+   ✓ publica sin errores de evento asíncrono y conserva el artículo al recargar 2280ms
+   ✓ muestra el error de almacenamiento sin cerrar ni borrar el formulario 2048ms
+   ✓ guarda mensajes visibles en su conversación y los restaura al recargar 686ms
+
+ Test Files  5 passed (5)
+      Tests  47 passed (47)
+   Start at  19:17:06
+   Duration  10.32s (environment 49%, setup 25%, tests 22%, transform 2%, import 2%)
+
+JSON report written to <repo>/entregables/entregable_testing_2026-11-09/evidencias/frontend.json

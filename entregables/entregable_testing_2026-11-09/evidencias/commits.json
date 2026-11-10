@@ -1,0 +1,38 @@
+[
+  {
+    "sha": "6b0d2979dddd3b44759d2bad1bb727864987b815",
+    "authoredAt": "2026-10-30T10:51:45-06:00",
+    "committedAt": "2026-10-30T10:51:45-06:00",
+    "message": "fix(operations): cancelar ofertas retiradas y conservar fechas civiles"
+  },
+  {
+    "sha": "f5130c1f6dc30961969a9b42f3765dfae96060b4",
+    "authoredAt": "2026-10-30T11:41:39-06:00",
+    "committedAt": "2026-10-30T11:41:39-06:00",
+    "message": "fix(deploy): detectar el origen HTTPS asignado por Render"
+  },
+  {
+    "sha": "3a55ee7c29827902712812b09c9f1fcc76728d68",
+    "authoredAt": "2026-11-09T14:03:54-06:00",
+    "committedAt": "2026-11-09T14:03:54-06:00",
+    "message": "feat: aplica galería blanca a CampusTrade y valida 91 regresiones"
+  },
+  {
+    "sha": "4a98809593a61a6b3d47b23c8f5ba143168a4779",
+    "authoredAt": "2026-11-09T14:17:46-06:00",
+    "committedAt": "2026-11-09T14:17:46-06:00",
+    "message": "docs(deploy): verifica rediseño público y ocho comprobaciones HTTPS"
+  },
+  {
+    "sha": "4f1927c9fe73e80f483961d6d204422c59fd29e0",
+    "authoredAt": "2026-11-09T19:21:11-06:00",
+    "committedAt": "2026-11-09T19:21:11-06:00",
+    "message": "fix: usa prioridad HTML compatible con React en portada"
+  },
+  {
+    "sha": "664f416e5e84cabb7896be5055d889929045cfb3",
+    "authoredAt": "2026-11-09T19:28:17-06:00",
+    "committedAt": "2026-11-09T19:28:17-06:00",
+    "message": "fix: evita recorte de filtros en pantallas estrechas"
+  }
+]

@@ -1,6 +1,12 @@
 # Despliegue real de CampusTrade
 
-## Estado actual · 9 de noviembre de 2026
+## Estado actual al cierre del 9 de noviembre de 2026
+
+El código publicado es `664f416e5e84cabb7896be5055d889929045cfb3`, que conserva el rediseño y corrige las incidencias #3 (atributo React de prioridad de imagen) y #4 (recorte de filtros a 320 px). El [despliegue final](https://dashboard.render.com/web/srv-dbigt7hsrm7s73bmnvn0/deploys/dep-dbp76rgm7kps73a20m6g) quedó Live a las **19:30:09 CST (UTC−06)** en el mismo Render Free. No se modificaron secretos, proveedores ni permisos.
+
+La [entrega de testing actualizada](../entregables/entregable_testing_2026-11-09/README.md) conserva 101 casos técnicos aprobados (47 frontend, 34 API, 12 E2E y 8 lecturas HTTPS), la evidencia del defecto móvil y su revalidación productiva. Los cuatro recursos publicados coinciden por SHA-256 con el build final. La sonda del HTML exige entradas reales de JS y CSS, incluidas rutas relativas. Correo institucional real y pruebas consentidas con estudiantes continúan pendientes.
+
+## Publicación inicial del rediseño del 9 de noviembre
 
 El rediseño de galería blanca está publicado en [CampusTrade](https://campustrade-mex-per.onrender.com/) desde el commit `3a55ee7c29827902712812b09c9f1fcc76728d68`. El [despliegue manual de Render](https://dashboard.render.com/web/srv-dbigt7hsrm7s73bmnvn0/deploys/dep-dbp2j6mk1f9s73a1m230) comenzó a las 14:14:18 y quedó Live a las **14:15:21 CST (UTC−06)**, con duración de 1 min 3 s. Se utilizó el mismo servicio Free, sin modificar secretos, infraestructura ni configuración de correo.
 

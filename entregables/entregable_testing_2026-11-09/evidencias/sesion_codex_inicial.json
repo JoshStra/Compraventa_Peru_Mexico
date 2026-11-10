@@ -1,0 +1,151 @@
+{
+  "source": "Interacción directa de Codex en navegador integrado",
+  "humanParticipants": 0,
+  "interactions": [
+    {
+      "id": "COD-01",
+      "actor": "Codex, evaluador técnico automatizado",
+      "module": "Portada y rediseño",
+      "action": "Abrir la URL pública y revisar titular, imagen y acciones.",
+      "expected": "Imagen cargada y acciones Explorar/Publicar visibles.",
+      "observed": "Portada visible; imagen 1200 px; fetchpriority=high.",
+      "comment": "El nuevo fondo blanco y los dos botones permiten distinguir la acción principal. La fotografía es editorial y no implica inventario disponible.",
+      "status": "APROBADA",
+      "dateUtc": "2026-11-10T01:24:23.513Z",
+      "dateMexico": "2026-11-09 19:24:23 GMT−6",
+      "evidence": [
+        "evidencias/COD-01.txt",
+        "evidencias/COD-01.jpg"
+      ],
+      "environment": "Producción HTTPS, sesión anónima, sin escrituras",
+      "commit": "4f1927c9fe73e80f483961d6d204422c59fd29e0"
+    },
+    {
+      "id": "COD-02",
+      "actor": "Codex, evaluador técnico automatizado",
+      "module": "Catálogo",
+      "action": "Pulsar Explorar artículos en la portada.",
+      "expected": "Abrir el catálogo con búsqueda, filtros y estado sin resultados.",
+      "observed": "Se abrió Explora el catálogo con 0 resultados y la acción Limpiar búsqueda y filtros.",
+      "comment": "La transición desde la portada funciona y el estado vacío propone cómo continuar. El catálogo productivo está vacío, por lo que aquí no se evalúan coincidencias con inventario.",
+      "status": "APROBADA",
+      "dateUtc": "2026-11-10T01:24:30.199Z",
+      "dateMexico": "2026-11-09 19:24:30 GMT−6",
+      "evidence": [
+        "evidencias/COD-02.txt",
+        "evidencias/COD-02.jpg"
+      ],
+      "environment": "Producción HTTPS, sesión anónima, sin escrituras",
+      "commit": "4f1927c9fe73e80f483961d6d204422c59fd29e0"
+    },
+    {
+      "id": "COD-03",
+      "actor": "Codex, evaluador técnico automatizado",
+      "module": "Búsqueda y filtros",
+      "action": "Introducir material-revision-codex, categoría Libros, modalidad Renta y precios 100 a 300; limpiar búsqueda y filtros.",
+      "expected": "Los controles aceptan valores y regresan a sus valores iniciales al limpiar.",
+      "observed": "La búsqueda y precios quedaron vacíos; categoría y modalidad volvieron a Todas las opciones.",
+      "comment": "Los filtros se restablecen de forma coherente. Esta comprobación valida controles y estado vacío; la exactitud de coincidencias se acredita con fixtures en las pruebas API/E2E.",
+      "status": "APROBADA",
+      "dateUtc": "2026-11-10T01:24:46.454Z",
+      "dateMexico": "2026-11-09 19:24:46 GMT−6",
+      "evidence": [
+        "evidencias/COD-03.txt",
+        "evidencias/COD-03.jpg",
+        "evidencias/COD-03-antes.txt"
+      ],
+      "environment": "Producción HTTPS, sesión anónima, sin escrituras",
+      "commit": "4f1927c9fe73e80f483961d6d204422c59fd29e0"
+    },
+    {
+      "id": "COD-04",
+      "actor": "Codex, evaluador técnico automatizado",
+      "module": "Acceso institucional",
+      "action": "Abrir Iniciar sesión desde el catálogo.",
+      "expected": "Formulario con etiquetas visibles y dominio itesa.edu.mx.",
+      "observed": "El diálogo muestra Correo institucional, Contraseña y Dominio autorizado: itesa.edu.mx.",
+      "comment": "El dominio autorizado está explicado antes de ingresar datos. El envío real de verificación continúa pendiente de proveedor y esta prueba no lo acredita.",
+      "status": "APROBADA",
+      "dateUtc": "2026-11-10T01:24:51.931Z",
+      "dateMexico": "2026-11-09 19:24:51 GMT−6",
+      "evidence": [
+        "evidencias/COD-04.txt",
+        "evidencias/COD-04.jpg"
+      ],
+      "environment": "Producción HTTPS, sesión anónima, sin escrituras",
+      "commit": "4f1927c9fe73e80f483961d6d204422c59fd29e0"
+    },
+    {
+      "id": "COD-05",
+      "actor": "Codex, evaluador técnico automatizado",
+      "module": "Accesibilidad de formularios",
+      "action": "Pulsar Escape con el foco en Correo institucional.",
+      "expected": "Cerrar el diálogo y devolver el foco a Iniciar sesión.",
+      "observed": "El diálogo desapareció y el foco volvió al botón Iniciar sesión.",
+      "comment": "El retorno del foco permite continuar con teclado sin perder la ubicación. Es una comprobación puntual, no una auditoría completa de accesibilidad.",
+      "status": "APROBADA",
+      "dateUtc": "2026-11-10T01:24:58.854Z",
+      "dateMexico": "2026-11-09 19:24:58 GMT−6",
+      "evidence": [
+        "evidencias/COD-05.txt",
+        "evidencias/COD-05.jpg"
+      ],
+      "environment": "Producción HTTPS, sesión anónima, sin escrituras",
+      "commit": "4f1927c9fe73e80f483961d6d204422c59fd29e0"
+    },
+    {
+      "id": "COD-06",
+      "actor": "Codex, evaluador técnico automatizado",
+      "module": "Permisos y publicación",
+      "action": "Pulsar Publicar en el catálogo sin iniciar sesión.",
+      "expected": "Solicitar autenticación sin abrir el editor ni crear un artículo.",
+      "observed": "Se abrió Inicia sesión; no se abrió el editor y no se envió ninguna publicación.",
+      "comment": "La nueva apariencia mantiene el requisito de autenticación antes de publicar. El permiso del servidor también se prueba en API-LISTINGS-01.",
+      "status": "APROBADA",
+      "dateUtc": "2026-11-10T01:25:06.629Z",
+      "dateMexico": "2026-11-09 19:25:06 GMT−6",
+      "evidence": [
+        "evidencias/COD-06.txt",
+        "evidencias/COD-06.jpg"
+      ],
+      "environment": "Producción HTTPS, sesión anónima, sin escrituras",
+      "commit": "4f1927c9fe73e80f483961d6d204422c59fd29e0"
+    },
+    {
+      "id": "COD-07",
+      "actor": "Codex, evaluador técnico automatizado",
+      "module": "Diseño adaptable de portada",
+      "action": "Revisar la portada pública con viewport 390 por 844.",
+      "expected": "Contenido dentro del ancho y acciones legibles en móvil.",
+      "observed": "Ancho del documento 375 px frente a viewport 390 px; botones de 46/46 px de alto.",
+      "comment": "El titular se reparte en varias líneas y las dos acciones permanecen legibles. La fotografía queda debajo del texto, sin desbordamiento horizontal.",
+      "status": "APROBADA",
+      "dateUtc": "2026-11-10T01:25:15.496Z",
+      "dateMexico": "2026-11-09 19:25:15 GMT−6",
+      "evidence": [
+        "evidencias/COD-07.txt",
+        "evidencias/COD-07.jpg"
+      ],
+      "environment": "Producción HTTPS, sesión anónima, sin escrituras",
+      "commit": "4f1927c9fe73e80f483961d6d204422c59fd29e0"
+    },
+    {
+      "id": "COD-08",
+      "actor": "Codex, evaluador técnico automatizado",
+      "module": "Filtros en móvil estrecho",
+      "action": "Abrir el catálogo con filtros desplegados a 320 por 760.",
+      "expected": "Todos los controles de filtros caben dentro del ancho visible.",
+      "observed": "Se observaron controles que rebasan el borde derecho: [{\"label\":\"Categoría\",\"right\":340,\"width\":171},{\"label\":\"Condición\",\"right\":340,\"width\":171}].",
+      "comment": "La composición general cabe, pero las columnas de filtros necesitan permitir que los selectores se contraigan. Registraré el defecto y repetiré esta comprobación después de corregirlo.",
+      "status": "FALLIDA",
+      "dateUtc": "2026-11-10T01:25:37.392Z",
+      "dateMexico": "2026-11-09 19:25:37 GMT−6",
+      "evidence": [
+        "evidencias/COD-08.txt",
+        "evidencias/COD-08.jpg"
+      ],
+      "environment": "Producción HTTPS, sesión anónima, sin escrituras",
+      "commit": "4f1927c9fe73e80f483961d6d204422c59fd29e0"
+    }
+  ]
+}

@@ -1,5 +1,13 @@
 # Pruebas y límites de la verificación
 
+## Entrega actualizada del 9 de noviembre de 2026
+
+El [reporte actualizado](../entregables/entregable_testing_2026-11-09/README.md) incorpora el rediseño y las correcciones `4f1927c` y `664f416`: 47 pruebas frontend, 34 API/configuración, 12 E2E y ocho sondas HTTPS, **101 casos distintos aprobados**. Las repeticiones no aumentan ese total. La regresión de filtros mide cada control dentro del panel y del viewport; el proyecto móvil fuerza 320 por 760 px.
+
+Los issues #3 y #4 conservan detección, comentario de resolución, commit y cierre. Se mantiene la advertencia inicial de React y el fallo exploratorio COD-08; la revalidación COD-08-R aprueba en producción. Ocho tareas de Codex generan nueve registros fechados por esa repetición. No hubo participantes humanos ni escrituras productivas durante la revisión exploratoria.
+
+El código final publicado es `664f416`, Live a las 19:30:09 CST. El reporte incluye catálogo CSV/JSON, metadatos reales de runners, capturas actuales, las 101 fichas completas y formulario PDF interactivo para futuras resoluciones. Las suites se ejecutaron en Windows con PostgreSQL local aislado; este corte no declara una ejecución nueva en CI. El correo real continúa pendiente.
+
 Entorno real del 2026-10-30: Windows, Node 24.12.0, PostgreSQL 17 en Docker, React/Vite compilados, Chromium headless. CI ejecuta Ubuntu/Node 24/PostgreSQL 17 y Playwright. Las pruebas de API/browsers rechazan PostgreSQL remoto y crean esquemas únicos desechables, sin modificar alumnos reales.
 
 | Comando              | Alcance y resultado final esperado de esta entrega                                                                                                                                                             | Evidencia                   |

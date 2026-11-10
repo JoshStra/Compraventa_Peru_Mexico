@@ -1,0 +1,12 @@
+{
+  "suite": "format",
+  "startedUtc": "2026-11-10T01:37:45.033Z",
+  "finishedUtc": "2026-11-10T01:37:52.592Z",
+  "startedMexico": "2026-11-09 19:37:45 GMT−6",
+  "durationSeconds": 7.559,
+  "command": "npm.cmd run format:check",
+  "cwd": "<repo>",
+  "exitCode": 0,
+  "sha": "664f416e5e84cabb7896be5055d889929045cfb3",
+  "node": "v24.12.0"
+}

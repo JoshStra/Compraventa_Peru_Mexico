@@ -1,0 +1,74 @@
+{
+  "consultedUtc": "2026-11-10T01:18:01.767Z",
+  "source": "GitHub connector, lectura actual de issues y comentarios",
+  "records": [
+    {
+      "issue": {
+        "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/issues/1",
+        "title": "Revisión de arquitectura y separación de componentes",
+        "issue_number": 1,
+        "body": "Revisando el repositorio, noto que los archivos CSS y JS están sueltos en la raíz. Según nuestra Especificación Técnica, sugiero moverlos a la carpeta frontend/ para mantener el orden",
+        "state": "closed",
+        "user": {
+          "login": "JoshStra",
+          "name": "JoshStra",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/185819169?v=4",
+          "id": 185819169
+        },
+        "assignees": null,
+        "labels": null,
+        "milestone": null,
+        "state_reason": "completed",
+        "comments": 1,
+        "created_at": "2026-10-16T22:20:27Z",
+        "updated_at": "2026-10-30T16:49:31Z",
+        "closed_at": "2026-10-30T16:49:31Z",
+        "display_url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/issues/1",
+        "display_title": "Revisión de arquitectura y separación de componentes"
+      },
+      "comments": [
+        {
+          "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/issues/1#issuecomment-6528281194",
+          "body": "Resolución verificada en main: la reorganización 0f91601 separó el cliente en frontend/. Actualmente React, sus componentes y estilos están en frontend/src/; la API Node/Express está en backend/src/ con rutas, servicios, validadores, repositorios y migraciones. No quedan archivos de aplicación CSS/JS sueltos en la raíz; package.json coordina los workspaces.\n\nImplementación: 82c6954 (PostgreSQL/API), c4e2553 (cuentas y publicaciones conectadas) y ff48d53 (mensajes, operaciones y moderación). Validación local del 30-10-2026: npm test (47 pruebas), npm run test:api (28 pruebas en el último incremento backend), npm run build, npm run test:e2e (10 casos en escritorio y móvil) y npm run format:check. CI de c4e2553: https://github.com/JoshStra/Compraventa_Peru_Mexico/actions/runs/41091269918 .\n\nLa separación solicitada y el funcionamiento integrado están comprobados. El despliegue público y el envío de correo institucional se documentan por separado.",
+          "author": "mora8292",
+          "id": 6528281194
+        }
+      ]
+    },
+    {
+      "issue": {
+        "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/issues/2",
+        "title": "Operaciones: oferta retirada permanece pendiente y fechas de renta incluyen zona horaria",
+        "issue_number": 2,
+        "body": "Detectado en main ff48d53 el 30-10-2026. Reproducción real: crear dos publicaciones de intercambio, solicitar una ofreciendo la otra y retirar la ofrecida. GET /api/v1/operations conserva status=pending cuando corresponde cancelled. Además, solicitar renta y consultar operaciones devuelve rentalStart como 2026-10-31T06:00:00.000Z en lugar de la fecha civil 2026-10-31. Causas: retiro solo comprueba listing_id, y pg convierte DATE a Date de JavaScript. Regresión añadida a backend/test/operations.test.js. npm run test:api: 27 pasan y 2 fallan; se corregirá antes del cierre.",
+        "state": "closed",
+        "user": {
+          "login": "mora8292",
+          "name": "mora8292",
+          "email": null,
+          "avatar_url": "https://avatars.githubusercontent.com/u/104395775?v=4",
+          "id": 104395775
+        },
+        "assignees": null,
+        "labels": null,
+        "milestone": null,
+        "state_reason": "completed",
+        "comments": 1,
+        "created_at": "2026-10-30T16:49:32Z",
+        "updated_at": "2026-10-30T16:52:06Z",
+        "closed_at": "2026-10-30T16:52:06Z",
+        "display_url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/issues/2",
+        "display_title": "Operaciones: oferta retirada permanece pendiente y fechas de renta incluyen zona horaria"
+      },
+      "comments": [
+        {
+          "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/issues/2#issuecomment-6528334000",
+          "body": "Corregido en 6b0d297. El retiro cancela solicitudes pendientes cuando la publicación es principal u ofrecida, dentro de la misma transacción. Las fechas DATE de renta se proyectan con to_char(...,'YYYY-MM-DD'), independientes del huso horario. Se añadieron regresiones que antes fallaban; npm run test:api ahora termina con 30 pruebas correctas, incluyendo persistencia tras reinicio real del proceso y concurrencia de reservas. npm run format:check también correcto. Archivos: backend/src/services/listings.js, backend/src/services/operations.js, backend/test/operations.test.js y backend/test/persistence.test.js.",
+          "author": "mora8292",
+          "id": 6528334000
+        }
+      ]
+    }
+  ]
+}

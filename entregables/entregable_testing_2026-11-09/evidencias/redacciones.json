@@ -1,0 +1,10 @@
+{
+  "omissions": [
+    {
+      "file": "evidencias/navegador.json",
+      "field": ".config.webServer.env.E2E_TEST_KEY",
+      "reason": "Clave temporal del servidor local de pruebas; no es un resultado de prueba."
+    }
+  ],
+  "testResultsModified": false
+}

@@ -1,0 +1,16 @@
+Registro de interacción de Codex
+ID: COD-07
+Autor: Codex, evaluador técnico automatizado
+Fecha y hora: 2026-11-09 19:25:15 GMT−6
+Módulo: Diseño adaptable de portada
+Acción: Revisar la portada pública con viewport 390 por 844.
+Esperado: Contenido dentro del ancho y acciones legibles en móvil.
+Obtenido: Ancho del documento 375 px frente a viewport 390 px; botones de 46/46 px de alto.
+Estado: APROBADA
+Comentario de Codex: El titular se reparte en varias líneas y las dos acciones permanecen legibles. La fotografía queda debajo del texto, sin desbordamiento horizontal.
+Código observado: 4f1927c9fe73e80f483961d6d204422c59fd29e0
+
+Observación de la herramienta (puede ser incremental)
+Browser tab: 2, Title: "CampusTrade", URL: "https://campustrade-mex-per.onrender.com/".
+There has been no change in the accessibility tree.
+The focused UI element is 8 button Inicio

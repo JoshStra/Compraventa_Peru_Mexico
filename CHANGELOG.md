@@ -2,6 +2,9 @@
 
 ## Rediseño publicado — 9 de noviembre de 2026
 
+- Correcciones posteriores de testing: atributo HTML de prioridad compatible con React (#3, `4f1927c`) y filtros sin recorte a 320 px (#4, `664f416`), ambas con comentario de resolución y publicadas en Render Free.
+- Entrega actualizada con 101 casos técnicos aprobados (47 frontend, 34 API, 12 E2E y 8 HTTPS), ocho tareas de Codex, nueve registros por revalidación y formulario PDF interactivo. Se conserva el fallo inicial sin atribuir comentarios a estudiantes reales.
+
 - Interfaz de galería blanca: portada editorial compartida, botones azules y neutros, tarjetas de 28 px y superficies sin sombras ni degradados.
 - Catálogo, perfiles, formularios, mensajes, operaciones y administración adaptados a escritorio y móvil; fotografías de publicaciones conservadas y alternativa neutra para artículos sin imagen.
 - Iconos de categorías asociados por nombre y carpeta de evidencias E2E configurable para preservar entregas anteriores.

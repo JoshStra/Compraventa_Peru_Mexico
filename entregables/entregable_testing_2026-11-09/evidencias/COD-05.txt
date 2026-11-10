@@ -1,0 +1,16 @@
+Registro de interacción de Codex
+ID: COD-05
+Autor: Codex, evaluador técnico automatizado
+Fecha y hora: 2026-11-09 19:24:58 GMT−6
+Módulo: Accesibilidad de formularios
+Acción: Pulsar Escape con el foco en Correo institucional.
+Esperado: Cerrar el diálogo y devolver el foco a Iniciar sesión.
+Obtenido: El diálogo desapareció y el foco volvió al botón Iniciar sesión.
+Estado: APROBADA
+Comentario de Codex: El retorno del foco permite continuar con teclado sin perder la ubicación. Es una comprobación puntual, no una auditoría completa de accesibilidad.
+Código observado: 4f1927c9fe73e80f483961d6d204422c59fd29e0
+
+Observación de la herramienta (puede ser incremental)
+Browser tab: 2, Title: "CampusTrade", URL: "https://campustrade-mex-per.onrender.com/".
+There has been no change in the accessibility tree.
+The focused UI element is 14 button Iniciar sesión

@@ -1,0 +1,78 @@
+{
+  "consultedUtc": "2026-11-10T01:28:53.7877038Z",
+  "source": "API oficial GitHub con autenticación Git existente",
+  "issues": [
+    {
+      "number": 1,
+      "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/issues/1",
+      "title": "Revisión de arquitectura y separación de componentes",
+      "body": "Revisando el repositorio, noto que los archivos CSS y JS están sueltos en la raíz. Según nuestra Especificación Técnica, sugiero moverlos a la carpeta frontend/ para mantener el orden",
+      "state": "closed",
+      "created_at": "2026-10-16T22:20:27Z",
+      "closed_at": "2026-10-30T16:49:31Z",
+      "author": "JoshStra",
+      "comments": [
+        {
+          "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/issues/1#issuecomment-6528281194",
+          "author": "mora8292",
+          "created_at": "2026-10-30T16:49:30Z",
+          "body": "Resolución verificada en main: la reorganización 0f91601 separó el cliente en frontend/. Actualmente React, sus componentes y estilos están en frontend/src/; la API Node/Express está en backend/src/ con rutas, servicios, validadores, repositorios y migraciones. No quedan archivos de aplicación CSS/JS sueltos en la raíz; package.json coordina los workspaces.\n\nImplementación: 82c6954 (PostgreSQL/API), c4e2553 (cuentas y publicaciones conectadas) y ff48d53 (mensajes, operaciones y moderación). Validación local del 30-10-2026: npm test (47 pruebas), npm run test:api (28 pruebas en el último incremento backend), npm run build, npm run test:e2e (10 casos en escritorio y móvil) y npm run format:check. CI de c4e2553: https://github.com/JoshStra/Compraventa_Peru_Mexico/actions/runs/41091269918 .\n\nLa separación solicitada y el funcionamiento integrado están comprobados. El despliegue público y el envío de correo institucional se documentan por separado."
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/issues/2",
+      "title": "Operaciones: oferta retirada permanece pendiente y fechas de renta incluyen zona horaria",
+      "body": "Detectado en main ff48d53 el 30-10-2026. Reproducción real: crear dos publicaciones de intercambio, solicitar una ofreciendo la otra y retirar la ofrecida. GET /api/v1/operations conserva status=pending cuando corresponde cancelled. Además, solicitar renta y consultar operaciones devuelve rentalStart como 2026-10-31T06:00:00.000Z en lugar de la fecha civil 2026-10-31. Causas: retiro solo comprueba listing_id, y pg convierte DATE a Date de JavaScript. Regresión añadida a backend/test/operations.test.js. npm run test:api: 27 pasan y 2 fallan; se corregirá antes del cierre.",
+      "state": "closed",
+      "created_at": "2026-10-30T16:49:32Z",
+      "closed_at": "2026-10-30T16:52:06Z",
+      "author": "mora8292",
+      "comments": [
+        {
+          "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/issues/2#issuecomment-6528334000",
+          "author": "mora8292",
+          "created_at": "2026-10-30T16:52:05Z",
+          "body": "Corregido en 6b0d297. El retiro cancela solicitudes pendientes cuando la publicación es principal u ofrecida, dentro de la misma transacción. Las fechas DATE de renta se proyectan con to_char(...,'YYYY-MM-DD'), independientes del huso horario. Se añadieron regresiones que antes fallaban; npm run test:api ahora termina con 30 pruebas correctas, incluyendo persistencia tras reinicio real del proceso y concurrencia de reservas. npm run format:check también correcto. Archivos: backend/src/services/listings.js, backend/src/services/operations.js, backend/test/operations.test.js y backend/test/persistence.test.js."
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/issues/3",
+      "title": "Portada: advertencia React por atributo fetchPriority en desarrollo",
+      "body": "Detectado el 9 de noviembre de 2026 al ejecutar npm test sobre main 4a98809 tras el rediseño 3a55ee7. Las 47 pruebas frontend pasan, pero el primer render de HomeHero genera la advertencia React does not recognize the fetchPriority prop on a DOM element. Esperado: prioridad alta de la imagen sin advertencias de atributos desconocidos. Severidad baja; no se observó fallo en producción. Corrección prevista: atributo HTML fetchpriority=\"high\", compatible con React instalado, y repetición de frontend/build antes del cierre. No afecta API, permisos ni datos.",
+      "state": "closed",
+      "created_at": "2026-11-10T01:19:35Z",
+      "closed_at": "2026-11-10T01:21:16Z",
+      "author": "mora8292",
+      "comments": [
+        {
+          "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/issues/3#issuecomment-6756155231",
+          "author": "mora8292",
+          "created_at": "2026-11-10T01:21:16Z",
+          "body": "Corregido en 4f1927c9fe73e80f483961d6d204422c59fd29e0. HomeHero utiliza fetchpriority en minúsculas para conservar el atributo HTML de prioridad alta con la versión instalada de React. La ejecución inicial registró 47 pruebas correctas con advertencia; la revalidación registra 47/47 sin esa advertencia y npm run build correcto. No se modificaron API, permisos ni datos. Evidencias: entregables/entregable_testing_2026-11-09/evidencias/frontend-inicial.txt, frontend.txt y build.txt. Comentario elaborado por Codex como agente técnico, publicado con la cuenta Git autorizada del proyecto."
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/issues/4",
+      "title": "Filtros: selectores rebasan el borde visible a 320 px",
+      "body": "Detectado por Codex en producción 4f1927c durante la revisión del 9 de noviembre de 2026, sesión COD-08. Pasos: abrir Explorar, desplegar Filtros y revisar con viewport 320x760. Los selectores Categoría y Condición llegan a x=340, con ancho 171, fuera del viewport de 320. El documento tiene scrollWidth 320 por el recorte del contenedor, por lo que comprobar solo scrollWidth no detecta el defecto. Esperado: todos los controles dentro del panel y del ancho visible. Severidad media por recorte de controles en móvil estrecho. Evidencias COD-08.jpg, COD-08.txt y sesion_codex_inicial.json en entregables/entregable_testing_2026-11-09/evidencias. Se corregirá el tamaño intrínseco de selectores y la distribución de filtros; se añadirá una regresión E2E por límites reales de los controles.",
+      "state": "closed",
+      "created_at": "2026-11-10T01:26:52Z",
+      "closed_at": "2026-11-10T01:28:22Z",
+      "author": "mora8292",
+      "comments": [
+        {
+          "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/issues/4#issuecomment-6756265762",
+          "author": "mora8292",
+          "created_at": "2026-11-10T01:28:21Z",
+          "body": "Corregido en 664f416e5e84cabb7896be5055d889929045cfb3. Los selectores permiten reducir su ancho intrínseco (min-width: 0 y width: 100%) y el panel usa una columna hasta 400 px. Esto evita que los controles salgan del panel a 320 px.\n\nSe añadió frontend/e2e/responsive.spec.js: comprueba los límites reales de los siete controles dentro del panel y del viewport, además de cambiar y limpiar criterios. La variante móvil fuerza 320x760; la variante de escritorio conserva el viewport de su proyecto. El defecto inicial se conserva en COD-08.jpg/.txt y sesion_codex_inicial.json, sin ocultarlo mediante una comprobación exclusiva de scrollWidth.\n\nRevalidación local: 12/12 recorridos E2E correctos, incluyendo los dos nuevos casos de filtros, y compilación correcta. Evidencias: navegador.json, e2e.txt y desktop/mobile-filtros-responsive.png de entregables/entregable_testing_2026-11-09/evidencias. No se modificaron API, permisos ni datos. Comentario técnico elaborado por Codex y publicado con la cuenta Git autorizada del proyecto.\n"
+        }
+      ]
+    }
+  ]
+}

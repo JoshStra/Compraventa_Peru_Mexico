@@ -1,0 +1,44 @@
+{
+  "suite": "e2e",
+  "startedUtc": "2026-11-10T01:26:55.617Z",
+  "finishedUtc": "2026-11-10T01:27:23.624Z",
+  "startedMexico": "2026-11-09 19:26:55 GMT−6",
+  "durationSeconds": 28.007,
+  "command": "npm.cmd run test:e2e --workspace frontend -- --reporter=list,json",
+  "cwd": "<repo>",
+  "exitCode": 0,
+  "sha": "4f1927c9fe73e80f483961d6d204422c59fd29e0",
+  "node": "v24.12.0"
+}
+
+
+> campustrade-alpha@0.3.0 test:e2e
+> playwright test --reporter=list,json
+
+[WebServer] (node:50232) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 12 tests using 2 workers
+
+(node:79100) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:41440) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  2 [desktop] › e2e\fullstack.spec.js:113:1 › catálogo y favoritos persisten entre sesiones del navegador (1.8s)
+  ok  1 [desktop] › e2e\fullstack.spec.js:21:1 › registro verificación publicación con imagen y edición persistentes (1.8s)
+  ok  3 [desktop] › e2e\fullstack.spec.js:156:1 › una cuenta sin verificar no publica ni obtiene una insignia falsa (662ms)
+  ok  4 [desktop] › e2e\responsive.spec.js:4:1 › filtros visibles sin recorte y reinicio de criterios (693ms)
+  ok  6 [desktop] › e2e\workflows.spec.js:130:1 › reporte y resolución real desde la administración (2.5s)
+(node:60264) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  7 [mobile] › e2e\fullstack.spec.js:21:1 › registro verificación publicación con imagen y edición persistentes (1.5s)
+  ok  8 [mobile] › e2e\fullstack.spec.js:113:1 › catálogo y favoritos persisten entre sesiones del navegador (1.4s)
+  ok  9 [mobile] › e2e\fullstack.spec.js:156:1 › una cuenta sin verificar no publica ni obtiene una insignia falsa (748ms)
+  ok 10 [mobile] › e2e\responsive.spec.js:4:1 › filtros visibles sin recorte y reinicio de criterios (946ms)
+  ok  5 [desktop] › e2e\workflows.spec.js:27:1 › mensajes entre dos sesiones y venta con calificación (12.5s)
+(node:44832) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 12 [mobile] › e2e\workflows.spec.js:130:1 › reporte y resolución real desde la administración (2.6s)
+  ok 11 [mobile] › e2e\workflows.spec.js:27:1 › mensajes entre dos sesiones y venta con calificación (12.6s)
+
+  12 passed (27.1s)

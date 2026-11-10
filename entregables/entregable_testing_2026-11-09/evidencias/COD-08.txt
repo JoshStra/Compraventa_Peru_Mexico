@@ -1,0 +1,16 @@
+Registro de interacción de Codex
+ID: COD-08
+Autor: Codex, evaluador técnico automatizado
+Fecha y hora: 2026-11-09 19:25:37 GMT−6
+Módulo: Filtros en móvil estrecho
+Acción: Abrir el catálogo con filtros desplegados a 320 por 760.
+Esperado: Todos los controles de filtros caben dentro del ancho visible.
+Obtenido: Se observaron controles que rebasan el borde derecho: [{"label":"Categoría","right":340,"width":171},{"label":"Condición","right":340,"width":171}].
+Estado: FALLIDA
+Comentario de Codex: La composición general cabe, pero las columnas de filtros necesitan permitir que los selectores se contraigan. Registraré el defecto y repetiré esta comprobación después de corregirlo.
+Código observado: 4f1927c9fe73e80f483961d6d204422c59fd29e0
+
+Observación de la herramienta (puede ser incremental)
+Browser tab: 2, Title: "CampusTrade", URL: "https://campustrade-mex-per.onrender.com/".
+There has been no change in the accessibility tree.
+The focused UI element is 9 button Explorar

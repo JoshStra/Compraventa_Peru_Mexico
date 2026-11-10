@@ -1,0 +1,13 @@
+Browser tab: 2, Title: "CampusTrade", URL: "https://campustrade-mex-per.onrender.com/".
+The following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 117-120
+~					74 pop up button (collapsed, settable) Description: Categoría, Value: Libros, Secondary Actions: Expand
+~							76 Todas las opciones
+~							80 (selected) Libros
+~					83 pop up button (collapsed, settable) Description: Modalidad, Value: Renta, Secondary Actions: Expand
+~							85 Todas las opciones
+~							87 (selected) Renta
+~					112 stepper (settable, integer) Precio mínimo, Value: 100
+~					115 stepper (settable, integer) Precio máximo, Value: 300
+~			62 text 0 resultados Más recientes primero Buscando artículos…
+The focused UI element is 115 stepper (settable, integer) Precio máximo, Value: 300

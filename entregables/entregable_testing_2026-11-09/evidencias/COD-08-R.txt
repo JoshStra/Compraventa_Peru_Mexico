@@ -1,0 +1,16 @@
+Registro de interacción de Codex
+ID: COD-08-R
+Autor: Codex, evaluador técnico automatizado
+Fecha y hora: 2026-11-09 19:31:02 GMT−6
+Módulo: Filtros en móvil estrecho
+Acción: Repetir COD-08 después de publicar la corrección 664f416, a 320 por 760.
+Esperado: Todos los controles dentro del ancho visible y del panel.
+Obtenido: Controles fuera del viewport: 0; documento 320 px.
+Estado: APROBADA
+Comentario de Codex: La distribución en una columna y el ancho de los selectores corrigen el recorte. La captura previa y la revalidación permiten comprobar la mejora.
+Código observado: 664f416e5e84cabb7896be5055d889929045cfb3
+
+Observación de la herramienta (puede ser incremental)
+Browser tab: 2, Title: "CampusTrade", URL: "https://campustrade-mex-per.onrender.com/".
+There has been no change in the accessibility tree.
+The focused UI element is 23 button (expanded) Description: Mostrar filtros, Secondary Actions: Collapse

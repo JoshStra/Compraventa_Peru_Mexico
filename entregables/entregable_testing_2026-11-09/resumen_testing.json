@@ -1,0 +1,43 @@
+{
+  "dateMexico": "2026-11-09",
+  "timezone": "America/Mexico_City",
+  "baseline": "4a98809593a61a6b3d47b23c8f5ba143168a4779",
+  "publishedCode": "664f416e5e84cabb7896be5055d889929045cfb3",
+  "technicalCases": 101,
+  "passed": 101,
+  "failedFinal": 0,
+  "groups": {
+    "Frontend": 47,
+    "API": 34,
+    "Navegador": 12,
+    "Producción": 8
+  },
+  "agentTasks": 8,
+  "agentRecords": 9,
+  "agentInitialFailures": 1,
+  "agentFinalPassedTasks": 8,
+  "humanParticipants": 0,
+  "newIssues": [
+    3,
+    4
+  ],
+  "issueStates": {
+    "1": "closed",
+    "2": "closed",
+    "3": "closed",
+    "4": "closed"
+  },
+  "emailProvider": "Pendiente por decisión del responsable",
+  "render": {
+    "deployId": "dep-dbp76rgm7kps73a20m6g",
+    "commit": "664f416e5e84cabb7896be5055d889929045cfb3",
+    "status": "Deploy succeeded | Live",
+    "startedAt": "2026-11-09T19:29:18-06:00",
+    "liveAt": "2026-11-09T19:30:09-06:00",
+    "plan": "Free",
+    "source": "Panel y logs visibles de Render",
+    "url": "https://dashboard.render.com/web/srv-dbigt7hsrm7s73bmnvn0/deploys/dep-dbp76rgm7kps73a20m6g"
+  },
+  "pdfPages": 50,
+  "interactiveFormFields": 8
+}

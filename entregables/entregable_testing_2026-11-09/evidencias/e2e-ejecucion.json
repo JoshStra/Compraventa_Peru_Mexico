@@ -1,0 +1,12 @@
+{
+  "suite": "e2e",
+  "startedUtc": "2026-11-10T01:26:55.617Z",
+  "finishedUtc": "2026-11-10T01:27:23.624Z",
+  "startedMexico": "2026-11-09 19:26:55 GMT−6",
+  "durationSeconds": 28.007,
+  "command": "npm.cmd run test:e2e --workspace frontend -- --reporter=list,json",
+  "cwd": "<repo>",
+  "exitCode": 0,
+  "sha": "4f1927c9fe73e80f483961d6d204422c59fd29e0",
+  "node": "v24.12.0"
+}

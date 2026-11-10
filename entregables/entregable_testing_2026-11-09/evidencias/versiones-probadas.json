@@ -1,0 +1,22 @@
+{
+  "baseline": "4a98809593a61a6b3d47b23c8f5ba143168a4779",
+  "publishedCode": "664f416e5e84cabb7896be5055d889929045cfb3",
+  "note": "Los runners registran HEAD antes del commit, como requiere el flujo de pruebas antes de guardar cada incremento. El árbol probado incluía la corrección que se confirmó después. No se sustituyeron esos HEAD en los metadatos originales.",
+  "frontend": {
+    "metadataHead": "4a98809593a61a6b3d47b23c8f5ba143168a4779",
+    "workingTreeCorrectionCommittedAs": "4f1927c9fe73e80f483961d6d204422c59fd29e0",
+    "laterApplicationChanges": "Solo CSS de filtros; la última regresión E2E verifica ese cambio."
+  },
+  "api": {
+    "metadataHead": "4a98809593a61a6b3d47b23c8f5ba143168a4779",
+    "backendChangedSinceTest": false
+  },
+  "e2e": {
+    "metadataHead": "4f1927c9fe73e80f483961d6d204422c59fd29e0",
+    "workingTreeCorrectionCommittedAs": "664f416e5e84cabb7896be5055d889929045cfb3"
+  },
+  "production": {
+    "code": "664f416e5e84cabb7896be5055d889929045cfb3",
+    "confirmation": "SHA-256 de cuatro recursos y entradas reales de JS/CSS coinciden con el build."
+  }
+}

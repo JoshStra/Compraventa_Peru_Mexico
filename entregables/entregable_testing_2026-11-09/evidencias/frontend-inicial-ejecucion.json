@@ -1,0 +1,12 @@
+{
+  "suite": "frontend",
+  "startedUtc": "2026-11-10T01:17:04.374Z",
+  "finishedUtc": "2026-11-10T01:17:17.137Z",
+  "startedMexico": "2026-11-09 19:17:04 GMT−6",
+  "durationSeconds": 12.763,
+  "command": "npm.cmd run test --workspace frontend -- --reporter=default --reporter=json --outputFile.json=<repo>\\entregables\\entregable_testing_2026-11-09\\evidencias\\frontend.json",
+  "cwd": "<repo>",
+  "exitCode": 0,
+  "sha": "4a98809593a61a6b3d47b23c8f5ba143168a4779",
+  "node": "v24.12.0"
+}

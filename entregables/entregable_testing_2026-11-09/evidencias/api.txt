@@ -1,0 +1,55 @@
+{
+  "suite": "api",
+  "startedUtc": "2026-11-10T01:17:17.241Z",
+  "finishedUtc": "2026-11-10T01:17:33.149Z",
+  "startedMexico": "2026-11-09 19:17:17 GMT−6",
+  "durationSeconds": 15.908,
+  "command": "node --env-file-if-exists=.env --test --test-concurrency=1 --test-reporter=spec --test-reporter-destination=stdout --test-reporter=junit --test-reporter-destination=<repo>\\entregables\\entregable_testing_2026-11-09\\evidencias\\api.xml test/auth.test.js test/config.test.js test/conversations.test.js test/database.test.js test/listings.test.js test/moderation.test.js test/operations.test.js test/persistence.test.js",
+  "cwd": "backend",
+  "exitCode": 0,
+  "sha": "4a98809593a61a6b3d47b23c8f5ba143168a4779",
+  "node": "v24.12.0"
+}
+
+✔ registro institucional almacena hash y nunca inventa la verificación (314.1946ms)
+✔ rechaza dominios ajenos, contraseñas cortas, roles y duplicados (79.9659ms)
+✔ el enlace de verificación es de un solo uso (121.9019ms)
+✔ sesión HttpOnly, CSRF, persistencia y cierre revocable (88.7458ms)
+✔ recuperación cambia la contraseña y revoca las sesiones previas (316.681ms)
+✔ rechaza orígenes extraños y tokens vencidos (134.6835ms)
+✔ Render proporciona el origen HTTPS inicial sin adivinar el dominio asignado (1.0638ms)
+✔ PUBLIC_URL y CORS_ORIGINS explícitos prevalecen sobre el dominio de Render (0.1613ms)
+✔ la detección de Render no permite HTTP ni orígenes con rutas (0.9085ms)
+✔ producción sigue rechazando URL ausente y almacenamiento local (0.1982ms)
+✔ conversación única entre participantes distintos (491.9728ms)
+✔ mensaje del comprador llega al vendedor y persiste (25.6496ms)
+✔ bloquea lectura escritura y suplantación por terceros (23.2379ms)
+✔ migraciones PostgreSQL idempotentes y catálogo inicial (70.96ms)
+✔ health confirma la conexión real y no expone secretos (12.7514ms)
+✔ rollback conserva la integridad cuando falla una escritura (7.0506ms)
+✔ publicar exige sesión y correo verificado; no acepta suplantar propietario (457.4094ms)
+✔ contenido inválido se rechaza y las consultas están parametrizadas (32.3425ms)
+✔ solo el propietario edita y retira; persiste con una nueva instancia de API (28.5362ms)
+✔ favoritos idempotentes se conservan en PostgreSQL (53.5481ms)
+✔ la carga verifica MIME contenido extensión y tamaño antes de publicar (114.8155ms)
+✔ retirar conserva historial y excluye el artículo del catálogo (13.2474ms)
+✔ reporte persistente evita duplicados y limita acceso administrativo (659.6194ms)
+✔ administrador revisa resuelve y registra una decisión real (39.8197ms)
+✔ moderación retira contenido sin borrar su historial (20.6984ms)
+✔ suspensión revoca sesiones y oculta publicaciones; no modifica administradores (55.2217ms)
+✔ categorías y carreras se administran sin modificar referencias históricas (24.7001ms)
+✔ dos aceptaciones simultáneas solo reservan el artículo una vez (496.2822ms)
+✔ estados terminales bloquean solicitudes y las calificaciones exigen finalización (54.9696ms)
+✔ cancelar una reserva libera disponibilidad y rechaza terceros (58.269ms)
+✔ renta valida fechas e importe y permite registrar devolución (80.7859ms)
+✔ intercambio reserva ambos artículos y no permite reutilizar el ofrecido (82.2442ms)
+✔ retirar una oferta de intercambio cancela las solicitudes pendientes relacionadas (50.2103ms)
+✔ publicación y sesión sobreviven al reinicio real del proceso Node (1976.2814ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15840.5718

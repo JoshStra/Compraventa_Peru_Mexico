@@ -1,0 +1,84 @@
+{
+  "date": "2026-11-10T01:40:56.282Z",
+  "url": "https://campustrade-mex-per.onrender.com",
+  "commit": "664f416e5e84cabb7896be5055d889929045cfb3",
+  "environment": "Producción, solo lecturas públicas HTTPS, sin creación de cuentas",
+  "checks": [
+    {
+      "name": "HTTPS health y PostgreSQL",
+      "pass": true,
+      "detail": {
+        "http": 200,
+        "status": "ok",
+        "database": "connected",
+        "version": "0.3.0"
+      }
+    },
+    {
+      "name": "Dominio institucional itesa.edu.mx",
+      "pass": true,
+      "detail": {
+        "http": 200,
+        "emailDomains": [
+          "itesa.edu.mx"
+        ]
+      }
+    },
+    {
+      "name": "Portada React y cabeceras de seguridad",
+      "pass": true,
+      "detail": {
+        "http": 200,
+        "contentType": "text/html; charset=utf-8",
+        "csp": true,
+        "nosniff": "nosniff"
+      }
+    },
+    {
+      "name": "Entradas de distribución actualizadas",
+      "pass": true,
+      "detail": {
+        "entrypoints": [
+          "./assets/index-eN7Fx0qN.js",
+          "./assets/index-D17YjgnF.css"
+        ]
+      }
+    },
+    {
+      "name": "Activo exacto: ConnectedApp-BzSzXHRt.js",
+      "pass": true,
+      "detail": {
+        "http": 200,
+        "bytes": 62680,
+        "sha256": "94261d69afd1a9c62f7c32e3b5649759a13a42289968ac93352025dba450a354"
+      }
+    },
+    {
+      "name": "Activo exacto: campus-essentials-CAy3ksIO.webp",
+      "pass": true,
+      "detail": {
+        "http": 200,
+        "bytes": 88108,
+        "sha256": "20e20552c219ead05f617d295fc27061656f306e2606a07cfb985b5d6144e4b2"
+      }
+    },
+    {
+      "name": "Activo exacto: index-D17YjgnF.css",
+      "pass": true,
+      "detail": {
+        "http": 200,
+        "bytes": 35625,
+        "sha256": "2fa482ff892725ede1a633fd04d9adc1656b94bffcf9c7148814e157207a2efb"
+      }
+    },
+    {
+      "name": "Activo exacto: index-eN7Fx0qN.js",
+      "pass": true,
+      "detail": {
+        "http": 200,
+        "bytes": 142425,
+        "sha256": "8ab274ae4dc8e866748810399f0fd354f894a462416f6cf73cb3c59418ad3caa"
+      }
+    }
+  ]
+}

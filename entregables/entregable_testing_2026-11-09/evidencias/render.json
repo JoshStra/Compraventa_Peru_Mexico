@@ -1,0 +1,10 @@
+{
+  "deployId": "dep-dbp73jetlv9c73enj3ig",
+  "commit": "4f1927c9fe73e80f483961d6d204422c59fd29e0",
+  "status": "Deploy succeeded | Live",
+  "startedAt": "2026-11-09T19:22:21-06:00",
+  "liveAt": "2026-11-09T19:23:16-06:00",
+  "plan": "Free",
+  "source": "Panel y logs visibles de Render",
+  "url": "https://dashboard.render.com/web/srv-dbigt7hsrm7s73bmnvn0/deploys/dep-dbp73jetlv9c73enj3ig"
+}

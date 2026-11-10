@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+	<testcase name="registro institucional almacena hash y nunca inventa la verificación" time="0.314195" classname="test" file="repo\backend\test\auth.test.js"/>
+	<testcase name="rechaza dominios ajenos, contraseñas cortas, roles y duplicados" time="0.079966" classname="test" file="repo\backend\test\auth.test.js"/>
+	<testcase name="el enlace de verificación es de un solo uso" time="0.121902" classname="test" file="repo\backend\test\auth.test.js"/>
+	<testcase name="sesión HttpOnly, CSRF, persistencia y cierre revocable" time="0.088746" classname="test" file="repo\backend\test\auth.test.js"/>
+	<testcase name="recuperación cambia la contraseña y revoca las sesiones previas" time="0.316681" classname="test" file="repo\backend\test\auth.test.js"/>
+	<testcase name="rechaza orígenes extraños y tokens vencidos" time="0.134684" classname="test" file="repo\backend\test\auth.test.js"/>
+	<testcase name="Render proporciona el origen HTTPS inicial sin adivinar el dominio asignado" time="0.001064" classname="test" file="repo\backend\test\config.test.js"/>
+	<testcase name="PUBLIC_URL y CORS_ORIGINS explícitos prevalecen sobre el dominio de Render" time="0.000161" classname="test" file="repo\backend\test\config.test.js"/>
+	<testcase name="la detección de Render no permite HTTP ni orígenes con rutas" time="0.000909" classname="test" file="repo\backend\test\config.test.js"/>
+	<testcase name="producción sigue rechazando URL ausente y almacenamiento local" time="0.000198" classname="test" file="repo\backend\test\config.test.js"/>
+	<testcase name="conversación única entre participantes distintos" time="0.491973" classname="test" file="repo\backend\test\conversations.test.js"/>
+	<testcase name="mensaje del comprador llega al vendedor y persiste" time="0.025650" classname="test" file="repo\backend\test\conversations.test.js"/>
+	<testcase name="bloquea lectura escritura y suplantación por terceros" time="0.023238" classname="test" file="repo\backend\test\conversations.test.js"/>
+	<testcase name="migraciones PostgreSQL idempotentes y catálogo inicial" time="0.070960" classname="test" file="repo\backend\test\database.test.js"/>
+	<testcase name="health confirma la conexión real y no expone secretos" time="0.012751" classname="test" file="repo\backend\test\database.test.js"/>
+	<testcase name="rollback conserva la integridad cuando falla una escritura" time="0.007051" classname="test" file="repo\backend\test\database.test.js"/>
+	<testcase name="publicar exige sesión y correo verificado; no acepta suplantar propietario" time="0.457409" classname="test" file="repo\backend\test\listings.test.js"/>
+	<testcase name="contenido inválido se rechaza y las consultas están parametrizadas" time="0.032343" classname="test" file="repo\backend\test\listings.test.js"/>
+	<testcase name="solo el propietario edita y retira; persiste con una nueva instancia de API" time="0.028536" classname="test" file="repo\backend\test\listings.test.js"/>
+	<testcase name="favoritos idempotentes se conservan en PostgreSQL" time="0.053548" classname="test" file="repo\backend\test\listings.test.js"/>
+	<testcase name="la carga verifica MIME contenido extensión y tamaño antes de publicar" time="0.114816" classname="test" file="repo\backend\test\listings.test.js"/>
+	<testcase name="retirar conserva historial y excluye el artículo del catálogo" time="0.013247" classname="test" file="repo\backend\test\listings.test.js"/>
+	<testcase name="reporte persistente evita duplicados y limita acceso administrativo" time="0.659619" classname="test" file="repo\backend\test\moderation.test.js"/>
+	<testcase name="administrador revisa resuelve y registra una decisión real" time="0.039820" classname="test" file="repo\backend\test\moderation.test.js"/>
+	<testcase name="moderación retira contenido sin borrar su historial" time="0.020698" classname="test" file="repo\backend\test\moderation.test.js"/>
+	<testcase name="suspensión revoca sesiones y oculta publicaciones; no modifica administradores" time="0.055222" classname="test" file="repo\backend\test\moderation.test.js"/>
+	<testcase name="categorías y carreras se administran sin modificar referencias históricas" time="0.024700" classname="test" file="repo\backend\test\moderation.test.js"/>
+	<testcase name="dos aceptaciones simultáneas solo reservan el artículo una vez" time="0.496282" classname="test" file="repo\backend\test\operations.test.js"/>
+	<testcase name="estados terminales bloquean solicitudes y las calificaciones exigen finalización" time="0.054970" classname="test" file="repo\backend\test\operations.test.js"/>
+	<testcase name="cancelar una reserva libera disponibilidad y rechaza terceros" time="0.058269" classname="test" file="repo\backend\test\operations.test.js"/>
+	<testcase name="renta valida fechas e importe y permite registrar devolución" time="0.080786" classname="test" file="repo\backend\test\operations.test.js"/>
+	<testcase name="intercambio reserva ambos artículos y no permite reutilizar el ofrecido" time="0.082244" classname="test" file="repo\backend\test\operations.test.js"/>
+	<testcase name="retirar una oferta de intercambio cancela las solicitudes pendientes relacionadas" time="0.050210" classname="test" file="repo\backend\test\operations.test.js"/>
+	<testcase name="publicación y sesión sobreviven al reinicio real del proceso Node" time="1.976281" classname="test" file="repo\backend\test\persistence.test.js"/>
+	<!-- tests 34 -->
+	<!-- suites 0 -->
+	<!-- pass 34 -->
+	<!-- fail 0 -->
+	<!-- cancelled 0 -->
+	<!-- skipped 0 -->
+	<!-- todo 0 -->
+	<!-- duration_ms 15840.5718 -->
+</testsuites>

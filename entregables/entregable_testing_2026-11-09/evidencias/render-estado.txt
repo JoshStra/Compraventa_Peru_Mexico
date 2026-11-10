@@ -1,0 +1,394 @@
+Browser tab: 1, Title: "campustrade-mex-per ・ Web Service ・ Render Dashboard", URL: "https://dashboard.render.com/web/srv-dbigt7hsrm7s73bmnvn0/deploys/dep-dbp73jetlv9c73enj3ig".
+0 AXWebArea campustrade-mex-per ・ Web Service ・ Render Dashboard, URL: dashboard.render.com/web/srv-dbigt7hsrm7s73bmnvn0/deploys/dep-dbp73jetlv9c73enj3ig
+	1 container
+		2 container root
+			3 container
+				4 link Description: Render, Value: dashboard.render.com/
+				5 pop up button (collapsed) M My Workspace, ID: menu-_r_3_, Secondary Actions: Expand
+					6 text M
+					7 text My Workspace
+				8 container Breadcrumbs
+					9 content list
+						10 link Description: Projects, Value: dashboard.render.com/
+						11 container
+							12 link Description: My project, Value: dashboard.render.com/project/prj-dbigt7m1egvs73eqot1g
+							13 pop up button (collapsed) Description: Switch Project, ID: menu-_r_p_, Secondary Actions: Expand
+						14 container
+							15 link Description: Production, Value: dashboard.render.com/project/prj-dbigt7m1egvs73eqot1g/environment/evm-dbigt7m1egvs73eqot20
+							16 pop up button (collapsed) Description: Switch Environment, ID: menu-_r_r_, Secondary Actions: Expand
+						17 container
+							99 link Description: campustrade-mex-per, Value: dashboard.render.com/web/srv-dbigt7hsrm7s73bmnvn0
+							19 pop up button (collapsed) Description: Switch Service, ID: menu-_r_t_, Secondary Actions: Expand
+						20 container
+							21 link Description: Deploys, Value: dashboard.render.com/web/srv-dbigt7hsrm7s73bmnvn0/deploys
+							22 pop up button (collapsed) Description: Switch page, ID: menu-_r_v_, Secondary Actions: Expand
+						100 container
+							101 text dep-dbp73jetlv9c73enj3ig
+							102 pop up button (collapsed) Description: Switch Deploy, ID: menu-_r_2h_, Secondary Actions: Expand
+				23 button Search CTRL + K
+					24 text Search
+					25 text CTRL
+					26 text +
+					27 text K
+				28 pop up button (collapsed) New, ID: menu-_r_5_, Secondary Actions: Expand
+				29 pop up button (collapsed) Upgrade, ID: menu-_r_j_, Secondary Actions: Expand
+				30 pop up button (collapsed) Help, ID: menu-_r_7_, Secondary Actions: Expand
+					31 image Help
+				32 pop up button (collapsed) Description: Account menu, ID: menu-_r_9_, Secondary Actions: Expand
+			33 container
+				34 splitter Description: Resize sidebar, Value: 294
+				35 link Description: Environment, Value: dashboard.render.com/project/prj-dbigt7m1egvs73eqot1g/environment/evm-dbigt7m1egvs73eqot20
+				36 text campustrade-mex-per
+				37 content list
+					38 link Description: Deploys, Value: dashboard.render.com/web/srv-dbigt7hsrm7s73bmnvn0/deploys
+					39 link Description: Settings, Value: dashboard.render.com/web/srv-dbigt7hsrm7s73bmnvn0/settings
+				40 container
+					41 text MONITOR
+					42 content list MONITOR
+						43 link Description: Events, Value: dashboard.render.com/web/srv-dbigt7hsrm7s73bmnvn0/events
+						44 link Description: Logs, Value: dashboard.render.com/web/srv-dbigt7hsrm7s73bmnvn0/logs
+						45 link Description: Metrics, Value: dashboard.render.com/web/srv-dbigt7hsrm7s73bmnvn0/metrics
+				46 container
+					47 text MANAGE
+					48 content list MANAGE
+						49 link Description: Compute, Value: dashboard.render.com/web/srv-dbigt7hsrm7s73bmnvn0/compute
+						50 link Description: Environment, Value: dashboard.render.com/web/srv-dbigt7hsrm7s73bmnvn0/env
+						51 link Description: Shell, Value: dashboard.render.com/web/srv-dbigt7hsrm7s73bmnvn0/shell
+						52 link Description: Previews, Value: dashboard.render.com/web/srv-dbigt7hsrm7s73bmnvn0/previews
+						53 link Description: Disk, Value: dashboard.render.com/web/srv-dbigt7hsrm7s73bmnvn0/disks
+						54 link Description: One-Off Jobs, Value: dashboard.render.com/web/srv-dbigt7hsrm7s73bmnvn0/jobs
+				55 container Promotions
+					94 container
+						95 text 1  /  2
+					56 container Choose a promo
+						57 button Show promo 1: Introducing Sandboxes
+						58 button Show promo 2: Introducing Workflows
+					59 button (disabled) Previous promo
+					60 button Next promo
+					61 button Dismiss promo
+					62 container Introducing Sandboxes
+						63 container
+							64 heading Introducing Sandboxes, Value: 3
+								96 text Introducing Sandboxes
+							97 text An isolated computer for every agent, with state that persists.
+							65 button Try Sandboxes
+								98 text Try Sandboxes
+								66 image
+				67 container
+					68 content list Description: Footer navigation, ID: footer-nav-items
+						69 link Description: Changelog, Value: render.com/changelog
+					70 link Description: Status, Value: status.render.com/
+					71 button Collapse
+			91 container
+				103 text Your free instance will spin down with inactivity, which can delay requests by 50 seconds or more.
+				104 link Description: Upgrade now, Value: dashboard.render.com/web/srv-dbigt7hsrm7s73bmnvn0/plan
+				105 button (collapsed) fix: usa prioridad HTML compatible con React en portada, Secondary Actions: Expand
+					106 heading fix: usa prioridad HTML compatible con React en portada, Value: 1
+						107 text fix: usa prioridad HTML compatible con React en portada
+				108 definition list
+					109 image
+					110 container STATUS
+						111 text STATUS
+					112 container
+						113 text Deploy succeeded | Live
+					114 image
+					115 container DURATION
+						116 text DURATION
+					117 text 54.3s
+					118 image
+					119 container DEPLOYED
+						120 text DEPLOYED
+					121 container
+						122 text Nov 9, 2026 at 7:22:21 PM CST
+					123 image
+					124 container TRIGGER
+						125 text TRIGGER
+					126 container
+						127 text Manually deployed  by you  via Dashboard
+					128 image
+					129 container SOURCE
+						130 text SOURCE
+					131 link Description: 4f1927c, Help: 4f1927c9fe73e80f483961d6d204422c59fd29e0, Value: github.com/JoshStra/Compraventa_Peru_Mexico/commit/4f1927c9fe73e80f483961d6d204422c59fd29e0
+				132 container
+					133 pop up button (collapsed) All logs, ID: menu-_r_26_, Secondary Actions: Expand
+						134 text All logs
+						135 image
+					136 text Search
+					137 search text field (settable) Search
+					138 pop up button (collapsed) Live tail, ID: menu-_r_2a_, Secondary Actions: Expand
+						139 text Live tail
+						140 image
+					141 button Maximize
+						142 image Maximize
+					143 pop up button (collapsed) Options, ID: menu-_r_2e_, Secondary Actions: Expand
+						144 image Options
+				145 button Return to Bottom
+					146 image
+				147 list
+					148 text Nov 9
+					149 07:22:24 PM ==> Cloning from https://github.com/JoshStra/Compraventa_Peru_Mexico
+						150 image
+						151 text 07:22:24 PM
+						152 container
+							153 text ==> Cloning from
+							154 link Description: https://github.com/JoshStra/Compraventa_Peru_Mexico, Value: github.com/JoshStra/Compraventa_Peru_Mexico
+					155 07:22:29 PM ==> Checking out commit 4f1927c9fe73e80f483961d6d204422c59fd29e0 in branch main
+						156 image
+						157 text 07:22:29 PM
+						158 container
+							159 text ==> Checking out commit 4f1927c9fe73e80f483961d6d204422c59fd29e0 in branch main
+					160 07:22:32 PM ==> Downloaded and extracted 131 MiB cache in 8s.
+						161 image
+						162 text 07:22:32 PM
+						163 container
+							164 text ==> Downloaded and extracted 131 MiB cache in 8s.
+					165 07:22:33 PM ==> Using Node.js version 24.12.0 via environment variable NODE_VERSION
+						166 image
+						167 text 07:22:33 PM
+						168 container
+							169 text ==> Using Node.js version 24.12.0 via environment variable NODE_VERSION
+					170 07:22:33 PM ==> Docs on specifying a Node.js version: https://render.com/docs/node-version
+						171 image
+						172 text 07:22:33 PM
+						173 container
+							174 text ==> Docs on specifying a Node.js version:
+							175 link Description: https://render.com/docs/node-version, Value: render.com/docs/node-version
+					176 07:22:33 PM ==> Installing Node.js version 24.12.0...
+						177 image
+						178 text 07:22:33 PM
+						179 container
+							180 text ==> Installing Node.js version 24.12.0...
+					181 07:22:34 PM ==> Running build command 'npm ci --include=dev && npm run build'...
+						182 image
+						183 text 07:22:34 PM
+						184 container
+							185 text ==> Running build command 'npm ci --include=dev && npm run build'...
+					186 07:22:37 PM
+						187 image
+						188 text 07:22:37 PM
+					189 07:22:37 PM added 277 packages, and audited 280 packages in 3s
+						190 image
+						191 text 07:22:37 PM
+						192 text added 277 packages, and audited 280 packages in 3s
+					193 07:22:37 PM
+						194 image
+						195 text 07:22:37 PM
+					196 07:22:37 PM 66 packages are looking for funding
+						197 image
+						198 text 07:22:37 PM
+						199 text 66 packages are looking for funding
+					200 07:22:37 PM run `npm fund` for details
+						201 image
+						202 text 07:22:37 PM
+						203 text   run `npm fund` for details
+					204 07:22:37 PM
+						205 image
+						206 text 07:22:37 PM
+					207 07:22:37 PM found 0 vulnerabilities
+						208 image
+						209 text 07:22:37 PM
+						210 text found 0 vulnerabilities
+					211 07:22:37 PM
+						212 image
+						213 text 07:22:37 PM
+					214 07:22:37 PM > campustrade@0.3.0 build
+						215 image
+						216 text 07:22:37 PM
+						217 text > campustrade@0.3.0 build
+					218 07:22:37 PM > npm run build --workspace frontend
+						219 image
+						220 text 07:22:37 PM
+						221 text > npm run build --workspace frontend
+					222 07:22:37 PM
+						223 image
+						224 text 07:22:37 PM
+					225 07:22:37 PM
+						226 image
+						227 text 07:22:37 PM
+					228 07:22:37 PM > campustrade-alpha@0.3.0 build
+						229 image
+						230 text 07:22:37 PM
+						231 text > campustrade-alpha@0.3.0 build
+					232 07:22:37 PM > vite build
+						233 image
+						234 text 07:22:37 PM
+						235 text > vite build
+					236 07:22:37 PM
+						237 image
+						238 text 07:22:37 PM
+					239 07:22:38 PM vite v8.3.5 building client environment for production...
+						240 image
+						241 text 07:22:38 PM
+						242 text vite v8.3.5 building client environment for production...
+					243 07:22:38 PM transforming...
+						244 image
+						245 text 07:22:38 PM
+						246 text transforming...
+					247 07:22:38 PM ✓ 28 modules transformed.
+						248 image
+						249 text 07:22:38 PM
+						250 text ✓ 28 modules transformed.
+					251 07:22:38 PM rendering chunks...
+						252 image
+						253 text 07:22:38 PM
+						254 text rendering chunks...
+					255 07:22:38 PM computing gzip size...
+						256 image
+						257 text 07:22:38 PM
+						258 text computing gzip size...
+					259 07:22:38 PM dist/index.html 0.58 kB │ gzip: 0.35 kB
+						260 image
+						261 text 07:22:38 PM
+						262 text dist/index.html                                0.58 kB │ gzip:  0.35 kB
+					263 07:22:38 PM dist/assets/campus-essentials-CAy3ksIO.webp 88.10 kB
+						264 image
+						265 text 07:22:38 PM
+						266 text dist/assets/campus-essentials-CAy3ksIO.webp   88.10 kB
+					267 07:22:38 PM dist/assets/index-BS05YWAV.css 35.47 kB │ gzip: 7.10 kB
+						268 image
+						269 text 07:22:38 PM
+						270 text dist/assets/index-BS05YWAV.css                35.47 kB │ gzip:  7.10 kB
+					271 07:22:38 PM dist/assets/ConnectedApp-S0u7vjiS.js 62.68 kB │ gzip: 16.47 kB
+						272 image
+						273 text 07:22:38 PM
+						274 text dist/assets/ConnectedApp-S0u7vjiS.js          62.68 kB │ gzip: 16.47 kB
+					275 07:22:38 PM dist/assets/index-DHg7dret.js 142.42 kB │ gzip: 46.48 kB
+						276 image
+						277 text 07:22:38 PM
+						278 text dist/assets/index-DHg7dret.js                142.42 kB │ gzip: 46.48 kB
+					279 07:22:38 PM
+						280 image
+						281 text 07:22:38 PM
+					282 07:22:38 PM ✓ built in 108ms
+						283 image
+						284 text 07:22:38 PM
+						285 text ✓ built in 108ms
+					286 07:22:39 PM ==> Uploading build...
+						287 image
+						288 text 07:22:39 PM
+						289 container
+							290 text ==> Uploading build...
+					291 07:22:44 PM ==> Uploaded in 3.8s. Compression took 1.3s
+						292 image
+						293 text 07:22:44 PM
+						294 container
+							295 text ==> Uploaded in 3.8s. Compression took 1.3s
+					296 07:22:44 PM ==> Build successful 🎉
+						297 image
+						298 text 07:22:44 PM
+						299 container
+							300 text ==> Build successful 🎉
+					301 07:22:45 PM ==> Deploying...
+						302 image
+						303 text 07:22:45 PM
+						304 container
+							305 text ==>  Deploying...
+					306 07:22:45 PM ==> Setting WEB_CONCURRENCY=1 by default, based on available CPUs in the instance
+						307 image
+						308 text 07:22:45 PM
+						309 container
+							310 text ==>  Setting WEB_CONCURRENCY=1 by default, based on available CPUs in the instance
+					311 07:22:59 PM [bn75b] ==> Running 'npm start'
+						312 image
+						313 text 07:22:59 PM
+						314 container
+							315 text [ bn75b ]
+						316 container
+							317 text ==> Running 'npm start'
+					318 07:23:00 PM [bn75b]
+						319 image
+						320 text 07:23:00 PM
+						321 container
+							322 text [ bn75b ]
+					323 07:23:00 PM [bn75b] > campustrade@0.3.0 start
+						324 image
+						325 text 07:23:00 PM
+						326 container
+							327 text [ bn75b ]
+						328 text > campustrade@0.3.0 start
+					329 07:23:00 PM [bn75b] > npm run start --workspace backend
+						330 image
+						331 text 07:23:00 PM
+						332 container
+							333 text [ bn75b ]
+						334 text > npm run start --workspace backend
+					335 07:23:00 PM [bn75b]
+						336 image
+						337 text 07:23:00 PM
+						338 container
+							339 text [ bn75b ]
+					340 07:23:01 PM [bn75b]
+						341 image
+						342 text 07:23:01 PM
+						343 container
+							344 text [ bn75b ]
+					345 07:23:01 PM [bn75b] > campustrade-api@0.3.0 start
+						346 image
+						347 text 07:23:01 PM
+						348 container
+							349 text [ bn75b ]
+						350 text > campustrade-api@0.3.0 start
+					351 07:23:01 PM [bn75b] > node --env-file-if-exists=.env src/server.js
+						352 image
+						353 text 07:23:01 PM
+						354 container
+							355 text [ bn75b ]
+						356 text > node --env-file-if-exists=.env src/server.js
+					357 07:23:01 PM [bn75b]
+						358 image
+						359 text 07:23:01 PM
+						360 container
+							361 text [ bn75b ]
+					362 07:23:01 PM [bn75b] .env not found. Continuing without it.
+						363 image
+						364 text 07:23:01 PM
+						365 container
+							366 text [ bn75b ]
+						367 text .env not found. Continuing without it.
+					368 07:23:07 PM [bn75b] {"event":"server_started","port":10000,"url":"https://campustrade-mex-per.onrender.com"}
+						369 image
+						370 text 07:23:07 PM
+						371 container
+							372 text [ bn75b ]
+						373 text {"event":"server_started","port":10000,"url":"https://campustrade-mex-per.onrender.com"}
+					374 07:23:16 PM ==> Your service is live 🎉
+						375 image
+						376 text 07:23:16 PM
+						377 container
+							378 text ==>  Your service is live 🎉
+					379 07:23:16 PM ==>
+						380 image
+						381 text 07:23:16 PM
+						382 text ==>
+					383 07:23:16 PM ==> ///////////////////////////////////////////////////////////
+						384 image
+						385 text 07:23:16 PM
+						386 container
+							387 text ==>  ///////////////////////////////////////////////////////////
+					388 07:23:16 PM ==>
+						389 image
+						390 text 07:23:16 PM
+						391 text ==>
+					392 07:23:16 PM ==> Available at your primary URL https://campustrade-mex-per.onrender.com
+						393 image
+						394 text 07:23:16 PM
+						395 container
+							396 text ==>  Available at your primary URL
+							397 link Description: https://campustrade-mex-per.onrender.com, Value: campustrade-mex-per.onrender.com/
+					398 07:23:16 PM ==>
+						399 image
+						400 text 07:23:16 PM
+						401 text ==>
+					402 07:23:16 PM ==> ///////////////////////////////////////////////////////////
+						403 image
+						404 text 07:23:16 PM
+						405 container
+							406 text ==>  ///////////////////////////////////////////////////////////
+				407 text Need better ways to work with logs? Try the
+				408 link Description: Render CLI, Value: render.com/docs/cli
+				409 text ,
+				410 link Description: Render MCP Server, Value: render.com/docs/mcp-server
+				411 text , or set up a
+				412 link Description: log stream integration , Value: render.com/docs/log-streams
+
+The focused UI element is 0 AXWebArea campustrade-mex-per ・ Web Service ・ Render Dashboard, URL: dashboard.render.com/web/srv-dbigt7hsrm7s73bmnvn0/deploys/dep-dbp73jetlv9c73enj3ig

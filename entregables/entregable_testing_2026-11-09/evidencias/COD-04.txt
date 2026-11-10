@@ -1,0 +1,16 @@
+Registro de interacción de Codex
+ID: COD-04
+Autor: Codex, evaluador técnico automatizado
+Fecha y hora: 2026-11-09 19:24:51 GMT−6
+Módulo: Acceso institucional
+Acción: Abrir Iniciar sesión desde el catálogo.
+Esperado: Formulario con etiquetas visibles y dominio itesa.edu.mx.
+Obtenido: El diálogo muestra Correo institucional, Contraseña y Dominio autorizado: itesa.edu.mx.
+Estado: APROBADA
+Comentario de Codex: El dominio autorizado está explicado antes de ingresar datos. El envío real de verificación continúa pendiente de proveedor y esta prueba no lo acredita.
+Código observado: 4f1927c9fe73e80f483961d6d204422c59fd29e0
+
+Observación de la herramienta (puede ser incremental)
+Browser tab: 2, Title: "CampusTrade", URL: "https://campustrade-mex-per.onrender.com/".
+There has been no change in the accessibility tree.
+The focused UI element is 129 text field (settable) Correo institucional

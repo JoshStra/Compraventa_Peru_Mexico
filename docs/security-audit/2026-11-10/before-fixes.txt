@@ -1,0 +1,92 @@
+✖ SEC-01 registro no revela si el correo o la matrícula ya existen (831.9879ms)
+✖ SEC-02 subidas concurrentes respetan el cupo de veinte imágenes pendientes (334.4189ms)
+✖ SEC-03 una devolución anterior no libera una renta posterior (135.2216ms)
+✖ SEC-04 aceptar un intercambio revalida la modalidad de la oferta (75.7682ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 0
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6587.4539
+
+✖ failing tests:
+
+test at backend\test\security.test.js:23:1
+✖ SEC-01 registro no revela si el correo o la matrícula ya existen (831.9879ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+
+    [
+  +   409,
+  +   409
+  -   201,
+  -   201
+    ]
+
+      at TestContext.<anonymous> (file:///<REPO>/backend/test/security.test.js:31:10)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 409, 409 ],
+    expected: [ 201, 201 ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at backend\test\security.test.js:37:1
+✖ SEC-02 subidas concurrentes respetan el cupo de veinte imágenes pendientes (334.4189ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  4 !== 1
+
+      at TestContext.<anonymous> (file:///<REPO>/backend/test/security.test.js:52:10)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 4,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at backend\test\security.test.js:58:1
+✖ SEC-03 una devolución anterior no libera una renta posterior (135.2216ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  200 !== 409
+
+      at TestContext.<anonymous> (file:///<REPO>/backend/test/security.test.js:72:10)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 200,
+    expected: 409,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at backend\test\security.test.js:77:1
+✖ SEC-04 aceptar un intercambio revalida la modalidad de la oferta (75.7682ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  200 !== 409
+
+      at TestContext.<anonymous> (file:///<REPO>/backend/test/security.test.js:88:10)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 200,
+    expected: 409,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -41,7 +41,9 @@ test("registro verificación publicación con imagen y edición persistentes", a
   await modal
     .getByRole("button", { name: "Crear cuenta", exact: true })
     .click();
-  await expect(modal.getByRole("status")).toContainText("Cuenta creada");
+  await expect(modal.getByRole("status")).toContainText(
+    "recibirás un enlace de verificación",
+  );
   const client = await requestFactory.newContext({ baseURL: origin });
   clients.push(client);
   const mail = await verificationMail(client, input.email);

@@ -15,18 +15,19 @@ const post = (path, body) =>
     .send(body);
 test("registro institucional almacena hash y nunca inventa la verificación", async () => {
   const response = await post("/auth/register", registration("one"));
-  assert.equal(response.status, 201);
-  assert.equal(response.body.user.verified, false);
-  assert.equal(response.body.verificationSent, true);
+  assert.equal(response.status, 202);
+  assert.equal(response.body.user, undefined);
+  assert.equal(response.body.emailDeliveryConfigured, true);
   const stored = (
     await context.db.query(
-      "SELECT password_hash,student_hash FROM users WHERE id=$1",
-      [response.body.user.id],
+      "SELECT password_hash,student_hash,verified_at FROM users WHERE email=$1",
+      [registration("one").email],
     )
   ).rows[0];
   assert.match(stored.password_hash, /^\$argon2id\$/);
+  assert.equal(stored.verified_at, null);
   assert.notEqual(stored.student_hash, registration("one").studentId);
-  assert.equal(response.body.user.password_hash, undefined);
+  assert.equal(response.body.password_hash, undefined);
 });
 test("rechaza dominios ajenos, contraseñas cortas, roles y duplicados", async () => {
   assert.equal(
@@ -48,7 +49,7 @@ test("rechaza dominios ajenos, contraseñas cortas, roles y duplicados", async (
       .status,
     400,
   );
-  assert.equal((await post("/auth/register", registration("one"))).status, 409);
+  assert.equal((await post("/auth/register", registration("one"))).status, 202);
 });
 test("el enlace de verificación es de un solo uso", async () => {
   const token = context.mail.find(

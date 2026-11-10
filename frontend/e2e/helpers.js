@@ -39,7 +39,7 @@ export async function actor({ verified = true, prefix = "user" } = {}) {
   const registered = await client.post("/api/v1/auth/register", {
     data: input,
   });
-  expect(registered.status()).toBe(201);
+  expect(registered.status()).toBe(202);
   if (verified) {
     const mail = await verificationMail(client, input.email);
     expect(

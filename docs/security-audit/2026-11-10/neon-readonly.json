@@ -1,0 +1,56 @@
+{
+  "checkedAt": "2026-11-10T15:39:39.444Z",
+  "mode": "read-only provider metadata; no SQL or user rows",
+  "project": {
+    "id": "gentle-leaf-50085647",
+    "name": "campustrade",
+    "pgVersion": 17,
+    "region": "aws-us-east-1",
+    "settings": {
+      "allowed_ips": {
+        "ips": [],
+        "protected_branches_only": false
+      },
+      "enable_logical_replication": false,
+      "maintenance_window": {
+        "weekdays": [7],
+        "start_time": "05:00",
+        "end_time": "06:00"
+      },
+      "block_public_connections": false,
+      "block_vpc_connections": false,
+      "hipaa": false
+    },
+    "historyRetentionSeconds": 21600,
+    "storePasswords": true
+  },
+  "branch": {
+    "id": "br-divine-king-b8sln8n1",
+    "name": "production",
+    "state": "ready",
+    "primary": true,
+    "default": true,
+    "protected": false
+  },
+  "roles": [
+    {
+      "name": "campustrade_owner",
+      "protected": false,
+      "flags": {
+        "protected": false
+      }
+    }
+  ],
+  "rolePrivilegeQuery": "SELECT rolname,rolsuper,rolcreaterole,rolcreatedb,rolbypassrls,pg_has_role(current_user,'neon_superuser','MEMBER') AS member_neon_superuser,has_schema_privilege(current_user,'public','CREATE') AS can_create_in_public FROM pg_roles WHERE rolname=current_user",
+  "rolePrivileges": [
+    {
+      "rolname": "campustrade_owner",
+      "rolsuper": false,
+      "rolcreaterole": true,
+      "rolcreatedb": true,
+      "rolbypassrls": true,
+      "member_neon_superuser": true,
+      "can_create_in_public": true
+    }
+  ]
+}

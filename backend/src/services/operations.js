@@ -118,7 +118,8 @@ export function createOperations({ db }) {
       const rows = (
         await db.query(
           `SELECT o.*,to_char(o.rental_start,'YYYY-MM-DD') AS rental_start_date,to_char(o.rental_end,'YYYY-MM-DD') AS rental_end_date,l.title,l.seller_id,l.status AS listing_status,s.name AS seller_name,r.name AS requester_name,offered.title AS offered_title,
-        EXISTS(SELECT 1 FROM ratings rating WHERE rating.operation_id=o.id AND rating.author_id=$1) AS rated
+        EXISTS(SELECT 1 FROM ratings rating WHERE rating.operation_id=o.id AND rating.author_id=$1) AS rated,
+        EXISTS(SELECT 1 FROM audit_events event WHERE event.resource_id=o.id AND event.action='rental_returned') AS returned
         FROM operations o JOIN listings l ON l.id=o.listing_id JOIN users s ON s.id=l.seller_id JOIN users r ON r.id=o.requester_id
         LEFT JOIN listings offered ON offered.id=o.offered_listing_id WHERE o.requester_id=$1 OR l.seller_id=$1 ORDER BY o.created_at DESC,o.id DESC LIMIT 100`,
           [user.id],
@@ -141,6 +142,7 @@ export function createOperations({ db }) {
         rentalStart: row.rental_start_date,
         rentalEnd: row.rental_end_date,
         rated: row.rated,
+        returned: row.returned,
         createdAt: row.created_at,
       }));
     },
@@ -199,6 +201,20 @@ export function createOperations({ db }) {
             "Solo el propietario puede realizar esta transición.",
           );
         if (status === "accepted") {
+          const offered = locked.find(
+            (row) => row.id === operation.offered_listing_id,
+          );
+          if (
+            item.modality !== operation.type ||
+            (operation.type === "exchange" &&
+              (offered?.modality !== "exchange" ||
+                offered.seller_id !== operation.requester_id))
+          )
+            fail(
+              409,
+              "OPERATION_CHANGED",
+              "La modalidad de algún artículo cambió. Cancela esta solicitud y crea una nueva.",
+            );
           if (locked.some((row) => row.status !== "available"))
             fail(
               409,
@@ -269,6 +285,18 @@ export function createOperations({ db }) {
           item.status !== "rented"
         )
           fail(409, "INVALID_RETURN", "No existe una renta por devolver.");
+        const returned = (
+          await client.query(
+            "SELECT 1 FROM audit_events WHERE action='rental_returned' AND resource_id=$1 LIMIT 1",
+            [id],
+          )
+        ).rows.length;
+        if (returned)
+          fail(
+            409,
+            "INVALID_RETURN",
+            "Esta renta ya tiene una devolución registrada.",
+          );
         await client.query(
           "UPDATE listings SET status='available',updated_at=now() WHERE id=$1",
           [item.id],

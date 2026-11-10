@@ -75,11 +75,7 @@ export function AuthDialog({
           semester: Number(values.semester),
         });
         setMode("login");
-        setNotice(
-          result.verificationSent
-            ? "Cuenta creada. Revisa tu correo para verificarla y luego inicia sesión."
-            : "Cuenta creada. El envío de verificación aún no está disponible; podrás iniciar sesión y consultar el catálogo, pero publicar requiere verificar tu correo.",
-        );
+        setNotice(result.message);
       } else {
         const result = await api.forgot(email);
         setNotice(result.message);

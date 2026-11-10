@@ -1,5 +1,7 @@
 # Controles de seguridad implementados
 
+La revisión del 10 de noviembre de 2026, sus hallazgos, pruebas y límites se documentan en [SECURITY_AUDIT.md](../SECURITY_AUDIT.md). El registro responde de forma genérica con 202, el login limita fallos por cuenta además de IP, las subidas serializan el cupo en PostgreSQL y las operaciones revalidan modalidades y devoluciones anteriores. La auditoría usa una rama independiente; aplicar esos cambios a producción requiere una revisión y despliegue posteriores.
+
 ## Cuentas y sesiones
 
 Las contraseñas se validan con longitud de 12 a 128 caracteres y se almacenan con Argon2id. La matrícula se conserva como HMAC con APP_SECRET, no en texto claro. El registro solo acepta dominios de ALLOWED_EMAIL_DOMAINS; el usuario confirmó itesa.edu.mx para esta instalación. La API no permite asignar roles desde el registro.

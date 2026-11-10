@@ -2,6 +2,10 @@
 
 Base: `/api/v1`. Las respuestas son JSON. Los errores contienen `error.code`, `error.message`, campos opcionales e identificador de solicitud. Las rutas de escritura requieren Origin autorizado; las sesiones autenticadas también requieren X-CSRF-Token obtenido en GET /auth/session. La cookie de sesión es HttpOnly y el cliente debe enviar credentials include.
 
+Desde la auditoría del 10 de noviembre de 2026, POST /auth/register devuelve **202** con `message` y `emailDeliveryConfigured` tanto para solicitudes nuevas como para correo o matrícula duplicados. No devuelve perfil, identificador ni confirmación individual de envío. Los errores de formato, dominio y carrera siguen devolviendo 400. El frontend muestra el mensaje genérico y permite iniciar sesión o recuperar acceso.
+
+El login conserva el límite por IP y añade un máximo de diez fallos por cuenta normalizada en quince minutos. El contador usa un HMAC del correo, también para cuentas inexistentes; los accesos correctos no consumen el contador por cuenta. Los contadores viven en memoria de cada proceso: varias réplicas requieren un almacén compartido.
+
 ## Rutas implementadas y verificadas
 
 | Método        | Ruta                         | Acceso y resultado                                        |
@@ -46,6 +50,8 @@ Abrir y escribir requiere correo verificado. La lectura exige sesión y particip
 GET /operations devuelve operaciones del usuario como propietario o solicitante. POST /operations recibe listingId y, según modalidad, rentalStart, rentalEnd u offeredListingId. PATCH /operations/:id recibe status: accepted, rejected, cancelled o completed. Solo el propietario acepta, rechaza y finaliza; los participantes cancelan cuando la transición es válida.
 
 La aceptación bloquea todas las publicaciones relacionadas por UUID ordenado, valida disponibilidad y reserva ambos artículos en un intercambio. Las solicitudes incompatibles pendientes se rechazan. Una restricción parcial evita dos aceptaciones sobre el mismo artículo. Los estados terminales bloquean nuevas solicitudes. La renta admite de 1 a 90 días y conserva el importe acordado. POST /operations/:id/return permite al propietario registrar la devolución de una renta completada.
+
+Al aceptar se revalida que la modalidad de la publicación corresponda a la solicitud y que la oferta de intercambio siga siendo un intercambio del solicitante; si cambió devuelve 409 `OPERATION_CHANGED` sin reservar artículos. Una devolución registrada no puede repetirse aunque el artículo vuelva a rentarse. GET /operations incluye `returned`, derivado de la auditoría persistente, para ocultar esa acción en operaciones anteriores. Estas medidas no requieren una migración de esquema.
 
 POST /operations/:id/ratings recibe score de 1 a 5 y comment de 5 a 1000 caracteres. Solo participa quien intervino en una operación completada y solo puede calificar una vez. GET /users/:id devuelve perfil público y calificaciones; no expone correo ni matrícula.
 

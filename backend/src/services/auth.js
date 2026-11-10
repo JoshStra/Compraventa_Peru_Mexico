@@ -69,17 +69,14 @@ export function createAuth({ db, config, mailer }) {
       try {
         user = await users.create({ ...input, studentHash, passwordHash });
       } catch (error) {
-        if (error.code === "23505")
-          fail(
-            409,
-            "ACCOUNT_EXISTS",
-            "El correo o la matrícula ya están registrados.",
-          );
-        throw error;
+        if (error.code !== "23505") throw error;
       }
+      if (user) await sendToken(user, "verify");
       return {
-        user: privateUser(user),
-        verificationSent: await sendToken(user, "verify"),
+        message: mailer.available
+          ? "Si los datos permiten crear una cuenta, recibirás un enlace de verificación. Si ya tienes cuenta, inicia sesión o recupera tu acceso."
+          : "Solicitud recibida. Si los datos permiten crear una cuenta, podrás iniciar sesión. El envío de verificación aún no está disponible; publicar requiere verificar tu correo. Si ya tienes cuenta, inicia sesión o recupera tu acceso.",
+        emailDeliveryConfigured: mailer.available,
       };
     },
     async login(value) {

@@ -271,6 +271,7 @@ export function OperationsPage({
                   )}
                   {operation.status === "completed" &&
                     operation.type === "rental" &&
+                    !operation.returned &&
                     owner &&
                     operation.listingStatus === "rented" && (
                       <button

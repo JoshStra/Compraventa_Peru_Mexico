@@ -80,7 +80,7 @@ export async function createTestUser(
     .post("/api/v1/auth/register")
     .set("Origin", origin)
     .send(input);
-  if (registered.status !== 201)
+  if (registered.status !== 202)
     throw new Error(`Fixture registration failed: ${registered.status}`);
   if (verified) {
     const mail = context.mail.findLast(

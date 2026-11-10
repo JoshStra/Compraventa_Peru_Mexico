@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { rateLimit } from "express-rate-limit";
+import { createHmac } from "node:crypto";
 import { requireUser, sessionCookie } from "../middleware/auth.js";
 
 export function authRoutes({ auth, config }) {
@@ -23,6 +24,24 @@ export function authRoutes({ auth, config }) {
       },
     },
   });
+  const accountAttempts = rateLimit({
+    windowMs: 15 * 60000,
+    limit: config.testMode ? 1000 : 10,
+    standardHeaders: "draft-8",
+    legacyHeaders: false,
+    skipSuccessfulRequests: true,
+    skip: (req) => typeof req.body?.email !== "string",
+    keyGenerator: (req) =>
+      createHmac("sha256", config.secret)
+        .update(req.body.email.trim().toLowerCase())
+        .digest("hex"),
+    message: {
+      error: {
+        code: "AUTH_RATE_LIMIT",
+        message: "Demasiados intentos. Intenta más tarde.",
+      },
+    },
+  });
   router.get("/session", (req, res) => {
     res.set("Cache-Control", "no-store");
     res.json({
@@ -35,9 +54,9 @@ export function authRoutes({ auth, config }) {
     });
   });
   router.post("/register", sensitive, async (req, res) =>
-    res.status(201).json(await auth.register(req.body)),
+    res.status(202).json(await auth.register(req.body)),
   );
-  router.post("/login", sensitive, async (req, res) => {
+  router.post("/login", sensitive, accountAttempts, async (req, res) => {
     const { token, ...session } = await auth.login(req.body);
     res.cookie(sessionCookie, token, cookie);
     res.set("Cache-Control", "no-store").json(session);

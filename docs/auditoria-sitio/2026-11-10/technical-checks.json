@@ -1,0 +1,66 @@
+{
+  "checkedAt": "2026-11-10T19:41:50.061Z",
+  "timezone": "America/Mexico_City",
+  "assets": [
+    {
+      "path": "/assets/index-C-Wozw1a.js",
+      "status": 200,
+      "bytes": 142425,
+      "cache": "public, max-age=0",
+      "encoding": null
+    },
+    {
+      "path": "/assets/index-D17YjgnF.css",
+      "status": 200,
+      "bytes": 35625,
+      "cache": "public, max-age=0",
+      "encoding": null
+    },
+    {
+      "path": "/assets/campus-essentials-CAy3ksIO.webp",
+      "status": 200,
+      "bytes": 88108,
+      "cache": "public, max-age=0",
+      "encoding": null
+    },
+    {
+      "path": "/assets/ConnectedApp-BeAHofEF.js",
+      "status": 200,
+      "bytes": 62445,
+      "cache": "public, max-age=0",
+      "encoding": null
+    }
+  ],
+  "adminAnonymous": {
+    "status": 401,
+    "code": "AUTH_REQUIRED"
+  },
+  "contrast": [
+    {
+      "location": "Footer: version y lema",
+      "foreground": "#707070",
+      "background": "#1d1d1f",
+      "fontPx": 12,
+      "ratio": 3.398522409227509,
+      "minimumAA": 4.5
+    },
+    {
+      "location": "CTA principal",
+      "foreground": "#ffffff",
+      "background": "#0071e3",
+      "ratio": 4.69666146009005,
+      "minimumAA": 4.5
+    }
+  ],
+  "invalidPriceRange": {
+    "status": 400,
+    "error": {
+      "code": "VALIDATION_ERROR",
+      "message": "Revisa los campos indicados.",
+      "fields": {
+        "minPrice": "El precio mínimo supera al máximo."
+      },
+      "requestId": "51f46a45-7481-4027-a072-8b37aa0cad29"
+    }
+  }
+}

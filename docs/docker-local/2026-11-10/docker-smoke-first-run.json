@@ -1,0 +1,58 @@
+{
+  "checkedAt": "2026-11-10T16:25:39.079Z",
+  "testProject": "campustrade-smoke-fb3e67c1",
+  "passed": 7,
+  "failed": 1,
+  "disposableVolumesRemoved": true,
+  "checks": [
+    {
+      "id": "DOCKER-01",
+      "description": "API y frontend compilado responden en contenedores recién creados",
+      "state": "passed",
+      "at": "2026-11-10T16:25:23.443Z"
+    },
+    {
+      "id": "DOCKER-02",
+      "description": "Inicialización automática y rol de aplicación sin privilegios administrativos",
+      "state": "passed",
+      "at": "2026-11-10T16:25:23.461Z"
+    },
+    {
+      "id": "DOCKER-03",
+      "description": "Registro genérico, cookie y restricción de cuentas sin verificar",
+      "state": "passed",
+      "at": "2026-11-10T16:25:23.754Z"
+    },
+    {
+      "id": "DOCKER-04",
+      "description": "Publicación e imagen real procesada con Sharp y guardada en volumen",
+      "state": "passed",
+      "at": "2026-11-10T16:25:23.800Z"
+    },
+    {
+      "id": "DOCKER-05",
+      "description": "Edición propia y bloqueo de terceros y CSRF incorrecto",
+      "state": "passed",
+      "at": "2026-11-10T16:25:23.813Z"
+    },
+    {
+      "id": "DOCKER-06",
+      "description": "Mensajes, reserva, venta y calificación con dos cuentas sintéticas",
+      "state": "passed",
+      "at": "2026-11-10T16:25:23.854Z"
+    },
+    {
+      "id": "DOCKER-07",
+      "description": "Contenedor sin root, sistema de archivos de solo lectura y sin secretos ni fixtures de host",
+      "state": "passed",
+      "at": "2026-11-10T16:25:24.890Z"
+    },
+    {
+      "id": "FAIL",
+      "state": "failed",
+      "stage": "persistence",
+      "code": "TypeError",
+      "at": "2026-11-10T16:25:37.755Z"
+    }
+  ]
+}

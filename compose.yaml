@@ -2,18 +2,65 @@ name: campustrade
 services:
   db:
     image: postgres:17-alpine
+    restart: unless-stopped
     environment:
-      POSTGRES_DB: campustrade
+      POSTGRES_DB: ${POSTGRES_DB:-campustrade}
       POSTGRES_USER: campustrade
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Define POSTGRES_PASSWORD in .env}
+      APP_DB_PASSWORD: ${APP_DB_PASSWORD:?Run npm run docker:setup first}
     ports:
-      - "127.0.0.1:55432:5432"
+      - "127.0.0.1:${POSTGRES_PORT:-55432}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - ./docker/init-app-role.sh:/docker-entrypoint-initdb.d/10-app-role.sh:ro
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U campustrade -d campustrade"]
+      test: ["CMD-SHELL", "pg_isready -U campustrade -d $$POSTGRES_DB"]
       interval: 5s
       timeout: 3s
       retries: 10
+  app:
+    build: .
+    image: campustrade-local:0.3.0
+    init: true
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      NODE_ENV: development
+      HOST: 0.0.0.0
+      PORT: "3000"
+      DATABASE_URL: postgresql://campustrade_app:${APP_DB_PASSWORD:?Run npm run docker:setup first}@db:5432/${POSTGRES_DB:-campustrade}
+      APP_SECRET: ${APP_SECRET:?Run npm run docker:setup first}
+      ALLOWED_EMAIL_DOMAINS: itesa.edu.mx
+      PUBLIC_URL: http://127.0.0.1:${CAMPUS_PORT:-3000}
+      CORS_ORIGINS: http://127.0.0.1:${CAMPUS_PORT:-3000},http://localhost:${CAMPUS_PORT:-3000}
+      TRUST_PROXY: "0"
+      STORAGE_DRIVER: local
+      STORAGE_PATH: /app/backend/.data/images
+    ports:
+      - "127.0.0.1:${CAMPUS_PORT:-3000}:3000"
+    volumes:
+      - images_data:/app/backend/.data/images
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "fetch('http://127.0.0.1:3000/api/v1/health',{signal:AbortSignal.timeout(3000)}).then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
+        ]
+      interval: 10s
+      timeout: 5s
+      start_period: 20s
+      retries: 5
 volumes:
   postgres_data:
+  images_data:

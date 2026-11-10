@@ -14,3 +14,7 @@ entregables/entregable_testing_2026-11-09/**/*.csv text eol=lf
 docs/security-audit/**/*.txt text eol=lf
 docs/security-audit/**/*.json text eol=lf
 docs/security-audit/**/*.sha256 text eol=lf
+docker/*.sh text eol=lf
+docs/docker-local/**/*.json text eol=lf
+docs/docker-local/**/*.txt text eol=lf
+docs/docker-local/**/*.sha256 text eol=lf

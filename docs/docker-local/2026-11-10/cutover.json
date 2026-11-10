@@ -1,0 +1,29 @@
+{
+  "checkedAt": "2026-11-10T16:41:43.689Z",
+  "render": {
+    "state": "suspended",
+    "uiEvidence": "render-suspended.jpg",
+    "publicHealthStatus": 503,
+    "publicBodyIndicatesSuspension": true
+  },
+  "supabase": {
+    "state": "paused",
+    "alreadyPausedBeforeMigration": true,
+    "backupExported": true
+  },
+  "neon": {
+    "preserved": true,
+    "sourceDataUnchanged": true
+  },
+  "docker": {
+    "healthStatus": 200,
+    "health": {
+      "status": "ok",
+      "database": "connected",
+      "version": "0.3.0"
+    },
+    "sourceAndTargetTablesMatch": true,
+    "comparedTables": 15,
+    "localLoginSessionCleanedUp": true
+  }
+}

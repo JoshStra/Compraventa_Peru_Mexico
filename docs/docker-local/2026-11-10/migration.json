@@ -88,16 +88,20 @@
     "imageHashesMatch": true,
     "migratedSyntheticAccountLogin": true,
     "syntheticLoginSessionRevokedAfterCheck": true,
-    "realAccountsAutoVerified": false
+    "realAccountsAutoVerified": false,
+    "finalSourceAndTargetMatch": true
   },
   "cloud": {
-    "supabase": "already paused; export downloaded",
-    "render": "suspension pending"
+    "supabase": "paused; export downloaded",
+    "render": "suspended",
+    "stateVerifiedAt": "2026-11-10T16:41:43.689Z"
   },
   "validation": {
     "backend": 50,
     "frontend": 47,
     "docker": 9,
     "failed": 0
-  }
+  },
+  "preSuspensionCommit": "6d56a90",
+  "updatedAt": "2026-11-10T16:45:32.439Z"
 }

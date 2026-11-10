@@ -55,6 +55,8 @@ La primera restauración se revirtió por un `CREATE SCHEMA public` ya existente
 
 ## Verificación reproducible
 
+La imagen final pasó nueve recorridos Docker, cincuenta pruebas de API y cuarenta y siete de frontend: 106 comprobaciones aprobadas en esta entrega. La cuenta sintética migrada pudo iniciar y cerrar sesión localmente; esa sesión se revocó al terminar. Después de suspender Render se volvieron a comparar las quince tablas de origen y destino y todas coincidieron.
+
 ```powershell
 npm run test:docker
 npm run test:api
@@ -66,3 +68,18 @@ npm test
 La primera ejecución alcanzó siete comprobaciones y falló al reconectar después de la recreación. El arnés se ajustó para cerrar conexiones HTTP entre solicitudes y comprobar explícitamente la sesión persistida; la repetición completó las nueve comprobaciones. Se conserva el resultado inicial junto al final en [evidencia Docker](docker-local/2026-11-10/).
 
 No se debe usar `docker compose down -v` en la instalación con datos: esa opción elimina volúmenes. Para respaldos posteriores, guardar un dump PostgreSQL y una copia del volumen de imágenes fuera de Git y verificar una restauración en una base separada.
+
+## Estado del retiro de la nube
+
+| Recurso                        | Estado verificado el 10-11-2026                                                                              |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| CampusTrade local              | HTTP 200 y PostgreSQL conectado en `http://127.0.0.1:3000`                                                   |
+| Render `campustrade-mex-per`   | Suspendido por solicitud del usuario; panel “Suspended by you” y health público 503 con página de suspensión |
+| Supabase `campustrade-storage` | Ya estaba pausado; se descargó el respaldo de objetos y se mantuvo pausado                                   |
+| Neon                           | Conservado como origen de respaldo; los datos permanecieron sin cambios                                      |
+
+El incremento Docker probado se guardó en el commit local `6d56a90` antes de suspender Render. El código se conserva en `codex/docker-local-2026-11-10`; no se hizo push a GitHub. Las evidencias están en [cutover.json](docker-local/2026-11-10/cutover.json), [migration.json](docker-local/2026-11-10/migration.json) y [captura de Render](docker-local/2026-11-10/render-suspended.jpg).
+
+La copia local es HTTP en loopback, pensada para esta computadora. Compartirla fuera del equipo requiere otra configuración de red y HTTPS. Los respaldos privados contienen datos y configuración; se conservan en `backend/.data/`, excluidos de Git y de la imagen Docker. La rotación de la credencial remota sigue pendiente por decisión del usuario y no se cambió como parte de esta migración.
+
+Referencias: [arranque y healthchecks de Docker Compose](https://docs.docker.com/compose/how-tos/startup-order/) y [respaldo PostgreSQL con pg_dump](https://www.postgresql.org/docs/17/app-pgdump.html).

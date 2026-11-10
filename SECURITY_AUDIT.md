@@ -1,5 +1,7 @@
 # Auditoría de seguridad de CampusTrade — 10 de noviembre de 2026
 
+Actualización posterior a esta auditoría: CampusTrade se migró a [Docker local](docs/DOCKER_LOCAL.md), con base e imágenes persistentes y un rol local sin CREATEDB, CREATEROLE, SUPERUSER ni BYPASSRLS. Render quedó suspendido y Supabase permanece pausado; Neon se conserva como respaldo. Los resultados siguientes corresponden a la auditoría previa a esa migración; el estado operativo posterior se registra en [cutover.json](docs/docker-local/2026-11-10/cutover.json). La rotación remota continúa pendiente por decisión del usuario.
+
 ## A. Resumen ejecutivo
 
 Se revisaron las veinte categorías solicitadas mediante análisis estático manual, inspección de configuración, SCA con npm y pruebas dinámicas locales. Se confirmaron **cinco defectos de aplicación**, corregidos y verificados en esta rama: enumeración explícita en el registro, carrera en el cupo de imágenes, repetición de devoluciones de renta, aceptación de intercambios cuya modalidad cambió y ausencia de un contador de login por cuenta. Cuatro tienen severidad Media y uno Baja. No se confirmó una vulnerabilidad Crítica o Alta en el código revisado.

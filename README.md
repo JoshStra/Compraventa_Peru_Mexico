@@ -4,6 +4,8 @@ Aplicación universitaria para venta, renta, intercambio y donación de material
 
 **Sistema local:** [Abrir CampusTrade](http://127.0.0.1:3000/) · [Health de API](http://127.0.0.1:3000/api/v1/health). React, API, PostgreSQL e imágenes persistentes se ejecutan en Docker. Los datos de Neon y el objeto de Supabase se copiaron a esta instalación. El correo institucional sigue pendiente.
 
+El 10 de noviembre de 2026 se suspendió Render después de validar la copia local. Supabase permanece pausado y Neon se conserva como respaldo; no se eliminaron proyectos ni datos remotos. El [registro de migración](docs/docker-local/2026-11-10/cutover.json) conserva la verificación del cambio.
+
 ## Inicio con Docker
 
 En esta computadora puedes ejecutar `iniciar-docker.cmd` o:

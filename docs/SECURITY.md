@@ -1,5 +1,7 @@
 # Controles de seguridad implementados
 
+La instalación actual se ejecuta en [Docker local](DOCKER_LOCAL.md). El proceso HTTP usa `campustrade_app`, limitado a su base y sin privilegios administrativos del clúster. Sus secretos se inyectan en ejecución y no forman parte de la imagen; la aplicación corre sin root, con filesystem de solo lectura y un volumen escribible para imágenes. Render está suspendido y las conexiones remotas anteriores se conservan como respaldo privado.
+
 La revisión del 10 de noviembre de 2026, sus hallazgos, pruebas y límites se documentan en [SECURITY_AUDIT.md](../SECURITY_AUDIT.md). El registro responde de forma genérica con 202, el login limita fallos por cuenta además de IP, las subidas serializan el cupo en PostgreSQL y las operaciones revalidan modalidades y devoluciones anteriores. La auditoría usa una rama independiente; aplicar esos cambios a producción requiere una revisión y despliegue posteriores.
 
 ## Cuentas y sesiones

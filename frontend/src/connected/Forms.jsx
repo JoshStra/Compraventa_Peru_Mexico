@@ -1,4 +1,4 @@
-import { cloneElement, useId, useState } from "react";
+import { cloneElement, useEffect, useId, useRef, useState } from "react";
 import { Modal } from "../components/Modal.jsx";
 import {
   api,
@@ -7,7 +7,7 @@ import {
   conditionLabels,
 } from "../services/apiClient.js";
 
-export function Field({ label, error, children }) {
+export function Field({ label, hint, error, action, children }) {
   const id = useId();
   return (
     <div className="form-field">
@@ -16,13 +16,26 @@ export function Field({ label, error, children }) {
         id,
         "aria-label": label,
         "aria-invalid": Boolean(error),
-        "aria-describedby": error ? `${id}-error` : undefined,
+        "aria-describedby":
+          [
+            children.props["aria-describedby"],
+            hint && `${id}-hint`,
+            error && `${id}-error`,
+          ]
+            .filter(Boolean)
+            .join(" ") || undefined,
       })}
+      {hint && (
+        <small className="field-hint" id={`${id}-hint`}>
+          {hint}
+        </small>
+      )}
       {error && (
         <small className="field-error" id={`${id}-error`}>
           {error}
         </small>
       )}
+      {action}
     </div>
   );
 }
@@ -45,11 +58,17 @@ export function AuthDialog({
   const [notice, setNotice] = useState("");
   const [fields, setFields] = useState({});
   const [email, setEmail] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const authForm = useRef(null);
+  useEffect(() => {
+    authForm.current?.querySelector("input")?.focus();
+  }, [mode]);
   function change(next) {
     setMode(next);
     setError("");
     setFields({});
     setNotice("");
+    setShowPassword(false);
   }
   async function submit(event) {
     event.preventDefault();
@@ -75,6 +94,7 @@ export function AuthDialog({
           semester: Number(values.semester),
         });
         setMode("login");
+        setShowPassword(false);
         setNotice(result.message);
       } else {
         const result = await api.forgot(email);
@@ -104,7 +124,7 @@ export function AuthDialog({
         Dominio autorizado:{" "}
         {catalog.emailDomains.join(", ") || "pendiente de configurar"}.
       </p>
-      <form className="remote-form" key={mode} onSubmit={submit}>
+      <form className="remote-form" ref={authForm} key={mode} onSubmit={submit}>
         <ErrorNotice error={error} />
         {notice && (
           <p className="success-notice" role="status">
@@ -135,10 +155,25 @@ export function AuthDialog({
           />
         </Field>
         {mode !== "forgot" && (
-          <Field label="Contraseña" error={fields.password}>
+          <Field
+            label="Contraseña"
+            error={fields.password}
+            hint={mode === "register" ? "Mínimo 12 caracteres." : undefined}
+            action={
+              <button
+                type="button"
+                className="text-link password-toggle"
+                aria-pressed={showPassword}
+                disabled={busy}
+                onClick={() => setShowPassword((value) => !value)}
+              >
+                {showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
+              </button>
+            }
+          >
             <input
               name="password"
-              type="password"
+              type={showPassword ? "text" : "password"}
               required
               minLength={mode === "register" ? 12 : 1}
               maxLength={128}
@@ -150,7 +185,11 @@ export function AuthDialog({
         )}
         {mode === "register" && (
           <>
-            <Field label="Matrícula" error={fields.studentId}>
+            <Field
+              label="Matrícula"
+              error={fields.studentId}
+              hint="Entre 4 y 30 caracteres: letras, números y guiones."
+            >
               <input
                 name="studentId"
                 required

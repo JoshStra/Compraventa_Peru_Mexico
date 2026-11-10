@@ -1,4 +1,4 @@
-import { Icon } from "./Visuals.jsx";
+import { Badge, Icon } from "./Visuals.jsx";
 import essentials from "../assets/campus-essentials.webp";
 
 export function HomeHero({ onBrowse, onPublish }) {
@@ -9,11 +9,10 @@ export function HomeHero({ onBrowse, onPublish }) {
       </p>
       <section className="hero">
         <div className="hero-copy">
-          <p className="hero-kicker">Una comunidad. Más posibilidades.</p>
           <h1>
             Lo que ya no usas.
             <br />
-            Alguien lo <em>necesita.</em>
+            Alguien lo necesita.
           </h1>
           <p>
             Compra, renta, intercambia o dona materiales académicos con
@@ -27,10 +26,17 @@ export function HomeHero({ onBrowse, onPublish }) {
               Publicar artículo
             </button>
           </div>
+          <ul className="modality-list" aria-label="Formas de reutilizar">
+            {["Venta", "Renta", "Intercambio", "Donación"].map((modality) => (
+              <li key={modality}>
+                <Badge modality={modality} />
+              </li>
+            ))}
+          </ul>
           <div className="trust-line">
             <span>
               <Icon name="check" size={16} />
-              Cuatro formas de reutilizar
+              Entre estudiantes
             </span>
             <span>
               <Icon name="pin" size={16} />

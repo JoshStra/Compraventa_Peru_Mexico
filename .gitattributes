@@ -1,5 +1,13 @@
 *.pdf binary
 *.docx binary
+*.woff2 binary
+docs/auditoria-sitio/**/*.md text eol=lf
+docs/auditoria-sitio/**/*.json text eol=lf
+docs/auditoria-sitio/**/*.sha256 text eol=lf
+docs/diseno-tablon/**/*.md text eol=lf
+docs/diseno-tablon/**/*.txt text eol=lf
+docs/diseno-tablon/**/*.json text eol=lf
+docs/diseno-tablon/**/*.sha256 text eol=lf
 entregables/rediseno_galeria/evidencias/*.txt text eol=lf
 entregables/rediseno_galeria/evidencias/*.json text eol=lf
 entregables/rediseno_galeria/evidencias/checksums.sha256 text eol=lf

@@ -134,20 +134,20 @@ Las prioridades son de producto y usabilidad: **P1** bloquea una tarea esencial;
 
 ## Evidencia ejecutada y límites
 
-| Comprobación de esta sesión                                                      | Resultado                                                                                                                          |
-| -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Comprobación de esta sesión                                             | Resultado                                                                                                                          |
+| ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | Cinco consultas públicas: HTML, salud, catálogo, publicaciones y sesión | HTTP 200; PostgreSQL conectado; versión 0.3.0.                                                                                     |
-| Consulta anónima de administración                                               | HTTP 401 `AUTH_REQUIRED`; rechazo correcto.                                                                                        |
-| Dominio y catálogos                                                              | `itesa.edu.mx`, cuatro categorías y tres carreras activas.                                                                         |
-| Estado de publicaciones                                                          | Cero resultados; estado vacío visible. No se concluye que búsqueda, ordenamiento o paginación con datos hayan quedado revalidados. |
-| Rango mínimo 200 / máximo 100                                                    | La API rechaza el rango; la explicación detallada se pierde en la interfaz.                                                        |
-| Teclado de ventana de acceso                                                     | Tab y Shift+Tab circulan dentro; Escape cierra y devuelve foco a «Iniciar sesión».                                                 |
-| Recarga desde Explorar                                                           | Vuelve Inicio; estado de vista no conservado.                                                                                      |
-| Filtros y registro en 320 px                                                     | Sin desbordamiento de página; registro con desplazamiento vertical interno.                                                        |
-| Navegación en 320 px                                                             | Desplazamiento horizontal interno necesario para ver «Perfil» completo.                                                            |
-| Inicio a 390 y 768 px                                                            | Comprobación geométrica sin desbordamiento horizontal de página.                                                                   |
-| Contraste del pie                                                                | 3.3985:1; insuficiente para texto normal.                                                                                          |
-| Consola del sitio durante el recorrido                                           | No se recogieron avisos ni errores de aplicación en la consulta de consola realizada.                                              |
+| Consulta anónima de administración                                      | HTTP 401 `AUTH_REQUIRED`; rechazo correcto.                                                                                        |
+| Dominio y catálogos                                                     | `itesa.edu.mx`, cuatro categorías y tres carreras activas.                                                                         |
+| Estado de publicaciones                                                 | Cero resultados; estado vacío visible. No se concluye que búsqueda, ordenamiento o paginación con datos hayan quedado revalidados. |
+| Rango mínimo 200 / máximo 100                                           | La API rechaza el rango; la explicación detallada se pierde en la interfaz.                                                        |
+| Teclado de ventana de acceso                                            | Tab y Shift+Tab circulan dentro; Escape cierra y devuelve foco a «Iniciar sesión».                                                 |
+| Recarga desde Explorar                                                  | Vuelve Inicio; estado de vista no conservado.                                                                                      |
+| Filtros y registro en 320 px                                            | Sin desbordamiento de página; registro con desplazamiento vertical interno.                                                        |
+| Navegación en 320 px                                                    | Desplazamiento horizontal interno necesario para ver «Perfil» completo.                                                            |
+| Inicio a 390 y 768 px                                                   | Comprobación geométrica sin desbordamiento horizontal de página.                                                                   |
+| Contraste del pie                                                       | 3.3985:1; insuficiente para texto normal.                                                                                          |
+| Consola del sitio durante el recorrido                                  | No se recogieron avisos ni errores de aplicación en la consulta de consola realizada.                                              |
 
 Como antecedente, la entrega Docker del mismo día conserva **50 pruebas API, 47 de frontend y 9 recorridos Docker aprobados** en [su evidencia](../../docker-local/2026-11-10/migration.json). Son 106 comprobaciones previas; **no se volvieron a ejecutar ni se suman como nuevas en esta auditoría**. Los recorridos de mensajería, publicaciones, operaciones y administración con datos sintéticos están documentados previamente, pero no sustituyen una evaluación con estudiantes reales.
 

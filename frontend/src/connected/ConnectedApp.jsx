@@ -28,19 +28,11 @@ import {
   OperationsPage,
 } from "./Operations.jsx";
 import { AdminPage, ResolutionDialog, CatalogDialog } from "./Admin.jsx";
-
-const emptyFilters = {
-  q: "",
-  career: "",
-  categoryId: "",
-  modality: "",
-  condition: "",
-  status: "available",
-  minPrice: "",
-  maxPrice: "",
-  page: 1,
-  limit: 12,
-};
+import {
+  emptyFilters,
+  invalidPriceRange,
+} from "../domain/catalogNavigation.js";
+import { useCatalogNavigation } from "./useCatalogNavigation.js";
 const emptyAccount = {
   own: [],
   favorites: [],
@@ -70,8 +62,8 @@ function initialLink() {
 export default function ConnectedApp() {
   const [catalog, setCatalog] = useState(null);
   const [user, setUser] = useState(null);
-  const [view, setView] = useState("Inicio");
-  const [filters, setFilters] = useState({ ...emptyFilters });
+  const { view, filters, setView, setFilters } = useCatalogNavigation();
+  const priceError = invalidPriceRange(filters);
   const [result, setResult] = useState({
     items: [],
     total: 0,
@@ -88,7 +80,9 @@ export default function ConnectedApp() {
   const [loading, setLoading] = useState(true);
   const [accountLoading, setAccountLoading] = useState(false);
   const [busy, setBusy] = useState(false);
-  const [showFilters, setShowFilters] = useState(false);
+  const [showFilters, setShowFilters] = useState(() =>
+    new URLSearchParams(window.location.search).has("vista"),
+  );
   const [messageThread, setMessageThread] = useState(null);
   useEffect(() => {
     const changed = () => {
@@ -107,6 +101,22 @@ export default function ConnectedApp() {
           setCatalog(metadata);
           setUser(session.user);
           setFatal("");
+          if (
+            !session.user &&
+            [
+              "Favoritos",
+              "Perfil",
+              "Mensajes",
+              "Operaciones",
+              "Gestión",
+            ].includes(view)
+          ) {
+            setView("Inicio");
+            setDialog((current) =>
+              current?.type === "token" ? current : { type: "auth" },
+            );
+          } else if (view === "Gestión" && session.user?.role !== "admin")
+            setView("Inicio");
         }
       })
       .catch((failure) => {
@@ -118,6 +128,10 @@ export default function ConnectedApp() {
   }, [boot]);
   useEffect(() => {
     if (!catalog) return;
+    if (priceError) {
+      setLoading(false);
+      return;
+    }
     const abort = new AbortController();
     setLoading(true);
     api
@@ -127,13 +141,14 @@ export default function ConnectedApp() {
         setError("");
       })
       .catch((failure) => {
-        if (failure.name !== "AbortError") setError(failure.message);
+        if (!abort.signal.aborted && failure.name !== "AbortError")
+          setError(failure.message);
       })
       .finally(() => {
         if (!abort.signal.aborted) setLoading(false);
       });
     return () => abort.abort();
-  }, [catalog, filters, revision]);
+  }, [catalog, filters, revision, priceError]);
   useEffect(() => {
     if (!user) {
       setAccount({ ...emptyAccount });
@@ -363,7 +378,7 @@ export default function ConnectedApp() {
               onClick={() => navigate(label)}
             >
               <Icon name={icon} size={18} />
-              {label}
+              <span className="nav-label">{label}</span>
             </button>
           ))}
         </nav>
@@ -407,7 +422,6 @@ export default function ConnectedApp() {
             <section className="category-section">
               <div className="section-title">
                 <div>
-                  <p className="eyebrow">Encuentra lo que buscas</p>
                   <h2>Explora por categoría</h2>
                 </div>
                 <button className="text-link" onClick={() => browse()}>
@@ -443,7 +457,6 @@ export default function ConnectedApp() {
             <section className="catalog-section home-catalog">
               <div className="section-title">
                 <div>
-                  <p className="eyebrow">Catálogo comunitario</p>
                   <h2>Recién publicados</h2>
                 </div>
                 <button className="text-link" onClick={() => browse()}>
@@ -475,7 +488,6 @@ export default function ConnectedApp() {
           <section className="explore-page">
             <div className="page-heading">
               <div>
-                <p className="eyebrow">CampusTrade</p>
                 <h1>
                   {view === "Favoritos"
                     ? "Tus favoritos"
@@ -488,7 +500,7 @@ export default function ConnectedApp() {
                 onClick={() => publish()}
               >
                 <Icon name="plus" size={18} />
-                Publicar
+                Publicar artículo
               </button>
             </div>
             {view === "Explorar" && (
@@ -498,6 +510,7 @@ export default function ConnectedApp() {
                     <Icon name="search" />
                     <input
                       aria-label="Buscar artículos"
+                      maxLength={100}
                       placeholder="Buscar libros, herramientas, materiales…"
                       value={filters.q}
                       onChange={(event) => filter("q", event.target.value)}
@@ -506,7 +519,7 @@ export default function ConnectedApp() {
                   <button
                     className="filter-button"
                     aria-label="Mostrar filtros"
-                    aria-expanded={showFilters}
+                    aria-expanded={showFilters || priceError}
                     aria-controls="filtros"
                     onClick={() => setShowFilters((value) => !value)}
                   >
@@ -514,7 +527,7 @@ export default function ConnectedApp() {
                     Filtros
                   </button>
                 </div>
-                {showFilters && (
+                {(showFilters || priceError) && (
                   <div className="filter-panel" id="filtros">
                     <Filter
                       label="Carrera"
@@ -566,6 +579,10 @@ export default function ConnectedApp() {
                         min={0}
                         max={1000000}
                         step="0.01"
+                        aria-invalid={priceError}
+                        aria-describedby={
+                          priceError ? "error-precio" : undefined
+                        }
                         value={filters.minPrice}
                         onChange={(event) =>
                           filter("minPrice", event.target.value)
@@ -579,12 +596,25 @@ export default function ConnectedApp() {
                         min={0}
                         max={1000000}
                         step="0.01"
+                        aria-invalid={priceError}
+                        aria-describedby={
+                          priceError ? "error-precio" : undefined
+                        }
                         value={filters.maxPrice}
                         onChange={(event) =>
                           filter("maxPrice", event.target.value)
                         }
                       />
                     </label>
+                    {priceError && (
+                      <p
+                        className="field-error price-range-error"
+                        id="error-precio"
+                        role="alert"
+                      >
+                        El precio mínimo no puede ser mayor que el máximo.
+                      </p>
+                    )}
                     <button
                       className="clear-filters"
                       onClick={() => setFilters({ ...emptyFilters })}
@@ -604,14 +634,16 @@ export default function ConnectedApp() {
               />
             ) : (
               <>
-                <div className="result-bar" role="status">
-                  <span>
-                    {result.total}{" "}
-                    {result.total === 1 ? "resultado" : "resultados"}
-                  </span>
-                  <span>Más recientes primero</span>
-                </div>
-                {loading ? (
+                {!priceError && (
+                  <div className="result-bar" role="status">
+                    <span>
+                      {result.total}{" "}
+                      {result.total === 1 ? "resultado" : "resultados"}
+                    </span>
+                    <span>Más recientes primero</span>
+                  </div>
+                )}
+                {priceError ? null : loading ? (
                   <p role="status">Buscando artículos…</p>
                 ) : result.items.length ? (
                   cards(result.items)
@@ -621,7 +653,7 @@ export default function ConnectedApp() {
                     text="Prueba otra búsqueda o limpia los filtros."
                     action={
                       <button
-                        className="button button-primary"
+                        className="button button-secondary"
                         onClick={() => setFilters({ ...emptyFilters })}
                       >
                         Limpiar búsqueda y filtros
@@ -629,14 +661,16 @@ export default function ConnectedApp() {
                     }
                   />
                 )}
-                <Pager
-                  page={result.page}
-                  total={result.total}
-                  limit={result.limit}
-                  onChange={(page) =>
-                    setFilters((current) => ({ ...current, page }))
-                  }
-                />
+                {!priceError && (
+                  <Pager
+                    page={result.page}
+                    total={result.total}
+                    limit={result.limit}
+                    onChange={(page) =>
+                      setFilters((current) => ({ ...current, page }))
+                    }
+                  />
+                )}
               </>
             )}
           </section>

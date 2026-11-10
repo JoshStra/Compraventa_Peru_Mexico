@@ -1,0 +1,95 @@
+{
+  "checkedAt": "2026-11-10T22:55:49.196Z",
+  "url": "http://127.0.0.1:3000/",
+  "states": [
+    {
+      "name": "campustrade-app-1",
+      "image": "sha256:0ccb372404cb9821c1af4da78c7b99ae9a982128f5d6f5c95b13d1539468a691",
+      "health": "healthy",
+      "volumes": [
+        {
+          "name": "campustrade_images_data",
+          "destination": "/app/backend/.data/images"
+        }
+      ],
+      "volumesPreserved": true,
+      "ports": {
+        "3000/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "3000"
+          }
+        ]
+      }
+    },
+    {
+      "name": "campustrade-db-1",
+      "image": "sha256:266d3c257594e195b309ae9d1805e54c788f1d7b375f56bf6c367aac6c917e7b",
+      "health": "healthy",
+      "volumes": [
+        {
+          "name": "campustrade_postgres_data",
+          "destination": "/var/lib/postgresql/data"
+        }
+      ],
+      "volumesPreserved": true,
+      "ports": {
+        "5432/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "55432"
+          }
+        ]
+      }
+    }
+  ],
+  "health": {
+    "status": "ok",
+    "database": "connected",
+    "version": "0.3.0"
+  },
+  "emailDomains": ["itesa.edu.mx"],
+  "emailDeliveryConfigured": false,
+  "catalogTotal": 0,
+  "deployedAssets": [
+    {
+      "file": "campus-essentials-CAy3ksIO.webp",
+      "bytes": 88108,
+      "sha256": "20e20552c219ead05f617d295fc27061656f306e2606a07cfb985b5d6144e4b2",
+      "matchesBuild": true
+    },
+    {
+      "file": "ConnectedApp-DmcYvrKf.js",
+      "bytes": 65666,
+      "sha256": "f42b13eb6f3ccfce4cf1f8ba8bcdf46224a5c380a7d3e2f085e5a38203d51978",
+      "matchesBuild": true
+    },
+    {
+      "file": "fraunces-latin-variable-ukD16Tqj.woff2",
+      "bytes": 36620,
+      "sha256": "7f9d191d999336d3b9790afa72e1358e50a13b06d4f289341e92a311967a80f9",
+      "matchesBuild": true
+    },
+    {
+      "file": "index-C7PgVbPA.css",
+      "bytes": 52810,
+      "sha256": "72bc8b0d0354e5e3c814af7221084be1bdc47c520290f3d396892085e1690dcb",
+      "matchesBuild": true
+    },
+    {
+      "file": "index-Vca0-H5Q.js",
+      "bytes": 142425,
+      "sha256": "7078bd386c7e3437d24fc49213cf6562d98dc119e3684aec2ec368e9acd44ded",
+      "matchesBuild": true
+    },
+    {
+      "file": "inter-latin-variable-Dx4kXJAl.woff2",
+      "bytes": 48256,
+      "sha256": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62",
+      "matchesBuild": true
+    }
+  ],
+  "frontendTests": 52,
+  "e2eTests": 24,
+  "failuresFinal": 0
+}

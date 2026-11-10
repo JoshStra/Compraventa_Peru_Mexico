@@ -2,6 +2,8 @@
 
 Aplicación universitaria para venta, renta, intercambio y donación de materiales académicos. La versión 0.3.0 conserva React 18 y Vite y conecta la interfaz a una API Node.js con PostgreSQL. Las entregas se acuerdan dentro del campus; no se integran pagos en línea.
 
+La interfaz adopta el diseño «Tablón de anuncios del campus»: crema, acciones teal, tipografía local Inter/Fraunces y etiquetas de modalidad. Incluye filtros y vistas conservados en la URL, explicación accesible del rango de precios y ayudas de registro. Consulta la [guía de diseño](docs/DESIGN.md) y la [validación del incremento](docs/diseno-tablon/2026-11-10/README.md).
+
 **Sistema local:** [Abrir CampusTrade](http://127.0.0.1:3000/) · [Health de API](http://127.0.0.1:3000/api/v1/health). React, API, PostgreSQL e imágenes persistentes se ejecutan en Docker. Los datos de Neon y el objeto de Supabase se copiaron a esta instalación. El correo institucional sigue pendiente.
 
 El 10 de noviembre de 2026 se suspendió Render después de validar la copia local. Supabase permanece pausado y Neon se conserva como respaldo; no se eliminaron proyectos ni datos remotos. El [registro de migración](docs/docker-local/2026-11-10/cutover.json) conserva la verificación del cambio.

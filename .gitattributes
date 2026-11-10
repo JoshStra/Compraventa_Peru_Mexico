@@ -1,4 +1,5 @@
 *.pdf binary
+*.docx binary
 entregables/rediseno_galeria/evidencias/*.txt text eol=lf
 entregables/rediseno_galeria/evidencias/*.json text eol=lf
 entregables/rediseno_galeria/evidencias/checksums.sha256 text eol=lf

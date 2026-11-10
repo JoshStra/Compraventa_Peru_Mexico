@@ -1,0 +1,16 @@
+{
+  "reportPages": 44,
+  "formPages": 1,
+  "caseIdsPresent": 101,
+  "nativeFormControls": 8,
+  "textOutsideMargins": 0,
+  "renderedPages": 44,
+  "checkedUtc": "2026-11-10T02:30:54.483599+00:00",
+  "sourceCommit": "ed2d83187231315ad5baa18eb3ae18eeefb74f6d",
+  "publishedCode": "664f416e5e84cabb7896be5055d889929045cfb3",
+  "visualPagesReviewedAtNativeSize": 44,
+  "formVisuallyReviewed": true,
+  "editableFieldTest": "Comentario con acentos renderizado correctamente en copia interna",
+  "newApplicationTestsExecuted": false,
+  "renderer": "render_docx.py con LibreOffice local y dependencias documentales del runtime"
+}

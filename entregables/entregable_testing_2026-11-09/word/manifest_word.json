@@ -1,0 +1,24 @@
+{
+  "files": [
+    {
+      "path": "CampusTrade_Testing_Actualizado_2026-11-09.docx",
+      "bytes": 176307,
+      "sha256": "c180b18c51bd1813c97e2f580dab10c57b61054a116287105fcf342b929c4acd"
+    },
+    {
+      "path": "Formulario_Correccion_Errores.docx",
+      "bytes": 39048,
+      "sha256": "5f77d1f3303866e6c4b2e7f9e330e75235954389538a8de6d4501eb64d5d4b75"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1589,
+      "sha256": "35ae9a054c68a4facff8bd5eb16cc6289f7fa9dcb97706037136f3d7d5c7e377"
+    },
+    {
+      "path": "verificacion_word.json",
+      "bytes": 620,
+      "sha256": "eaed82af0c8b83bfd54f90625fbe37d945a8054eccbeb84659ff4b23cc7e71ea"
+    }
+  ]
+}

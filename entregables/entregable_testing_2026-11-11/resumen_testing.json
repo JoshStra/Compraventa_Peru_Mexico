@@ -1,0 +1,52 @@
+{
+  "generatedUtc": "2026-11-11T16:13:15.335336+00:00",
+  "codeCommit": "20759004c4448e588f6b80e89dc6c127b399198c",
+  "branch": "codex/minimal-buscador-2026-11-11",
+  "groups": {
+    "Frontend": 55,
+    "API": 50,
+    "Navegador": 26
+  },
+  "total": 131,
+  "passed": 131,
+  "failed": 0,
+  "skipped": 0,
+  "humanParticipants": 0,
+  "codexInteractions": 8,
+  "delivery": "Docker local; sin push de esta entrega",
+  "runs": {
+    "frontend": {
+      "suite": "frontend",
+      "startedUtc": "2026-11-11T16:04:29.786Z",
+      "finishedUtc": "2026-11-11T16:04:41.818Z",
+      "durationSeconds": 12.032,
+      "exitCode": 0,
+      "sha": "20759004c4448e588f6b80e89dc6c127b399198c",
+      "command": "npm.cmd run test --workspace frontend -- --reporter=default --reporter=json --outputFile.json=<REPO>\\tmp\\testing-2026-11-11\\frontend.json",
+      "node": "v24.12.0",
+      "timezone": "America/Mexico_City"
+    },
+    "api": {
+      "suite": "api",
+      "startedUtc": "2026-11-11T16:04:43.588Z",
+      "finishedUtc": "2026-11-11T16:04:58.110Z",
+      "durationSeconds": 14.522,
+      "exitCode": 0,
+      "sha": "20759004c4448e588f6b80e89dc6c127b399198c",
+      "command": "C:\\Program Files\\nodejs\\node.exe --env-file-if-exists=.env --test --test-concurrency=1 --test-reporter=spec --test-reporter-destination=stdout --test-reporter=junit --test-reporter-destination=<REPO>\\entregables\\entregable_testing_2026-11-11\\evidencias\\api.xml test/auth.test.js test/config.test.js test/conversations.test.js test/database.test.js test/listings.test.js test/moderation.test.js test/operations.test.js test/persistence.test.js test/security.test.js",
+      "node": "v24.12.0",
+      "timezone": "America/Mexico_City"
+    },
+    "e2e": {
+      "suite": "e2e",
+      "startedUtc": "2026-11-11T16:05:59.937Z",
+      "finishedUtc": "2026-11-11T16:06:38.365Z",
+      "durationSeconds": 38.428,
+      "exitCode": 0,
+      "sha": "20759004c4448e588f6b80e89dc6c127b399198c",
+      "command": "npm.cmd run test:e2e --workspace frontend -- --reporter=list,json",
+      "node": "v24.12.0",
+      "timezone": "America/Mexico_City"
+    }
+  }
+}

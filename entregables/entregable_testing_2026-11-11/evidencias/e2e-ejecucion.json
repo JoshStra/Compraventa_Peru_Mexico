@@ -1,0 +1,11 @@
+{
+  "suite": "e2e",
+  "startedUtc": "2026-11-11T16:05:59.937Z",
+  "finishedUtc": "2026-11-11T16:06:38.365Z",
+  "durationSeconds": 38.428,
+  "exitCode": 0,
+  "sha": "20759004c4448e588f6b80e89dc6c127b399198c",
+  "command": "npm.cmd run test:e2e --workspace frontend -- --reporter=list,json",
+  "node": "v24.12.0",
+  "timezone": "America/Mexico_City"
+}

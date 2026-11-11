@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+	<testcase name="registro institucional almacena hash y nunca inventa la verificación" time="0.193898" classname="test" file="REPO\backend\test\auth.test.js"/>
+	<testcase name="rechaza dominios ajenos, contraseñas cortas, roles y duplicados" time="0.054713" classname="test" file="REPO\backend\test\auth.test.js"/>
+	<testcase name="el enlace de verificación es de un solo uso" time="0.022610" classname="test" file="REPO\backend\test\auth.test.js"/>
+	<testcase name="sesión HttpOnly, CSRF, persistencia y cierre revocable" time="0.067579" classname="test" file="REPO\backend\test\auth.test.js"/>
+	<testcase name="recuperación cambia la contraseña y revoca las sesiones previas" time="0.145298" classname="test" file="REPO\backend\test\auth.test.js"/>
+	<testcase name="rechaza orígenes extraños y tokens vencidos" time="0.056889" classname="test" file="REPO\backend\test\auth.test.js"/>
+	<testcase name="Render proporciona el origen HTTPS inicial sin adivinar el dominio asignado" time="0.001135" classname="test" file="REPO\backend\test\config.test.js"/>
+	<testcase name="PUBLIC_URL y CORS_ORIGINS explícitos prevalecen sobre el dominio de Render" time="0.000207" classname="test" file="REPO\backend\test\config.test.js"/>
+	<testcase name="la detección de Render no permite HTTP ni orígenes con rutas" time="0.000971" classname="test" file="REPO\backend\test\config.test.js"/>
+	<testcase name="producción sigue rechazando URL ausente y almacenamiento local" time="0.000206" classname="test" file="REPO\backend\test\config.test.js"/>
+	<testcase name="conversación única entre participantes distintos" time="0.605912" classname="test" file="REPO\backend\test\conversations.test.js"/>
+	<testcase name="mensaje del comprador llega al vendedor y persiste" time="0.030867" classname="test" file="REPO\backend\test\conversations.test.js"/>
+	<testcase name="bloquea lectura escritura y suplantación por terceros" time="0.032676" classname="test" file="REPO\backend\test\conversations.test.js"/>
+	<testcase name="migraciones PostgreSQL idempotentes y catálogo inicial" time="0.068158" classname="test" file="REPO\backend\test\database.test.js"/>
+	<testcase name="health confirma la conexión real y no expone secretos" time="0.011674" classname="test" file="REPO\backend\test\database.test.js"/>
+	<testcase name="rollback conserva la integridad cuando falla una escritura" time="0.007068" classname="test" file="REPO\backend\test\database.test.js"/>
+	<testcase name="publicar exige sesión y correo verificado; no acepta suplantar propietario" time="0.536499" classname="test" file="REPO\backend\test\listings.test.js"/>
+	<testcase name="contenido inválido se rechaza y las consultas están parametrizadas" time="0.035803" classname="test" file="REPO\backend\test\listings.test.js"/>
+	<testcase name="solo el propietario edita y retira; persiste con una nueva instancia de API" time="0.029809" classname="test" file="REPO\backend\test\listings.test.js"/>
+	<testcase name="favoritos idempotentes se conservan en PostgreSQL" time="0.048589" classname="test" file="REPO\backend\test\listings.test.js"/>
+	<testcase name="la carga verifica MIME contenido extensión y tamaño antes de publicar" time="0.109828" classname="test" file="REPO\backend\test\listings.test.js"/>
+	<testcase name="retirar conserva historial y excluye el artículo del catálogo" time="0.012473" classname="test" file="REPO\backend\test\listings.test.js"/>
+	<testcase name="reporte persistente evita duplicados y limita acceso administrativo" time="0.521833" classname="test" file="REPO\backend\test\moderation.test.js"/>
+	<testcase name="administrador revisa resuelve y registra una decisión real" time="0.048944" classname="test" file="REPO\backend\test\moderation.test.js"/>
+	<testcase name="moderación retira contenido sin borrar su historial" time="0.023731" classname="test" file="REPO\backend\test\moderation.test.js"/>
+	<testcase name="suspensión revoca sesiones y oculta publicaciones; no modifica administradores" time="0.049795" classname="test" file="REPO\backend\test\moderation.test.js"/>
+	<testcase name="categorías y carreras se administran sin modificar referencias históricas" time="0.024364" classname="test" file="REPO\backend\test\moderation.test.js"/>
+	<testcase name="dos aceptaciones simultáneas solo reservan el artículo una vez" time="0.597294" classname="test" file="REPO\backend\test\operations.test.js"/>
+	<testcase name="estados terminales bloquean solicitudes y las calificaciones exigen finalización" time="0.048882" classname="test" file="REPO\backend\test\operations.test.js"/>
+	<testcase name="cancelar una reserva libera disponibilidad y rechaza terceros" time="0.050164" classname="test" file="REPO\backend\test\operations.test.js"/>
+	<testcase name="renta valida fechas e importe y permite registrar devolución" time="0.081897" classname="test" file="REPO\backend\test\operations.test.js"/>
+	<testcase name="intercambio reserva ambos artículos y no permite reutilizar el ofrecido" time="0.077237" classname="test" file="REPO\backend\test\operations.test.js"/>
+	<testcase name="retirar una oferta de intercambio cancela las solicitudes pendientes relacionadas" time="0.052369" classname="test" file="REPO\backend\test\operations.test.js"/>
+	<testcase name="publicación y sesión sobreviven al reinicio real del proceso Node" time="1.849022" classname="test" file="REPO\backend\test\persistence.test.js"/>
+	<testcase name="SEC-01 registro no revela si el correo o la matrícula ya existen" time="0.641105" classname="test" file="REPO\backend\test\security.test.js"/>
+	<testcase name="SEC-02 subidas concurrentes respetan el cupo de veinte imágenes pendientes" time="0.351982" classname="test" file="REPO\backend\test\security.test.js"/>
+	<testcase name="SEC-03 una devolución anterior no libera una renta posterior" time="0.114264" classname="test" file="REPO\backend\test\security.test.js"/>
+	<testcase name="SEC-04 aceptar un intercambio revalida la modalidad de la oferta" time="0.075123" classname="test" file="REPO\backend\test\security.test.js"/>
+	<testcase name="SEC-05 login limita fallos de una cuenta aunque cambie la IP" time="0.428440" classname="test" file="REPO\backend\test\security.test.js"/>
+	<testcase name="SEC-06 CORS exacto y CSRF rechazan orígenes y tokens manipulados" time="0.029151" classname="test" file="REPO\backend\test\security.test.js"/>
+	<testcase name="SEC-07 SQLi y mass assignment no alteran datos ni elevan privilegios" time="0.053561" classname="test" file="REPO\backend\test\security.test.js"/>
+	<testcase name="SEC-08 respuestas públicas no exponen correo hashes ni tokens" time="0.030557" classname="test" file="REPO\backend\test\security.test.js"/>
+	<testcase name="SEC-09 subida normaliza contenido y elimina metadatos sin usar rutas del cliente" time="0.108633" classname="test" file="REPO\backend\test\security.test.js"/>
+	<testcase name="SEC-10 rutas archivos secretos y enlaces externos no se resuelven como recursos" time="0.014370" classname="test" file="REPO\backend\test\security.test.js"/>
+	<testcase name="SEC-11 errores JSON y fallos internos devuelven mensajes seguros" time="0.010236" classname="test" file="REPO\backend\test\security.test.js"/>
+	<testcase name="SEC-12 cookie de producción expira y sesiones nuevas no reutilizan tokens" time="0.154130" classname="test" file="REPO\backend\test\security.test.js"/>
+	<testcase name="SEC-13 token de verificación concurrente se consume una sola vez" time="0.058204" classname="test" file="REPO\backend\test\security.test.js"/>
+	<testcase name="SEC-14 cabeceras CSP HSTS nosniff y bloqueo de marcos están presentes" time="0.003232" classname="test" file="REPO\backend\test\security.test.js"/>
+	<testcase name="SEC-15 login correcto no consume el cupo de fallos por cuenta" time="0.479604" classname="test" file="REPO\backend\test\security.test.js"/>
+	<testcase name="SEC-16 dominio itesa.edu.mx se compara completo sin verificar cuentas automáticamente" time="0.066963" classname="test" file="REPO\backend\test\security.test.js"/>
+	<!-- tests 50 -->
+	<!-- suites 0 -->
+	<!-- pass 50 -->
+	<!-- fail 0 -->
+	<!-- cancelled 0 -->
+	<!-- skipped 0 -->
+	<!-- todo 0 -->
+	<!-- duration_ms 14467.5355 -->
+</testsuites>

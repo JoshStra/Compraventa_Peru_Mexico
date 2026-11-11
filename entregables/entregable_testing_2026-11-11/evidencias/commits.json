@@ -1,0 +1,32 @@
+[
+  {
+    "sha": "20759004c4448e588f6b80e89dc6c127b399198c",
+    "authoredAt": "2026-11-11T09:01:32-06:00",
+    "committedAt": "2026-11-11T09:01:32-06:00",
+    "message": "feat(ui): aplica diseño minimalista con buscador y navegación móvil"
+  },
+  {
+    "sha": "9045e926d424de98ac4f32a4346e8ad8ee3fc9b2",
+    "authoredAt": "2026-11-10T17:00:14-06:00",
+    "committedAt": "2026-11-10T17:00:14-06:00",
+    "message": "feat(ui): aplica diseño de campus y corrige navegación accesible"
+  },
+  {
+    "sha": "29d7101a5a9c45d4bb1c8125df6418420ad9c883",
+    "authoredAt": "2026-11-10T09:55:45-06:00",
+    "committedAt": "2026-11-10T09:55:45-06:00",
+    "message": "fix(security): corrige cinco fallas y valida 113 pruebas"
+  },
+  {
+    "sha": "6d56a90c9c5e83f48668e6f89e227e75517b3260",
+    "authoredAt": "2026-11-10T10:39:45-06:00",
+    "committedAt": "2026-11-10T10:39:45-06:00",
+    "message": "feat(docker): ejecuta CampusTrade con PostgreSQL e imagenes persistentes"
+  },
+  {
+    "sha": "664f416e5e84cabb7896be5055d889929045cfb3",
+    "authoredAt": "2026-11-09T19:28:17-06:00",
+    "committedAt": "2026-11-09T19:28:17-06:00",
+    "message": "fix: evita recorte de filtros en pantallas estrechas"
+  }
+]

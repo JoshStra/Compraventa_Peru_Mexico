@@ -1,0 +1,11 @@
+{
+  "suite": "api",
+  "startedUtc": "2026-11-11T16:04:43.588Z",
+  "finishedUtc": "2026-11-11T16:04:58.110Z",
+  "durationSeconds": 14.522,
+  "exitCode": 0,
+  "sha": "20759004c4448e588f6b80e89dc6c127b399198c",
+  "command": "C:\\Program Files\\nodejs\\node.exe --env-file-if-exists=.env --test --test-concurrency=1 --test-reporter=spec --test-reporter-destination=stdout --test-reporter=junit --test-reporter-destination=<REPO>\\entregables\\entregable_testing_2026-11-11\\evidencias\\api.xml test/auth.test.js test/config.test.js test/conversations.test.js test/database.test.js test/listings.test.js test/moderation.test.js test/operations.test.js test/persistence.test.js test/security.test.js",
+  "node": "v24.12.0",
+  "timezone": "America/Mexico_City"
+}

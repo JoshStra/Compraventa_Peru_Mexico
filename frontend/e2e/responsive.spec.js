@@ -1,3 +1,4 @@
+import { navigateSection, searchCampus, openConversation } from "./helpers.js";
 import { test, expect } from "@playwright/test";
 import { evidencePath } from "./helpers.js";
 
@@ -7,7 +8,7 @@ test("filtros visibles sin recorte y reinicio de criterios", async ({
   if (info.project.name === "mobile")
     await page.setViewportSize({ width: 320, height: 760 });
   await page.goto("/");
-  await page.getByRole("button", { name: "Explorar", exact: true }).click();
+  await navigateSection(page, "Explorar");
   await page
     .getByRole("button", { name: "Mostrar filtros", exact: true })
     .click();

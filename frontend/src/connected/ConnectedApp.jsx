@@ -1,16 +1,23 @@
+import { MinimalHeader } from "../components/MinimalHeader.jsx";
+import {
+  CategoryTabs,
+  FilterChips,
+  CatalogFilters,
+  CatalogSkeleton,
+} from "./CatalogControls.jsx";
+import { Detail } from "./ListingDetail.jsx";
+import { useReadMarkers } from "./useReadMarkers.js";
 import { HomeHero } from "../components/HomeHero.jsx";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
   api,
   decorateListing,
   initials,
   modalityLabels,
-  conditionLabels,
   statusLabels,
   money,
-  imageUrl,
 } from "../services/apiClient.js";
-import { Icon, ListingVisual, Badge } from "../components/Visuals.jsx";
+import { Icon } from "../components/Visuals.jsx";
 import { ProductCard, EmptyState } from "../components/Catalog.jsx";
 import { Modal } from "../components/Modal.jsx";
 import {
@@ -31,6 +38,7 @@ import { AdminPage, ResolutionDialog, CatalogDialog } from "./Admin.jsx";
 import {
   emptyFilters,
   invalidPriceRange,
+  readNavigation,
 } from "../domain/catalogNavigation.js";
 import { useCatalogNavigation } from "./useCatalogNavigation.js";
 const emptyAccount = {
@@ -41,15 +49,6 @@ const emptyAccount = {
   operations: [],
   profile: null,
 };
-const nav = [
-  ["home", "Inicio"],
-  ["search", "Explorar"],
-  ["heart", "Favoritos"],
-  ["message", "Mensajes"],
-  ["calendar", "Operaciones"],
-  ["user", "Perfil"],
-];
-
 function initialLink() {
   const params = new URLSearchParams(window.location.hash.slice(1));
   for (const action of ["verify", "reset"]) {
@@ -81,9 +80,24 @@ export default function ConnectedApp() {
   const [accountLoading, setAccountLoading] = useState(false);
   const [busy, setBusy] = useState(false);
   const [showFilters, setShowFilters] = useState(() =>
-    new URLSearchParams(window.location.search).has("vista"),
+    invalidPriceRange(readNavigation(window.location.search).filters),
   );
   const [messageThread, setMessageThread] = useState(null);
+  const [conversationOpen, setConversationOpen] = useState(false);
+  const [profileTarget, setProfileTarget] = useState(null);
+  const [emailAvailable, setEmailAvailable] = useState(false);
+  const { unread, onRead } = useReadMarkers(user?.id, account.threads);
+  const syncThreads = useCallback(
+    (threads) => setAccount((current) => ({ ...current, threads })),
+    [],
+  );
+  useEffect(() => {
+    if (view === "Perfil" && profileTarget?.id)
+      document
+        .getElementById(profileTarget.id)
+        ?.scrollIntoView({ block: "start" });
+    else window.scrollTo(0, 0);
+  }, [view, profileTarget]);
   useEffect(() => {
     const changed = () => {
       const link = initialLink();
@@ -100,6 +114,7 @@ export default function ConnectedApp() {
         if (active) {
           setCatalog(metadata);
           setUser(session.user);
+          setEmailAvailable(Boolean(session.emailDeliveryConfigured));
           setFatal("");
           if (
             !session.user &&
@@ -234,11 +249,14 @@ export default function ConnectedApp() {
     }
   }
   function browse(updates = {}) {
+    setConversationOpen(false);
+    setMessageThread(null);
+    setShowFilters(false);
     setView("Explorar");
     setFilters({ ...emptyFilters, ...updates });
     setDialog(null);
   }
-  function navigate(next) {
+  function navigate(next, section = "") {
     if (
       ["Favoritos", "Perfil", "Mensajes", "Operaciones", "Gestión"].includes(
         next,
@@ -247,6 +265,11 @@ export default function ConnectedApp() {
     )
       return;
     if (next === "Gestión" && user?.role !== "admin") return;
+    if (next === "Inicio") setFilters({ ...emptyFilters });
+    setProfileTarget({ id: section });
+    setConversationOpen(false);
+    setMessageThread(null);
+    setShowFilters(false);
     if (user) setRevision((value) => value + 1);
     setDialog(null);
     setError("");
@@ -287,6 +310,15 @@ export default function ConnectedApp() {
       const response = await api.publicProfile(id);
       setDialog({ type: "seller", user: response.user });
     });
+  }
+  async function logout() {
+    await perform(async () => {
+      await api.logout();
+      setUser(null);
+      setView("Inicio");
+      setConversationOpen(false);
+      setFilters({ ...emptyFilters });
+    }, "Sesión cerrada.");
   }
   async function resend() {
     await perform(async () => {
@@ -351,60 +383,42 @@ export default function ConnectedApp() {
   );
 
   return (
-    <div className="app-shell" aria-busy={busy}>
+    <div
+      className={`app-shell minimal-shell ${dialog?.type === "detail" ? "has-detail" : ""} ${conversationOpen && view === "Mensajes" ? "has-conversation" : ""}`}
+      aria-busy={busy}
+    >
       <a className="skip-link" href="#contenido">
         Ir al contenido
       </a>
-      <header className="topbar">
-        <button
-          className="brand"
-          aria-label="Ir a inicio"
-          onClick={() => navigate("Inicio")}
-        >
-          <span className="brand-mark">ct</span>
-          <span>
-            Campus<span>Trade</span>
-          </span>
-        </button>
-        <nav className="main-nav" aria-label="Navegación principal">
-          {[
-            ...nav,
-            ...(user?.role === "admin" ? [["tool", "Gestión"]] : []),
-          ].map(([icon, label]) => (
-            <button
-              key={label}
-              className={view === label ? "active" : ""}
-              aria-current={view === label ? "page" : undefined}
-              onClick={() => navigate(label)}
-            >
-              <Icon name={icon} size={18} />
-              <span className="nav-label">{label}</span>
-            </button>
-          ))}
-        </nav>
-        {user ? (
-          <button
-            className="user-avatar"
-            aria-label="Abrir mi perfil"
-            onClick={() => navigate("Perfil")}
-          >
-            {initials(user.name)}
-          </button>
-        ) : (
-          <button
-            className="button button-secondary login-button"
-            onClick={() => setDialog({ type: "auth" })}
-          >
-            Iniciar sesión
-          </button>
-        )}
-      </header>
+      <MinimalHeader
+        user={user ? { ...user, initials: initials(user.name) } : null}
+        view={view}
+        query={filters.q}
+        unread={unread}
+        onSearch={(q) =>
+          browse(view === "Explorar" ? { ...filters, q, page: 1 } : { q })
+        }
+        onNavigate={navigate}
+        onPublish={() => publish()}
+        onLogout={logout}
+        onAuth={(mode) => setDialog({ type: "auth", mode })}
+        compact={
+          dialog?.type === "detail" || (conversationOpen && view === "Mensajes")
+        }
+      />
       {user && !user.verified && (
         <div className="verification-notice">
           <span>Tu correo institucional está pendiente de verificación.</span>
-          <button className="text-link" disabled={busy} onClick={resend}>
+          <button
+            className="text-link"
+            disabled={busy || !emailAvailable}
+            onClick={resend}
+          >
             Reenviar enlace
           </button>
+          {!emailAvailable && (
+            <span>El envío de verificación aún no está disponible.</span>
+          )}
         </div>
       )}
       {error && !dialog && (
@@ -418,58 +432,34 @@ export default function ConnectedApp() {
       <main id="contenido">
         {view === "Inicio" && (
           <>
-            <HomeHero onBrowse={() => browse()} onPublish={() => publish()} />
-            <section className="category-section">
+            <HomeHero actions={false} />
+            <section
+              className="catalog-section home-catalog"
+              aria-label="Catálogo del campus"
+            >
+              <CategoryTabs
+                categories={catalog.categories}
+                value={filters.categoryId}
+                onChange={(categoryId) =>
+                  setFilters((current) => ({ ...current, categoryId, page: 1 }))
+                }
+              />
               <div className="section-title">
-                <div>
-                  <h2>Explora por categoría</h2>
-                </div>
-                <button className="text-link" onClick={() => browse()}>
-                  Ver todo
-                </button>
-              </div>
-              <div className="category-grid">
-                {catalog.categories.map((category) => (
-                  <button
-                    className="category-card"
-                    key={category.id}
-                    onClick={() => browse({ categoryId: category.id })}
-                  >
-                    <span className="category-icon">
-                      <Icon
-                        name={
-                          {
-                            Electrónica: "chip",
-                            Herramientas: "tool",
-                            Laboratorio: "flask",
-                            Libros: "book",
-                          }[category.name] || "image"
-                        }
-                        size={25}
-                      />
-                    </span>
-                    <strong>{category.name}</strong>
-                    <Icon name="arrow" size={18} />
-                  </button>
-                ))}
-              </div>
-            </section>
-            <section className="catalog-section home-catalog">
-              <div className="section-title">
-                <div>
-                  <h2>Recién publicados</h2>
-                </div>
-                <button className="text-link" onClick={() => browse()}>
+                <h2>Recién publicados</h2>
+                <button
+                  className="text-link"
+                  onClick={() => browse({ ...filters, page: 1 })}
+                >
                   Ver catálogo
                 </button>
               </div>
               {loading ? (
-                <p role="status">Cargando artículos…</p>
+                <CatalogSkeleton />
               ) : result.items.length ? (
-                cards(result.items.slice(0, 4))
+                cards(result.items.slice(0, 8))
               ) : (
                 <EmptyState
-                  title="El catálogo está listo para tu primera publicación"
+                  title="Aún no hay publicaciones"
                   text="Comparte un material que alguien más pueda aprovechar."
                   action={
                     <button
@@ -487,143 +477,36 @@ export default function ConnectedApp() {
         {(view === "Explorar" || view === "Favoritos") && (
           <section className="explore-page">
             <div className="page-heading">
-              <div>
-                <h1>
-                  {view === "Favoritos"
-                    ? "Tus favoritos"
-                    : "Explora el catálogo"}
-                </h1>
-                <p>Encuentra materiales para tu siguiente proyecto.</p>
-              </div>
-              <button
-                className="button button-primary"
-                onClick={() => publish()}
-              >
-                <Icon name="plus" size={18} />
-                Publicar artículo
-              </button>
-            </div>
-            {view === "Explorar" && (
-              <>
-                <div className="filter-bar">
-                  <label className="search-field">
-                    <Icon name="search" />
-                    <input
-                      aria-label="Buscar artículos"
-                      maxLength={100}
-                      placeholder="Buscar libros, herramientas, materiales…"
-                      value={filters.q}
-                      onChange={(event) => filter("q", event.target.value)}
-                    />
-                  </label>
+              <h1>
+                {view === "Favoritos" ? "Tus favoritos" : "Explora el catálogo"}
+              </h1>
+              {view === "Explorar" && (
+                <div className="catalog-tools">
                   <button
                     className="filter-button"
                     aria-label="Mostrar filtros"
-                    aria-expanded={showFilters || priceError}
+                    aria-expanded={showFilters}
                     aria-controls="filtros"
                     onClick={() => setShowFilters((value) => !value)}
                   >
                     <Icon name="filter" />
                     Filtros
                   </button>
+                  <span className="sort-label">Más recientes</span>
+                  <FilterChips
+                    filters={filters}
+                    catalog={catalog}
+                    onRemove={(key) => filter(key, emptyFilters[key])}
+                  />
                 </div>
-                {(showFilters || priceError) && (
-                  <div className="filter-panel" id="filtros">
-                    <Filter
-                      label="Carrera"
-                      value={filters.career}
-                      onChange={(value) => filter("career", value)}
-                      options={catalog.careers.map((name) => [name, name])}
-                    />
-                    <Filter
-                      label="Categoría"
-                      value={filters.categoryId}
-                      onChange={(value) => filter("categoryId", value)}
-                      options={catalog.categories.map((category) => [
-                        category.id,
-                        category.name,
-                      ])}
-                    />
-                    <Filter
-                      label="Modalidad"
-                      value={filters.modality}
-                      onChange={(value) => filter("modality", value)}
-                      options={Object.entries(modalityLabels)}
-                    />
-                    <Filter
-                      label="Condición"
-                      value={filters.condition}
-                      onChange={(value) => filter("condition", value)}
-                      options={Object.entries(conditionLabels)}
-                    />
-                    <Filter
-                      label="Disponibilidad"
-                      value={filters.status}
-                      onChange={(value) => filter("status", value)}
-                      options={Object.entries(statusLabels).filter(([key]) =>
-                        [
-                          "available",
-                          "reserved",
-                          "sold",
-                          "rented",
-                          "exchanged",
-                          "donated",
-                        ].includes(key),
-                      )}
-                      all="all"
-                    />
-                    <label className="filter-select">
-                      Precio mínimo
-                      <input
-                        type="number"
-                        min={0}
-                        max={1000000}
-                        step="0.01"
-                        aria-invalid={priceError}
-                        aria-describedby={
-                          priceError ? "error-precio" : undefined
-                        }
-                        value={filters.minPrice}
-                        onChange={(event) =>
-                          filter("minPrice", event.target.value)
-                        }
-                      />
-                    </label>
-                    <label className="filter-select">
-                      Precio máximo
-                      <input
-                        type="number"
-                        min={0}
-                        max={1000000}
-                        step="0.01"
-                        aria-invalid={priceError}
-                        aria-describedby={
-                          priceError ? "error-precio" : undefined
-                        }
-                        value={filters.maxPrice}
-                        onChange={(event) =>
-                          filter("maxPrice", event.target.value)
-                        }
-                      />
-                    </label>
-                    {priceError && (
-                      <p
-                        className="field-error price-range-error"
-                        id="error-precio"
-                        role="alert"
-                      >
-                        El precio mínimo no puede ser mayor que el máximo.
-                      </p>
-                    )}
-                    <button
-                      className="clear-filters"
-                      onClick={() => setFilters({ ...emptyFilters })}
-                    >
-                      Limpiar filtros
-                    </button>
-                  </div>
-                )}
-              </>
+              )}
+            </div>
+            {view === "Explorar" && (
+              <CategoryTabs
+                categories={catalog.categories}
+                value={filters.categoryId}
+                onChange={(value) => filter("categoryId", value)}
+              />
             )}
             {view === "Favoritos" ? (
               <FavoritesView
@@ -640,11 +523,17 @@ export default function ConnectedApp() {
                       {result.total}{" "}
                       {result.total === 1 ? "resultado" : "resultados"}
                     </span>
-                    <span>Más recientes primero</span>
                   </div>
                 )}
-                {priceError ? null : loading ? (
-                  <p role="status">Buscando artículos…</p>
+                {priceError ? (
+                  !showFilters && (
+                    <p className="field-error" role="alert">
+                      El precio mínimo no puede ser mayor que el máximo. Abre
+                      los filtros para corregirlo.
+                    </p>
+                  )
+                ) : loading ? (
+                  <CatalogSkeleton />
                 ) : result.items.length ? (
                   cards(result.items)
                 ) : (
@@ -699,6 +588,30 @@ export default function ConnectedApp() {
                 Publicar artículo
               </button>
             </div>
+            <nav className="profile-links" aria-label="Secciones de mi cuenta">
+              <button onClick={() => navigate("Perfil", "mis-publicaciones")}>
+                Mis publicaciones
+                <Icon name="arrow" />
+              </button>
+              <button onClick={() => navigate("Favoritos")}>
+                Favoritos
+                <Icon name="arrow" />
+              </button>
+              <button onClick={() => navigate("Operaciones")}>
+                Operaciones
+                <Icon name="arrow" />
+              </button>
+              <button onClick={() => navigate("Perfil", "verificacion-cuenta")}>
+                Verificación de cuenta
+                <Icon name="arrow" />
+              </button>
+              {user.role === "admin" && (
+                <button onClick={() => navigate("Gestión")}>
+                  Gestión
+                  <Icon name="arrow" />
+                </button>
+              )}
+            </nav>
             <div className="profile-grid">
               <section>
                 <h2>Tu actividad</h2>
@@ -725,7 +638,7 @@ export default function ConnectedApp() {
                     Reputación
                   </span>
                 </div>
-                <h2>Tus publicaciones</h2>
+                <h2 id="mis-publicaciones">Tus publicaciones</h2>
                 {accountLoading ? (
                   <p role="status">Cargando tu actividad…</p>
                 ) : account.own.length ? (
@@ -798,9 +711,14 @@ export default function ConnectedApp() {
                   <p>No has enviado reportes.</p>
                 )}
               </section>
-              <aside className="profile-info">
+              <aside className="profile-info" id="verificacion-cuenta">
                 <h2>Tu información</h2>
                 <p>{user.email}</p>
+                <p>
+                  {user.verified
+                    ? "Correo institucional verificado"
+                    : "Tu cuenta sigue pendiente de verificación."}
+                </p>
                 <p>Entrega acordada dentro del campus.</p>
                 <button
                   className="text-link"
@@ -809,17 +727,7 @@ export default function ConnectedApp() {
                   Editar perfil
                 </button>
                 <hr />
-                <button
-                  className="text-link"
-                  disabled={busy}
-                  onClick={() =>
-                    perform(async () => {
-                      await api.logout();
-                      setUser(null);
-                      setView("Inicio");
-                    }, "Sesión cerrada.")
-                  }
-                >
+                <button className="text-link" disabled={busy} onClick={logout}>
                   Cerrar sesión
                 </button>
               </aside>
@@ -832,6 +740,11 @@ export default function ConnectedApp() {
             threads={account.threads}
             initialId={messageThread}
             onExplore={() => browse()}
+            onConversationChange={setConversationOpen}
+            onThreads={syncThreads}
+            onRead={onRead}
+            onListing={openItem}
+            onOperations={() => navigate("Operaciones")}
           />
         )}
         {view === "Operaciones" && user && (
@@ -897,8 +810,24 @@ export default function ConnectedApp() {
         <span>Equipo 3 MEX-PER · Versión 0.3.0</span>
         <span>Reutiliza · Comparte · Conecta</span>
       </footer>
+      {view === "Explorar" && showFilters && (
+        <CatalogFilters
+          catalog={catalog}
+          filters={filters}
+          priceError={priceError}
+          onChange={filter}
+          onReset={() => setFilters({ ...emptyFilters })}
+          onClose={() => setShowFilters(false)}
+        />
+      )}
       {dialog?.type === "auth" && (
-        <AuthDialog catalog={catalog} onClose={close} onLogin={login} />
+        <AuthDialog
+          key={dialog.mode || "login"}
+          initialMode={dialog.mode || "login"}
+          catalog={catalog}
+          onClose={close}
+          onLogin={login}
+        />
       )}
       {dialog?.type === "token" && (
         <TokenDialog
@@ -952,6 +881,7 @@ export default function ConnectedApp() {
           user={user}
           favorite={account.favorites.includes(dialog.item.id)}
           error={error}
+          onExplore={() => browse({ categoryId: dialog.item.categoryId })}
           onFavorite={() => favorite(dialog.item.id)}
           onClose={close}
           onSeller={() => sellerProfile(dialog.item.seller.id)}
@@ -1096,25 +1026,6 @@ export default function ConnectedApp() {
   );
 }
 
-function Filter({ label, options, value, onChange, all = "" }) {
-  return (
-    <label className="filter-select">
-      <span>{label}</span>
-      <select
-        aria-label={label}
-        value={value}
-        onChange={(event) => onChange(event.target.value)}
-      >
-        <option value={all}>Todas las opciones</option>
-        {options.map(([key, text]) => (
-          <option key={key} value={key}>
-            {text}
-          </option>
-        ))}
-      </select>
-    </label>
-  );
-}
 export function Pager({ page, total, limit, onChange }) {
   const pages = Math.ceil(total / limit);
   return (
@@ -1184,129 +1095,5 @@ function FavoritesView({ user, revision, renderCards, onExplore }) {
         </button>
       }
     />
-  );
-}
-function Detail({
-  item,
-  user,
-  favorite,
-  error,
-  onFavorite,
-  onClose,
-  onSeller,
-  onReport,
-  onManage,
-  onMessage,
-  onOperation,
-}) {
-  const own = item.seller.id === user?.id;
-  const image = item.images[0];
-  return (
-    <Modal
-      title={item.title}
-      onClose={onClose}
-      className="publish-modal product-detail"
-    >
-      {error && (
-        <p className="form-error" role="alert">
-          {error}
-        </p>
-      )}
-      <ListingVisual
-        type={decorateListing(item).image}
-        imageUrl={image ? imageUrl(image.url) : ""}
-        title={item.title}
-        large
-      />
-      {item.images.length > 1 && (
-        <div className="detail-images">
-          {item.images.slice(1).map((image) => (
-            <img key={image.id} src={imageUrl(image.url)} alt={item.title} />
-          ))}
-        </div>
-      )}
-      <div className="detail-topline">
-        <Badge modality={modalityLabels[item.modality]} />
-        <button
-          className={`icon-button favorite-button ${favorite ? "is-favorite" : ""}`}
-          aria-label={favorite ? "Quitar de favoritos" : "Agregar a favoritos"}
-          aria-pressed={favorite}
-          onClick={onFavorite}
-        >
-          <Icon name="heart" />
-        </button>
-      </div>
-      <p className="eyebrow">
-        {item.career} · {item.category}
-      </p>
-      <p className="detail-price">
-        {item.modality === "donation"
-          ? "Gratis"
-          : item.modality === "exchange"
-            ? "Propón un intercambio"
-            : `${money(item.price)}${item.modality === "rental" ? " por día" : ""}`}
-      </p>
-      <p className="detail-description">{item.description}</p>
-      <div className="detail-facts">
-        <span>
-          <b>Condición</b>
-          {conditionLabels[item.condition]}
-        </span>
-        <span>
-          <b>Entrega</b>
-          {item.location}
-        </span>
-        <span>
-          <b>Estado</b>
-          {statusLabels[item.status]}
-        </span>
-      </div>
-      <div className="seller-detail">
-        <span className="avatar">{initials(item.seller.name)}</span>
-        <div>
-          <strong>{item.seller.name}</strong>
-          <small>
-            {item.seller.verified
-              ? "Correo verificado"
-              : "Pendiente de verificación"}
-            {item.seller.ratingCount
-              ? ` · ${item.seller.rating.toFixed(1)} / 5`
-              : " · Sin calificaciones"}
-          </small>
-        </div>
-        <button className="text-link" onClick={onSeller}>
-          Ver perfil
-        </button>
-      </div>
-      {own ? (
-        <button className="button button-primary" onClick={onManage}>
-          Administrar en mi perfil
-        </button>
-      ) : (
-        <>
-          {onMessage && (
-            <button
-              className="button button-secondary"
-              disabled={item.status !== "available"}
-              onClick={onMessage}
-            >
-              Abrir conversación
-            </button>
-          )}
-          {onOperation && (
-            <button
-              className="button button-primary"
-              disabled={item.status !== "available"}
-              onClick={onOperation}
-            >
-              Solicitar artículo
-            </button>
-          )}
-          <button className="text-link report-link" onClick={onReport}>
-            Reportar publicación
-          </button>
-        </>
-      )}
-    </Modal>
   );
 }

@@ -1,6 +1,6 @@
 # Diseño «Tablón de anuncios del campus»
 
-Entrega del 10 de noviembre de 2026 sobre CampusTrade 0.3.0. La [guía completa](../../../DESIGN.md) y su [resumen técnico](../../DESIGN.md) corresponden al documento proporcionado por el usuario.
+Entrega histórica del 10 de noviembre de 2026 sobre CampusTrade 0.3.0. La [guía de esa entrega](DESIGN_REFERENCIA.md) corresponde al documento proporcionado entonces por el usuario. El [diseño vigente](../../DESIGN.md) la sustituye desde el 11 de noviembre.
 
 Antes de modificar la interfaz, se guardó la auditoría pendiente en el commit de respaldo `af2a011`, partiendo de `586d156`. El trabajo está en `codex/diseno-tablon-2026-11-10`, conservando `origin` e historial, con fechas reales. Este incremento se entrega en commits locales; no se hizo push a GitHub.
 

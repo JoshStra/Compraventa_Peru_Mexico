@@ -1,3 +1,6 @@
+import { searchCampus, listing } from "./helpers.js";
+import { randomUUID } from "node:crypto";
+import { navigateSection } from "./helpers.js";
 import { test, expect } from "@playwright/test";
 import { actor, login, evidencePath } from "./helpers.js";
 
@@ -58,11 +61,14 @@ test("URL conserva consulta, filtros y página al recargar y recorrer el histori
     "/?vista=explorar&q=termodinamica&modality=rental&minPrice=20&pagina=2#contenido",
   );
   await loaded;
+  await page
+    .getByRole("button", { name: "Mostrar filtros", exact: true })
+    .click();
   await expect(
     page.getByRole("heading", { name: "Explora el catálogo", exact: true }),
   ).toBeVisible();
   await expect(
-    page.getByRole("textbox", { name: "Buscar artículos", exact: true }),
+    page.getByRole("textbox", { name: "Buscar en el campus", exact: true }),
   ).toHaveValue("termodinamica");
   await expect(page.getByLabel("Modalidad", { exact: true })).toHaveValue(
     "rental",
@@ -72,21 +78,24 @@ test("URL conserva consulta, filtros y página al recargar y recorrer el histori
   );
   await page.reload();
   await expect(
-    page.getByRole("textbox", { name: "Buscar artículos", exact: true }),
+    page.getByRole("textbox", { name: "Buscar en el campus", exact: true }),
   ).toHaveValue("termodinamica");
   expect(new URL(page.url()).searchParams.get("pagina")).toBe("2");
   expect(new URL(page.url()).hash).toBe("#contenido");
-  await page.getByRole("button", { name: "Inicio", exact: true }).click();
+  await navigateSection(page, "Inicio");
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
-    "Lo que ya no usas.",
+    "Lo que ya no usas,",
   );
   await page.goBack();
   await expect(
     page.getByRole("heading", { name: "Explora el catálogo", exact: true }),
   ).toBeVisible();
   await expect(
-    page.getByRole("textbox", { name: "Buscar artículos", exact: true }),
+    page.getByRole("textbox", { name: "Buscar en el campus", exact: true }),
   ).toHaveValue("termodinamica");
+  await page
+    .getByRole("button", { name: "Mostrar filtros", exact: true })
+    .click();
   await page.getByLabel("Condición", { exact: true }).selectOption("good");
   await expect
     .poll(() => new URL(page.url()).searchParams.get("pagina"))
@@ -150,7 +159,7 @@ test("registro explica requisitos y permite mostrar la contraseña sin perder el
   ).toBeFocused();
 });
 
-test("las siete opciones administrativas caben en 320 px y conservan nombres accesibles", async ({
+test("cinco opciones móviles y acceso a Favoritos, Operaciones y Gestión desde Perfil", async ({
   page,
 }, info) => {
   const admin = await actor({ prefix: "design-admin" });
@@ -165,16 +174,21 @@ test("las siete opciones administrativas caben en 320 px y conservan nombres acc
     await page.setViewportSize({ width: 320, height: 800 });
     await page.goto("/");
     await login(page, admin.input);
+    expect(
+      await page.evaluate(
+        () =>
+          document.documentElement.scrollWidth <=
+          document.documentElement.clientWidth,
+      ),
+    ).toBe(true);
     const nav = page.getByRole("navigation", { name: "Navegación principal" });
-    await expect(nav.getByRole("button")).toHaveCount(7);
+    await expect(nav.getByRole("button")).toHaveCount(5);
     for (const name of [
       "Inicio",
       "Explorar",
-      "Favoritos",
+      "Publicar artículo",
       "Mensajes",
-      "Operaciones",
       "Perfil",
-      "Gestión",
     ]) {
       const button = nav.getByRole("button", { name, exact: true });
       const box = await button.boundingBox();
@@ -186,7 +200,15 @@ test("las siete opciones administrativas caben en 320 px y conservan nombres acc
     expect(await nav.evaluate((el) => el.scrollWidth <= el.clientWidth)).toBe(
       true,
     );
-    await page.getByRole("button", { name: "Gestión", exact: true }).click();
+    await navigateSection(page, "Favoritos");
+    await expect(
+      page.getByRole("heading", { name: "Tus favoritos", exact: true }),
+    ).toBeVisible();
+    await navigateSection(page, "Operaciones");
+    await expect(
+      page.getByRole("heading", { name: "Operaciones", exact: true }),
+    ).toBeVisible();
+    await navigateSection(page, "Gestión");
     await expect(
       page.getByRole("heading", { name: "Gestión del sistema", exact: true }),
     ).toBeVisible();
@@ -199,5 +221,109 @@ test("las siete opciones administrativas caben en 320 px y conservan nombres acc
     });
   } finally {
     await admin.client.dispose();
+  }
+});
+
+test("buscador global, chips removibles y detalle minimalista conservan el catálogo", async ({
+  page,
+}, info) => {
+  const seller = await actor({ prefix: "minimal" });
+  try {
+    const prefix = "Materiales " + randomUUID().slice(0, 8);
+    for (const modality of ["sale", "rental", "exchange", "donation"])
+      await listing(seller, {
+        title: prefix + " " + modality,
+        modality,
+        price: modality === "sale" ? 280 : modality === "rental" ? 25 : 0,
+      });
+    await page.goto("/");
+    await searchCampus(page, prefix);
+    await expect(page.getByRole("article")).toHaveCount(4);
+    await page
+      .getByRole("navigation", { name: "Categorías", exact: true })
+      .getByRole("button", { name: "Libros", exact: true })
+      .click();
+    await expect(page.getByRole("article")).toHaveCount(0);
+    await page
+      .getByRole("button", { name: "Quitar filtro: Categoría", exact: true })
+      .click();
+    await expect(page.getByRole("article")).toHaveCount(4);
+    expect(new URL(page.url()).searchParams.get("q")).toBe(prefix);
+    await page
+      .getByRole("button", { name: "Mostrar filtros", exact: true })
+      .click();
+    await page.getByLabel("Modalidad", { exact: true }).selectOption("rental");
+    await page
+      .getByRole("button", { name: "Ver resultados", exact: true })
+      .click();
+    await expect(page.getByRole("article")).toHaveCount(1);
+    await page
+      .getByRole("button", { name: "Quitar filtro: Modalidad", exact: true })
+      .click();
+    await expect(page.getByRole("article")).toHaveCount(4);
+    const columns = await page
+      .locator(".product-grid")
+      .evaluate(
+        (el) => getComputedStyle(el).gridTemplateColumns.split(" ").length,
+      );
+    expect(columns).toBe(info.project.name === "mobile" ? 2 : 4);
+    await page.screenshot({
+      path: evidencePath(info, "minimal-catalogo"),
+      fullPage: true,
+    });
+    await page
+      .getByRole("button", { name: prefix + " sale", exact: true })
+      .click();
+    const detail = page.getByRole("dialog");
+    await expect(detail.locator(".detail-price")).toHaveText("$280");
+    await detail.press("Tab");
+    await expect(
+      detail.getByRole("button", { name: "Cerrar", exact: true }),
+    ).toBeFocused();
+    await page.keyboard.press("Shift+Tab");
+    await expect(
+      detail.getByRole("button", { name: "Reportar publicación", exact: true }),
+    ).toBeFocused();
+    await page.keyboard.press("Tab");
+    await expect(
+      detail.getByRole("button", { name: "Cerrar", exact: true }),
+    ).toBeFocused();
+    await expect(
+      detail.getByRole("button", { name: "Enviar mensaje", exact: true }),
+    ).toBeVisible();
+    if (info.project.name === "mobile") {
+      const geometry = await detail.evaluate((el) => ({
+        top: el.getBoundingClientRect().top,
+        left: el.getBoundingClientRect().left,
+        width: el.getBoundingClientRect().width,
+        viewport: innerWidth,
+        screenHeight: innerHeight,
+        scrollY,
+        active: document.activeElement?.getAttribute("role"),
+      }));
+      await test.info().attach("detail-geometry", {
+        body: JSON.stringify(geometry),
+        contentType: "application/json",
+      });
+      expect(geometry.top).toBe(0);
+      expect(geometry.width).toBe(geometry.viewport);
+      await expect(
+        page.getByRole("navigation", {
+          name: "Navegación principal",
+          exact: true,
+        }),
+      ).not.toBeVisible();
+      expect(
+        await detail
+          .locator(".detail-media > .listing-visual")
+          .evaluate((el) => Math.round(el.getBoundingClientRect().height)),
+      ).toBe(300);
+    }
+    await page.screenshot({
+      path: evidencePath(info, "minimal-detalle"),
+      fullPage: false,
+    });
+  } finally {
+    await seller.client.dispose();
   }
 });

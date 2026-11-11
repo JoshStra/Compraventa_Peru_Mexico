@@ -5,38 +5,43 @@
   --color-primario-hover: #005650;
   --color-primario-oscuro: #003d39;
   --color-teal-claro: #e0f2f0;
-  --color-acento: #f4a340;
-  --color-fondo: #faf7f0;
+  --color-acento: var(--color-primario);
+  --color-fondo: #ffffff;
+  --color-fondo-suave: #f2f6f5;
+  --color-foto: #eef3f2;
+  --color-borde-control: #cfdad8;
+  --radius-foto: 8px;
+  --radius-foto-grande: 10px;
+  --page-pad: 72px;
   --color-superficie: #ffffff;
-  --color-borde: #e3ddd0;
-  --color-tinta: #1f2a29;
-  --color-tinta-media: #3c4a48;
-  --color-tinta-suave: #566664;
-  --color-exito: #2e7d32;
+  --color-borde: #e6eceb;
+  --color-tinta: #111111;
+  --color-tinta-media: var(--color-tinta-suave);
+  --color-tinta-suave: #5b6a68;
+  --color-exito: var(--color-primario);
   --color-error: #b42318;
   --color-error-fondo: #fdecea;
   --color-aviso-fondo: #fff3df;
   --color-aviso-texto: #4a3100;
-  --color-aviso-borde: #f1d6a2;
-  --color-pie-texto: #bcd9d5;
-  --color-imagen-fondo: #f1ede3;
-  --color-borde-vacio: #c9c1ae;
-  --color-velo: rgba(0, 40, 38, 0.45);
-  --tag-venta-fondo: #00716a;
-  --tag-venta-texto: #ffffff;
-  --tag-renta-fondo: #1f4e6b;
-  --tag-renta-texto: #ffffff;
-  --tag-intercambio-fondo: #f4a340;
-  --tag-intercambio-texto: #3a2400;
-  --tag-donacion-fondo: #e3f1d6;
-  --tag-donacion-texto: #24500f;
-  --font-display: "Fraunces Variable", Georgia, "Times New Roman", serif;
-  --font-text:
-    "Inter Variable", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
-  --radius-card: 16px;
+  --color-aviso-borde: var(--color-borde);
+  --color-pie-texto: var(--color-tinta-suave);
+  --color-imagen-fondo: var(--color-foto);
+  --color-borde-vacio: var(--color-borde);
+  --color-velo: rgba(0, 0, 0, 0.4);
+  --tag-venta-fondo: transparent;
+  --tag-venta-texto: var(--color-primario);
+  --tag-renta-fondo: transparent;
+  --tag-renta-texto: var(--color-primario);
+  --tag-intercambio-fondo: transparent;
+  --tag-intercambio-texto: var(--color-primario);
+  --tag-donacion-fondo: transparent;
+  --tag-donacion-texto: var(--color-primario);
+  --font-display: var(--font-text);
+  --font-text: "Inter", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  --radius-card: 0px;
   --radius-control: 12px;
-  --radius-pill: 980px;
-  --sombra-tarjeta: 0 6px 18px rgba(0, 61, 57, 0.1);
+  --radius-pill: 999px;
+  --sombra-tarjeta: none;
   --page-width: 1360px;
   /* Compatibility aliases for the existing component classes. */
   --color-pure-canvas: var(--color-fondo);
@@ -69,7 +74,7 @@
 }
 body {
   margin: 0;
-  min-width: 320px;
+  min-width: 0;
   background: var(--color-pure-canvas);
   color: var(--color-obsidian);
 }

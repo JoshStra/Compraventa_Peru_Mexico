@@ -1,3 +1,4 @@
+import { navigateSection, searchCampus, openConversation } from "./helpers.js";
 import { test, expect, request as requestFactory } from "@playwright/test";
 import {
   actor,
@@ -84,7 +85,7 @@ test("registro verificación publicación con imagen y edición persistentes", a
   await expect(
     page.getByRole("button", { name: title, exact: true }),
   ).toBeVisible();
-  await page.getByRole("button", { name: "Perfil", exact: true }).click();
+  await navigateSection(page, "Perfil");
   await expect(
     page.getByRole("heading", { name: input.name, exact: true }),
   ).toBeVisible();
@@ -123,10 +124,8 @@ test("catálogo y favoritos persisten entre sesiones del navegador", async ({
     title: `Libro de cálculo ${info.project.name}`,
   });
   await login(page, buyer.input);
-  await page.getByRole("button", { name: "Explorar", exact: true }).click();
-  await page
-    .getByRole("textbox", { name: "Buscar artículos" })
-    .fill(item.title);
+  await navigateSection(page, "Explorar");
+  await searchCampus(page, item.title);
   await expect(
     page.getByRole("button", { name: item.title, exact: true }),
   ).toBeVisible();
@@ -137,11 +136,11 @@ test("catálogo y favoritos persisten entre sesiones del navegador", async ({
     })
     .click();
   await page.reload();
-  await page.getByRole("button", { name: "Favoritos", exact: true }).click();
+  await navigateSection(page, "Favoritos");
   await expect(
     page.getByRole("button", { name: item.title, exact: true }),
   ).toBeVisible();
-  await page.getByRole("button", { name: "Perfil", exact: true }).click();
+  await navigateSection(page, "Perfil");
   await page
     .getByRole("button", { name: "Cerrar sesión", exact: true })
     .click();
@@ -149,7 +148,7 @@ test("catálogo y favoritos persisten entre sesiones del navegador", async ({
     page.getByRole("button", { name: "Iniciar sesión", exact: true }),
   ).toBeVisible();
   await login(page, buyer.input);
-  await page.getByRole("button", { name: "Favoritos", exact: true }).click();
+  await navigateSection(page, "Favoritos");
   await expect(
     page.getByRole("button", { name: item.title, exact: true }),
   ).toBeVisible();

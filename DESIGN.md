@@ -1,247 +1,248 @@
-# DESIGN.md · CampusTrade
+# DESIGN.md · CampusTrade (Minimal · Buscador en la barra)
 
-Guía de diseño para que una IA (Cursor, Claude Code, Codex, v0, Lovable) construya o modifique la interfaz de CampusTrade con coherencia. Léela completa antes de escribir código y respeta las reglas de la sección "Límites".
+Guía para que una IA (Cursor, Claude Code, Codex, v0, Lovable) construya o modifique la interfaz de CampusTrade con este estilo. Léela completa antes de escribir código y respeta la sección "Límites". Sustituye a la guía anterior (crema y serif).
 
 ## 1. Producto
 
 - **Qué es:** marketplace escolar donde estudiantes venden, rentan, intercambian y donan materiales académicos, con entrega acordada dentro del campus.
 - **Público:** estudiantes universitarios de ingeniería (Automotriz, Industrias Alimentarias, Mecatrónica). Usan sobre todo el celular.
-- **Categorías reales:** Electrónica, Herramientas, Laboratorio, Libros.
+- **Categorías:** Electrónica, Herramientas, Laboratorio, Libros.
 - **Modalidades:** Venta, Renta, Intercambio, Donación.
-- **Trabajo principal de la interfaz:** que un estudiante encuentre un material en segundos o publique el suyo sin fricción, y que sienta confianza en quien está al otro lado.
+- **Secciones:** Inicio, Explorar, Favoritos, Mensajes, Operaciones, Perfil y Gestión (solo administradores).
+- **Trabajo principal:** encontrar un material en segundos o publicar el propio sin fricción.
 
 ## 2. Concepto visual
 
-**Tablón de anuncios del campus.** Superficie crema como papel, un solo color de acción (teal) y etiquetas de modalidad con forma de etiqueta perforada. La personalidad vive en las etiquetas y en la tipografía de títulos; todo lo demás es tranquilo y legible.
+**Tienda moderna, limpia y silenciosa.** Fondo blanco, una sola tipografía, un solo color (teal) y mucho espacio. La barra superior es mínima: marca, búsqueda y acciones. El contenido protagoniza; la interfaz casi no se nota.
 
 Principios:
 
-1. Un solo color de acción por pantalla: el teal. El ámbar nunca es un botón.
-2. Una sola cosa memorable: las etiquetas de modalidad. No añadir más decoración.
-3. Estructura por bordes finos, no por sombras. La sombra aparece solo al pasar sobre una tarjeta.
-4. Calidez sin infantilizar: tono claro, directo, de compañero a compañero.
-5. Mobile primero. Todo debe funcionar a 320 px.
+1. Blanco, tinta casi negra y teal. Nada más de color en la interfaz.
+2. Estructura con espacio y líneas finas, no con bordes gruesos, sombras ni fondos de color.
+3. Las tarjetas de producto no tienen borde: foto, texto y precio sobre el blanco.
+4. La búsqueda es lo primero que se ve en cada pantalla.
+5. Mobile primero: todo debe funcionar a 320 px.
+6. Un solo botón principal por pantalla.
 
 ## 3. Tokens
-
-Pega este bloque en `:root` (ya existe en `frontend/src/styles.css`). No uses valores hexadecimales sueltos en componentes: usa siempre un token.
 
 ```css
 :root {
   /* Color */
+  --color-fondo: #ffffff;
+  --color-fondo-suave: #f2f6f5; /* campo de búsqueda */
+  --color-foto: #eef3f2; /* marcador de foto, miniaturas */
+  --color-borde: #e6eceb; /* divisores de 1 px */
+  --color-borde-control: #cfdad8; /* chips y botones con contorno */
+  --color-tinta: #111111; /* texto principal */
+  --color-tinta-suave: #5b6a68; /* texto secundario */
   --color-primario: #00716a;
   --color-primario-hover: #005650;
   --color-primario-oscuro: #003d39;
-  --color-teal-claro: #e0f2f0;
-  --color-acento: #f4a340;
-  --color-fondo: #faf7f0;
-  --color-superficie: #ffffff;
-  --color-borde: #e3ddd0;
-  --color-tinta: #1f2a29;
-  --color-tinta-media: #3c4a48;
-  --color-tinta-suave: #566664;
-  --color-exito: #2e7d32;
+  --color-teal-claro: #e0f2f0; /* chips activos, avisos suaves */
   --color-error: #b42318;
-
-  /* Etiquetas de modalidad */
-  --tag-venta-fondo: #00716a;
-  --tag-venta-texto: #ffffff;
-  --tag-renta-fondo: #1f4e6b;
-  --tag-renta-texto: #ffffff;
-  --tag-intercambio-fondo: #f4a340;
-  --tag-intercambio-texto: #3a2400;
-  --tag-donacion-fondo: #e3f1d6;
-  --tag-donacion-texto: #24500f;
+  --color-error-fondo: #fdecea;
+  --color-aviso-fondo: #fff3df; /* verificación pendiente */
+  --color-aviso-texto: #4a3100;
 
   /* Tipografía */
-  --font-display: "Fraunces Variable", Georgia, "Times New Roman", serif;
-  --font-text:
-    "Inter Variable", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  --font-text: "Inter", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
 
   /* Forma */
-  --radius-card: 16px;
-  --radius-control: 12px;
-  --sombra-tarjeta: 0 6px 18px rgba(0, 61, 57, 0.1);
-  --page-width: 1360px;
+  --radius-pill: 999px; /* búsqueda, botones, chips */
+  --radius-foto: 8px; /* fotos de tarjeta */
+  --radius-foto-grande: 10px; /* foto del detalle */
+  --page-pad: 72px; /* margen lateral en escritorio */
 }
 ```
 
 ### Uso del color
 
-| Token                     | Dónde                                                                    |
-| ------------------------- | ------------------------------------------------------------------------ |
-| `--color-primario`        | Botón principal, enlaces, ítem activo de navegación, foco                |
-| `--color-primario-hover`  | Hover del botón principal                                                |
-| `--color-primario-oscuro` | Títulos, precios, pie de página, franja superior                         |
-| `--color-teal-claro`      | Fondos suaves, iconos de categoría, hover de tarjetas de categoría       |
-| `--color-acento`          | Detalles pequeños: estrellas de calificación, punto de mensajes sin leer |
-| `--color-fondo`           | Fondo de la página                                                       |
-| `--color-superficie`      | Tarjetas, formularios, ventanas modales                                  |
-| `--color-borde`           | Bordes y divisores                                                       |
-| `--color-tinta`           | Texto principal                                                          |
-| `--color-tinta-suave`     | Texto secundario, metadatos                                              |
-| `--color-error`           | Mensajes de error (con fondo `#fdecea` en avisos)                        |
+| Token                     | Dónde                                                                                                         |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `--color-primario`        | Botón principal, enlace activo, subrayado de pestaña, etiqueta de modalidad, avatar, aviso de mensajes nuevos |
+| `--color-primario-hover`  | Hover y pulsado del botón principal                                                                           |
+| `--color-primario-oscuro` | Texto sobre `--color-teal-claro`                                                                              |
+| `--color-teal-claro`      | Chips de filtros aplicados                                                                                    |
+| `--color-fondo-suave`     | Campo de búsqueda                                                                                             |
+| `--color-foto`            | Fondo de fotos sin imagen y miniaturas                                                                        |
+| `--color-tinta`           | Títulos, precios, texto principal                                                                             |
+| `--color-tinta-suave`     | Metadatos, etiquetas de ficha, texto de ayuda                                                                 |
+| `--color-borde`           | Líneas divisorias entre filas                                                                                 |
 
-Aviso de verificación pendiente: fondo `#fff3df`, texto `#4a3100`, borde `#f1d6a2`.
-
-### Contraste (medido)
-
-Todo texto debe cumplir WCAG 2.2 AA (4.5:1 en texto normal). Pares verificados: blanco sobre `#00716a` 5.88:1, teal sobre crema 5.50:1, texto suave sobre crema 5.64:1, pie `#bcd9d5` sobre `#003d39` 8.12:1, error sobre blanco 6.57:1. Si añades un color, calcula su contraste antes de usarlo.
+Contrastes verificados (WCAG AA, texto normal ≥ 4.5:1): tinta sobre blanco 18.9:1, `#5b6a68` sobre blanco 5.5:1, `#5b6a68` sobre `#f2f6f5` 4.9:1, blanco sobre `#00716a` 5.9:1, teal sobre blanco 5.9:1, `#003d39` sobre `#e0f2f0` 10:1. Si añades un color, calcula su contraste primero.
 
 ## 4. Tipografía
 
-- **Títulos (h1, h2), precios, marca:** Fraunces variable, peso 600 a 650, interletraje `-0.012em` a `-0.02em`.
-- **Todo lo demás (interfaz, cuerpo, títulos de tarjeta, botones):** Inter variable.
-- Ambas se sirven desde `frontend/src/assets/fonts/` (archivos `.woff2` latinos, suficientes para acentos, ñ, ¿ y ¡). No cargar fuentes desde servicios externos.
-- Títulos de tarjeta en Inter 18 px peso 600; el precio en Fraunces 24 px.
+Una sola familia: **Inter** (variable, pesos 400, 500, 600 y 700). Sirve el archivo desde `frontend/src/assets/fonts/` (`inter-latin-wght-normal.woff2`); no cargues fuentes de servicios externos. Se eliminó Fraunces.
 
-| Rol                    | Tamaño                                                      | Peso            |
-| ---------------------- | ----------------------------------------------------------- | --------------- |
-| Título de portada      | `clamp(40px, 5.2vw, 72px)`, móvil `clamp(34px, 10vw, 44px)` | 600             |
-| Título de sección (h2) | 32 a 40 px                                                  | 600             |
-| Título de tarjeta      | 18 px                                                       | 600             |
-| Precio                 | 24 px                                                       | 650             |
-| Cuerpo                 | 16 px (portada 18 px)                                       | 400             |
-| Navegación             | 14 px                                                       | 500, activa 600 |
-| Metadatos y ayudas     | 13 a 14 px                                                  | 400             |
+| Rol                               | Escritorio   | Móvil                  | Peso | Interletraje |
+| --------------------------------- | ------------ | ---------------------- | ---- | ------------ |
+| Título de portada (h1)            | 64 px / 1.05 | 38 px / 1.06           | 600  | -0.035em     |
+| Título de página (Explorar, etc.) | 44 px        | 32 px                  | 600  | -0.03em      |
+| Título de detalle                 | 44 px / 1.08 | 28 px / 1.1            | 600  | -0.03em      |
+| Precio de detalle                 | 36 px        | 30 px                  | 600  | 0            |
+| Título de tarjeta                 | 17 a 18 px   | 15 px                  | 600  | 0            |
+| Precio de tarjeta                 | 17 a 18 px   | 15 px                  | 400  | 0            |
+| Etiqueta de modalidad             | 13 px        | 13 px                  | 500  | 0            |
+| Navegación y pestañas             | 15 a 16 px   | 12 px (barra inferior) | 500  | 0            |
+| Metadatos y ayudas                | 13 a 14 px   | 13 px                  | 400  | 0            |
 
 Reglas:
 
-- Texto en oración normal. **No** usar mayúsculas forzadas, ni etiquetas pequeñas sobre cada título.
+- Texto en oración normal. Sin mayúsculas forzadas ni etiquetas pequeñas sobre cada título.
 - No resaltar una sola palabra de un título con otro color o cursiva.
-- Líneas de menos de 80 caracteres. `text-wrap: balance` en el título de portada.
+- Líneas de menos de 80 caracteres. Titular de portada con `max-width` de 760 px.
 - Números de precio con `font-variant-numeric: tabular-nums` donde se alineen.
 
 ## 5. Layout
 
-- Ancho máximo de página 1360 px, centrado. Márgenes laterales `max(4vw, 24px)`; en móvil 20 px.
-- Alineación a la izquierda en todo el contenido. Nada centrado salvo la franja superior.
-- Rejilla de productos: 4 columnas en escritorio, 3 bajo 1100 px, 2 bajo 900 px y 1 a 2 en móvil. Separación 24 px.
-- Portada: dos columnas (texto e imagen) en escritorio; una columna bajo 900 px.
-- Orden de la portada: franja "Comercio entre estudiantes. Entrega en el campus." → título → descripción → botones → etiquetas de modalidad → línea de confianza → categorías → recién publicados.
+- Fondo blanco. Margen lateral 72 px en escritorio y 20 px en móvil. Ancho máximo del contenido 1360 px.
+- Alineación a la izquierda. Nada centrado salvo el buscador, que ocupa el centro de la barra.
+- Rejilla de productos: 4 columnas en escritorio (separación 32 px), 3 bajo 1100 px, 2 bajo 900 px y en móvil. Separación móvil 16 px entre columnas y 18 px entre filas.
+- Orden de la portada: barra → titular → pestañas de categorías → tarjetas recientes.
+- Detalle en escritorio: dos columnas, foto (640 px) y ficha. En móvil: foto a todo el ancho (300 px de alto) y ficha debajo.
 
 ## 6. Componentes
 
-### Encabezado y navegación
+### Barra superior (escritorio)
 
-- Altura 72 px (64 px en móvil), fondo crema, borde inferior `--color-borde`.
-- Marca: cuadro teal 34 px con "ct" en blanco, y "Campus" + "Trade" en Fraunces 24 px; "Trade" en teal.
-- Opciones: Inicio, Explorar, Favoritos, Mensajes, Operaciones, Perfil, y Gestión solo para administradores.
-- Activa: texto teal peso 600 y subrayado de 3 px teal.
-- Sin sesión: botón secundario "Iniciar sesión". Con sesión: avatar circular con iniciales (fondo `--color-teal-claro`).
-- **Móvil (≤650 px):** barra fija inferior de 64 px con icono y texto; las siete opciones deben caber a 320 px sin desplazamiento horizontal. Objetivos táctiles mínimos de 44 px. Bajo 440 px solo la opción activa muestra su texto; en las demás el texto queda oculto visualmente pero disponible para lectores de pantalla.
+- Altura 88 px, fondo blanco, sin borde inferior (el espacio separa).
+- De izquierda a derecha: marca "CampusTrade" (Inter 20 px peso 700, interletraje -0.02em); campo de búsqueda; acciones a la derecha.
+- **Búsqueda:** píldora de 44 px de alto, fondo `--color-fondo-suave`, sin borde, texto "Buscar en el campus" en `--color-tinta-suave`, ancho máximo 560 px. En foco: anillo de 3 px teal.
+- **Acciones con sesión:** "Publicar" (texto 15 px, peso 500), **Mensajes** (con punto teal si hay sin leer), **Favoritos** (corazón) y **avatar** circular de 40 px con iniciales en blanco sobre teal.
+- **Menú del avatar** (desplegable): Mi perfil, Mis publicaciones, Operaciones, Verificación de cuenta, Gestión (solo administradores) y Cerrar sesión.
+- **Sin sesión:** en lugar de Mensajes, Favoritos y avatar, "Iniciar sesión" (enlace) y "Crear cuenta" (botón principal pequeño).
+- La página activa se indica con color teal y peso 600.
 
-### Botones
+### Navegación móvil (≤650 px)
 
-- Radio 12 px, mínimo 48 px de alto, texto 16 px peso 600.
-- **Primario:** fondo teal, texto blanco, hover `--color-primario-hover`. Uno por vista.
-- **Secundario:** transparente, borde interior de 1.5 px teal, texto teal, hover `--color-teal-claro`.
-- Enlaces de texto: teal, peso 600, subrayado desplazado 3 px.
-- Verbo exacto y constante: "Publicar artículo", "Explorar artículos", "Crear cuenta", "Reenviar enlace". Nunca "Enviar" o "Aceptar" a secas.
+- Arriba: marca y avatar (44 px), debajo la búsqueda en píldora de 48 px. No hay otros botones arriba.
+- Abajo: barra fija de 68 px, fondo blanco y línea superior de 1 px. Cinco opciones: **Inicio, Explorar, Publicar, Mensajes, Perfil**.
+- **Publicar** es una píldora teal con texto blanco, la única opción con relleno. La opción activa va en teal peso 600.
+- Objetivos táctiles de al menos 44 px. Texto de 12 px.
+- **Favoritos y Operaciones** viven dentro de Perfil; Favoritos además se guarda desde el corazón de cada tarjeta y del detalle.
+- **Detalle de artículo y conversación abierta:** la barra inferior se oculta y se reemplaza por una barra fija de 84 px con una acción principal ("Enviar mensaje").
+- Mensajes con novedades: punto teal sobre la etiqueta.
 
-### Etiquetas de modalidad (elemento firma)
+### Pestañas de categoría
 
-- Forma de etiqueta: esquinas 4 px a la izquierda y 14 px a la derecha, con un punto perforado a la izquierda (círculo de 7 px con borde interior del color del texto y relleno crema).
-- 13 px peso 600, relleno `8px 12px 8px 10px`.
-- Sobre las fotos de las tarjetas: posición absoluta arriba a la izquierda (12 px).
-- En portada: lista horizontal "Venta, Renta, Intercambio, Donación" con `aria-label="Formas de reutilizar"`.
-- Colores: ver tokens `--tag-*`. Usar siempre estos cuatro, nunca otro color por modalidad.
+- Texto 16 px peso 500 en `--color-tinta-suave`; activa en `--color-tinta` con subrayado de 2 px teal y 8 px de separación. Separación entre pestañas 32 px (22 px en móvil, con desplazamiento horizontal).
+- Primera pestaña "Todo".
 
 ### Tarjeta de producto
 
-- Fondo blanco, borde 1 px `--color-borde`, radio 16 px.
-- Imagen de 240 px de alto con fondo `#f1ede3`; si no hay foto, icono y texto "Sin fotografía".
-- Botón de favorito: círculo blanco de 38 px arriba a la derecha; activo en teal con corazón relleno.
-- Cuerpo (padding 18 px 20 px): carrera (13 px, suave), título (18 px), precio (Fraunces 24 px, teal oscuro), condición y estado (13 px), divisor y vendedor con avatar de iniciales y calificación con estrella ámbar.
-- Hover: borde teal y `--sombra-tarjeta`. Sin movimiento.
-- Precio: "Gratis" para donación, "Intercambio" para trueque, y para renta "$25.00 / día".
+- Sin borde, sin fondo, sin sombra.
+- Foto de 170 a 220 px de alto en escritorio (150 px en móvil), radio 8 px y fondo `--color-foto` si no hay imagen.
+- Debajo: etiqueta de modalidad (13 px, teal, peso 500), título (600), precio (400). Carrera y condición en una línea de 13 px `--color-tinta-suave` cuando haya espacio.
+- Corazón de favorito: círculo blanco de 36 px arriba a la derecha de la foto.
+- Precio: "$280", "$25 / día", "Intercambio" y "Gratis" para donaciones.
+- Hover (escritorio): el título se subraya. Sin elevación ni movimiento.
 
-### Tarjeta de categoría
+### Botones
 
-- Blanco, borde, radio 16 px, mínimo 96 px de alto. Icono en cuadro de 48 px con fondo `--color-teal-claro`, nombre y flecha teal.
-- Hover: borde teal y fondo `--color-teal-claro`.
+- **Primario:** píldora, fondo teal, texto blanco 16 px peso 600, alto 52 px (48 px en barras pequeñas). Uno por pantalla. Hover `--color-primario-hover`.
+- **Secundario:** píldora con borde de 1.5 px teal, fondo blanco, texto teal.
+- **Enlace:** teal, peso 600, sin subrayado hasta el hover.
+- Verbo exacto y constante: "Enviar mensaje", "Publicar artículo", "Explorar artículos", "Crear cuenta".
 
-### Búsqueda y filtros
+### Filtros y chips
 
-- Barra de búsqueda dentro de un contenedor blanco con borde y radio 16 px; el campo no lleva borde propio.
-- Botón "Filtros" con borde, texto teal y `aria-expanded`.
-- Panel de filtros: blanco, borde, radio 16 px, en rejilla. Campos: Carrera, Categoría, Modalidad, Condición, Disponibilidad, Precio mínimo, Precio máximo, y "Limpiar filtros".
-- **Rango de precio inválido:** mostrar "El precio mínimo no puede ser mayor que el máximo." justo debajo de los dos campos (ocupa todo el ancho de la rejilla), con `role="alert"`, `aria-invalid` y `aria-describedby="error-precio"`. No consultar la API mientras el rango sea inválido.
+- En Explorar: encabezado con título a la izquierda y, a la derecha, "Filtros" y "Más recientes ▾" (texto de 15 px, sin borde). Debajo, contador "8 resultados" (14 px, suave).
+- En móvil: botón "Filtros" (píldora con borde `--color-borde-control`) y, a su lado, chips de filtros aplicados con fondo `--color-teal-claro`, texto `--color-primario-oscuro` y "×".
+- Panel de filtros (hoja inferior en móvil, panel lateral o desplegable en escritorio): Carrera, Categoría, Modalidad, Condición, Disponibilidad, Precio mínimo y máximo, "Limpiar filtros".
+- **Rango de precio inválido:** mostrar "El precio mínimo no puede ser mayor que el máximo." justo bajo los dos campos, con `role="alert"`, `aria-invalid` y `aria-describedby`. No consultar la API mientras el rango sea inválido.
 - La vista, la búsqueda, los filtros y la página se reflejan en la URL (`?vista=explorar&q=...&categoryId=...&pagina=2`) y se restauran al recargar. Los enlaces de verificación y recuperación usan el `#hash` y no deben romperse.
+
+### Detalle de artículo
+
+- Ruta de migas en 14 px: "Explorar / [Categoría]".
+- Foto grande con miniaturas de 96 × 72 px debajo.
+- Ficha: etiqueta de modalidad, título, precio, filas con divisores de 1 px (Carrera, Condición, Entrega: etiqueta a la izquierda en suave, valor a la derecha), vendedor con avatar de 44 px y calificación, y botones "Enviar mensaje" (primario) y "Guardar" (secundario).
+- En móvil: encabezado con "‹ Atrás" y "Guardar", y la barra fija inferior con "Enviar mensaje".
+
+### Mensajes (propuesta; falta diseñarla en detalle)
+
+- **Escritorio:** dos columnas, lista de conversaciones a la izquierda y chat a la derecha, con la tarjeta del artículo fijada arriba del chat.
+- **Móvil:** lista de conversaciones; al abrir una, pantalla completa sin barra inferior.
+- Desde la conversación nacen las acciones de operación ("Solicitar", "Reservar", "Calificar").
+
+### Operaciones y Perfil (propuesta; falta diseñarlas en detalle)
+
+- **Perfil en móvil:** menú de filas con divisores: Mis publicaciones, Favoritos, Operaciones, Verificación, Gestión (admin) y Cerrar sesión.
+- **Operaciones:** lista en filas con estado en texto, sin tarjetas.
 
 ### Formularios
 
-- Campos blancos, borde 1 px `--color-borde`, radio 12 px; en foco, borde teal más el anillo de foco.
-- Etiqueta arriba, ayuda debajo (13 px, suave) y error debajo (rojo). Ayuda y error se enlazan con `aria-describedby`.
-- Registro: contraseña "Mínimo 12 caracteres."; matrícula "Entre 4 y 30 caracteres: letras, números y guiones."; enlace "Mostrar contraseña" / "Ocultar contraseña" con `aria-pressed`.
-- Mantener las etiquetas exactas "Contraseña" y "Matrícula" (las pruebas E2E las buscan).
+- Campos con borde 1 px `--color-borde-control`, radio 12 px, alto mínimo 48 px y fondo blanco; en foco, borde teal y anillo de foco.
+- Etiqueta arriba, ayuda debajo (13 px, suave) y error debajo (rojo). Ayuda y error enlazados con `aria-describedby`.
+- Registro: contraseña "Mínimo 12 caracteres.", matrícula "Entre 4 y 30 caracteres: letras, números y guiones.", enlace "Mostrar contraseña" / "Ocultar contraseña" con `aria-pressed`.
+- Mantén las etiquetas exactas "Contraseña" y "Matrícula" (las pruebas E2E las buscan).
 
-### Avisos
+### Avisos y estados
 
-- **Verificación pendiente:** franja ámbar clara bajo el encabezado, "Tu correo institucional está pendiente de verificación." con enlace "Reenviar enlace".
-- **Error global:** fondo `#fdecea`, texto rojo, `role="alert"`, con "Cerrar aviso".
-- **Toast:** fondo teal oscuro, texto crema, radio 12 px, abajo al centro (sobre la barra en móvil).
-
-### Estados vacíos
-
-- Blanco con borde punteado `#c9c1ae`, radio 16 px, icono en círculo `--color-teal-claro`.
-- Un título que invita y un botón. Ejemplo: "El catálogo está listo para tu primera publicación" + "Publicar artículo".
-- Nunca mostrar tarjetas falsas como si fueran datos reales.
+- **Verificación pendiente:** franja delgada bajo la barra, fondo `--color-aviso-fondo`, texto `--color-aviso-texto`: "Tu correo institucional está pendiente de verificación." con enlace "Reenviar enlace". Evita botones que fallan sin explicación mientras la verificación esté pendiente.
+- **Error global:** fondo `--color-error-fondo`, texto `--color-error`, `role="alert"`, con "Cerrar aviso".
+- **Toast:** fondo tinta `#111`, texto blanco, píldora, abajo al centro (sobre la barra inferior en móvil).
+- **Estado vacío:** texto centrado en el área de contenido, un título que invita y un botón principal. Ejemplo: "Aún no hay publicaciones" + "Publicar artículo". Nunca tarjetas falsas.
+- **Carga:** bloques de `--color-foto` con la forma de la tarjeta, sin animaciones llamativas.
 
 ### Ventanas modales
 
-- Fondo blanco, radio 20 px, velo `rgba(0, 40, 38, 0.45)`. Foco atrapado dentro, se cierra con Escape y devuelve el foco al botón de origen.
+- Fondo blanco, radio 20 px, velo `rgba(0, 0, 0, 0.4)`. Foco atrapado dentro, se cierra con Escape y devuelve el foco al botón de origen.
 
 ### Pie de página
 
-- Fondo `--color-primario-oscuro`, texto `#bcd9d5` de 13 px; el nombre de la marca en crema.
+- Fondo blanco, línea superior de 1 px, texto 13 px `--color-tinta-suave`.
 - Pendiente: enlaces de privacidad, ayuda y contacto, solo cuando exista texto aprobado por el responsable del proyecto. No inventar políticas.
 
 ## 7. Movimiento
 
-- Solo respuestas a una acción (hover, abrir, expandir). Transiciones de 160 ms en borde y sombra.
-- Sin animaciones de entrada en secciones ni efectos decorativos.
-- Respetar `prefers-reduced-motion` (ya implementado: desactiva transiciones y animaciones).
+- Solo respuestas a una acción: hover, abrir menús y hojas, cambiar pestaña. Transiciones de 150 ms.
+- Sin animaciones de entrada ni efectos decorativos.
+- Respetar `prefers-reduced-motion`.
 
 ## 8. Accesibilidad (mínimos)
 
 - WCAG 2.2 AA, idioma `es-MX`, enlace "Ir al contenido" al inicio.
 - Foco visible: contorno teal de 3 px con desplazamiento de 3 px en todo elemento interactivo.
 - Objetivos táctiles de al menos 44 px.
-- Cada campo con etiqueta; errores asociados al campo; alertas con `role="alert"`.
+- Cada campo con etiqueta; errores asociados; alertas con `role="alert"`.
 - Imágenes informativas con `alt`; decorativas sin texto alternativo.
 - Un solo `h1` por vista; encabezados en orden.
+- La búsqueda de la barra es un campo real con etiqueta accesible ("Buscar en el campus").
 
 ## 9. Voz y textos
 
-- Español de México, sentido de compañero: claro, directo, sin jerga técnica.
-- Oración normal (solo la primera palabra en mayúscula), verbos activos.
-- Nombrar las cosas como las entiende el estudiante: "Publicar artículo", no "Crear registro".
-- Un error dice qué pasó y cómo corregirlo, sin disculparse ni ser vago.
-- Una acción conserva su nombre en todo el flujo: el botón "Publicar" produce el aviso "Publicado".
-- Textos ya establecidos que se conservan: "Lo que ya no usas. Alguien lo necesita.", "Compra, renta, intercambia o dona materiales académicos con estudiantes de tu comunidad.", "Entrega en el campus."
+- Español de México, de compañero: claro, directo y sin jerga técnica.
+- Oración normal, verbos activos. Nombrar las cosas como las entiende el estudiante.
+- Un error dice qué pasó y cómo corregirlo.
+- Un botón conserva su nombre en todo el flujo.
+- Textos establecidos: "Lo que ya no usas, otro lo necesita.", "Compra, renta, intercambia o dona materiales con estudiantes de tu campus.", "Entrega en el campus."
 
 ## 10. Límites (qué no cambiar)
 
 - No eliminar funcionalidades ni cambiar endpoints, esquema de base de datos, autenticación o sesiones.
 - No inventar carrito, pagos ni funciones que el sistema no tiene.
-- No instalar dependencias nuevas sin necesidad; las fuentes ya están incluidas como archivos.
+- No instalar dependencias nuevas sin necesidad; Inter se incluye como archivo.
 - No renombrar clases ni etiquetas que usan las pruebas (`Contraseña`, `Matrícula`, nombres accesibles de la navegación, `Buscar artículos`, etc.).
+- Cambiar de barra de siete opciones a barra superior mínima y barra inferior de cinco opciones afecta la navegación existente: conserva el acceso a todas las secciones (Favoritos y Operaciones dentro de Perfil en móvil) y revisa las pruebas E2E.
 - Tras cualquier cambio visual: `npm run build`, `npm test` y `npx prettier --check .` deben pasar.
-- Trabajar en una rama con prefijo `codex/` y no usar push forzado.
+- Trabajar en una rama con prefijo `codex/` y sin push forzado.
 
 ## 11. Qué evitar
 
-- Segundo color de acción o botones ámbar.
-- Esquinas del mismo radio en todo, degradados decorativos y sombras en cada tarjeta.
-- Mayúsculas forzadas, etiquetas pequeñas sobre cada título, números 01/02/03 sin que haya una secuencia real.
-- Fondos oscuros en el contenido principal (el teal oscuro es solo para pie y franja).
-- Texto gris claro sobre crema o blanco con menos de 4.5:1.
+- Segundo color de acento, degradados, sombras en tarjetas y bordes gruesos.
+- Tarjetas con borde y fondo de color: aquí la foto y el espacio hacen el trabajo.
+- Mayúsculas forzadas, etiquetas pequeñas sobre cada título y números 01/02/03 sin secuencia real.
+- Fondos oscuros en el contenido principal.
+- Texto gris claro con menos de 4.5:1.
+- Más de un botón principal por pantalla.
 
-## 12. Archivos de referencia
+## 12. Archivos de referencia en el proyecto
 
-- Tokens: `frontend/src/styles.css` (`:root`).
-- Capa visual y componentes: `frontend/src/theme.css` (se importa después de `styles.css` en `main.jsx`).
-- Fuentes: `frontend/src/assets/fonts/`.
+- Tokens: `frontend/src/styles.css` (`:root`). Los nombres actuales (`--color-fondo`, `--color-primario`, etc.) se mantienen; cambian sus valores.
+- Capa visual: `frontend/src/theme.css`, que se importa después de `styles.css` en `main.jsx`.
+- Fuentes: `frontend/src/assets/fonts/` (conservar Inter y quitar Fraunces).
 - Interfaz conectada: `frontend/src/connected/ConnectedApp.jsx`; formularios: `frontend/src/connected/Forms.jsx`; portada: `frontend/src/components/HomeHero.jsx`.
-- Resumen corto del sistema: `docs/DESIGN.md`.
+- Diseño de referencia en el lienzo: tableros "Minimal · Buscador en la barra", "Buscador · Explorar", "Buscador · Detalle" y "Móvil · Inicio / Explorar / Detalle".

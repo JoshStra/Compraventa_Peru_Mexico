@@ -1,11 +1,7 @@
-# Fuentes locales
+# Inter local
 
-Inter y Fraunces se sirven desde esta carpeta, sin peticiones a un proveedor de fuentes durante el uso del sitio. Son archivos WOFF2 variables de estilo normal, subconjunto latino con los caracteres del español, pesos 100–900.
+La interfaz utiliza únicamente Inter variable normal (pesos 100–900). El archivo latino local cubre los caracteres del español y evita consultar proveedores de fuentes durante el uso del sitio.
 
-Origen: paquetes oficiales `@fontsource-variable/inter@5.3.0` y `@fontsource-variable/fraunces@5.3.0`, obtenidos desde el registro de npm el 10 de noviembre de 2026. Solo se incorporan los archivos tipográficos y sus licencias; no se añadieron dependencias ni scripts de estos paquetes.
+Archivo: `inter-latin-wght-normal.woff2`. Origen: `@fontsource-variable/inter@5.3.0`, descargado del registro oficial de npm el 10 de noviembre de 2026. Su licencia OFL-1.1 original se conserva en `Inter-LICENSE.txt`. No se añadieron dependencias. Fraunces se retiró del diseño el 11 de noviembre de 2026.
 
-- `inter-latin-variable.woff2`: `package/files/inter-latin-wght-normal.woff2`.
-- `fraunces-latin-variable.woff2`: `package/files/fraunces-latin-wght-normal.woff2`.
-- Las licencias OFL-1.1 originales están en `Inter-LICENSE.txt` y `Fraunces-LICENSE.txt`.
-
-Referencias del distribuidor: [Inter](https://fontsource.org/fonts/inter/use) y [Fraunces](https://fontsource.org/fonts/fraunces/use).
+[Distribuidor y licencia](https://fontsource.org/fonts/inter/use).

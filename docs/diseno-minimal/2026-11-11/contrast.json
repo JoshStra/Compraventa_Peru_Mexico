@@ -1,0 +1,78 @@
+{
+  "at": "2026-11-11T14:55:32.798Z",
+  "criterion": "Measured opaque text pairs >= 4.5:1; not a full WCAG audit",
+  "contrasts": [
+    {
+      "label": "Texto principal",
+      "foreground": "#111111",
+      "background": "#ffffff",
+      "ratio": 18.883060964594996
+    },
+    {
+      "label": "Texto secundario",
+      "foreground": "#5b6a68",
+      "background": "#ffffff",
+      "ratio": 5.665969732291573
+    },
+    {
+      "label": "Búsqueda y metadatos",
+      "foreground": "#5b6a68",
+      "background": "#f2f6f5",
+      "ratio": 5.200893560285693
+    },
+    {
+      "label": "Modalidad y enlaces",
+      "foreground": "#00716a",
+      "background": "#ffffff",
+      "ratio": 5.882068851962868
+    },
+    {
+      "label": "Botón principal",
+      "foreground": "#ffffff",
+      "background": "#00716a",
+      "ratio": 5.882068851962868
+    },
+    {
+      "label": "Botón hover",
+      "foreground": "#ffffff",
+      "background": "#005650",
+      "ratio": 8.5821025173221
+    },
+    {
+      "label": "Chip y mensaje enviado",
+      "foreground": "#003d39",
+      "background": "#e0f2f0",
+      "ratio": 10.4997024373886
+    },
+    {
+      "label": "Hora de mensaje enviado",
+      "foreground": "#5b6a68",
+      "background": "#e0f2f0",
+      "ratio": 4.8912333871915745
+    },
+    {
+      "label": "Hora de mensaje recibido",
+      "foreground": "#5b6a68",
+      "background": "#f2f6f5",
+      "ratio": 5.200893560285693
+    },
+    {
+      "label": "Error",
+      "foreground": "#b42318",
+      "background": "#fdecea",
+      "ratio": 5.748687270229619
+    },
+    {
+      "label": "Verificación pendiente",
+      "foreground": "#4a3100",
+      "background": "#fff3df",
+      "ratio": 11.05914056555246
+    },
+    {
+      "label": "Marcador de imagen",
+      "foreground": "#5b6a68",
+      "background": "#eef3f2",
+      "ratio": 5.055617006329689
+    }
+  ]
+}

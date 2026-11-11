@@ -1,29 +1,28 @@
 # Diseño de CampusTrade
 
-La guía completa aprobada para este incremento está en [DESIGN.md](../DESIGN.md). El concepto es un tablón de anuncios del campus: superficie crema, acciones teal y etiquetas perforadas para Venta, Renta, Intercambio y Donación.
+La [guía completa](../DESIGN.md) define el diseño minimalista vigente desde el 11 de noviembre de 2026: fondo blanco, Inter local, texto casi negro y teal como color de acción. Sustituye el diseño crema y serif, conservado como [referencia histórica](diseno-tablon/2026-11-10/DESIGN_REFERENCIA.md).
 
 ## Implementación
 
-- `frontend/src/styles.css`: tokens del producto y alias compatibles con los componentes existentes.
-- `frontend/src/theme.css`: fuentes locales, capa visual, tarjetas, etiquetas, avisos, formularios, foco y adaptación móvil. Se importa después de `styles.css`.
-- `frontend/src/assets/fonts/`: Inter y Fraunces variables latinas, con licencias originales OFL-1.1. No se consultan servicios externos de fuentes.
-- `frontend/src/components/HomeHero.jsx`: portada y modalidades visibles, sin resaltar una palabra ni añadir encabezados decorativos.
-- `frontend/src/connected/useCatalogNavigation.js` y `frontend/src/domain/catalogNavigation.js`: restauración de vistas, filtros y página desde la URL, historial de vistas y conservación del hash de enlaces de cuenta.
-- `frontend/src/connected/Forms.jsx`: ayudas asociadas a contraseña y matrícula, control para mostrar la contraseña y conservación del foco al cambiar entre acceso, registro y recuperación.
-- `frontend/src/connected/ConnectedApp.jsx`: error accesible de precios y bloqueo de consultas con mínimo mayor que máximo.
+- `frontend/src/styles.css` contiene los tokens y alias compatibles; `theme.css` aplica tipografía, componentes y adaptación móvil.
+- `frontend/src/assets/fonts/` sirve Inter variable con su licencia original. No se consultan servicios externos de fuentes.
+- `MinimalHeader.jsx` contiene la búsqueda real «Buscar en el campus», acciones de escritorio y menú de cuenta accesible por teclado. En móvil se muestran Inicio, Explorar, Publicar, Mensajes y Perfil; Favoritos, Operaciones y Gestión se alcanzan desde Perfil. Gestión requiere el rol administrador.
+- `CatalogControls.jsx` reúne categorías, filtros en panel lateral o inferior y chips removibles. El formulario de filtros conserva el nombre accesible «Buscar artículos». Los precios inválidos muestran un error asociado y bloquean la consulta.
+- `ListingDetail.jsx` muestra fotografía y ficha en dos columnas; en móvil ocupa la pantalla y fija la acción de mensaje. Mantiene favoritos, solicitudes, reportes y administración de publicaciones propias.
+- `Messenger.jsx` abre la conversación a pantalla completa en móvil y ofrece regreso a la lista. Conserva envío, historial, consulta periódica y acceso al artículo y sus operaciones.
+- `useReadMarkers.js` guarda únicamente identificadores de conversación y su fecha de lectura por cuenta en este navegador. El punto de mensajes nuevos no se sincroniza entre dispositivos ni representa confirmación de lectura del destinatario.
+- `ConnectedApp.jsx` integra perfil y operaciones como filas sencillas; conserva edición, publicaciones, calificaciones y moderación.
 
 ## Reglas de mantenimiento
 
-Los colores nuevos se declaran como tokens; la interfaz no usa un segundo color de acción. El ámbar identifica intercambio o pequeños indicadores. Las etiquetas de modalidad no son botones.
+Una sola familia tipográfica y un solo color de acción. Las tarjetas no tienen borde ni sombra; las etiquetas de modalidad son texto teal. Los colores de errores y verificación pendiente mantienen su significado. Los componentes de diálogo conservan su control de foco, Escape y retorno al elemento que los abrió.
 
-El encabezado mantiene las opciones Inicio, Explorar, Favoritos, Mensajes, Operaciones y Perfil. Gestión corresponde exclusivamente al rol administrador. En móvil se distribuyen todas las opciones sin carrusel horizontal; bajo 440 px solo se ve la etiqueta activa, manteniendo los nombres completos para tecnologías de asistencia.
+Las direcciones de catálogo usan `?vista=explorar&q=...&modality=rental&pagina=2`. Se conservan la restauración de vista, filtros, página, historial y los hashes `#verify=...` / `#reset=...`. Sesiones y credenciales no se trasladan a la URL.
 
-Las direcciones de catálogo usan `?vista=explorar&q=...&modality=rental&pagina=2`. Los parámetros se normalizan a los tipos y límites de consulta existentes. No se trasladan sesiones ni credenciales a la URL. Los tokens de verificación y recuperación conservan su canal `#verify=...` / `#reset=...` y siguen utilizando los flujos existentes.
+El dominio institucional sigue siendo `itesa.edu.mx`. El envío real de verificación permanece pendiente del proveedor elegido por el responsable; la interfaz lo explica y no verifica usuarios automáticamente. Privacidad, ayuda y contacto esperan contenido aprobado. Este incremento no incorpora pagos, carrito, endpoints, migraciones ni cambios de autenticación o sesiones.
 
-Los enlaces de privacidad, ayuda y contacto esperan contenido y un canal aprobados por el responsable; no se inventaron políticas. El transporte de correo sigue pendiente por decisión previa del usuario. Esta entrega no incorpora pagos, carrito, endpoints, migraciones ni cambios en autenticación o sesiones.
+## Validación y aplicación
 
-## Validación
+Ejecutar `npm run build`, `npm test`, `npx prettier --check .` y las pruebas E2E pertinentes. Los escenarios usan PostgreSQL aislado y cuentas sintéticas. La [entrega y sus evidencias](diseno-minimal/2026-11-11/README.md) documentan los resultados reales.
 
-Después de modificar la interfaz, ejecutar `npm run build`, `npm test`, `npx prettier --check .` y las pruebas E2E pertinentes. Los casos de navegación, precio inválido, ayudas y las siete opciones a 320 px están en `frontend/e2e/design.spec.js`; usan el esquema PostgreSQL aislado del servidor de pruebas, con cuentas sintéticas.
-
-La aplicación local se actualiza reconstruyendo el servicio `app` de Docker, conservando los volúmenes de datos e imágenes. No debe eliminarse ningún volumen para aplicar un diseño.
+La aplicación local se actualiza reconstruyendo únicamente el servicio `app` de Docker, conservando los volúmenes existentes de PostgreSQL e imágenes.

@@ -16,6 +16,69 @@ export const origin = "http://127.0.0.1:4180";
 export const fixtureImage = fileURLToPath(
   new URL("./fixtures/article.png", import.meta.url),
 );
+
+export async function navigateSection(page, section) {
+  const filters = page.getByRole("dialog", { name: "Filtros", exact: true });
+  if (await filters.isVisible())
+    await filters.getByRole("button", { name: "Cerrar", exact: true }).click();
+  const back = page.getByRole("button", {
+    name: "‹ Volver a conversaciones",
+    exact: true,
+  });
+  if (await back.isVisible()) await back.click();
+  const nav = page.getByRole("navigation", {
+    name: "Navegación principal",
+    exact: true,
+  });
+  if (await nav.isVisible()) {
+    if (["Inicio", "Explorar", "Mensajes", "Perfil"].includes(section)) {
+      await nav.getByRole("button", { name: section, exact: true }).click();
+      return;
+    }
+    await nav.getByRole("button", { name: "Perfil", exact: true }).click();
+    await page
+      .getByRole("navigation", { name: "Secciones de mi cuenta" })
+      .getByRole("button", { name: section, exact: true })
+      .click();
+    return;
+  }
+  if (section === "Inicio")
+    await page
+      .getByRole("button", { name: "Ir a inicio", exact: true })
+      .click();
+  else if (section === "Explorar")
+    await page
+      .getByRole("textbox", { name: "Buscar en el campus", exact: true })
+      .press("Enter");
+  else if (["Mensajes", "Favoritos"].includes(section))
+    await page.getByRole("button", { name: section, exact: true }).click();
+  else {
+    await page
+      .getByRole("button", { name: "Abrir mi perfil", exact: true })
+      .click();
+    await page
+      .getByRole("menuitem", {
+        name: section === "Perfil" ? "Mi perfil" : section,
+        exact: true,
+      })
+      .click();
+  }
+}
+
+export async function searchCampus(page, query) {
+  const input = page.getByRole("textbox", {
+    name: "Buscar en el campus",
+    exact: true,
+  });
+  await input.fill(query);
+  await input.press("Enter");
+}
+
+export async function openConversation(page, title) {
+  await page
+    .getByRole("button", { name: `Abrir conversación: ${title}`, exact: true })
+    .click();
+}
 export function identity(prefix = "user") {
   const suffix = `${prefix}-${randomUUID().slice(0, 8)}`;
   return {

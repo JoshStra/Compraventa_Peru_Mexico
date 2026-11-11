@@ -1,0 +1,40 @@
+{
+  "canvas": "rgb(255, 255, 255)",
+  "checkedAt": "2026-11-11T14:55:46.305Z",
+  "clientWidth": 305,
+  "font": "Inter, \"Segoe UI\", system-ui, -apple-system, Arial, sans-serif",
+  "navigation": [
+    {
+      "fontSize": "12px",
+      "height": 68,
+      "label": "Inicio",
+      "width": 59.35000228881836
+    },
+    {
+      "fontSize": "12px",
+      "height": 68,
+      "label": "Explorar",
+      "width": 59.36249923706055
+    },
+    {
+      "fontSize": "12px",
+      "height": 48,
+      "label": "Publicar artículo",
+      "width": 53.36249923706055
+    },
+    {
+      "fontSize": "12px",
+      "height": 68,
+      "label": "Mensajes",
+      "width": 59.36249923706055
+    },
+    {
+      "fontSize": "12px",
+      "height": 68,
+      "label": "Perfil",
+      "width": 59.35000228881836
+    }
+  ],
+  "scrollWidth": 305,
+  "viewport": 320
+}

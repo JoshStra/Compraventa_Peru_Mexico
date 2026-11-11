@@ -1,3 +1,4 @@
+import { navigateSection, searchCampus, openConversation } from "./helpers.js";
 import { test, expect } from "@playwright/test";
 import { actor, listing, login, evidencePath } from "./helpers.js";
 
@@ -41,8 +42,8 @@ test("SEC-UI-01 contenido XSS almacenado se representa como texto en catálogo y
   });
   await page.goto("/");
   await login(page, seller.input);
-  await page.getByRole("button", { name: "Explorar", exact: true }).click();
-  await page.getByRole("textbox", { name: "Buscar artículos" }).fill(payload);
+  await navigateSection(page, "Explorar");
+  await searchCampus(page, payload);
   await page.getByRole("button", { name: payload, exact: true }).click();
   await expect(page.getByRole("dialog")).toContainText(description);
   await expect(page.locator('img[src="x"]')).toHaveCount(0);
@@ -52,7 +53,8 @@ test("SEC-UI-01 contenido XSS almacenado se representa como texto en catálogo y
     fullPage: true,
   });
   await page.getByRole("button", { name: "Cerrar", exact: true }).click();
-  await page.getByRole("button", { name: "Mensajes", exact: true }).click();
+  await navigateSection(page, "Mensajes");
+  await openConversation(page, item.title);
   await expect(page.getByRole("log")).toContainText(payload);
   await expect(page.locator('img[src="x"]')).toHaveCount(0);
   expect(await page.evaluate(() => window.__securityXss)).toBeUndefined();
@@ -99,7 +101,7 @@ test("SEC-UI-02 historial de rentas ofrece devolución solo para la renta vigent
   await rent();
   await page.goto("/");
   await login(page, seller.input);
-  await page.getByRole("button", { name: "Operaciones", exact: true }).click();
+  await navigateSection(page, "Operaciones");
   const cards = page.getByRole("article", {
     name: `Operación de ${item.title}`,
     exact: true,

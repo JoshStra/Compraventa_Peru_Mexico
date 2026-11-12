@@ -25,6 +25,7 @@
     "test:api": "npm run test --workspace backend",
     "security:scan": "node scripts/security-inventory.mjs",
     "docker:setup": "node scripts/setup-docker.mjs",
+    "mail:demo:setup": "node scripts/setup-demo-mail.mjs",
     "docker:up": "docker compose up -d --build",
     "docker:down": "docker compose down",
     "test:docker": "node scripts/docker-smoke.mjs"

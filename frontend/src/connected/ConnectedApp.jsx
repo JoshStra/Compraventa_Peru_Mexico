@@ -1,4 +1,5 @@
 import { MinimalHeader } from "../components/MinimalHeader.jsx";
+import { MailDeliveryNotice } from "../components/MailDeliveryNotice.jsx";
 import {
   CategoryTabs,
   FilterChips,
@@ -86,6 +87,8 @@ export default function ConnectedApp() {
   const [conversationOpen, setConversationOpen] = useState(false);
   const [profileTarget, setProfileTarget] = useState(null);
   const [emailAvailable, setEmailAvailable] = useState(false);
+  const [mailDelivery, setMailDelivery] = useState({});
+  const demoMail = mailDelivery.emailDeliveryMode === "local_demo";
   const { unread, onRead } = useReadMarkers(user?.id, account.threads);
   const syncThreads = useCallback(
     (threads) => setAccount((current) => ({ ...current, threads })),
@@ -115,6 +118,10 @@ export default function ConnectedApp() {
           setCatalog(metadata);
           setUser(session.user);
           setEmailAvailable(Boolean(session.emailDeliveryConfigured));
+          setMailDelivery({
+            emailDeliveryMode: session.emailDeliveryMode,
+            localMailboxUrl: session.localMailboxUrl,
+          });
           setFatal("");
           if (
             !session.user &&
@@ -321,13 +328,20 @@ export default function ConnectedApp() {
     }, "Sesión cerrada.");
   }
   async function resend() {
-    await perform(async () => {
-      const response = await api.verification();
-      if (!response.verificationSent)
-        throw new Error(
-          "El envío de correo aún no está configurado. Tu cuenta seguirá pendiente de verificación.",
-        );
-    }, "Revisa tu correo institucional.");
+    await perform(
+      async () => {
+        const response = await api.verification();
+        if (!response.verificationSent)
+          throw new Error(
+            demoMail
+              ? "No se pudo entregar el enlace al buzón local. Comprueba que el servicio de correo de pruebas esté iniciado."
+              : "No se pudo enviar el enlace. Revisa la configuración de correo; tu cuenta seguirá pendiente de verificación.",
+          );
+      },
+      demoMail
+        ? "Revisa el buzón local de pruebas."
+        : "Revisa tu correo institucional.",
+    );
   }
 
   if (fatal)
@@ -405,6 +419,10 @@ export default function ConnectedApp() {
         compact={
           dialog?.type === "detail" || (conversationOpen && view === "Mensajes")
         }
+      />
+      <MailDeliveryNotice
+        demoMail={demoMail}
+        mailboxUrl={mailDelivery.localMailboxUrl}
       />
       {user && !user.verified && (
         <div className="verification-notice">
@@ -572,7 +590,9 @@ export default function ConnectedApp() {
               <div>
                 <p className="eyebrow">
                   {user.verified
-                    ? "Correo institucional verificado"
+                    ? demoMail
+                      ? "Verificación de demostración completada"
+                      : "Correo institucional verificado"
                     : "Verificación pendiente"}
                 </p>
                 <h1>{user.name}</h1>
@@ -716,7 +736,9 @@ export default function ConnectedApp() {
                 <p>{user.email}</p>
                 <p>
                   {user.verified
-                    ? "Correo institucional verificado"
+                    ? demoMail
+                      ? "Verificación de demostración completada"
+                      : "Correo institucional verificado"
                     : "Tu cuenta sigue pendiente de verificación."}
                 </p>
                 <p>Entrega acordada dentro del campus.</p>
@@ -767,6 +789,7 @@ export default function ConnectedApp() {
         )}
         {view === "Gestión" && user?.role === "admin" && (
           <AdminPage
+            demoMail={demoMail}
             revision={revision}
             onRefresh={refresh}
             onResolve={(report) => setDialog({ type: "resolution", report })}
@@ -824,6 +847,8 @@ export default function ConnectedApp() {
         <AuthDialog
           key={dialog.mode || "login"}
           initialMode={dialog.mode || "login"}
+          demoMail={demoMail}
+          mailboxUrl={mailDelivery.localMailboxUrl}
           catalog={catalog}
           onClose={close}
           onLogin={login}
@@ -831,6 +856,8 @@ export default function ConnectedApp() {
       )}
       {dialog?.type === "token" && (
         <TokenDialog
+          demoMail={demoMail}
+          mailboxUrl={mailDelivery.localMailboxUrl}
           {...dialog}
           onClose={() => {
             window.history.replaceState(
@@ -877,6 +904,7 @@ export default function ConnectedApp() {
       )}
       {dialog?.type === "detail" && (
         <Detail
+          demoMail={demoMail}
           item={dialog.item}
           user={user}
           favorite={account.favorites.includes(dialog.item.id)}
@@ -914,7 +942,9 @@ export default function ConnectedApp() {
           </p>
           <p>
             {dialog.user.verified
-              ? "Correo institucional verificado"
+              ? demoMail
+                ? "Verificación de demostración completada"
+                : "Correo institucional verificado"
               : "Verificación pendiente"}
           </p>
           <p>

@@ -4,6 +4,8 @@ Base: `/api/v1`. Las respuestas son JSON. Los errores contienen `error.code`, `e
 
 Desde la auditoría del 10 de noviembre de 2026, POST /auth/register devuelve **202** con `message` y `emailDeliveryConfigured` tanto para solicitudes nuevas como para correo o matrícula duplicados. No devuelve perfil, identificador ni confirmación individual de envío. Los errores de formato, dominio y carrera siguen devolviendo 400. El frontend muestra el mensaje genérico y permite iniciar sesión o recuperar acceso.
 
+Desde el 12 de noviembre, GET /auth/session, POST /auth/register y POST /auth/password-reset incluyen `emailDeliveryMode` (`disabled`, `external` o `local_demo`) y `localMailboxUrl` (URL HTTP de loopback solo para demostración activa; `null` en los demás casos). Esta metadata describe la configuración, no garantiza disponibilidad instantánea de SMTP. En `local_demo` los mensajes de registro, recuperación y confirmación aclaran que no se envía al correo institucional real ni se prueba su titularidad. Se conserva la respuesta genérica para cuentas duplicadas.
+
 El login conserva el límite por IP y añade un máximo de diez fallos por cuenta normalizada en quince minutos. El contador usa un HMAC del correo, también para cuentas inexistentes; los accesos correctos no consumen el contador por cuenta. Los contadores viven en memoria de cada proceso: varias réplicas requieren un almacén compartido.
 
 ## Rutas implementadas y verificadas
@@ -61,4 +63,4 @@ POST /reports recibe listingId, reason y detail. GET /reports muestra los report
 
 Solo el rol admin accede a GET /admin/overview, PATCH /admin/reports/:id, PATCH /admin/users/:id, DELETE /admin/listings/:id, POST y PATCH /admin/categories y POST y PATCH /admin/careers. Los listados administrativos muestran hasta los cien registros más recientes. El cierre de un reporte exige resolución y conserva auditoría. No pueden retirarse artículos con reserva o renta activa sin resolver antes esa operación. Suspender una cuenta revoca sus sesiones, oculta su catálogo y exige cancelar reservas activas.
 
-El registro público nunca concede administración. El responsable puede promover una cuenta existente, activa y verificada mediante npm run admin --workspace backend -- correo-institucional. Esta ejecución no creó administradores reales ni elevó cuentas de estudiantes.
+El registro público nunca concede administración. El responsable puede promover una cuenta existente, activa y verificada mediante npm run admin --workspace backend -- correo-institucional. La excepción individual autorizada en la instalación local se documenta en [SECURITY.md](SECURITY.md); no existe un endpoint público para solicitarla ni se modificó el requisito de la herramienta.

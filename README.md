@@ -4,7 +4,7 @@ Aplicación universitaria para venta, renta, intercambio y donación de material
 
 La interfaz adopta el diseño minimalista de CampusTrade: blanco, Inter local y acciones teal, con búsqueda en la barra superior, tarjetas sin borde y cinco opciones de navegación móvil. Incluye filtros con chips, detalle y chat adaptados al celular, vistas conservadas en la URL y ayudas de registro. Consulta la [guía de diseño](docs/DESIGN.md) y la [validación del incremento](docs/diseno-minimal/2026-11-11/README.md).
 
-**Sistema local:** [Abrir CampusTrade](http://127.0.0.1:3000/) · [Health de API](http://127.0.0.1:3000/api/v1/health). React, API, PostgreSQL e imágenes persistentes se ejecutan en Docker. Los datos de Neon y el objeto de Supabase se copiaron a esta instalación. El correo institucional sigue pendiente.
+**Sistema local:** [Abrir CampusTrade](http://127.0.0.1:3000/) · [Health de API](http://127.0.0.1:3000/api/v1/health) · [Buzón de pruebas](http://127.0.0.1:8025/). React, API, PostgreSQL e imágenes persistentes se ejecutan en Docker. Los datos de Neon y el objeto de Supabase se copiaron a esta instalación. El buzón local permite demostrar la verificación y recuperación; el envío al correo real de ITESA sigue pendiente.
 
 El 10 de noviembre de 2026 se suspendió Render después de validar la copia local. Supabase permanece pausado y Neon se conserva como respaldo; no se eliminaron proyectos ni datos remotos. El [registro de migración](docs/docker-local/2026-11-10/cutover.json) conserva la verificación del cambio.
 
@@ -16,7 +16,9 @@ En esta computadora puedes ejecutar `iniciar-docker.cmd` o:
 docker compose up -d --build --wait
 ```
 
-La aplicación está en `http://127.0.0.1:3000`. Para una instalación nueva ejecuta antes `npm run docker:setup`, que genera el `.env` privado. PostgreSQL y las imágenes se conservan en volúmenes al detener o recrear los contenedores. La guía [Docker local](docs/DOCKER_LOCAL.md) documenta la base migrada, los respaldos, las pruebas y las diferencias con el entorno de desarrollo anterior.
+La aplicación está en `http://127.0.0.1:3000`. Para una instalación nueva ejecuta antes `npm run docker:setup`, que genera el `.env` privado. Para incluir el buzón escolar ejecuta después `npm run mail:demo:setup`, antes de iniciar Compose. PostgreSQL, las imágenes y el buzón se conservan en volúmenes al detener o recrear los contenedores. La guía [Docker local](docs/DOCKER_LOCAL.md) documenta la base migrada, los respaldos, las pruebas y las diferencias con el entorno de desarrollo anterior.
+
+La instalación de esta computadora ya incluye Mailpit. Para demostrar la verificación: inicia sesión, pulsa **Reenviar enlace**, abre el **buzón de pruebas** y utiliza el enlace de tu mensaje. La interfaz identifica este flujo como demostración local: no envía mensajes a ITESA ni acredita la titularidad del correo institucional. Consulta [uso y límites del correo de demostración](docs/CORREO_DEMO.md).
 
 ## Desarrollo con Node fuera de Docker
 
@@ -46,7 +48,7 @@ Para desarrollar con recarga, usa dos terminales: `npm run dev:api` y `npm run d
 - API de conversaciones privadas, operaciones transaccionales, rentas, intercambios, calificaciones, reportes y administración.
 - Interfaz conectada para registro, login, verificación, perfil, catálogo, creación y edición, imágenes, favoritos, mensajes entre cuentas, operaciones, calificaciones, reportes y gestión administrativa.
 
-La cuenta se crea sin verificar y necesita el enlace enviado a su correo. El dominio por sí solo no concede una insignia. El envío real queda pendiente de configurar Resend o SMTP y un remitente autorizado. Las pruebas usan cuentas campus.test y un transporte aislado; no verifican estudiantes reales.
+La cuenta se crea sin verificar y necesita consumir un enlace de un solo uso. El dominio por sí solo no concede una insignia. En la demostración local el enlace llega a Mailpit y la interfaz indica “Verificación de demostración completada”. El envío real queda pendiente de configurar Resend o SMTP y un remitente autorizado. Las pruebas usan cuentas sintéticas en esquemas aislados; no verifican estudiantes reales.
 
 ## Validación
 
@@ -60,6 +62,8 @@ npm run format:check
 ```
 
 Las pruebas de API y navegador requieren PostgreSQL local. Cada ejecución full stack crea un esquema separado y cuentas sintéticas; el servidor de pruebas solo escucha en loopback, exige una clave de ejecución y no forma parte de la aplicación productiva. Los recorridos usan el compilado real, cookies de sesión y datos PostgreSQL.
+
+La [validación del correo local del 12 de noviembre](docs/correo-demo/2026-11-12/README.md) contiene 57 pruebas de frontend, 54 de API y 26 recorridos de navegador aprobados, además de cinco comprobaciones de envío SMTP real a Mailpit con datos desechables.
 
 El prototipo anterior sigue en AppShell como demostración explícita con `VITE_DEMO_MODE=true`. No se usa como sustituto de una API ausente y no es el modo predeterminado. Sus pruebas de regresión se conservan.
 

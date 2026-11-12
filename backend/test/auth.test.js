@@ -2,6 +2,7 @@ import { before, after, test } from "node:test";
 import assert from "node:assert/strict";
 import request from "supertest";
 import { testContext, registration } from "./helpers.js";
+import { createApp } from "../src/app.js";
 
 let context;
 before(async () => {
@@ -13,6 +14,39 @@ const post = (path, body) =>
     .post(`/api/v1${path}`)
     .set("Origin", context.config.origins[0])
     .send(body);
+
+test("el correo local anuncia una demostración y solo verifica al consumir su token de un uso", async () => {
+  const config = {
+    ...context.config,
+    mailDelivery: { mode: "local_demo", mailboxUrl: "http://127.0.0.1:8025" },
+  };
+  const app = createApp({ db: context.db, config, mailer: context.mailer });
+  const input = registration("local-demo");
+  const call = (route, data) =>
+    request(app)
+      .post(`/api/v1/auth/${route}`)
+      .set("Origin", config.origins[0])
+      .send(data);
+  const response = await call("register", input);
+  assert.equal(response.status, 202);
+  assert.match(response.body.message, /buzón local/);
+  assert.equal(response.body.emailDeliveryMode, "local_demo");
+  assert.equal(response.body.localMailboxUrl, "http://127.0.0.1:8025");
+  const row = (
+    await context.db.query("SELECT verified_at FROM users WHERE email=$1", [
+      input.email,
+    ])
+  ).rows[0];
+  assert.equal(row.verified_at, null);
+  const token = context.mail.find((mail) => mail.to === input.email).token;
+  const verified = await call("verify", { token });
+  assert.equal(verified.status, 200);
+  assert.match(verified.body.message, /demostración/);
+  assert.equal((await call("verify", { token })).status, 400);
+  const session = await request(app).get("/api/v1/auth/session");
+  assert.equal(session.body.emailDeliveryMode, "local_demo");
+  assert.equal(session.body.user, null);
+});
 test("registro institucional almacena hash y nunca inventa la verificación", async () => {
   const response = await post("/auth/register", registration("one"));
   assert.equal(response.status, 202);

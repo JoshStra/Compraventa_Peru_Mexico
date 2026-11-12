@@ -1,6 +1,6 @@
 # CampusTrade en Docker local
 
-La aplicación completa usa dos contenedores: `app` sirve React compilado y la API Express; `db` ejecuta PostgreSQL 17. Las imágenes se guardan en un volumen local. La aplicación local no necesita Render, Neon ni Supabase para funcionar.
+La aplicación completa usa `app`, que sirve React compilado y la API Express, y `db`, con PostgreSQL 17. El perfil opcional `correo-demo` agrega `mailpit` para capturar correos de demostración. Las imágenes y los mensajes se guardan en volúmenes locales. La aplicación local no necesita Render, Neon ni Supabase para funcionar.
 
 ## Iniciar y detener
 
@@ -21,10 +21,13 @@ Para una instalación nueva, con Docker Desktop iniciado y Node 24 disponible pa
 
 ```powershell
 npm run docker:setup
+npm run mail:demo:setup
 docker compose up -d --build --wait
 ```
 
 El asistente genera secretos en `.env`, excluido de Git, y conserva los valores existentes. Las dependencias y el frontend se construyen dentro de Docker; no hace falta instalar Node para iniciar una instalación cuyo `.env` ya esté preparado. El asistente no migra automáticamente cuentas de la nube ni reemplaza una base existente. Si se importa una instalación, hay que conservar su `APP_SECRET`, usado en el HMAC de matrícula.
+
+`mail:demo:setup` es opcional y ya se ejecutó en esta computadora. Conserva una copia privada anterior del `.env`, mantiene las credenciales existentes y activa `COMPOSE_PROFILES=correo-demo`. Rechaza sustituir un proveedor externo configurado. El buzón está en [127.0.0.1:8025](http://127.0.0.1:8025/); SMTP 1025 solo es accesible dentro de la red de Docker. Consulta [Correo de demostración](CORREO_DEMO.md) para usarlo.
 
 ## Datos y configuración
 
@@ -36,6 +39,7 @@ El asistente genera secretos en `.env`, excluido de Git, y conserva los valores 
 | Base anterior de desarrollo | `campustrade`, conservada en el mismo servidor; `backend/.env` sigue apuntando allí para desarrollo y pruebas aisladas       |
 | Rol de aplicación           | `campustrade_app`: sin SUPERUSER, CREATEDB, CREATEROLE ni BYPASSRLS; propietario de su base para las migraciones de arranque |
 | Imágenes                    | Volumen `campustrade_images_data`, montado en `/app/backend/.data/images`                                                    |
+| Buzón de demostración       | Mailpit en `127.0.0.1:8025`, con volumen `campustrade_mailpit_data`; perfil `correo-demo`                                    |
 | Respaldo privado            | `backend/.data/docker-migration-2026-11-10/`; dump PostgreSQL, ZIP de Supabase, copias previas de configuración e inventario |
 | Secretos                    | `.env` local; no se copian al contexto de build ni a Git                                                                     |
 
@@ -43,7 +47,7 @@ En una instalación nueva la base predeterminada se llama `campustrade`; la inst
 
 El script `docker/init-app-role.sh` se ejecuta solo al inicializar un volumen PostgreSQL vacío. Cambiar valores en `.env` no cambia contraseñas ni crea roles en un volumen existente. No borres ese volumen para resolver una discrepancia de configuración: revisa primero la conexión y conserva un respaldo.
 
-`NODE_ENV=development` corresponde a este uso por HTTP en loopback y permite almacenamiento local. No se usa modo test; permanecen los límites de peticiones, permisos, CSRF y validación de dominio. La configuración de producción sigue exigiendo HTTPS y S3. Esta composición no debe exponerse directamente a Internet. El dominio autorizado es `itesa.edu.mx`; el envío de correo continúa pendiente y no se verificaron cuentas reales automáticamente.
+`NODE_ENV=development` corresponde a este uso por HTTP en loopback y permite almacenamiento local. No se usa modo test; permanecen los límites de peticiones, permisos, CSRF y validación de dominio. La configuración de producción sigue exigiendo HTTPS y S3 y rechaza el modo de correo `local_demo`. Esta composición no debe exponerse directamente a Internet. El dominio autorizado es `itesa.edu.mx`; Mailpit captura enlaces localmente, sin enviarlos a los correos reales ni acreditar su titularidad. El envío institucional real continúa pendiente y no se verifican cuentas automáticamente.
 
 ## Migración realizada
 

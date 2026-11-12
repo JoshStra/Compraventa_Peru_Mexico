@@ -66,3 +66,60 @@ test("producción sigue rechazando URL ausente y almacenamiento local", () => {
     /S3 persistente/,
   );
 });
+
+const localMail = {
+  ...production,
+  NODE_ENV: "development",
+  STORAGE_DRIVER: "local",
+  PUBLIC_URL: "http://127.0.0.1:3000",
+  MAIL_DELIVERY_MODE: "local_demo",
+  LOCAL_MAILBOX_URL: "http://127.0.0.1:8025",
+  SMTP_HOST: "mailpit",
+  SMTP_PORT: "1025",
+  MAIL_FROM: "CampusTrade Demo <campustrade@demo.local>",
+};
+
+test("el buzón de demostración solo permite SMTP y una interfaz locales", () => {
+  const config = loadConfig(localMail);
+  assert.equal(config.mailDelivery.mode, "local_demo");
+  assert.equal(config.smtp.host, "mailpit");
+  assert.equal(config.smtp.port, 1025);
+  for (const value of [
+    "https://mail.example.org",
+    "http://127.0.0.1:8025/?token=x",
+    "http://user:password@127.0.0.1:8025",
+  ])
+    assert.throws(
+      () => loadConfig({ ...localMail, LOCAL_MAILBOX_URL: value }),
+      /LOCAL_MAILBOX_URL/,
+    );
+});
+
+test("la demostración rechaza proveedores externos y remitente ausente", () => {
+  for (const override of [
+    { SMTP_HOST: "smtp.example.org" },
+    { RESEND_API_KEY: "test-key" },
+    { MAIL_FROM: "" },
+  ])
+    assert.throws(
+      () => loadConfig({ ...localMail, ...override }),
+      /SMTP local/,
+    );
+  assert.throws(
+    () => loadConfig({ ...localMail, MAIL_DELIVERY_MODE: "other" }),
+    /MAIL_DELIVERY_MODE/,
+  );
+});
+
+test("la configuración productiva no acepta el correo de demostración", () => {
+  assert.throws(
+    () =>
+      loadConfig({
+        ...localMail,
+        NODE_ENV: "production",
+        PUBLIC_URL: "https://campustrade.example.org",
+        STORAGE_DRIVER: "s3",
+      }),
+    /no se permite en producción/,
+  );
+});

@@ -1,6 +1,10 @@
 *.pdf binary
 *.docx binary
 *.woff2 binary
+docs/correo-demo/**/*.md text eol=lf
+docs/correo-demo/**/*.txt text eol=lf
+docs/correo-demo/**/*.json text eol=lf
+docs/correo-demo/**/*.sha256 text eol=lf
 docs/auditoria-sitio/**/*.md text eol=lf
 docs/auditoria-sitio/**/*.json text eol=lf
 docs/auditoria-sitio/**/*.sha256 text eol=lf

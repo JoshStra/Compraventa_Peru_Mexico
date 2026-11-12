@@ -47,10 +47,7 @@ export function authRoutes({ auth, config }) {
     res.json({
       user: req.session?.user || null,
       csrfToken: req.session?.csrfToken || null,
-      emailDeliveryConfigured: Boolean(
-        (config.smtp.host && config.smtp.from) ||
-        (config.resend.key && config.resend.from),
-      ),
+      ...auth.deliveryStatus(),
     });
   });
   router.post("/register", sensitive, async (req, res) =>

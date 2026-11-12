@@ -67,6 +67,31 @@ p {
   overflow: clip;
   background: var(--color-fondo);
 }
+.mail-demo-notice {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 20px;
+  padding: 8px var(--page-pad);
+  background: var(--color-teal-claro);
+  color: var(--color-primario-oscuro);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.mail-demo-notice span {
+  flex: 1 1 300px;
+}
+.mail-demo-notice a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+.publish-modal .mail-demo-notice {
+  display: grid;
+  padding: 16px;
+  margin: 16px 0;
+  border-radius: var(--radius-control);
+}
 button:focus-visible,
 input:focus-visible,
 select:focus-visible,

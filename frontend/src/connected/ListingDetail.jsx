@@ -12,6 +12,7 @@ import {
 import { useState } from "react";
 
 export function Detail({
+  demoMail = false,
   item,
   user,
   favorite,
@@ -108,7 +109,9 @@ export function Detail({
                   <strong>{item.seller.name}</strong>
                   <small>
                     {item.seller.verified
-                      ? "Correo verificado"
+                      ? demoMail
+                        ? "Verificado en demostración local"
+                        : "Correo verificado"
                       : "Pendiente de verificación"}
                     {item.seller.ratingCount
                       ? ` · ${item.seller.rating.toFixed(1)} / 5`

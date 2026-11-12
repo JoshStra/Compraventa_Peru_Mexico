@@ -14,9 +14,11 @@ Cada escritura exige un Origin autorizado y las sesiones autenticadas requieren 
 
 ## Verificación institucional y correo
 
-Una cuenta nace sin verificar. La coincidencia con el dominio autorizado no activa el estado verified. La activación requiere consumir el enlace enviado a su correo por un transporte configurado: API HTTPS de Resend o SMTP.
+Una cuenta nace sin verificar. La coincidencia con el dominio autorizado no activa el estado verified. La activación requiere consumir un enlace de un solo uso. El transporte real admite API HTTPS de Resend o SMTP.
 
-IMPLEMENTADO Y VERIFICADO: flujo de tokens de un solo uso con transporte de prueba aislado y cuentas sintéticas campus.test. BLOQUEADO para envío real: falta configurar credenciales y remitente de correo. No se han enviado mensajes reales ni verificado cuentas universitarias durante las pruebas.
+El 12 de noviembre de 2026 se habilitó el [buzón local de demostración](CORREO_DEMO.md), con SMTP a Mailpit, avisos explícitos y capturas de registro, reenvío y recuperación comprobadas con cuentas sintéticas. El envío al correo real sigue pendiente de credenciales y remitente autorizados. Capturar y consumir un enlace local no acredita la titularidad de un correo universitario. No se han enviado mensajes a ITESA durante estas pruebas.
+
+`MAIL_DELIVERY_MODE=local_demo` exige SMTP local, URL del buzón HTTP en loopback y ausencia de Resend; se rechaza en producción. Compose publica únicamente la interfaz del buzón en `127.0.0.1`; SMTP no se publica al host. El buzón contiene enlaces de acceso sensibles y debe conservarse privado. Para una futura instalación real se deben separar los datos de demostración y establecer verificación real de las cuentas; cambiar el proveedor no convierte los estados de prueba existentes en evidencia de titularidad.
 
 ## Base y API
 
@@ -36,4 +38,4 @@ La autorización de publicaciones, conversaciones, operaciones, calificaciones y
 
 Las rutas de publicación, imagen, favoritos, conversación y operación asignan identidad desde la sesión. Los terceros no pueden modificar artículos ni acceder a mensajes privados. Las reservas y los intercambios bloquean filas PostgreSQL antes de transicionar; las calificaciones se vinculan a operaciones completadas y al otro participante.
 
-La moderación exige rol admin en middleware y servicio, deja registros de decisión y conserva los historiales. La promoción inicial se realiza por una herramienta local y solo sobre una cuenta activa con correo verificado. Los datos privados de la API usan Cache-Control no-store. El almacenamiento de imágenes productivo exige S3; la implementación de desarrollo se prueba con archivos aislados.
+La moderación exige rol admin en middleware y servicio, deja registros de decisión y conserva los historiales. La herramienta de promoción inicial exige una cuenta activa con correo verificado. El 12 de noviembre se aplicó una excepción individual expresamente autorizada por el responsable en esta instalación local: se asignó administración conservando el estado sin verificar y se registró `admin_assigned_pending_verification` en auditoría. La excepción no agregó un endpoint ni cambió la protección de la herramienta. Los datos privados de la API usan Cache-Control no-store. El almacenamiento de imágenes productivo exige S3; la implementación de desarrollo se prueba con archivos aislados.

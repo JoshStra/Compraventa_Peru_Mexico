@@ -1,5 +1,6 @@
 import { cloneElement, useEffect, useId, useRef, useState } from "react";
 import { Modal } from "../components/Modal.jsx";
+import { MailDeliveryNotice } from "../components/MailDeliveryNotice.jsx";
 import {
   api,
   imageUrl,
@@ -51,6 +52,8 @@ export function AuthDialog({
   onLogin,
   onClose,
   initialMode = "login",
+  demoMail = false,
+  mailboxUrl,
 }) {
   const [mode, setMode] = useState(initialMode);
   const [busy, setBusy] = useState(false);
@@ -124,6 +127,7 @@ export function AuthDialog({
         Dominio autorizado:{" "}
         {catalog.emailDomains.join(", ") || "pendiente de configurar"}.
       </p>
+      <MailDeliveryNotice demoMail={demoMail} mailboxUrl={mailboxUrl} />
       <form className="remote-form" ref={authForm} key={mode} onSubmit={submit}>
         <ErrorNotice error={error} />
         {notice && (
@@ -263,7 +267,14 @@ export function AuthDialog({
   );
 }
 
-export function TokenDialog({ action, token, onClose, onComplete }) {
+export function TokenDialog({
+  action,
+  token,
+  onClose,
+  onComplete,
+  demoMail = false,
+  mailboxUrl,
+}) {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   async function submit(event) {
@@ -291,13 +302,16 @@ export function TokenDialog({ action, token, onClose, onComplete }) {
     <Modal
       title={
         action === "verify"
-          ? "Verifica tu correo institucional"
+          ? demoMail
+            ? "Verificación de demostración"
+            : "Verifica tu correo institucional"
           : "Elige una nueva contraseña"
       }
       onClose={() => {
         if (!busy) onClose();
       }}
     >
+      <MailDeliveryNotice demoMail={demoMail} mailboxUrl={mailboxUrl} />
       <form className="remote-form" onSubmit={submit}>
         <ErrorNotice error={error} />
         {action === "reset" ? (
@@ -325,8 +339,10 @@ export function TokenDialog({ action, token, onClose, onComplete }) {
           </>
         ) : (
           <p>
-            Confirma que abriste el enlace enviado a tu correo. El enlace se
-            puede usar una sola vez.
+            {demoMail
+              ? "Abre el enlace capturado en el buzón local para completar la demostración. No demuestra acceso al correo institucional."
+              : "Confirma que abriste el enlace enviado a tu correo."}{" "}
+            El enlace se puede usar una sola vez.
           </p>
         )}
         <button className="button button-primary" disabled={busy}>

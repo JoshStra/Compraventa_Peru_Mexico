@@ -20,6 +20,17 @@ import {
 
 const digest = (token) => createHash("sha256").update(token).digest("hex");
 export function createAuth({ db, config, mailer }) {
+  const localDemo = config.mailDelivery?.mode === "local_demo";
+  const deliveryStatus = () => ({
+    emailDeliveryConfigured: mailer.available,
+    emailDeliveryMode: mailer.available
+      ? localDemo
+        ? "local_demo"
+        : "external"
+      : "disabled",
+    localMailboxUrl:
+      localDemo && mailer.available ? config.mailDelivery.mailboxUrl : null,
+  });
   const users = userRepository(db);
   const dummyHash = argon2.hash(randomBytes(32), { type: argon2.argon2id });
   const csrfFor = (token) =>
@@ -48,6 +59,7 @@ export function createAuth({ db, config, mailer }) {
   }
   return {
     csrfFor,
+    deliveryStatus,
     async register(value) {
       const input = validate(registerSchema, value);
       if (!config.domains.includes(input.email.split("@")[1]))
@@ -74,9 +86,11 @@ export function createAuth({ db, config, mailer }) {
       if (user) await sendToken(user, "verify");
       return {
         message: mailer.available
-          ? "Si los datos permiten crear una cuenta, recibirás un enlace de verificación. Si ya tienes cuenta, inicia sesión o recupera tu acceso."
+          ? localDemo
+            ? "Si los datos permiten crear una cuenta, encontrarás un enlace de demostración en el buzón local. No se enviará al correo real de ITESA. Si ya tienes cuenta, inicia sesión o recupera tu acceso."
+            : "Si los datos permiten crear una cuenta, recibirás un enlace de verificación. Si ya tienes cuenta, inicia sesión o recupera tu acceso."
           : "Solicitud recibida. Si los datos permiten crear una cuenta, podrás iniciar sesión. El envío de verificación aún no está disponible; publicar requiere verificar tu correo. Si ya tienes cuenta, inicia sesión o recupera tu acceso.",
-        emailDeliveryConfigured: mailer.available,
+        ...deliveryStatus(),
       };
     },
     async login(value) {
@@ -137,9 +151,10 @@ export function createAuth({ db, config, mailer }) {
       const user = await users.byEmail(input.email);
       if (user && !user.suspended) await sendToken(user, "reset");
       return {
-        message:
-          "Si la cuenta es válida y el envío está configurado, recibirás un enlace de recuperación.",
-        emailDeliveryConfigured: mailer.available,
+        message: localDemo
+          ? "Si la cuenta es válida y el buzón local está configurado, encontrarás ahí un enlace de recuperación de demostración. No se enviará al correo real."
+          : "Si la cuenta es válida y el envío está configurado, recibirás un enlace de recuperación.",
+        ...deliveryStatus(),
       };
     },
     async consumeToken(value, purpose) {
@@ -187,7 +202,9 @@ export function createAuth({ db, config, mailer }) {
       return {
         message:
           purpose === "verify"
-            ? "Correo institucional verificado. Ya puedes iniciar sesión."
+            ? localDemo
+              ? "Verificación de demostración completada. No acredita la titularidad del correo institucional. Ya puedes iniciar sesión."
+              : "Correo institucional verificado. Ya puedes iniciar sesión."
             : "Contraseña actualizada. Vuelve a iniciar sesión.",
       };
     },

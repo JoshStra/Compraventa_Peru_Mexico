@@ -1,0 +1,11 @@
+{
+  "checkedAt": "2026-11-12T23:53:45.801Z",
+  "scope": "Tracked and unignored working-tree text plus reachable local Git refs; binary and >3 MB blobs excluded. Not a complete secret-detection engine.",
+  "workingTreeFiles": 599,
+  "textFiles": 397,
+  "currentMatches": 0,
+  "bundledTextFiles": 4,
+  "bundleMatches": 0,
+  "historyTextBlobs": 584,
+  "historicalMatches": 0
+}

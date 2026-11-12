@@ -1,0 +1,49 @@
+
+> campustrade@0.3.0 test:e2e
+> npm run test:e2e --workspace frontend
+
+
+> campustrade-alpha@0.3.0 test:e2e
+> playwright test
+
+[WebServer] (node:38656) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 26 tests using 2 workers
+
+(node:38324) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:32024) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [desktop] › e2e\design.spec.js:7:1 › rango inválido explicado y asociado sin consultar el catálogo (4.2s)
+  ok  2 [desktop] › e2e\design.spec.js:52:1 › URL conserva consulta, filtros y página al recargar y recorrer el historial (4.6s)
+  ok  3 [desktop] › e2e\design.spec.js:105:1 › registro explica requisitos y permite mostrar la contraseña sin perder el valor (2.2s)
+  ok  4 [desktop] › e2e\design.spec.js:162:1 › cinco opciones móviles y acceso a Favoritos, Operaciones y Gestión desde Perfil (7.0s)
+  ok  5 [desktop] › e2e\design.spec.js:227:1 › buscador global, chips removibles y detalle minimalista conservan el catálogo (6.4s)
+  ok  6 [desktop] › e2e\fullstack.spec.js:22:1 › registro verificación publicación con imagen y edición persistentes (10.1s)
+  ok  7 [desktop] › e2e\fullstack.spec.js:116:1 › catálogo y favoritos persisten entre sesiones del navegador (10.1s)
+  ok  9 [desktop] › e2e\responsive.spec.js:5:1 › filtros visibles sin recorte y reinicio de criterios (2.9s)
+  ok  8 [desktop] › e2e\fullstack.spec.js:157:1 › una cuenta sin verificar no publica ni obtiene una insignia falsa (4.3s)
+  ok 11 [desktop] › e2e\security.spec.js:68:1 › SEC-UI-02 historial de rentas ofrece devolución solo para la renta vigente (7.4s)
+  ok 10 [desktop] › e2e\security.spec.js:15:1 › SEC-UI-01 contenido XSS almacenado se representa como texto en catálogo y mensajes (9.1s)
+  ok 13 [desktop] › e2e\workflows.spec.js:152:1 › reporte y resolución real desde la administración (14.5s)
+  ok 12 [desktop] › e2e\workflows.spec.js:26:1 › mensajes entre dos sesiones y venta con calificación (24.4s)
+(node:12552) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 14 [mobile] › e2e\design.spec.js:7:1 › rango inválido explicado y asociado sin consultar el catálogo (2.4s)
+  ok 15 [mobile] › e2e\design.spec.js:105:1 › registro explica requisitos y permite mostrar la contraseña sin perder el valor (2.4s)
+  ok 16 [mobile] › e2e\design.spec.js:162:1 › cinco opciones móviles y acceso a Favoritos, Operaciones y Gestión desde Perfil (4.5s)
+  ok 17 [mobile] › e2e\design.spec.js:227:1 › buscador global, chips removibles y detalle minimalista conservan el catálogo (4.6s)
+  ok 18 [mobile] › e2e\fullstack.spec.js:22:1 › registro verificación publicación con imagen y edición persistentes (5.6s)
+  ok 19 [mobile] › e2e\fullstack.spec.js:116:1 › catálogo y favoritos persisten entre sesiones del navegador (7.2s)
+  ok 20 [mobile] › e2e\fullstack.spec.js:157:1 › una cuenta sin verificar no publica ni obtiene una insignia falsa (3.2s)
+  ok 21 [mobile] › e2e\responsive.spec.js:5:1 › filtros visibles sin recorte y reinicio de criterios (2.2s)
+  ok 22 [mobile] › e2e\security.spec.js:15:1 › SEC-UI-01 contenido XSS almacenado se representa como texto en catálogo y mensajes (5.3s)
+  ok 23 [mobile] › e2e\security.spec.js:68:1 › SEC-UI-02 historial de rentas ofrece devolución solo para la renta vigente (4.6s)
+(node:33416) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 25 [mobile] › e2e\design.spec.js:52:1 › URL conserva consulta, filtros y página al recargar y recorrer el historial (1.8s)
+  ok 24 [mobile] › e2e\workflows.spec.js:26:1 › mensajes entre dos sesiones y venta con calificación (22.8s)
+  ok 26 [mobile] › e2e\workflows.spec.js:152:1 › reporte y resolución real desde la administración (18.3s)
+
+  26 passed (2.5m)

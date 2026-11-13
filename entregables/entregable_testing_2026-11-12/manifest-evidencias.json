@@ -1,7 +1,7 @@
 {
-  "generatedUtc": "2026-11-13T06:47:57.484587+00:00",
+  "generatedUtc": "2026-11-13T22:36:11.208234+00:00",
   "testedCode": "0274f2b98a376ee67116fd5898ea1c9d14d63092",
-  "scope": "151 casos y ocho apartados integrados en un Word de 91 páginas con 65 imágenes y formulario integrado de ocho campos editables; se conservan fuentes y fechas originales de pruebas",
+  "scope": "151 casos y ocho apartados integrados en un Word de 95 páginas con 69 imágenes, incluidas cuatro capturas reales de GitHub y formulario integrado de ocho campos editables; se conservan fuentes y fechas originales de pruebas",
   "files": [
     {
       "path": "01_CASOS_PRUEBA.md",
@@ -55,8 +55,8 @@
     },
     {
       "path": "CampusTrade_Testing_Unificado_Con_Fotos_2026-11-13.docx",
-      "bytes": 5681598,
-      "sha256": "52c0b82dccfb4cb396878be27370bd1f87cedc0863a52301f5f42bf5dee3ca7a"
+      "bytes": 5876555,
+      "sha256": "5803ba6a5232dcfe6b743d7c929b8b14f2de367f9e0dc0154093b70217484e61"
     },
     {
       "path": "casos_ejecutados.csv",
@@ -834,14 +834,39 @@
       "sha256": "7cfac7c9ce4aad115a57263286ae5dc504aa286c1130c0f0c31f7722d181b2c8"
     },
     {
+      "path": "github_capturas/commit-0274f2b.jpg",
+      "bytes": 43095,
+      "sha256": "86583bee779f79df2cc2a3c0bb751d4d75e1ba9708235aaad6f8aa23186d88ab"
+    },
+    {
+      "path": "github_capturas/historial-commits.jpg",
+      "bytes": 43106,
+      "sha256": "bad8c6698b79b9bba70496429517cff4b2dd58cb5b5d1dc4312a54f394de84ad"
+    },
+    {
+      "path": "github_capturas/indice_capturas.json",
+      "bytes": 3497,
+      "sha256": "65aa75a11ed127f50649e7a09c1bd44726af057fc8a5d2dccf7fa2fac4683cef"
+    },
+    {
+      "path": "github_capturas/issue-6-resolucion.jpg",
+      "bytes": 72070,
+      "sha256": "27974af5b7caedaa5f1d70676cabe2d25fe9d6e68942df6366976de33a0bc609"
+    },
+    {
+      "path": "github_capturas/issues-cerrados.jpg",
+      "bytes": 54879,
+      "sha256": "eda3da3ef01a99da419cede77e04ad6a282a0b78a8456a619c438775fef7da04"
+    },
+    {
       "path": "integracion_2026-11-13.json",
-      "bytes": 23651,
-      "sha256": "6755d7866b4d842b753141a4e48a679e5a3862deff377d862f288e4b2a8c2635"
+      "bytes": 24752,
+      "sha256": "2c9290688e30823f2171e83d402bd977518265a8ee149a3069f08bbbb7a1355a"
     },
     {
       "path": "README.md",
-      "bytes": 2588,
-      "sha256": "8e6b6a570c43f2bc027b59aa36619bb5dac08bf654dee84c904690366b77c170"
+      "bytes": 3100,
+      "sha256": "468ccf5b725848dd32041230f27bf7b444a9b59e1bdde65bfebb75fd8e65d746"
     },
     {
       "path": "resumen_testing.json",

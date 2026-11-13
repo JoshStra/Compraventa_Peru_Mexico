@@ -2,7 +2,7 @@
   "createdUtc": "2026-11-13T06:20:52Z",
   "integrationDateMexico": "2026-11-13",
   "testDatesPreserved": "2026-11-12 America/Mexico_City",
-  "baseCommit": "0cec3f66ddd0d7f7683ec76ae26042c44af88f98",
+  "baseCommit": "0b3f5a4bfd5e1120b7421069976b3fd16467b690",
   "sources": [
     {
       "file": "CampusTrade_Testing_Actualizado_2026-11-12.docx",
@@ -14,9 +14,9 @@
     }
   ],
   "output": "CampusTrade_Testing_Unificado_Con_Fotos_2026-11-13.docx",
-  "outputSha256": "52c0b82dccfb4cb396878be27370bd1f87cedc0863a52301f5f42bf5dee3ca7a",
+  "outputSha256": "5803ba6a5232dcfe6b743d7c929b8b14f2de367f9e0dc0154093b70217484e61",
   "uniqueCaseCards": 151,
-  "drawings": 65,
+  "drawings": 69,
   "caseScreenshots": 62,
   "generalScreenshots": 3,
   "copiedImages": [
@@ -336,8 +336,8 @@
     "Case"
   ],
   "deduplication": "El anexo original de 151 fichas se reemplaza por las mismas 151 fichas con fotos; se conservan los ocho apartados completos.",
-  "updatedUtc": "2026-11-13T06:42:30.590993+00:00",
-  "priorOutputSha256": "b2f92122633acb8beb6fd8dff29f143522becccd8b6dd5bef7c994a3baa6cfb6",
+  "updatedUtc": "2026-11-13T22:34:59.902895+00:00",
+  "priorOutputSha256": "52c0b82dccfb4cb396878be27370bd1f87cedc0863a52301f5f42bf5dee3ca7a",
   "embeddedForm": {
     "source": "Formulario_Correccion_Errores.docx",
     "sourceSha256": "e63a47725b11b16508b65e6c2334c01661fe8998bd26a7fee095d698ee937e16",
@@ -360,19 +360,30 @@
     "closedIssuesWithComments": 6
   },
   "changedPackageParts": [
+    "[Content_Types].xml",
     "docProps/core.xml",
-    "word/document.xml"
+    "word/document.xml",
+    "word/_rels/document.xml.rels"
+  ],
+  "githubScreenshots": 4,
+  "githubScreenshotIndex": "github_capturas/indice_capturas.json",
+  "addedPackageParts": [
+    "word/media/github_issues-cerrados.jpg",
+    "word/media/github_issue-6-resolucion.jpg",
+    "word/media/github_commit-0274f2b.jpg",
+    "word/media/github_historial-commits.jpg"
   ],
   "validation": {
-    "checkedUtc": "2026-11-13T06:44:29.356166+00:00",
+    "checkedUtc": "2026-11-13T22:35:54.162069+00:00",
     "document": "CampusTrade_Testing_Unificado_Con_Fotos_2026-11-13.docx",
-    "sha256": "52c0b82dccfb4cb396878be27370bd1f87cedc0863a52301f5f42bf5dee3ca7a",
-    "pages": 91,
+    "sha256": "5803ba6a5232dcfe6b743d7c929b8b14f2de367f9e0dc0154093b70217484e61",
+    "pages": 95,
     "chapters": 8,
     "uniqueCaseCards": 151,
     "caseScreenshots": 62,
     "generalScreenshots": 3,
-    "images": 65,
+    "githubScreenshots": 4,
+    "images": 69,
     "nativeEditableFields": [
       "INCIDENCIA",
       "RESPONSABLE",
@@ -383,20 +394,19 @@
       "REGRESION",
       "EVIDENCIA"
     ],
-    "fieldFillTestPassed": true,
+    "priorFormFillTestPreserved": true,
+    "nativeControlsUnchanged": true,
     "allCaseIdsPresent": true,
     "allImagesPreserved": true,
+    "newImagesMatchSavedNativeCaptures": true,
     "validRelationships": true,
-    "unchangedPackageParts": 81,
-    "changedPackageParts": [
-      "word/document.xml",
-      "docProps/core.xml"
-    ],
+    "unchangedPackageParts": 79,
     "outOfMargins": 0,
     "sparsePages": [],
     "closedIssuesWithComments": 6,
     "codexInteractions": 8,
     "externalHumanParticipants": 0,
+    "sourceDocumentsUnchanged": 3,
     "pixelIdenticalPreviouslyVerifiedBodies": [
       {
         "page": 2,
@@ -407,349 +417,371 @@
         "unchangedBodyFromPreviouslyVerifiedPage": 3
       },
       {
-        "page": 7,
+        "page": 4,
+        "unchangedBodyFromPreviouslyVerifiedPage": 4
+      },
+      {
+        "page": 5,
+        "unchangedBodyFromPreviouslyVerifiedPage": 5
+      },
+      {
+        "page": 6,
         "unchangedBodyFromPreviouslyVerifiedPage": 6
       },
       {
-        "page": 8,
+        "page": 9,
         "unchangedBodyFromPreviouslyVerifiedPage": 7
       },
       {
         "page": 10,
-        "unchangedBodyFromPreviouslyVerifiedPage": 9
+        "unchangedBodyFromPreviouslyVerifiedPage": 8
       },
       {
         "page": 11,
-        "unchangedBodyFromPreviouslyVerifiedPage": 10
-      },
-      {
-        "page": 12,
-        "unchangedBodyFromPreviouslyVerifiedPage": 11
-      },
-      {
-        "page": 13,
-        "unchangedBodyFromPreviouslyVerifiedPage": 12
+        "unchangedBodyFromPreviouslyVerifiedPage": 9
       },
       {
         "page": 14,
-        "unchangedBodyFromPreviouslyVerifiedPage": 13
+        "unchangedBodyFromPreviouslyVerifiedPage": 10
       },
       {
         "page": 15,
-        "unchangedBodyFromPreviouslyVerifiedPage": 14
+        "unchangedBodyFromPreviouslyVerifiedPage": 11
       },
       {
         "page": 16,
-        "unchangedBodyFromPreviouslyVerifiedPage": 15
+        "unchangedBodyFromPreviouslyVerifiedPage": 12
       },
       {
         "page": 17,
-        "unchangedBodyFromPreviouslyVerifiedPage": 16
+        "unchangedBodyFromPreviouslyVerifiedPage": 13
       },
       {
         "page": 18,
-        "unchangedBodyFromPreviouslyVerifiedPage": 17
+        "unchangedBodyFromPreviouslyVerifiedPage": 14
       },
       {
         "page": 19,
-        "unchangedBodyFromPreviouslyVerifiedPage": 18
+        "unchangedBodyFromPreviouslyVerifiedPage": 15
       },
       {
         "page": 20,
-        "unchangedBodyFromPreviouslyVerifiedPage": 19
+        "unchangedBodyFromPreviouslyVerifiedPage": 16
       },
       {
         "page": 21,
-        "unchangedBodyFromPreviouslyVerifiedPage": 20
+        "unchangedBodyFromPreviouslyVerifiedPage": 17
       },
       {
         "page": 22,
-        "unchangedBodyFromPreviouslyVerifiedPage": 21
+        "unchangedBodyFromPreviouslyVerifiedPage": 18
       },
       {
         "page": 23,
-        "unchangedBodyFromPreviouslyVerifiedPage": 22
+        "unchangedBodyFromPreviouslyVerifiedPage": 19
       },
       {
         "page": 24,
-        "unchangedBodyFromPreviouslyVerifiedPage": 23
+        "unchangedBodyFromPreviouslyVerifiedPage": 20
       },
       {
         "page": 25,
-        "unchangedBodyFromPreviouslyVerifiedPage": 24
+        "unchangedBodyFromPreviouslyVerifiedPage": 21
       },
       {
         "page": 26,
-        "unchangedBodyFromPreviouslyVerifiedPage": 25
+        "unchangedBodyFromPreviouslyVerifiedPage": 22
       },
       {
         "page": 27,
-        "unchangedBodyFromPreviouslyVerifiedPage": 26
+        "unchangedBodyFromPreviouslyVerifiedPage": 23
       },
       {
         "page": 28,
-        "unchangedBodyFromPreviouslyVerifiedPage": 27
+        "unchangedBodyFromPreviouslyVerifiedPage": 24
       },
       {
         "page": 29,
-        "unchangedBodyFromPreviouslyVerifiedPage": 28
+        "unchangedBodyFromPreviouslyVerifiedPage": 25
       },
       {
         "page": 30,
-        "unchangedBodyFromPreviouslyVerifiedPage": 29
+        "unchangedBodyFromPreviouslyVerifiedPage": 26
       },
       {
         "page": 31,
-        "unchangedBodyFromPreviouslyVerifiedPage": 30
+        "unchangedBodyFromPreviouslyVerifiedPage": 27
       },
       {
         "page": 32,
-        "unchangedBodyFromPreviouslyVerifiedPage": 31
+        "unchangedBodyFromPreviouslyVerifiedPage": 28
       },
       {
         "page": 33,
-        "unchangedBodyFromPreviouslyVerifiedPage": 32
+        "unchangedBodyFromPreviouslyVerifiedPage": 29
       },
       {
         "page": 34,
-        "unchangedBodyFromPreviouslyVerifiedPage": 33
+        "unchangedBodyFromPreviouslyVerifiedPage": 30
       },
       {
         "page": 35,
-        "unchangedBodyFromPreviouslyVerifiedPage": 34
+        "unchangedBodyFromPreviouslyVerifiedPage": 31
       },
       {
         "page": 36,
-        "unchangedBodyFromPreviouslyVerifiedPage": 35
+        "unchangedBodyFromPreviouslyVerifiedPage": 32
       },
       {
         "page": 37,
-        "unchangedBodyFromPreviouslyVerifiedPage": 36
+        "unchangedBodyFromPreviouslyVerifiedPage": 33
       },
       {
         "page": 38,
-        "unchangedBodyFromPreviouslyVerifiedPage": 37
+        "unchangedBodyFromPreviouslyVerifiedPage": 34
       },
       {
         "page": 39,
-        "unchangedBodyFromPreviouslyVerifiedPage": 38
+        "unchangedBodyFromPreviouslyVerifiedPage": 35
       },
       {
         "page": 40,
-        "unchangedBodyFromPreviouslyVerifiedPage": 39
+        "unchangedBodyFromPreviouslyVerifiedPage": 36
       },
       {
         "page": 41,
-        "unchangedBodyFromPreviouslyVerifiedPage": 40
+        "unchangedBodyFromPreviouslyVerifiedPage": 37
       },
       {
         "page": 42,
-        "unchangedBodyFromPreviouslyVerifiedPage": 41
+        "unchangedBodyFromPreviouslyVerifiedPage": 38
       },
       {
         "page": 43,
-        "unchangedBodyFromPreviouslyVerifiedPage": 42
+        "unchangedBodyFromPreviouslyVerifiedPage": 39
       },
       {
         "page": 44,
-        "unchangedBodyFromPreviouslyVerifiedPage": 43
+        "unchangedBodyFromPreviouslyVerifiedPage": 40
       },
       {
         "page": 45,
-        "unchangedBodyFromPreviouslyVerifiedPage": 44
+        "unchangedBodyFromPreviouslyVerifiedPage": 41
       },
       {
         "page": 46,
-        "unchangedBodyFromPreviouslyVerifiedPage": 45
+        "unchangedBodyFromPreviouslyVerifiedPage": 42
       },
       {
         "page": 47,
-        "unchangedBodyFromPreviouslyVerifiedPage": 46
+        "unchangedBodyFromPreviouslyVerifiedPage": 43
       },
       {
         "page": 48,
-        "unchangedBodyFromPreviouslyVerifiedPage": 47
+        "unchangedBodyFromPreviouslyVerifiedPage": 44
       },
       {
         "page": 49,
-        "unchangedBodyFromPreviouslyVerifiedPage": 48
+        "unchangedBodyFromPreviouslyVerifiedPage": 45
       },
       {
         "page": 50,
-        "unchangedBodyFromPreviouslyVerifiedPage": 49
+        "unchangedBodyFromPreviouslyVerifiedPage": 46
       },
       {
         "page": 51,
-        "unchangedBodyFromPreviouslyVerifiedPage": 50
+        "unchangedBodyFromPreviouslyVerifiedPage": 47
       },
       {
         "page": 52,
-        "unchangedBodyFromPreviouslyVerifiedPage": 51
+        "unchangedBodyFromPreviouslyVerifiedPage": 48
       },
       {
         "page": 53,
-        "unchangedBodyFromPreviouslyVerifiedPage": 52
+        "unchangedBodyFromPreviouslyVerifiedPage": 49
       },
       {
         "page": 54,
-        "unchangedBodyFromPreviouslyVerifiedPage": 53
+        "unchangedBodyFromPreviouslyVerifiedPage": 50
       },
       {
         "page": 55,
-        "unchangedBodyFromPreviouslyVerifiedPage": 54
+        "unchangedBodyFromPreviouslyVerifiedPage": 51
       },
       {
         "page": 56,
-        "unchangedBodyFromPreviouslyVerifiedPage": 55
+        "unchangedBodyFromPreviouslyVerifiedPage": 52
       },
       {
         "page": 57,
-        "unchangedBodyFromPreviouslyVerifiedPage": 56
+        "unchangedBodyFromPreviouslyVerifiedPage": 53
       },
       {
         "page": 58,
-        "unchangedBodyFromPreviouslyVerifiedPage": 57
+        "unchangedBodyFromPreviouslyVerifiedPage": 54
       },
       {
         "page": 59,
-        "unchangedBodyFromPreviouslyVerifiedPage": 58
+        "unchangedBodyFromPreviouslyVerifiedPage": 55
       },
       {
         "page": 60,
-        "unchangedBodyFromPreviouslyVerifiedPage": 59
+        "unchangedBodyFromPreviouslyVerifiedPage": 56
       },
       {
         "page": 61,
-        "unchangedBodyFromPreviouslyVerifiedPage": 60
+        "unchangedBodyFromPreviouslyVerifiedPage": 57
       },
       {
         "page": 62,
-        "unchangedBodyFromPreviouslyVerifiedPage": 61
+        "unchangedBodyFromPreviouslyVerifiedPage": 58
       },
       {
         "page": 63,
-        "unchangedBodyFromPreviouslyVerifiedPage": 62
+        "unchangedBodyFromPreviouslyVerifiedPage": 59
       },
       {
         "page": 64,
-        "unchangedBodyFromPreviouslyVerifiedPage": 63
+        "unchangedBodyFromPreviouslyVerifiedPage": 60
       },
       {
         "page": 65,
-        "unchangedBodyFromPreviouslyVerifiedPage": 64
+        "unchangedBodyFromPreviouslyVerifiedPage": 61
       },
       {
         "page": 66,
-        "unchangedBodyFromPreviouslyVerifiedPage": 65
+        "unchangedBodyFromPreviouslyVerifiedPage": 62
       },
       {
         "page": 67,
-        "unchangedBodyFromPreviouslyVerifiedPage": 66
+        "unchangedBodyFromPreviouslyVerifiedPage": 63
       },
       {
         "page": 68,
-        "unchangedBodyFromPreviouslyVerifiedPage": 67
+        "unchangedBodyFromPreviouslyVerifiedPage": 64
       },
       {
         "page": 69,
-        "unchangedBodyFromPreviouslyVerifiedPage": 68
+        "unchangedBodyFromPreviouslyVerifiedPage": 65
       },
       {
         "page": 70,
-        "unchangedBodyFromPreviouslyVerifiedPage": 69
+        "unchangedBodyFromPreviouslyVerifiedPage": 66
       },
       {
         "page": 71,
-        "unchangedBodyFromPreviouslyVerifiedPage": 70
+        "unchangedBodyFromPreviouslyVerifiedPage": 67
       },
       {
         "page": 72,
-        "unchangedBodyFromPreviouslyVerifiedPage": 71
+        "unchangedBodyFromPreviouslyVerifiedPage": 68
       },
       {
         "page": 73,
-        "unchangedBodyFromPreviouslyVerifiedPage": 72
+        "unchangedBodyFromPreviouslyVerifiedPage": 69
       },
       {
         "page": 74,
-        "unchangedBodyFromPreviouslyVerifiedPage": 73
+        "unchangedBodyFromPreviouslyVerifiedPage": 70
       },
       {
         "page": 75,
-        "unchangedBodyFromPreviouslyVerifiedPage": 74
+        "unchangedBodyFromPreviouslyVerifiedPage": 71
       },
       {
         "page": 76,
-        "unchangedBodyFromPreviouslyVerifiedPage": 75
+        "unchangedBodyFromPreviouslyVerifiedPage": 72
       },
       {
         "page": 77,
-        "unchangedBodyFromPreviouslyVerifiedPage": 76
+        "unchangedBodyFromPreviouslyVerifiedPage": 73
       },
       {
         "page": 78,
-        "unchangedBodyFromPreviouslyVerifiedPage": 77
+        "unchangedBodyFromPreviouslyVerifiedPage": 74
       },
       {
         "page": 79,
-        "unchangedBodyFromPreviouslyVerifiedPage": 78
+        "unchangedBodyFromPreviouslyVerifiedPage": 75
       },
       {
         "page": 80,
-        "unchangedBodyFromPreviouslyVerifiedPage": 79
+        "unchangedBodyFromPreviouslyVerifiedPage": 76
       },
       {
         "page": 81,
-        "unchangedBodyFromPreviouslyVerifiedPage": 80
+        "unchangedBodyFromPreviouslyVerifiedPage": 77
       },
       {
         "page": 82,
-        "unchangedBodyFromPreviouslyVerifiedPage": 81
+        "unchangedBodyFromPreviouslyVerifiedPage": 78
       },
       {
         "page": 83,
-        "unchangedBodyFromPreviouslyVerifiedPage": 82
+        "unchangedBodyFromPreviouslyVerifiedPage": 79
       },
       {
         "page": 84,
-        "unchangedBodyFromPreviouslyVerifiedPage": 83
+        "unchangedBodyFromPreviouslyVerifiedPage": 80
       },
       {
         "page": 85,
-        "unchangedBodyFromPreviouslyVerifiedPage": 84
+        "unchangedBodyFromPreviouslyVerifiedPage": 81
       },
       {
         "page": 86,
-        "unchangedBodyFromPreviouslyVerifiedPage": 85
+        "unchangedBodyFromPreviouslyVerifiedPage": 82
       },
       {
         "page": 87,
-        "unchangedBodyFromPreviouslyVerifiedPage": 86
+        "unchangedBodyFromPreviouslyVerifiedPage": 83
       },
       {
         "page": 88,
-        "unchangedBodyFromPreviouslyVerifiedPage": 87
+        "unchangedBodyFromPreviouslyVerifiedPage": 84
       },
       {
         "page": 89,
-        "unchangedBodyFromPreviouslyVerifiedPage": 88
+        "unchangedBodyFromPreviouslyVerifiedPage": 85
       },
       {
         "page": 90,
-        "unchangedBodyFromPreviouslyVerifiedPage": 89
+        "unchangedBodyFromPreviouslyVerifiedPage": 86
       },
       {
         "page": 91,
+        "unchangedBodyFromPreviouslyVerifiedPage": 87
+      },
+      {
+        "page": 92,
+        "unchangedBodyFromPreviouslyVerifiedPage": 88
+      },
+      {
+        "page": 93,
+        "unchangedBodyFromPreviouslyVerifiedPage": 89
+      },
+      {
+        "page": 94,
         "unchangedBodyFromPreviouslyVerifiedPage": 90
+      },
+      {
+        "page": 95,
+        "unchangedBodyFromPreviouslyVerifiedPage": 91
       }
     ],
     "changedPagesToInspect": [
       1,
-      4,
-      5,
-      6,
-      9
+      7,
+      8,
+      12,
+      13
     ],
+    "newScreenshotPages": {
+      "GH01": 7,
+      "GH02": 8,
+      "GH03": 12,
+      "GH04": 13
+    },
     "visuallyVerifiedPages": [
       1,
       2,
@@ -841,14 +873,21 @@
       88,
       89,
       90,
-      91
+      91,
+      92,
+      93,
+      94,
+      95
     ],
-    "visualReviewCompletedUtc": "2026-11-13T06:46:04.712348+00:00",
-    "reviewMethod": "86 page bodies are pixel-identical to the previously verified integrated report at 144 dpi; all five changed or inserted pages were visually inspected; eight chapter pages also inspected",
-    "filledFormVisuallyVerified": true,
-    "filledFormPage": 5,
-    "sourceDocumentsUnchanged": 3,
-    "knownSecretMatches": 0,
-    "finalReviewUtc": "2026-11-13T06:47:57.150571+00:00"
+    "visualReviewCompletedUtc": "2026-11-13T22:36:10.816225+00:00",
+    "reviewMethod": "90 page bodies are pixel-identical to the previously visually verified integrated report at 144 dpi; the cover and all four added screenshot pages were visually inspected at full rendering size. Native controls and all prior media parts were preserved byte-for-byte."
+  },
+  "previousValidationSummary": {
+    "checkedUtc": "2026-11-13T06:44:29.356166+00:00",
+    "sha256": "52c0b82dccfb4cb396878be27370bd1f87cedc0863a52301f5f42bf5dee3ca7a",
+    "pages": 91,
+    "uniqueCaseCards": 151,
+    "images": 65,
+    "fieldFillTestPassed": true
   }
 }

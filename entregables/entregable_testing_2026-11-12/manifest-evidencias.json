@@ -1,7 +1,7 @@
 {
-  "generatedUtc": "2026-11-13T05:08:38.110201+00:00",
+  "generatedUtc": "2026-11-13T05:35:17.703389+00:00",
   "testedCode": "0274f2b98a376ee67116fd5898ea1c9d14d63092",
-  "scope": "151 registros con Word de 51 páginas y formulario de ocho campos; evidencias reales de ejecución",
+  "scope": "151 casos con reporte original, formulario editable y Word ampliado con 62 capturas identificadas; 26 recorridos de navegador revalidados",
   "files": [
     {
       "path": "01_CASOS_PRUEBA.md",
@@ -42,6 +42,11 @@
       "path": "08_INTERACCION_USUARIOS.md",
       "bytes": 755,
       "sha256": "c72f2fc6f8f02dbbff29a545e77ed221612160a54ff6bdd1b6091b6e082c37e4"
+    },
+    {
+      "path": "CampusTrade_Casos_Prueba_Con_Fotos_2026-11-12.docx",
+      "bytes": 5353319,
+      "sha256": "d5d838bdc66d0dc0c4837d13ae231a2561f8ea39c9327c541f5005f90b14aa69"
     },
     {
       "path": "CampusTrade_Testing_Actualizado_2026-11-12.docx",
@@ -314,9 +319,514 @@
       "sha256": "e63a47725b11b16508b65e6c2334c01661fe8998bd26a7fee095d698ee937e16"
     },
     {
+      "path": "fotos_casos/casos_con_fotos.json",
+      "bytes": 194763,
+      "sha256": "eca54f2032e72746eb164e15f17c1408b3ada561fc9f6454e62d9f345f6ff0b5"
+    },
+    {
+      "path": "fotos_casos/desktop-administracion-320.png",
+      "bytes": 45363,
+      "sha256": "0fb5408e6863f191450d2e7035378cc168e66e8f453b778f18a90806044143a1"
+    },
+    {
+      "path": "fotos_casos/desktop-administracion.png",
+      "bytes": 57967,
+      "sha256": "f0a54f18c7500d6470cc242961200ef71622eba2103975dcb6e4cbe50180a6b2"
+    },
+    {
+      "path": "fotos_casos/desktop-favoritos-persistentes.png",
+      "bytes": 38474,
+      "sha256": "c27dfd5cb08f0315645c325c36af12bb7b6d3b1e5d9f57005cb5884c75ef6873"
+    },
+    {
+      "path": "fotos_casos/desktop-filtros-responsive.png",
+      "bytes": 72633,
+      "sha256": "40ac7e89fd63ba84cf06418e41eb7a25b6d2529cdd1f7fdf0b7a9e3f22db5d7c"
+    },
+    {
+      "path": "fotos_casos/desktop-mensajes.png",
+      "bytes": 57145,
+      "sha256": "18e702c41af3dbe262c400db0088797a131b4b1b64ed14702aad3700b7741d00"
+    },
+    {
+      "path": "fotos_casos/desktop-minimal-catalogo.png",
+      "bytes": 62255,
+      "sha256": "0447bcaf41ae5155bb0e567225688fc3004735dd204bffb19c1a54572905d1b7"
+    },
+    {
+      "path": "fotos_casos/desktop-minimal-detalle.png",
+      "bytes": 47525,
+      "sha256": "1a77b7c0862934c8fddb5b2651ba3c6b3568d17e39b3454ed5a2df30182242d2"
+    },
+    {
+      "path": "fotos_casos/desktop-operacion-finalizada.png",
+      "bytes": 58822,
+      "sha256": "cb8aa053a90631bbffbe31bdc4784f1675559e965e25d54fae8d781f37b7329c"
+    },
+    {
+      "path": "fotos_casos/desktop-perfil-postgresql.png",
+      "bytes": 80714,
+      "sha256": "d842612e8d7c5e2e7934e4ff2e9d3d493b4041c3e9e52ae416ddcf07b8e97baf"
+    },
+    {
+      "path": "fotos_casos/desktop-perfil-sin-apartado-verificacion.png",
+      "bytes": 77517,
+      "sha256": "8862414ba51cb4017c4cc055c22642a4677a9c7a2bd0b9b5a5eb39253d1166f5"
+    },
+    {
+      "path": "fotos_casos/desktop-rango-precio-accesible.png",
+      "bytes": 60393,
+      "sha256": "52c640d3ee8211da8a778d7a0e11f0ec46367264db93090d6b8bbd319de6f106"
+    },
+    {
+      "path": "fotos_casos/desktop-registro-con-ayudas.png",
+      "bytes": 71664,
+      "sha256": "b88e4633acd67b0c6548a9042426eb975a6f22741b8ea2b2412e754c3a340e76"
+    },
+    {
+      "path": "fotos_casos/desktop-security-rental-history.png",
+      "bytes": 87130,
+      "sha256": "ca955b8a23866c63cd7f8d99937728c635369a0c2d6ca840260aa9de49600b97"
+    },
+    {
+      "path": "fotos_casos/desktop-security-xss-catalog.png",
+      "bytes": 60164,
+      "sha256": "b6d4df1439b6144e9bc8fbdbfcf38b03d64f4c40f85d5319c0b566a54493c3e0"
+    },
+    {
+      "path": "fotos_casos/desktop-security-xss-message.png",
+      "bytes": 81559,
+      "sha256": "b5c011499395ea60919177ca5cf0f7426e490b189ee6a966dbeeedc3d83bcf9c"
+    },
+    {
+      "path": "fotos_casos/desktop-url-filtros-persistentes.png",
+      "bytes": 71242,
+      "sha256": "4e446f0ed7660b606cf038da1b37b855af44df0d6e834d4671255a093d53b8c7"
+    },
+    {
+      "path": "fotos_casos/e2e-ejecucion.json",
+      "bytes": 402,
+      "sha256": "3e024772470fe61b8ff53e56df7d2f87ab646bc9658cbcf2d1738714a084ea51"
+    },
+    {
+      "path": "fotos_casos/e2e.txt",
+      "bytes": 4506,
+      "sha256": "3de6acc62e870bd237c8f95e43ffd5bb9bfe90cf0dacf486e7094d8d9a294a02"
+    },
+    {
+      "path": "fotos_casos/indice_fotografico.json",
+      "bytes": 11690,
+      "sha256": "e487a9e29d24f3e7b54cfa99a597f75c4d6c9fe43a2338922827f143bd7035f4"
+    },
+    {
+      "path": "fotos_casos/indice_tecnico.json",
+      "bytes": 12644,
+      "sha256": "9f1f9d7d56219f452dbddfd015269078b334d8c4dc3d73ab72bf4f8bab829f65"
+    },
+    {
+      "path": "fotos_casos/mobile-administracion-320.png",
+      "bytes": 159053,
+      "sha256": "e7bf0d70c0a7d1aa060e4d39012c3e80f35e5e71937d8223c8bfc4f84b151db0"
+    },
+    {
+      "path": "fotos_casos/mobile-administracion.png",
+      "bytes": 178366,
+      "sha256": "dce88804dbd1fcb7162dbc4b3a5547266ebe4989a61be3c64ba14433ae0d743f"
+    },
+    {
+      "path": "fotos_casos/mobile-favoritos-persistentes.png",
+      "bytes": 108913,
+      "sha256": "318136d7937711b5bc99be70f03e4f6b535337be5f3b6b94a76f83697e1931be"
+    },
+    {
+      "path": "fotos_casos/mobile-filtros-responsive.png",
+      "bytes": 94239,
+      "sha256": "2e24859a9a61153490e819e6a7d6306f2907b8909052b59f53c08afbe7e4eb36"
+    },
+    {
+      "path": "fotos_casos/mobile-mensajes.png",
+      "bytes": 99667,
+      "sha256": "194c3249f294e10d41317beee69cf6db01f685fc38c94cb84bb420a486fc2050"
+    },
+    {
+      "path": "fotos_casos/mobile-minimal-catalogo.png",
+      "bytes": 205384,
+      "sha256": "5925073a2eb54c7cd88c0af3ba9ec7e1a688928a630c276250f9460069900cf4"
+    },
+    {
+      "path": "fotos_casos/mobile-minimal-detalle.png",
+      "bytes": 126502,
+      "sha256": "04a1989551f86fe994bd2b00fe0f3c68065072752387edbc5c1bf054d864f014"
+    },
+    {
+      "path": "fotos_casos/mobile-operacion-finalizada.png",
+      "bytes": 179196,
+      "sha256": "3393196017d407fccfb4152a9107284763605e4e4f6ec9ee7de701dc8549824a"
+    },
+    {
+      "path": "fotos_casos/mobile-perfil-postgresql.png",
+      "bytes": 243521,
+      "sha256": "698860769ace4c0f4f7808d1932e863e14638c4738c6b2a8ff8393f1266373c6"
+    },
+    {
+      "path": "fotos_casos/mobile-perfil-sin-apartado-verificacion.png",
+      "bytes": 232876,
+      "sha256": "fa2d38ff066bcfe26afc9a4e275815b3afe3ad1b875ac465315d0b20c32422f1"
+    },
+    {
+      "path": "fotos_casos/mobile-rango-precio-accesible.png",
+      "bytes": 148667,
+      "sha256": "8f689bd10c284e6d5e6af02421c2369589351abf4b8991a8a5d42778425cae0b"
+    },
+    {
+      "path": "fotos_casos/mobile-registro-con-ayudas.png",
+      "bytes": 114598,
+      "sha256": "b38cda3e7d7084bf34057cfb85dc0f54d1c45b8d95c49d5ca1c7eb983bce771d"
+    },
+    {
+      "path": "fotos_casos/mobile-security-rental-history.png",
+      "bytes": 237580,
+      "sha256": "b5d66d2923cc13b11f71c0c7c7e4fa68738f80316c7fafa451885403b9496167"
+    },
+    {
+      "path": "fotos_casos/mobile-security-xss-catalog.png",
+      "bytes": 136145,
+      "sha256": "9aabce9740ec2e75e585be4589247a11dcb3117bed76e317924ce8eb28ca7b47"
+    },
+    {
+      "path": "fotos_casos/mobile-security-xss-message.png",
+      "bytes": 108928,
+      "sha256": "7155088b386af4bc40356c961c043a3b83275bf23a9dd6156d7913da15287f07"
+    },
+    {
+      "path": "fotos_casos/mobile-url-filtros-persistentes.png",
+      "bytes": 134317,
+      "sha256": "9dfa815a4a327e631dcc1fa6be35f47c113c908345d8e3132ab4df9fa25e0eb9"
+    },
+    {
+      "path": "fotos_casos/navegador.json",
+      "bytes": 33485,
+      "sha256": "6f76d9b0570c403a4404a4f91893a64e77af90549919ff014100b5a2680c90a5"
+    },
+    {
+      "path": "fotos_casos/README.md",
+      "bytes": 14454,
+      "sha256": "6bd99d8b21f53ebbe0fc9a336cb0593afeff74f02d58ac446c5f2ea2310780f7"
+    },
+    {
+      "path": "fotos_casos/redacciones.json",
+      "bytes": 112,
+      "sha256": "f8ac7b7124f27057bb21156305b59f43a869b772c936f7e669fd6a963469dab9"
+    },
+    {
+      "path": "fotos_casos/t01-reporte-api.html",
+      "bytes": 2254,
+      "sha256": "b89ac93663d6c29e78792a5767f536d608ac9b38af3cdef2a848496c514649ce"
+    },
+    {
+      "path": "fotos_casos/t01-reporte-api.png",
+      "bytes": 87520,
+      "sha256": "2b5f33bd5b7c57550970e5e144391c630d7959d292089e156c07cdc32cbc7dae"
+    },
+    {
+      "path": "fotos_casos/t02-reporte-api.html",
+      "bytes": 1496,
+      "sha256": "4e63a0d2dc2b324ef5235f3d1c7a43024c00b6bf1223a7df554cb30eb209bfd8"
+    },
+    {
+      "path": "fotos_casos/t02-reporte-api.png",
+      "bytes": 37598,
+      "sha256": "c2fbec7f66d521276026c9e3727d899bc475558052e9c69d9a92b79bb145e341"
+    },
+    {
+      "path": "fotos_casos/t03-reporte-api.html",
+      "bytes": 2275,
+      "sha256": "b42f6c9c346a9b9d39cb99ed82799714eafb1668ee43446da0c810c94c9519b2"
+    },
+    {
+      "path": "fotos_casos/t03-reporte-api.png",
+      "bytes": 95322,
+      "sha256": "87356aafbe6f97dfd853caeff2b40c8b9a3ec1d83c995a1a7a73072185a6d13e"
+    },
+    {
+      "path": "fotos_casos/t04-reporte-api.html",
+      "bytes": 1518,
+      "sha256": "8133e09592b87d01e218bc2fc368253c210c779b68c6519aa5f21125696d4e83"
+    },
+    {
+      "path": "fotos_casos/t04-reporte-api.png",
+      "bytes": 38826,
+      "sha256": "9db8d90bf8de28ed7322ecf693a12e2e27e6455475c305cc92567e9490dba728"
+    },
+    {
+      "path": "fotos_casos/t05-reporte-api.html",
+      "bytes": 1805,
+      "sha256": "d87b9fae9e0950687c9ac78531d2b474ba2c3b01ad24960966229d16b12a06ca"
+    },
+    {
+      "path": "fotos_casos/t05-reporte-api.png",
+      "bytes": 65737,
+      "sha256": "0264d8bc919d6cbe6be79557d57180b683f417fd2358168208c54398c6f8119f"
+    },
+    {
+      "path": "fotos_casos/t06-reporte-api.html",
+      "bytes": 1797,
+      "sha256": "0f8a9d326d885b4d4d46344acd6326d4b97b7671db3fe792337f6fbcb224eb13"
+    },
+    {
+      "path": "fotos_casos/t06-reporte-api.png",
+      "bytes": 60329,
+      "sha256": "f01f54b72f4c2c484984f2a5e605cfe7ec01475d2fc1271c713d96622a7f221d"
+    },
+    {
+      "path": "fotos_casos/t07-reporte-api.html",
+      "bytes": 2293,
+      "sha256": "72af100b02e528d733e9b855d2410faa43aa2de16680eb4735b0704e1c2e49e1"
+    },
+    {
+      "path": "fotos_casos/t07-reporte-api.png",
+      "bytes": 91571,
+      "sha256": "fa64bba271e6188d98c538f29fbe7390744c88a047e59ea7a4fcb72174d39ca4"
+    },
+    {
+      "path": "fotos_casos/t08-reporte-api.html",
+      "bytes": 2147,
+      "sha256": "90f44e2c935004cc1dc491c21a128b6803e01190aa69daea3e823e7757e97ba2"
+    },
+    {
+      "path": "fotos_casos/t08-reporte-api.png",
+      "bytes": 86734,
+      "sha256": "f954020408bf8cfb6262f69d6b16985616fd3f8c016e017a2fb9c2e9277d0c46"
+    },
+    {
+      "path": "fotos_casos/t09-reporte-api.html",
+      "bytes": 2325,
+      "sha256": "5f68aee944c7237098a03869ccc613c5833399231d7edd44700519eda8df5730"
+    },
+    {
+      "path": "fotos_casos/t09-reporte-api.png",
+      "bytes": 100427,
+      "sha256": "64916f6c30e07179cc24e345082316cc4c2f49ce141121980af24df90a3f2563"
+    },
+    {
+      "path": "fotos_casos/t10-reporte-api.html",
+      "bytes": 1533,
+      "sha256": "4bb134496112d4ad46978567dcf95b932a825a6cc094ea9b9b6763f0cadb0760"
+    },
+    {
+      "path": "fotos_casos/t10-reporte-api.png",
+      "bytes": 40772,
+      "sha256": "4f36404e91a33ede60cee475f436f44b8ffaf457b307e9a3aba68851ffb1115d"
+    },
+    {
+      "path": "fotos_casos/t11-reporte-api.html",
+      "bytes": 2253,
+      "sha256": "ad26cf134367ddd074b7caa2cd33d556ed3d38724f5feee9cec3b171b0dae6bd"
+    },
+    {
+      "path": "fotos_casos/t11-reporte-api.png",
+      "bytes": 87687,
+      "sha256": "e6a0e6c25bf01b7cba2cf6fa35cb2fe1988008b9676ab417b6ec63ef11076c1d"
+    },
+    {
+      "path": "fotos_casos/t12-reporte-api.html",
+      "bytes": 2288,
+      "sha256": "f95e6c819ad5111cdb328692810b8073220ceb2b6ba6d39c035da2ea969ce841"
+    },
+    {
+      "path": "fotos_casos/t12-reporte-api.png",
+      "bytes": 94428,
+      "sha256": "0451004a9427b284ef6892149678e8f78c18a9183b6aa9fb45aa527a44861684"
+    },
+    {
+      "path": "fotos_casos/t13-reporte-api.html",
+      "bytes": 1980,
+      "sha256": "be44159b4b639c3565c91f5e49de4152b408f56a161d1f1feb44d1e78e6e200b"
+    },
+    {
+      "path": "fotos_casos/t13-reporte-api.png",
+      "bytes": 72380,
+      "sha256": "0266521bdbea7721e8f23a4a0499fa45b3d150b5cebb2145288d67b1f32dd540"
+    },
+    {
+      "path": "fotos_casos/t14-reporte-frontend.html",
+      "bytes": 2284,
+      "sha256": "9fc1796ded400852f54f2c2daf677640c4395bae870c20707f60c57bef640dc8"
+    },
+    {
+      "path": "fotos_casos/t14-reporte-frontend.png",
+      "bytes": 87536,
+      "sha256": "0ad7e4eb0f3101732c0ff12b9293b8934d247fab20719d90e271ff81b9c518f2"
+    },
+    {
+      "path": "fotos_casos/t15-reporte-frontend.html",
+      "bytes": 1505,
+      "sha256": "fe1f91b1a454c4821d3da6822362862367340d8af165b2fb557e3e1ee07851db"
+    },
+    {
+      "path": "fotos_casos/t15-reporte-frontend.png",
+      "bytes": 37568,
+      "sha256": "bb8819b46c5fe332886f1f9793ba771e453748c004adc2d2dfa819ac8c7d863c"
+    },
+    {
+      "path": "fotos_casos/t16-reporte-frontend.html",
+      "bytes": 1741,
+      "sha256": "5792005fc1754fee1520865368f9c782a4c985d2f1d73cafe16718b4c4ce5f2d"
+    },
+    {
+      "path": "fotos_casos/t16-reporte-frontend.png",
+      "bytes": 52432,
+      "sha256": "3e950a32a1bc170f2dc9f4745c3dec29e07ec2cf7b3029fdc6be7e4413dd181b"
+    },
+    {
+      "path": "fotos_casos/t17-reporte-frontend.html",
+      "bytes": 1889,
+      "sha256": "a79b360e9eb62041f6785aa6aa0eae824ac1e0b401d58f542d3a2e1f5e482b8e"
+    },
+    {
+      "path": "fotos_casos/t17-reporte-frontend.png",
+      "bytes": 65402,
+      "sha256": "e97516f6c54b45f569c7bceac4d3495b0ad5b8149431f5654f73ace44ec28377"
+    },
+    {
+      "path": "fotos_casos/t18-reporte-frontend.html",
+      "bytes": 1848,
+      "sha256": "362e89f6a0df5d4527d968c902bf81283f91b65dc284e74d133a0d0b7c9c87e1"
+    },
+    {
+      "path": "fotos_casos/t18-reporte-frontend.png",
+      "bytes": 59433,
+      "sha256": "fa8d13bb2e5792a21d127dd0056650bc976a234b608020658f0e74a2c83d3957"
+    },
+    {
+      "path": "fotos_casos/t19-reporte-frontend.html",
+      "bytes": 2315,
+      "sha256": "b92bfa7997bbe56add885072e7bd228f2e0f5a5e6334fee1df9961a71be36183"
+    },
+    {
+      "path": "fotos_casos/t19-reporte-frontend.png",
+      "bytes": 102782,
+      "sha256": "e5b531392242825477ae5f7cb61257692ac8e050dbe0059424af5b6f3c15b964"
+    },
+    {
+      "path": "fotos_casos/t20-reporte-frontend.html",
+      "bytes": 2296,
+      "sha256": "2e6da4ece4f7e7d099cf6d8e1ff9d564e4a73a59213daa04c9f80f9f93541c7e"
+    },
+    {
+      "path": "fotos_casos/t20-reporte-frontend.png",
+      "bytes": 103718,
+      "sha256": "7df101ecff3f0d8b627eaa7745928073b914cadfd306ee06d7333e1bfb4995be"
+    },
+    {
+      "path": "fotos_casos/t21-reporte-frontend.html",
+      "bytes": 1701,
+      "sha256": "d6c711818dd54e68bd2ee3a9a9149f2230001e65d4867818ecaaeeaf8d549c60"
+    },
+    {
+      "path": "fotos_casos/t21-reporte-frontend.png",
+      "bytes": 54213,
+      "sha256": "2eaa8bb7b7feba06edea63d415bc23db2067be321e7a8b5b7de0e58bd7ee6835"
+    },
+    {
+      "path": "fotos_casos/t22-reporte-frontend.html",
+      "bytes": 1804,
+      "sha256": "de3ededd8c1e3704692eb1fa32d4dbaab469c9afc8f9617a2858d23ecc43f60e"
+    },
+    {
+      "path": "fotos_casos/t22-reporte-frontend.png",
+      "bytes": 61486,
+      "sha256": "3e1c35d88f11a6163190e336b3b7237c83a34409875f61c4f62628ca6f1dfc42"
+    },
+    {
+      "path": "fotos_casos/t23-reporte-frontend.html",
+      "bytes": 2106,
+      "sha256": "fc9cc953ca0fdcd5c25829ff6edf8f34ff6d5af0b8e3ace5cb7adcae01cb271d"
+    },
+    {
+      "path": "fotos_casos/t23-reporte-frontend.png",
+      "bytes": 77489,
+      "sha256": "8c041dac6eb72536f128dbaa6ba8b23945dc15abbb283847bd9ae95e3ddf2421"
+    },
+    {
+      "path": "fotos_casos/t24-reporte-frontend.html",
+      "bytes": 2082,
+      "sha256": "c2472e470f5dc20248bd0ed38e18e88964f0ba704fe4cca80d530555af668d66"
+    },
+    {
+      "path": "fotos_casos/t24-reporte-frontend.png",
+      "bytes": 79312,
+      "sha256": "a90b5977af2ed301474641de8487c4d244f6dcaba007dbc62dcaf86ade336a5e"
+    },
+    {
+      "path": "fotos_casos/t25-reporte-frontend.html",
+      "bytes": 2153,
+      "sha256": "b86476d574fd7277d8093ca0b727fc5e6160268e8f72efb2b523fde399acba06"
+    },
+    {
+      "path": "fotos_casos/t25-reporte-frontend.png",
+      "bytes": 83654,
+      "sha256": "4f007fbf8171d536b7175228fc414851047036e7afa1593f0473f7ba5436e19a"
+    },
+    {
+      "path": "fotos_casos/t26-reporte-frontend.html",
+      "bytes": 1675,
+      "sha256": "33fe288c70d7bb17c1087d04fdeb763977df8ba494a0d0ba3f5c42c8a2acb106"
+    },
+    {
+      "path": "fotos_casos/t26-reporte-frontend.png",
+      "bytes": 49114,
+      "sha256": "839b0f475ea47f7105808b2b1ab56ce659008b1201981a07e68c470489a3ccf3"
+    },
+    {
+      "path": "fotos_casos/t27-reporte-frontend.html",
+      "bytes": 2141,
+      "sha256": "00d3a9d37d2b0020435ea435125941d209995ffeb558dc28ef4d70de9702450c"
+    },
+    {
+      "path": "fotos_casos/t27-reporte-frontend.png",
+      "bytes": 76807,
+      "sha256": "99af923acf8458a0a93884a63cd5f5df92d7b9be6f9737c37ad74c352654bf6e"
+    },
+    {
+      "path": "fotos_casos/t28-reporte-docker.html",
+      "bytes": 2398,
+      "sha256": "9cc73e1988df295c4167b29f1661548794eb10a7879a341c4cbf19cf7485ca20"
+    },
+    {
+      "path": "fotos_casos/t28-reporte-docker.png",
+      "bytes": 108218,
+      "sha256": "2693401ae160a10afab4519703b05fac1f66b2f075d512d790c910c61f3a7deb"
+    },
+    {
+      "path": "fotos_casos/t29-reporte-docker.html",
+      "bytes": 1918,
+      "sha256": "745eb7c4a9e9534373ca1f7403d21a9771473bc5ee16b68146cb83f2d4b35434"
+    },
+    {
+      "path": "fotos_casos/t29-reporte-docker.png",
+      "bytes": 71798,
+      "sha256": "adbeb093a2248869e5b85a55448dffa2e17213eca82e367a8bdfc6ef0ce1feee"
+    },
+    {
+      "path": "fotos_casos/t30-reporte-smtp.html",
+      "bytes": 1986,
+      "sha256": "36f9dfbc9f21c6a776ce85b15014fd1db2a57f58ad7334154583c6671d43749e"
+    },
+    {
+      "path": "fotos_casos/t30-reporte-smtp.png",
+      "bytes": 79183,
+      "sha256": "fdddc108912fd9cf77dc42dd63455852b064c0b5ef1ebf0329512c3e861efa6f"
+    },
+    {
+      "path": "fotos_casos/validacion_documental.json",
+      "bytes": 1598,
+      "sha256": "7cfac7c9ce4aad115a57263286ae5dc504aa286c1130c0f0c31f7722d181b2c8"
+    },
+    {
       "path": "README.md",
-      "bytes": 991,
-      "sha256": "2f761bb74af788352446198434f3f951c3daaef818798784c0c3227e7b9c20f8"
+      "bytes": 1908,
+      "sha256": "927a63d123ff42101f8586f8ba56e358b287a7c29951be28bab54015ef9e44de"
     },
     {
       "path": "resumen_testing.json",

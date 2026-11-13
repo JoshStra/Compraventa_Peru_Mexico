@@ -1,0 +1,457 @@
+[
+  {
+    "id": "T01",
+    "suite": "API",
+    "source": "backend/test/auth.test.js",
+    "primaryEvidence": "evidencias/api.xml",
+    "caseIds": [
+      "API-AUTH-00",
+      "API-AUTH-01",
+      "API-AUTH-02",
+      "API-AUTH-03",
+      "API-AUTH-04",
+      "API-AUTH-05"
+    ],
+    "image": "fotos_casos/t01-reporte-api.png",
+    "html": "fotos_casos/t01-reporte-api.html",
+    "executionMexico": "2026-11-12T22:44:27-06:00"
+  },
+  {
+    "id": "T02",
+    "suite": "API",
+    "source": "backend/test/auth.test.js",
+    "primaryEvidence": "evidencias/api.xml",
+    "caseIds": [
+      "API-AUTH-06"
+    ],
+    "image": "fotos_casos/t02-reporte-api.png",
+    "html": "fotos_casos/t02-reporte-api.html",
+    "executionMexico": "2026-11-12T22:44:27-06:00"
+  },
+  {
+    "id": "T03",
+    "suite": "API",
+    "source": "backend/test/config.test.js",
+    "primaryEvidence": "evidencias/api.xml",
+    "caseIds": [
+      "API-CONFIG-01",
+      "API-CONFIG-02",
+      "API-CONFIG-03",
+      "API-CONFIG-04",
+      "API-CONFIG-05",
+      "API-CONFIG-06"
+    ],
+    "image": "fotos_casos/t03-reporte-api.png",
+    "html": "fotos_casos/t03-reporte-api.html",
+    "executionMexico": "2026-11-12T22:44:27-06:00"
+  },
+  {
+    "id": "T04",
+    "suite": "API",
+    "source": "backend/test/config.test.js",
+    "primaryEvidence": "evidencias/api.xml",
+    "caseIds": [
+      "API-CONFIG-07"
+    ],
+    "image": "fotos_casos/t04-reporte-api.png",
+    "html": "fotos_casos/t04-reporte-api.html",
+    "executionMexico": "2026-11-12T22:44:27-06:00"
+  },
+  {
+    "id": "T05",
+    "suite": "API",
+    "source": "backend/test/conversations.test.js",
+    "primaryEvidence": "evidencias/api.xml",
+    "caseIds": [
+      "API-CONVERSATIONS-01",
+      "API-CONVERSATIONS-02",
+      "API-CONVERSATIONS-03"
+    ],
+    "image": "fotos_casos/t05-reporte-api.png",
+    "html": "fotos_casos/t05-reporte-api.html",
+    "executionMexico": "2026-11-12T22:44:27-06:00"
+  },
+  {
+    "id": "T06",
+    "suite": "API",
+    "source": "backend/test/database.test.js",
+    "primaryEvidence": "evidencias/api.xml",
+    "caseIds": [
+      "API-DATABASE-01",
+      "API-DATABASE-02",
+      "API-DATABASE-03"
+    ],
+    "image": "fotos_casos/t06-reporte-api.png",
+    "html": "fotos_casos/t06-reporte-api.html",
+    "executionMexico": "2026-11-12T22:44:27-06:00"
+  },
+  {
+    "id": "T07",
+    "suite": "API",
+    "source": "backend/test/listings.test.js",
+    "primaryEvidence": "evidencias/api.xml",
+    "caseIds": [
+      "API-LISTINGS-01",
+      "API-LISTINGS-02",
+      "API-LISTINGS-03",
+      "API-LISTINGS-04",
+      "API-LISTINGS-05",
+      "API-LISTINGS-06"
+    ],
+    "image": "fotos_casos/t07-reporte-api.png",
+    "html": "fotos_casos/t07-reporte-api.html",
+    "executionMexico": "2026-11-12T22:44:27-06:00"
+  },
+  {
+    "id": "T08",
+    "suite": "API",
+    "source": "backend/test/moderation.test.js",
+    "primaryEvidence": "evidencias/api.xml",
+    "caseIds": [
+      "API-MODERATION-01",
+      "API-MODERATION-02",
+      "API-MODERATION-03",
+      "API-MODERATION-04",
+      "API-MODERATION-05"
+    ],
+    "image": "fotos_casos/t08-reporte-api.png",
+    "html": "fotos_casos/t08-reporte-api.html",
+    "executionMexico": "2026-11-12T22:44:27-06:00"
+  },
+  {
+    "id": "T09",
+    "suite": "API",
+    "source": "backend/test/operations.test.js",
+    "primaryEvidence": "evidencias/api.xml",
+    "caseIds": [
+      "API-OPERATIONS-01",
+      "API-OPERATIONS-02",
+      "API-OPERATIONS-03",
+      "API-OPERATIONS-04",
+      "API-OPERATIONS-05",
+      "API-OPERATIONS-06"
+    ],
+    "image": "fotos_casos/t09-reporte-api.png",
+    "html": "fotos_casos/t09-reporte-api.html",
+    "executionMexico": "2026-11-12T22:44:27-06:00"
+  },
+  {
+    "id": "T10",
+    "suite": "API",
+    "source": "backend/test/persistence.test.js",
+    "primaryEvidence": "evidencias/api.xml",
+    "caseIds": [
+      "API-PERSISTENCE-01"
+    ],
+    "image": "fotos_casos/t10-reporte-api.png",
+    "html": "fotos_casos/t10-reporte-api.html",
+    "executionMexico": "2026-11-12T22:44:27-06:00"
+  },
+  {
+    "id": "T11",
+    "suite": "API",
+    "source": "backend/test/security.test.js",
+    "primaryEvidence": "evidencias/api.xml",
+    "caseIds": [
+      "API-SEC-01",
+      "API-SEC-02",
+      "API-SEC-03",
+      "API-SEC-04",
+      "API-SEC-05",
+      "API-SEC-06"
+    ],
+    "image": "fotos_casos/t11-reporte-api.png",
+    "html": "fotos_casos/t11-reporte-api.html",
+    "executionMexico": "2026-11-12T22:44:27-06:00"
+  },
+  {
+    "id": "T12",
+    "suite": "API",
+    "source": "backend/test/security.test.js",
+    "primaryEvidence": "evidencias/api.xml",
+    "caseIds": [
+      "API-SEC-07",
+      "API-SEC-08",
+      "API-SEC-09",
+      "API-SEC-10",
+      "API-SEC-11",
+      "API-SEC-12"
+    ],
+    "image": "fotos_casos/t12-reporte-api.png",
+    "html": "fotos_casos/t12-reporte-api.html",
+    "executionMexico": "2026-11-12T22:44:27-06:00"
+  },
+  {
+    "id": "T13",
+    "suite": "API",
+    "source": "backend/test/security.test.js",
+    "primaryEvidence": "evidencias/api.xml",
+    "caseIds": [
+      "API-SEC-13",
+      "API-SEC-14",
+      "API-SEC-15",
+      "API-SEC-16"
+    ],
+    "image": "fotos_casos/t13-reporte-api.png",
+    "html": "fotos_casos/t13-reporte-api.html",
+    "executionMexico": "2026-11-12T22:44:27-06:00"
+  },
+  {
+    "id": "T14",
+    "suite": "Frontend",
+    "source": "frontend/src/App.test.jsx",
+    "primaryEvidence": "evidencias/frontend.json",
+    "caseIds": [
+      "FE-APP-01",
+      "FE-APP-02",
+      "FE-APP-03",
+      "FE-APP-04",
+      "FE-APP-05",
+      "FE-APP-06"
+    ],
+    "image": "fotos_casos/t14-reporte-frontend.png",
+    "html": "fotos_casos/t14-reporte-frontend.html",
+    "executionMexico": "2026-11-12T22:44:09-06:00"
+  },
+  {
+    "id": "T15",
+    "suite": "Frontend",
+    "source": "frontend/src/App.test.jsx",
+    "primaryEvidence": "evidencias/frontend.json",
+    "caseIds": [
+      "FE-APP-07"
+    ],
+    "image": "fotos_casos/t15-reporte-frontend.png",
+    "html": "fotos_casos/t15-reporte-frontend.html",
+    "executionMexico": "2026-11-12T22:44:09-06:00"
+  },
+  {
+    "id": "T16",
+    "suite": "Frontend",
+    "source": "frontend/src/components/MailDeliveryNotice.test.jsx",
+    "primaryEvidence": "evidencias/frontend.json",
+    "caseIds": [
+      "FE-MAIL-01",
+      "FE-MAIL-02"
+    ],
+    "image": "fotos_casos/t16-reporte-frontend.png",
+    "html": "fotos_casos/t16-reporte-frontend.html",
+    "executionMexico": "2026-11-12T22:44:03-06:00"
+  },
+  {
+    "id": "T17",
+    "suite": "Frontend",
+    "source": "frontend/src/components/MinimalHeader.test.jsx",
+    "primaryEvidence": "evidencias/frontend.json",
+    "caseIds": [
+      "FE-HEADER-01",
+      "FE-HEADER-02",
+      "FE-HEADER-03"
+    ],
+    "image": "fotos_casos/t17-reporte-frontend.png",
+    "html": "fotos_casos/t17-reporte-frontend.html",
+    "executionMexico": "2026-11-12T22:44:04-06:00"
+  },
+  {
+    "id": "T18",
+    "suite": "Frontend",
+    "source": "frontend/src/services/apiClient.test.js",
+    "primaryEvidence": "evidencias/frontend.json",
+    "caseIds": [
+      "FE-APICLIENT-01",
+      "FE-APICLIENT-02",
+      "FE-APICLIENT-03"
+    ],
+    "image": "fotos_casos/t18-reporte-frontend.png",
+    "html": "fotos_casos/t18-reporte-frontend.html",
+    "executionMexico": "2026-11-12T22:44:03-06:00"
+  },
+  {
+    "id": "T19",
+    "suite": "Frontend",
+    "source": "frontend/src/services/campusRepository.test.js",
+    "primaryEvidence": "evidencias/frontend.json",
+    "caseIds": [
+      "FE-CAMPUSREPOSITORY-01",
+      "FE-CAMPUSREPOSITORY-02",
+      "FE-CAMPUSREPOSITORY-03",
+      "FE-CAMPUSREPOSITORY-04",
+      "FE-CAMPUSREPOSITORY-05",
+      "FE-CAMPUSREPOSITORY-06"
+    ],
+    "image": "fotos_casos/t19-reporte-frontend.png",
+    "html": "fotos_casos/t19-reporte-frontend.html",
+    "executionMexico": "2026-11-12T22:44:03-06:00"
+  },
+  {
+    "id": "T20",
+    "suite": "Frontend",
+    "source": "frontend/src/services/campusRepository.test.js",
+    "primaryEvidence": "evidencias/frontend.json",
+    "caseIds": [
+      "FE-CAMPUSREPOSITORY-07",
+      "FE-CAMPUSREPOSITORY-08",
+      "FE-CAMPUSREPOSITORY-09",
+      "FE-CAMPUSREPOSITORY-10",
+      "FE-CAMPUSREPOSITORY-11",
+      "FE-CAMPUSREPOSITORY-12"
+    ],
+    "image": "fotos_casos/t20-reporte-frontend.png",
+    "html": "fotos_casos/t20-reporte-frontend.html",
+    "executionMexico": "2026-11-12T22:44:03-06:00"
+  },
+  {
+    "id": "T21",
+    "suite": "Frontend",
+    "source": "frontend/src/services/campusRepository.test.js",
+    "primaryEvidence": "evidencias/frontend.json",
+    "caseIds": [
+      "FE-CAMPUSREPOSITORY-13",
+      "FE-CAMPUSREPOSITORY-14"
+    ],
+    "image": "fotos_casos/t21-reporte-frontend.png",
+    "html": "fotos_casos/t21-reporte-frontend.html",
+    "executionMexico": "2026-11-12T22:44:03-06:00"
+  },
+  {
+    "id": "T22",
+    "suite": "Frontend",
+    "source": "frontend/src/services/listingImage.test.js",
+    "primaryEvidence": "evidencias/frontend.json",
+    "caseIds": [
+      "FE-LISTINGIMAGE-01",
+      "FE-LISTINGIMAGE-02",
+      "FE-LISTINGIMAGE-03"
+    ],
+    "image": "fotos_casos/t22-reporte-frontend.png",
+    "html": "fotos_casos/t22-reporte-frontend.html",
+    "executionMexico": "2026-11-12T22:44:03-06:00"
+  },
+  {
+    "id": "T23",
+    "suite": "Frontend",
+    "source": "frontend/src/domain/catalog.test.js",
+    "primaryEvidence": "evidencias/frontend.json",
+    "caseIds": [
+      "FE-CATALOG-01",
+      "FE-CATALOG-02",
+      "FE-CATALOG-03",
+      "FE-CATALOG-04",
+      "FE-CATALOG-05",
+      "FE-CATALOG-06"
+    ],
+    "image": "fotos_casos/t23-reporte-frontend.png",
+    "html": "fotos_casos/t23-reporte-frontend.html",
+    "executionMexico": "2026-11-12T22:44:03-06:00"
+  },
+  {
+    "id": "T24",
+    "suite": "Frontend",
+    "source": "frontend/src/domain/catalog.test.js",
+    "primaryEvidence": "evidencias/frontend.json",
+    "caseIds": [
+      "FE-CATALOG-07",
+      "FE-CATALOG-08",
+      "FE-CATALOG-09",
+      "FE-CATALOG-10",
+      "FE-CATALOG-11",
+      "FE-CATALOG-12"
+    ],
+    "image": "fotos_casos/t24-reporte-frontend.png",
+    "html": "fotos_casos/t24-reporte-frontend.html",
+    "executionMexico": "2026-11-12T22:44:03-06:00"
+  },
+  {
+    "id": "T25",
+    "suite": "Frontend",
+    "source": "frontend/src/domain/catalog.test.js",
+    "primaryEvidence": "evidencias/frontend.json",
+    "caseIds": [
+      "FE-CATALOG-13",
+      "FE-CATALOG-14",
+      "FE-CATALOG-15",
+      "FE-CATALOG-16",
+      "FE-CATALOG-17",
+      "FE-CATALOG-18"
+    ],
+    "image": "fotos_casos/t25-reporte-frontend.png",
+    "html": "fotos_casos/t25-reporte-frontend.html",
+    "executionMexico": "2026-11-12T22:44:03-06:00"
+  },
+  {
+    "id": "T26",
+    "suite": "Frontend",
+    "source": "frontend/src/domain/catalog.test.js",
+    "primaryEvidence": "evidencias/frontend.json",
+    "caseIds": [
+      "FE-CATALOG-19",
+      "FE-CATALOG-20"
+    ],
+    "image": "fotos_casos/t26-reporte-frontend.png",
+    "html": "fotos_casos/t26-reporte-frontend.html",
+    "executionMexico": "2026-11-12T22:44:03-06:00"
+  },
+  {
+    "id": "T27",
+    "suite": "Frontend",
+    "source": "frontend/src/domain/catalogNavigation.test.js",
+    "primaryEvidence": "evidencias/frontend.json",
+    "caseIds": [
+      "FE-NAV-01",
+      "FE-NAV-02",
+      "FE-NAV-03",
+      "FE-NAV-04",
+      "FE-NAV-05"
+    ],
+    "image": "fotos_casos/t27-reporte-frontend.png",
+    "html": "fotos_casos/t27-reporte-frontend.html",
+    "executionMexico": "2026-11-12T22:44:03-06:00"
+  },
+  {
+    "id": "T28",
+    "suite": "Docker",
+    "source": "scripts/docker-smoke.mjs",
+    "primaryEvidence": "evidencias/docker-smoke.json",
+    "caseIds": [
+      "DOCKER-01",
+      "DOCKER-02",
+      "DOCKER-03",
+      "DOCKER-04",
+      "DOCKER-05",
+      "DOCKER-06"
+    ],
+    "image": "fotos_casos/t28-reporte-docker.png",
+    "html": "fotos_casos/t28-reporte-docker.html",
+    "executionMexico": "2026-11-12T22:47:53-06:00"
+  },
+  {
+    "id": "T29",
+    "suite": "Docker",
+    "source": "scripts/docker-smoke.mjs",
+    "primaryEvidence": "evidencias/docker-smoke.json",
+    "caseIds": [
+      "DOCKER-07",
+      "DOCKER-08",
+      "DOCKER-09"
+    ],
+    "image": "fotos_casos/t29-reporte-docker.png",
+    "html": "fotos_casos/t29-reporte-docker.html",
+    "executionMexico": "2026-11-12T22:47:56-06:00"
+  },
+  {
+    "id": "T30",
+    "suite": "SMTP",
+    "source": "scripts/mail-demo-smoke.mjs",
+    "primaryEvidence": "evidencias/smtp-smoke.json",
+    "caseIds": [
+      "SMTP-01",
+      "SMTP-02",
+      "SMTP-03",
+      "SMTP-04",
+      "SMTP-05"
+    ],
+    "image": "fotos_casos/t30-reporte-smtp.png",
+    "html": "fotos_casos/t30-reporte-smtp.html",
+    "executionMexico": "2026-11-12T22:47:41-06:00"
+  }
+]

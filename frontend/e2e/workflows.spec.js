@@ -210,9 +210,17 @@ test("reporte y resolución real desde la administración", async ({
         { exact: true },
       ),
   ).toBeVisible();
+  await page
+    .getByRole("listitem")
+    .filter({ hasText: item.title })
+    .getByText(
+      "Resolución: Se revisó el contenido y se documentó la aclaración.",
+      { exact: true },
+    )
+    .scrollIntoViewIfNeeded();
   await page.screenshot({
     path: evidencePath(info, "administracion"),
-    fullPage: true,
+    fullPage: false,
   });
   await navigateSection(page, "Perfil");
   await page

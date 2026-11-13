@@ -60,6 +60,6 @@ test("filtros visibles sin recorte y reinicio de criterios", async ({
   );
   await page.screenshot({
     path: evidencePath(info, "filtros-responsive"),
-    fullPage: true,
+    fullPage: false,
   });
 });

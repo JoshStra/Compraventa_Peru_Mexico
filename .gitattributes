@@ -7,6 +7,7 @@ entregables/entregable_testing_2026-11-12/**/*.json text eol=lf
 entregables/entregable_testing_2026-11-12/**/*.xml text eol=lf
 entregables/entregable_testing_2026-11-12/**/*.csv text eol=lf
 entregables/entregable_testing_2026-11-12/**/*.sha256 text eol=lf
+entregables/entregable_testing_2026-11-12/**/*.html text eol=lf
 docs/registro-sin-confirmacion/**/*.md text eol=lf
 docs/registro-sin-confirmacion/**/*.txt text eol=lf
 docs/registro-sin-confirmacion/**/*.json text eol=lf

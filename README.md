@@ -83,6 +83,8 @@ La evaluación del 7 de noviembre de 2026 está en el [entregable de testing](en
 
 La [entrega actualizada del 12 de noviembre](entregables/entregable_testing_2026-11-12/README.md) documenta el registro sin confirmación de correo del código publicado `0274f2b`: ocho apartados, 137 pruebas de aplicación y 14 comprobaciones complementarias aprobadas, 151 fichas completas, seis issues cerrados con comentarios y ocho registros de interacción de Codex. Incluye un reporte Word de 51 páginas y un formulario con ocho campos editables. Los comentarios corresponden a pruebas del agente con cuentas sintéticas, sin estudiantes externos.
 
+La ampliación [casos de prueba con fotos](entregables/entregable_testing_2026-11-12/CampusTrade_Casos_Prueba_Con_Fotos_2026-11-12.docx) relaciona las 151 fichas con 32 capturas reales de escritorio y móvil y 30 capturas de los reportes técnicos. Los 26 recorridos de navegador se revalidaron para obtener estas imágenes; no se suman como casos nuevos.
+
 La [entrega del 11 de noviembre](entregables/entregable_testing_2026-11-11/README.md), con 131 pruebas sobre `2075900`, y la [entrega del 9 de noviembre](entregables/entregable_testing_2026-11-09/README.md) se conservan como históricas.
 
 También está disponible la [versión editable en Word](entregables/entregable_testing_2026-11-09/word/README.md), con los ocho apartados, los 101 casos completos y un formulario de ocho campos nativos.

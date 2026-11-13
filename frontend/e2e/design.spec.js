@@ -32,6 +32,7 @@ test("rango inválido explicado y asociado sin consultar el catálogo", async ({
   await page.reload();
   await expect(error).toBeVisible();
   expect(invalidRequests).toEqual([]);
+  await error.scrollIntoViewIfNeeded();
   await page.screenshot({
     path: evidencePath(info, "rango-precio-accesible"),
     fullPage: true,
@@ -51,7 +52,7 @@ test("rango inválido explicado y asociado sin consultar el catálogo", async ({
 
 test("URL conserva consulta, filtros y página al recargar y recorrer el historial", async ({
   page,
-}) => {
+}, info) => {
   const loaded = page.waitForRequest(
     (r) =>
       r.url().includes("/api/v1/listings?") &&
@@ -100,6 +101,10 @@ test("URL conserva consulta, filtros y página al recargar y recorrer el histori
   await expect
     .poll(() => new URL(page.url()).searchParams.get("pagina"))
     .toBe(null);
+  await page.screenshot({
+    path: evidencePath(info, "url-filtros-persistentes"),
+    fullPage: true,
+  });
 });
 
 test("registro explica requisitos y permite mostrar la contraseña sin perder el valor", async ({
@@ -137,7 +142,7 @@ test("registro explica requisitos y permite mostrar la contraseña sin perder el
   await password.fill("");
   await page.screenshot({
     path: evidencePath(info, "registro-con-ayudas"),
-    fullPage: true,
+    fullPage: false,
   });
   await dialog
     .getByRole("button", { name: "Ya tengo cuenta", exact: true })

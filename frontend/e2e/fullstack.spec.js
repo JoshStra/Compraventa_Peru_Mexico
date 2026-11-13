@@ -144,6 +144,10 @@ test("catálogo y favoritos persisten entre sesiones del navegador", async ({
   await expect(
     page.getByRole("button", { name: item.title, exact: true }),
   ).toBeVisible();
+  await page.screenshot({
+    path: evidencePath(info, "favoritos-persistentes"),
+    fullPage: true,
+  });
 });
 
 test("una cuenta registrada conserva su perfil y puede publicar sin confirmar correo", async ({

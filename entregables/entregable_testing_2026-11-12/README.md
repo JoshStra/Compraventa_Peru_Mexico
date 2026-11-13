@@ -2,6 +2,8 @@
 
 Fecha local: 12 de noviembre de 2026. Código evaluado y publicado: 0274f2b, rama codex/sin-confirmacion-correo-2026-11-12.
 
+Documento principal integrado el 13 de noviembre de 2026: [CampusTrade testing unificado con fotos](CampusTrade_Testing_Unificado_Con_Fotos_2026-11-13.docx). Reúne los ocho apartados, 151 fichas sin duplicados, 62 capturas por caso o grupo y tres capturas generales. Conserva las fechas reales de las pruebas del 12 de noviembre y la numeración continua. Los dos documentos fuente se mantienen sin cambios.
+
 - CampusTrade_Testing_Actualizado_2026-11-12.docx contiene los ocho apartados y 151 fichas completas.
 - CampusTrade_Casos_Prueba_Con_Fotos_2026-11-12.docx documenta las 151 fichas con evidencia visual: 32 capturas de la aplicación y 30 capturas de reportes técnicos. Cada imagen está vinculada a los casos que respalda.
 - Formulario_Correccion_Errores.docx contiene ocho campos nativos editables de Word.

@@ -1,7 +1,7 @@
 {
-  "generatedUtc": "2026-11-13T05:35:17.703389+00:00",
+  "generatedUtc": "2026-11-13T06:24:16.481169+00:00",
   "testedCode": "0274f2b98a376ee67116fd5898ea1c9d14d63092",
-  "scope": "151 casos con reporte original, formulario editable y Word ampliado con 62 capturas identificadas; 26 recorridos de navegador revalidados",
+  "scope": "151 casos y ocho apartados integrados en un Word de 90 páginas con 65 imágenes; se conservan fuentes y fechas originales de pruebas",
   "files": [
     {
       "path": "01_CASOS_PRUEBA.md",
@@ -52,6 +52,11 @@
       "path": "CampusTrade_Testing_Actualizado_2026-11-12.docx",
       "bytes": 384752,
       "sha256": "e1e4b4d292e72538b27cb2c628f650553824a93c53afe97ca8807e32e12fcf9f"
+    },
+    {
+      "path": "CampusTrade_Testing_Unificado_Con_Fotos_2026-11-13.docx",
+      "bytes": 5680762,
+      "sha256": "b2f92122633acb8beb6fd8dff29f143522becccd8b6dd5bef7c994a3baa6cfb6"
     },
     {
       "path": "casos_ejecutados.csv",
@@ -824,9 +829,14 @@
       "sha256": "7cfac7c9ce4aad115a57263286ae5dc504aa286c1130c0f0c31f7722d181b2c8"
     },
     {
+      "path": "integracion_2026-11-13.json",
+      "bytes": 14520,
+      "sha256": "f3bff60260cae130f2668b8ee8608b8b4b82b0b4f6cdc03078035810f2cc2b26"
+    },
+    {
       "path": "README.md",
-      "bytes": 1908,
-      "sha256": "927a63d123ff42101f8586f8ba56e358b287a7c29951be28bab54015ef9e44de"
+      "bytes": 2318,
+      "sha256": "fa8ac66181e6867b95b8879c9b8b27f61693a04fcdfb5f879ade676978cea747"
     },
     {
       "path": "resumen_testing.json",

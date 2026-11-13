@@ -1,0 +1,71 @@
+
+> campustrade-alpha@0.3.0 test:e2e
+> playwright test --grep registro explica
+
+[WebServer] (node:7660) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 2 workers
+
+(node:18104) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  1 [desktop] › e2e\design.spec.js:105:1 › registro explica requisitos y permite mostrar la contraseña sin perder el valor (2ms)
+(node:14060) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  2 [mobile] › e2e\design.spec.js:105:1 › registro explica requisitos y permite mostrar la contraseña sin perder el valor (2ms)
+
+
+  1) [desktop] › e2e\design.spec.js:105:1 › registro explica requisitos y permite mostrar la contraseña sin perder el valor
+
+    Error: browserType.launch: Executable doesn't exist at <USUARIO>\AppData\Local\ms-playwright\chromium_headless_shell-1248\chrome-headless-shell-win64\chrome-headless-shell.exe
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results\design-registro-explica-re-e9326-traseña-sin-perder-el-valor-desktop\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\design-registro-explica-re-e9326-traseña-sin-perder-el-valor-desktop\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\design-registro-explica-re-e9326-traseña-sin-perder-el-valor-desktop\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [mobile] › e2e\design.spec.js:105:1 › registro explica requisitos y permite mostrar la contraseña sin perder el valor
+
+    Error: browserType.launch: Executable doesn't exist at <USUARIO>\AppData\Local\ms-playwright\chromium_headless_shell-1248\chrome-headless-shell-win64\chrome-headless-shell.exe
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results\design-registro-explica-re-e9326-traseña-sin-perder-el-valor-mobile\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\design-registro-explica-re-e9326-traseña-sin-perder-el-valor-mobile\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\design-registro-explica-re-e9326-traseña-sin-perder-el-valor-mobile\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [desktop] › e2e\design.spec.js:105:1 › registro explica requisitos y permite mostrar la contraseña sin perder el valor
+    [mobile] › e2e\design.spec.js:105:1 › registro explica requisitos y permite mostrar la contraseña sin perder el valor
+npm error Lifecycle script `test:e2e` failed with error:
+npm error code 1
+npm error path <REPO>\frontend
+npm error workspace campustrade-alpha@0.3.0
+npm error location <REPO>\frontend
+npm error command failed
+npm error command C:\Windows\system32\cmd.exe /d /s /c playwright test --grep ^^^"registro^^^ explica^^^"

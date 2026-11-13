@@ -52,8 +52,6 @@ export function AuthDialog({
   onLogin,
   onClose,
   initialMode = "login",
-  demoMail = false,
-  mailboxUrl,
 }) {
   const [mode, setMode] = useState(initialMode);
   const [busy, setBusy] = useState(false);
@@ -127,7 +125,6 @@ export function AuthDialog({
         Dominio autorizado:{" "}
         {catalog.emailDomains.join(", ") || "pendiente de configurar"}.
       </p>
-      <MailDeliveryNotice demoMail={demoMail} mailboxUrl={mailboxUrl} />
       <form className="remote-form" ref={authForm} key={mode} onSubmit={submit}>
         <ErrorNotice error={error} />
         {notice && (

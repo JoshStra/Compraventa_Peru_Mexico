@@ -7,7 +7,7 @@ CampusTrade incluye Mailpit para demostrar el registro, la verificación y la re
 1. Inicia Docker Desktop y ejecuta `iniciar-docker.cmd` o `docker compose up -d --build --wait`.
 2. Abre [CampusTrade](http://127.0.0.1:3000/) e inicia sesión con tu contraseña existente. Si ya habías iniciado sesión, recarga la página para recibir la configuración nueva.
 3. En el aviso de cuenta sin verificar pulsa **Reenviar enlace**. También puedes abrir **Verificación de cuenta** desde el menú de tu avatar.
-4. Pulsa **Abrir buzón de pruebas** o entra a [Mailpit](http://127.0.0.1:8025/).
+4. Entra a [Mailpit](http://127.0.0.1:8025/) desde su dirección local.
 5. Abre tu mensaje con asunto **[DEMO LOCAL] Verifica tu correo institucional en CampusTrade** y abre su enlace.
 6. En CampusTrade pulsa **Verificar mi correo**. Se mostrará **Verificación de demostración completada**. Reenviar sustituye el enlace anterior; cada enlace se usa una sola vez y tiene caducidad.
 
@@ -33,7 +33,7 @@ La app puede arrancar sin Mailpit porque el perfil es opcional. Si aparece un er
 
 ## Límites y correo real
 
-Los avisos de la interfaz, las insignias de verificación y el texto de los mensajes identifican el modo de demostración. Ninguna cuenta se marca verificada solo por registrarse o coincidir con `itesa.edu.mx`. Hace falta consumir el enlace.
+El diálogo que consume los enlaces, las insignias de verificación y el texto de los mensajes identifican el modo de demostración. El apartado promocional del buzón se retiró del encabezado y de los formularios de acceso, registro y recuperación por petición del usuario. Ninguna cuenta se marca verificada solo por registrarse o coincidir con `itesa.edu.mx`. Hace falta consumir el enlace.
 
 El servidor rechaza `local_demo` con `NODE_ENV=production`. No publiques este buzón ni configures reenvío a destinatarios externos. Para correo real se necesitará un proveedor SMTP o Resend, un remitente autorizado y configuración privada. Antes de usar la aplicación con estudiantes reales, separa los datos de demostración y establece una verificación real: cambiar el transporte no transforma las verificaciones locales existentes en evidencia de titularidad.
 

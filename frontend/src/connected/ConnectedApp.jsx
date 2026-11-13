@@ -1,5 +1,4 @@
 import { MinimalHeader } from "../components/MinimalHeader.jsx";
-import { MailDeliveryNotice } from "../components/MailDeliveryNotice.jsx";
 import {
   CategoryTabs,
   FilterChips,
@@ -419,10 +418,6 @@ export default function ConnectedApp() {
         compact={
           dialog?.type === "detail" || (conversationOpen && view === "Mensajes")
         }
-      />
-      <MailDeliveryNotice
-        demoMail={demoMail}
-        mailboxUrl={mailDelivery.localMailboxUrl}
       />
       {user && !user.verified && (
         <div className="verification-notice">
@@ -847,8 +842,6 @@ export default function ConnectedApp() {
         <AuthDialog
           key={dialog.mode || "login"}
           initialMode={dialog.mode || "login"}
-          demoMail={demoMail}
-          mailboxUrl={mailDelivery.localMailboxUrl}
           catalog={catalog}
           onClose={close}
           onLogin={login}

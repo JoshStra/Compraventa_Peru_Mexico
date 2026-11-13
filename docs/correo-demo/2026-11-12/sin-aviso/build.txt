@@ -1,0 +1,20 @@
+
+> campustrade@0.3.0 build
+> npm run build --workspace frontend
+
+
+> campustrade-alpha@0.3.0 build
+> vite build
+
+vite v8.3.5 building client environment for production...
+transforming...
+✓ 35 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                       0.59 kB │ gzip:  0.36 kB
+dist/assets/inter-latin-wght-normal-Dx4kXJAl.woff2   48.25 kB
+dist/assets/index-Dl4OhC67.css                       61.67 kB │ gzip: 11.37 kB
+dist/assets/ConnectedApp--hYyyfiw.js                 73.61 kB │ gzip: 20.01 kB
+dist/assets/index-_o2wpvFh.js                       142.42 kB │ gzip: 46.48 kB
+
+✓ built in 1.44s

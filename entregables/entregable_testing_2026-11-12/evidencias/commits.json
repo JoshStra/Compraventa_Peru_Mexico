@@ -1,0 +1,72 @@
+[
+  {
+    "sha": "29d7101a5a9c45d4bb1c8125df6418420ad9c883",
+    "authoredAt": "2026-11-10T09:55:45-06:00",
+    "committedAt": "2026-11-10T09:55:45-06:00",
+    "message": "fix(security): corrige cinco fallas y valida 113 pruebas",
+    "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/commit/29d7101a5a9c45d4bb1c8125df6418420ad9c883"
+  },
+  {
+    "sha": "6d56a90c9c5e83f48668e6f89e227e75517b3260",
+    "authoredAt": "2026-11-10T10:39:45-06:00",
+    "committedAt": "2026-11-10T10:39:45-06:00",
+    "message": "feat(docker): ejecuta CampusTrade con PostgreSQL e imagenes persistentes",
+    "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/commit/6d56a90c9c5e83f48668e6f89e227e75517b3260"
+  },
+  {
+    "sha": "586d15691690e32c6ea367491bb366eeda807d1d",
+    "authoredAt": "2026-11-10T10:52:53-06:00",
+    "committedAt": "2026-11-10T10:52:53-06:00",
+    "message": "docs(deploy): registra la migracion local y suspension de Render",
+    "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/commit/586d15691690e32c6ea367491bb366eeda807d1d"
+  },
+  {
+    "sha": "9045e926d424de98ac4f32a4346e8ad8ee3fc9b2",
+    "authoredAt": "2026-11-10T17:00:14-06:00",
+    "committedAt": "2026-11-10T17:00:14-06:00",
+    "message": "feat(ui): aplica diseño de campus y corrige navegación accesible",
+    "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/commit/9045e926d424de98ac4f32a4346e8ad8ee3fc9b2"
+  },
+  {
+    "sha": "20759004c4448e588f6b80e89dc6c127b399198c",
+    "authoredAt": "2026-11-11T09:01:32-06:00",
+    "committedAt": "2026-11-11T09:01:32-06:00",
+    "message": "feat(ui): aplica diseño minimalista con buscador y navegación móvil",
+    "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/commit/20759004c4448e588f6b80e89dc6c127b399198c"
+  },
+  {
+    "sha": "ccf0cb1352d2ff93742a3df1a2dc0968fd626b0a",
+    "authoredAt": "2026-11-11T10:30:24-06:00",
+    "committedAt": "2026-11-11T10:30:24-06:00",
+    "message": "docs(testing): actualiza entrega Word con 131 pruebas y evidencias",
+    "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/commit/ccf0cb1352d2ff93742a3df1a2dc0968fd626b0a"
+  },
+  {
+    "sha": "4f7a5470fe754a76e2f8406d7ef7007159ada3c8",
+    "authoredAt": "2026-11-12T17:55:45-06:00",
+    "committedAt": "2026-11-12T17:55:45-06:00",
+    "message": "feat(mail): habilita buzón local de demostración",
+    "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/commit/4f7a5470fe754a76e2f8406d7ef7007159ada3c8"
+  },
+  {
+    "sha": "6c62c63ff87b2f999bf7e35529b2189fb3bacdcf",
+    "authoredAt": "2026-11-12T18:11:42-06:00",
+    "committedAt": "2026-11-12T18:11:42-06:00",
+    "message": "fix(ui): retira el apartado visible del buzón de pruebas",
+    "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/commit/6c62c63ff87b2f999bf7e35529b2189fb3bacdcf"
+  },
+  {
+    "sha": "3341d8c3bc5223385434efaf4cf14e2039204149",
+    "authoredAt": "2026-11-12T20:12:16-06:00",
+    "committedAt": "2026-11-12T20:12:16-06:00",
+    "message": "fix(ui): elimina el apartado de verificación del perfil",
+    "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/commit/3341d8c3bc5223385434efaf4cf14e2039204149"
+  },
+  {
+    "sha": "0274f2b98a376ee67116fd5898ea1c9d14d63092",
+    "authoredAt": "2026-11-12T21:08:08-06:00",
+    "committedAt": "2026-11-12T21:08:08-06:00",
+    "message": "feat(auth): retira la confirmación de correo del registro",
+    "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/commit/0274f2b98a376ee67116fd5898ea1c9d14d63092"
+  }
+]

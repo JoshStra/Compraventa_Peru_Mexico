@@ -1,0 +1,89 @@
+{
+  "codeCommit": "0274f2b98a376ee67116fd5898ea1c9d14d63092",
+  "requirements": [
+    {
+      "id": "RF-01",
+      "function": "Registro y sesión",
+      "cases": "API-AUTH-00/01/02/04; API-SEC-01/05/12/15/16; SMTP-01",
+      "evaluation": "Aprobada con dominio exacto y contraseña; sin confirmar buzón."
+    },
+    {
+      "id": "RF-02",
+      "function": "Confirmación de correo",
+      "cases": "API-AUTH-03; E2E-*-08",
+      "evaluation": "Retirada por solicitud del responsable; no aplica como función activa."
+    },
+    {
+      "id": "RF-03",
+      "function": "Perfil",
+      "cases": "FE-HEADER-03; E2E-*-04/06/08",
+      "evaluation": "Datos y edición conservados; sin insignias de verificación."
+    },
+    {
+      "id": "RF-04",
+      "function": "Publicaciones",
+      "cases": "API-LISTINGS-01/02/03; E2E-*-06; SMTP-02",
+      "evaluation": "Aprobada con cuenta registrada sin confirmación y permisos propios."
+    },
+    {
+      "id": "RF-05",
+      "function": "Modalidades y operaciones",
+      "cases": "API-OPERATIONS; API-SEC-03/04; E2E-*-05/11/12",
+      "evaluation": "Venta, renta e intercambio probados; donación creada en SMTP, sin cierre E2E dedicado."
+    },
+    {
+      "id": "RF-06",
+      "function": "Búsqueda",
+      "cases": "FE-HEADER-01; FE-NAV-01/02; E2E-*-02/05",
+      "evaluation": "Aprobada con consulta en encabezado y persistencia en URL."
+    },
+    {
+      "id": "RF-07",
+      "function": "Filtros",
+      "cases": "FE-NAV-04/05; E2E-*-01/05/09",
+      "evaluation": "Aprobada con chips, limpieza y rangos accesibles."
+    },
+    {
+      "id": "RF-08",
+      "function": "Detalle e imágenes",
+      "cases": "API-LISTINGS-05; API-SEC-02/09; E2E-*-05/06",
+      "evaluation": "Aprobada con validación y normalización de imágenes."
+    },
+    {
+      "id": "RF-09",
+      "function": "Mensajes",
+      "cases": "API-CONVERSATIONS; E2E-*-10/12; DOCKER-06",
+      "evaluation": "Aprobada entre dos sesiones sin confirmación, con privacidad."
+    },
+    {
+      "id": "RF-10",
+      "function": "Favoritos",
+      "cases": "API-LISTINGS-04; E2E-*-07",
+      "evaluation": "Aprobada entre sesiones y recargas."
+    },
+    {
+      "id": "RF-11",
+      "function": "Calificaciones",
+      "cases": "API-OPERATIONS-02; E2E-*-12; DOCKER-06",
+      "evaluation": "Aprobada tras completar la operación."
+    },
+    {
+      "id": "RF-12",
+      "function": "Reportes",
+      "cases": "API-MODERATION; E2E-*-13",
+      "evaluation": "Reporte y resolución con comentario persistentes."
+    },
+    {
+      "id": "RF-13",
+      "function": "Persistencia",
+      "cases": "API-PERSISTENCE; DOCKER-08",
+      "evaluation": "Sesión, artículo, imagen y mensajes sobreviven a recrear contenedores."
+    },
+    {
+      "id": "RF-14",
+      "function": "Administración",
+      "cases": "API-MODERATION; E2E-*-04/13",
+      "evaluation": "Rol explícito y permisos conservados; sin promoción automática."
+    }
+  ]
+}

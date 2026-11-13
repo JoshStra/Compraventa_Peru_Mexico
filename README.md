@@ -81,6 +81,8 @@ La entrega histórica y sus siete apartados están en [entregable final](entrega
 
 La evaluación del 7 de noviembre de 2026 está en el [entregable de testing](entregables/entregable_testing/README.md): ocho apartados, 97 casos ejecutados con resultados y un PDF con formularios editables. El apartado 8 incorpora una sesión del 8 de noviembre con trece comprobaciones y comentarios propios de Codex, identificados como evaluación del agente.
 
-La [entrega actualizada del 11 de noviembre](entregables/entregable_testing_2026-11-11/README.md) documenta el diseño minimalista y el código local `2075900`: 131 casos técnicos aprobados, ocho registros de interacción de Codex, issues con comentarios, reporte Word y formulario editable. La [entrega del 9 de noviembre](entregables/entregable_testing_2026-11-09/README.md) se conserva como histórica.
+La [entrega actualizada del 12 de noviembre](entregables/entregable_testing_2026-11-12/README.md) documenta el registro sin confirmación de correo del código publicado `0274f2b`: ocho apartados, 137 pruebas de aplicación y 14 comprobaciones complementarias aprobadas, 151 fichas completas, seis issues cerrados con comentarios y ocho registros de interacción de Codex. Incluye un reporte Word de 51 páginas y un formulario con ocho campos editables. Los comentarios corresponden a pruebas del agente con cuentas sintéticas, sin estudiantes externos.
+
+La [entrega del 11 de noviembre](entregables/entregable_testing_2026-11-11/README.md), con 131 pruebas sobre `2075900`, y la [entrega del 9 de noviembre](entregables/entregable_testing_2026-11-09/README.md) se conservan como históricas.
 
 También está disponible la [versión editable en Word](entregables/entregable_testing_2026-11-09/word/README.md), con los ocho apartados, los 101 casos completos y un formulario de ocho campos nativos.

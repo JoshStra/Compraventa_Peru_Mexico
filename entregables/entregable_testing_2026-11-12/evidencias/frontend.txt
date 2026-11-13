@@ -1,0 +1,23 @@
+
+ RUN  v5.0.5 <REPO>/frontend
+
+ ✓ src/domain/catalog.test.js (20 tests) 19ms
+ ✓ src/domain/catalogNavigation.test.js (5 tests) 13ms
+ ✓ src/services/apiClient.test.js (3 tests) 16ms
+ ✓ src/services/listingImage.test.js (3 tests) 16ms
+ ✓ src/services/campusRepository.test.js (14 tests) 37ms
+ ✓ src/components/MailDeliveryNotice.test.jsx (2 tests) 110ms
+ ✓ src/components/MinimalHeader.test.jsx (3 tests) 874ms
+   ✓ envía una búsqueda desde la barra y sincroniza el texto de una URL restaurada 469ms
+ ✓ src/App.test.jsx (7 tests) 5826ms
+   ✓ publica sin errores de evento asíncrono y conserva el artículo al recargar 2517ms
+   ✓ muestra el error de almacenamiento sin cerrar ni borrar el formulario 1983ms
+   ✓ filtra categorías completas y distingue la búsqueda vacía de los favoritos 357ms
+   ✓ guarda mensajes visibles en su conversación y los restaura al recargar 693ms
+
+ Test Files  8 passed (8)
+      Tests  57 passed (57)
+   Start at  22:43:52
+   Duration  17.27s (environment 66%, setup 23%, tests 8%, import 2%, transform 1%)
+
+JSON report written to <REPO>/tmp/testing-2026-11-12/frontend.json

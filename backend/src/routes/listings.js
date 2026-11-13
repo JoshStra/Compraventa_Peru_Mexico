@@ -1,6 +1,6 @@
 import { Router } from "express";
 import multer from "multer";
-import { requireUser, requireVerified } from "../middleware/auth.js";
+import { requireUser } from "../middleware/auth.js";
 import { createListings } from "../services/listings.js";
 import { listingControllers } from "../controllers/listings.js";
 
@@ -13,8 +13,8 @@ export function listingRoutes(dependencies) {
   });
   router.get("/listings", controller.list);
   router.get("/listings/:id", controller.get);
-  router.post("/listings", requireVerified, controller.create);
-  router.patch("/listings/:id", requireVerified, controller.update);
+  router.post("/listings", requireUser, controller.create);
+  router.patch("/listings/:id", requireUser, controller.update);
   router.delete("/listings/:id", requireUser, controller.remove);
   router.post(
     "/listings/:id/favorites",
@@ -30,7 +30,7 @@ export function listingRoutes(dependencies) {
   router.get("/me/favorites", requireUser, controller.favorites);
   router.post(
     "/uploads",
-    requireVerified,
+    requireUser,
     upload.single("image"),
     controller.upload,
   );

@@ -12,7 +12,6 @@ import {
 import { useState } from "react";
 
 export function Detail({
-  demoMail = false,
   item,
   user,
   favorite,
@@ -108,14 +107,9 @@ export function Detail({
                 <div>
                   <strong>{item.seller.name}</strong>
                   <small>
-                    {item.seller.verified
-                      ? demoMail
-                        ? "Verificado en demostración local"
-                        : "Correo verificado"
-                      : "Pendiente de verificación"}
                     {item.seller.ratingCount
-                      ? ` · ${item.seller.rating.toFixed(1)} / 5`
-                      : " · Sin calificaciones"}
+                      ? `${item.seller.rating.toFixed(1)} / 5`
+                      : "Sin calificaciones"}
                   </small>
                 </div>
                 <button className="text-link" onClick={onSeller}>

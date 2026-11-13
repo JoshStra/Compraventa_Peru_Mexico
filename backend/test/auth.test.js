@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import request from "supertest";
 import { testContext, registration } from "./helpers.js";
 import { createApp } from "../src/app.js";
+import { createHash } from "node:crypto";
 
 let context;
 before(async () => {
@@ -15,7 +16,7 @@ const post = (path, body) =>
     .set("Origin", context.config.origins[0])
     .send(body);
 
-test("el correo local anuncia una demostración y solo verifica al consumir su token de un uso", async () => {
+test("el registro funciona sin correo y no genera tokens ni mensajes de verificación", async () => {
   const config = {
     ...context.config,
     mailDelivery: { mode: "local_demo", mailboxUrl: "http://127.0.0.1:8025" },
@@ -29,7 +30,7 @@ test("el correo local anuncia una demostración y solo verifica al consumir su t
       .send(data);
   const response = await call("register", input);
   assert.equal(response.status, 202);
-  assert.match(response.body.message, /buzón local/);
+  assert.match(response.body.message, /ya puedes iniciar sesión/);
   assert.equal(response.body.emailDeliveryMode, "local_demo");
   assert.equal(response.body.localMailboxUrl, "http://127.0.0.1:8025");
   const row = (
@@ -38,11 +39,40 @@ test("el correo local anuncia una demostración y solo verifica al consumir su t
     ])
   ).rows[0];
   assert.equal(row.verified_at, null);
-  const token = context.mail.find((mail) => mail.to === input.email).token;
-  const verified = await call("verify", { token });
-  assert.equal(verified.status, 200);
-  assert.match(verified.body.message, /demostración/);
-  assert.equal((await call("verify", { token })).status, 400);
+  assert.equal(
+    context.mail.some((mail) => mail.to === input.email),
+    false,
+  );
+  assert.equal(
+    (
+      await context.db.query(
+        "SELECT count(*)::int AS count FROM access_tokens t JOIN users u ON u.id=t.user_id WHERE u.email=$1",
+        [input.email],
+      )
+    ).rows[0].count,
+    0,
+  );
+  assert.equal(
+    (await call("login", { email: input.email, password: input.password }))
+      .status,
+    200,
+  );
+  const offline = createApp({
+    db: context.db,
+    config,
+    mailer: {
+      available: false,
+      async send() {
+        throw new Error("No debe enviarse correo al registrar");
+      },
+    },
+  });
+  const offlineResponse = await request(offline)
+    .post("/api/v1/auth/register")
+    .set("Origin", config.origins[0])
+    .send(registration("offline"));
+  assert.equal(offlineResponse.status, 202);
+  assert.match(offlineResponse.body.message, /ya puedes iniciar sesión/);
   const session = await request(app).get("/api/v1/auth/session");
   assert.equal(session.body.emailDeliveryMode, "local_demo");
   assert.equal(session.body.user, null);
@@ -85,13 +115,29 @@ test("rechaza dominios ajenos, contraseñas cortas, roles y duplicados", async (
   );
   assert.equal((await post("/auth/register", registration("one"))).status, 202);
 });
-test("el enlace de verificación es de un solo uso", async () => {
-  const token = context.mail.find(
-    (mail) =>
-      mail.to === registration("one").email && mail.purpose === "verify",
-  ).token;
-  assert.equal((await post("/auth/verify", { token })).status, 200);
-  assert.equal((await post("/auth/verify", { token })).status, 400);
+test("las rutas retiradas de verificación ya no aceptan enlaces", async () => {
+  assert.equal(
+    (await post("/auth/verify", { token: "a".repeat(64) })).status,
+    404,
+  );
+  assert.equal((await post("/auth/verification", {})).status, 404);
+  const token = "b".repeat(64);
+  await context.db.query(
+    "INSERT INTO access_tokens(token_hash,user_id,purpose,expires_at) SELECT $1,id,'verify',now()+interval '1 day' FROM users WHERE email=$2",
+    [
+      createHash("sha256").update(token).digest("hex"),
+      registration("one").email,
+    ],
+  );
+  assert.equal(
+    (
+      await post("/auth/password-reset/confirm", {
+        token,
+        password: "No aceptar tokens antiguos 2026!",
+      })
+    ).status,
+    400,
+  );
 });
 test("sesión HttpOnly, CSRF, persistencia y cierre revocable", async () => {
   const agent = request.agent(context.app);
@@ -104,7 +150,7 @@ test("sesión HttpOnly, CSRF, persistencia y cierre revocable", async () => {
     });
   assert.equal(login.status, 200);
   assert.match(login.headers["set-cookie"][0], /HttpOnly/);
-  assert.equal(login.body.user.verified, true);
+  assert.equal(login.body.user.verified, false);
   assert.equal(
     (await agent.get("/api/v1/auth/session")).body.user.email,
     registration("one").email,
@@ -173,11 +219,18 @@ test("rechaza orígenes extraños y tokens vencidos", async () => {
     403,
   );
   await post("/auth/register", registration("expired"));
-  const token = context.mail.findLast(
-    (mail) => mail.purpose === "verify",
-  ).token;
+  await post("/auth/password-reset", { email: registration("expired").email });
+  const token = context.mail.findLast((mail) => mail.purpose === "reset").token;
   await context.db.query(
     "UPDATE access_tokens SET expires_at=now()-interval '1 minute'",
   );
-  assert.equal((await post("/auth/verify", { token })).status, 400);
+  assert.equal(
+    (
+      await post("/auth/password-reset/confirm", {
+        token,
+        password: "Contraseña nueva segura 2026!",
+      })
+    ).status,
+    400,
+  );
 });

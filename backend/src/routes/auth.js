@@ -63,17 +63,11 @@ export function authRoutes({ auth, config }) {
     res.clearCookie(sessionCookie, { ...cookie, maxAge: undefined });
     res.json({ message: "Sesión cerrada." });
   });
-  router.post("/verify", sensitive, async (req, res) =>
-    res.json(await auth.consumeToken(req.body, "verify")),
-  );
-  router.post("/verification", sensitive, requireUser, async (req, res) =>
-    res.json({ verificationSent: await auth.resend(req.session.user) }),
-  );
   router.post("/password-reset", sensitive, async (req, res) =>
     res.json(await auth.requestReset(req.body)),
   );
   router.post("/password-reset/confirm", sensitive, async (req, res) =>
-    res.json(await auth.consumeToken(req.body, "reset")),
+    res.json(await auth.resetPassword(req.body)),
   );
   return router;
 }

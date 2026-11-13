@@ -10,7 +10,6 @@ const reportLabels = {
   dismissed: "Descartado",
 };
 export function AdminPage({
-  demoMail = false,
   revision,
   onRefresh,
   onResolve,
@@ -128,12 +127,7 @@ export function AdminPage({
                     <strong>{user.name}</strong>
                     <p>
                       {user.email} · {user.role} ·{" "}
-                      {user.verified
-                        ? demoMail
-                          ? "Verificado en demo"
-                          : "Verificado"
-                        : "Sin verificar"}{" "}
-                      · {user.suspended ? "Suspendido" : "Activo"}
+                      {user.suspended ? "Suspendido" : "Activo"}
                     </p>
                   </div>
                   {user.role !== "admin" && (

@@ -35,7 +35,8 @@ export function createAuth({ db, config, mailer }) {
   const dummyHash = argon2.hash(randomBytes(32), { type: argon2.argon2id });
   const csrfFor = (token) =>
     createHmac("sha256", config.secret).update(`csrf:${token}`).digest("hex");
-  async function sendToken(user, purpose) {
+  async function sendReset(user) {
+    const purpose = "reset";
     if (!mailer.available) return false;
     const token = randomBytes(32).toString("hex");
     const hash = digest(token);
@@ -46,7 +47,7 @@ export function createAuth({ db, config, mailer }) {
       );
       await client.query(
         "INSERT INTO access_tokens(token_hash,user_id,purpose,expires_at) VALUES($1,$2,$3,now()+$4*interval '1 minute')",
-        [hash, user.id, purpose, purpose === "verify" ? 1440 : 30],
+        [hash, user.id, purpose, 30],
       );
     });
     try {
@@ -77,19 +78,14 @@ export function createAuth({ db, config, mailer }) {
       const passwordHash = await argon2.hash(input.password, {
         type: argon2.argon2id,
       });
-      let user;
       try {
-        user = await users.create({ ...input, studentHash, passwordHash });
+        await users.create({ ...input, studentHash, passwordHash });
       } catch (error) {
         if (error.code !== "23505") throw error;
       }
-      if (user) await sendToken(user, "verify");
       return {
-        message: mailer.available
-          ? localDemo
-            ? "Si los datos permiten crear una cuenta, encontrarás un enlace de demostración en el buzón local. No se enviará al correo real de ITESA. Si ya tienes cuenta, inicia sesión o recupera tu acceso."
-            : "Si los datos permiten crear una cuenta, recibirás un enlace de verificación. Si ya tienes cuenta, inicia sesión o recupera tu acceso."
-          : "Solicitud recibida. Si los datos permiten crear una cuenta, podrás iniciar sesión. El envío de verificación aún no está disponible; publicar requiere verificar tu correo. Si ya tienes cuenta, inicia sesión o recupera tu acceso.",
+        message:
+          "Solicitud recibida. Si los datos permiten crear una cuenta, ya puedes iniciar sesión con tu correo y contraseña. Si ya tienes cuenta, inicia sesión o recupera tu acceso.",
         ...deliveryStatus(),
       };
     },
@@ -143,13 +139,10 @@ export function createAuth({ db, config, mailer }) {
         fail(400, "INVALID_CAREER", "Selecciona una carrera activa.");
       return privateUser(await users.profile(id, input));
     },
-    async resend(user) {
-      return user.verified ? true : sendToken(user, "verify");
-    },
     async requestReset(value) {
       const input = validate(z.object({ email }).strict(), value);
       const user = await users.byEmail(input.email);
-      if (user && !user.suspended) await sendToken(user, "reset");
+      if (user && !user.suspended) await sendReset(user);
       return {
         message: localDemo
           ? "Si la cuenta es válida y el buzón local está configurado, encontrarás ahí un enlace de recuperación de demostración. No se enviará al correo real."
@@ -157,16 +150,12 @@ export function createAuth({ db, config, mailer }) {
         ...deliveryStatus(),
       };
     },
-    async consumeToken(value, purpose) {
-      const schema =
-        purpose === "reset"
-          ? tokenSchema.extend({ password }).strict()
-          : tokenSchema;
-      const input = validate(schema, value);
-      const passwordHash =
-        purpose === "reset"
-          ? await argon2.hash(input.password, { type: argon2.argon2id })
-          : null;
+    async resetPassword(value) {
+      const purpose = "reset";
+      const input = validate(tokenSchema.extend({ password }).strict(), value);
+      const passwordHash = await argon2.hash(input.password, {
+        type: argon2.argon2id,
+      });
       await db.transaction(async (client) => {
         const access = (
           await client.query(
@@ -180,32 +169,20 @@ export function createAuth({ db, config, mailer }) {
             "INVALID_TOKEN",
             "El enlace no es válido, ya se usó o caducó.",
           );
-        if (purpose === "verify")
-          await client.query(
-            "UPDATE users SET verified_at=COALESCE(verified_at,now()) WHERE id=$1",
-            [access.user_id],
-          );
-        else {
-          await client.query("UPDATE users SET password_hash=$2 WHERE id=$1", [
-            access.user_id,
-            passwordHash,
-          ]);
-          await client.query("DELETE FROM sessions WHERE user_id=$1", [
-            access.user_id,
-          ]);
-        }
+        await client.query("UPDATE users SET password_hash=$2 WHERE id=$1", [
+          access.user_id,
+          passwordHash,
+        ]);
+        await client.query("DELETE FROM sessions WHERE user_id=$1", [
+          access.user_id,
+        ]);
         await client.query(
           "DELETE FROM access_tokens WHERE user_id=$1 AND purpose=$2",
           [access.user_id, purpose],
         );
       });
       return {
-        message:
-          purpose === "verify"
-            ? localDemo
-              ? "Verificación de demostración completada. No acredita la titularidad del correo institucional. Ya puedes iniciar sesión."
-              : "Correo institucional verificado. Ya puedes iniciar sesión."
-            : "Contraseña actualizada. Vuelve a iniciar sesión.",
+        message: "Contraseña actualizada. Vuelve a iniciar sesión.",
       };
     },
   };

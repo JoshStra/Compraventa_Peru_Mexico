@@ -453,12 +453,16 @@ test("SEC-12 cookie de producción expira y sesiones nuevas no reutilizan tokens
   );
 });
 
-test("SEC-13 token de verificación concurrente se consume una sola vez", async () => {
+test("SEC-13 token de recuperación concurrente se consume una sola vez", async () => {
   const input = registration("token-race");
   await request(context.app)
     .post("/api/v1/auth/register")
     .set("Origin", context.config.origins[0])
     .send(input);
+  await request(context.app)
+    .post("/api/v1/auth/password-reset")
+    .set("Origin", context.config.origins[0])
+    .send({ email: input.email });
   const token = context.mail.findLast((mail) => mail.to === input.email).token;
   const statuses = await Promise.all(
     Array.from(
@@ -466,9 +470,9 @@ test("SEC-13 token de verificación concurrente se consume una sola vez", async 
       async () =>
         (
           await request(context.app)
-            .post("/api/v1/auth/verify")
+            .post("/api/v1/auth/password-reset/confirm")
             .set("Origin", context.config.origins[0])
-            .send({ token })
+            .send({ token, password: "Nueva contraseña concurrente 2026!" })
         ).status,
     ),
   );

@@ -152,17 +152,11 @@ try {
   assert.equal(
     (await call("/listings", { method: "POST", actor: seller, body: {} }))
       .response.status,
-    403,
+    400,
   );
   passed(
     "DOCKER-03",
-    "Registro genérico, cookie y restricción de cuentas sin verificar",
-  );
-  // Only this uniquely named disposable database receives synthetic verification fixtures.
-  assert.equal(settings.POSTGRES_DB, "campustrade_test");
-  await db.query(
-    "UPDATE users SET verified_at=now() WHERE id=ANY($1::uuid[])",
-    [[seller.user.id, buyer.user.id]],
+    "Registro genérico y cookie; una cuenta sin confirmación alcanza la validación de publicación",
   );
   const catalog = (await call("/catalog")).data;
   assert.deepEqual(catalog.emailDomains, ["itesa.edu.mx"]);

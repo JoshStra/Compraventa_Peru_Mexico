@@ -265,7 +265,6 @@ export function AuthDialog({
 }
 
 export function TokenDialog({
-  action,
   token,
   onClose,
   onComplete,
@@ -277,17 +276,14 @@ export function TokenDialog({
   async function submit(event) {
     event.preventDefault();
     const values = Object.fromEntries(new FormData(event.currentTarget));
-    if (action === "reset" && values.password !== values.confirmation) {
+    if (values.password !== values.confirmation) {
       setError("Las contraseñas no coinciden.");
       return;
     }
     setBusy(true);
     setError("");
     try {
-      const result =
-        action === "verify"
-          ? await api.verify(token)
-          : await api.reset({ token, password: values.password });
+      const result = await api.reset({ token, password: values.password });
       await onComplete(result.message);
     } catch (failure) {
       setError(failure.message);
@@ -297,13 +293,7 @@ export function TokenDialog({
   }
   return (
     <Modal
-      title={
-        action === "verify"
-          ? demoMail
-            ? "Verificación de demostración"
-            : "Verifica tu correo institucional"
-          : "Elige una nueva contraseña"
-      }
+      title="Elige una nueva contraseña"
       onClose={() => {
         if (!busy) onClose();
       }}
@@ -311,43 +301,28 @@ export function TokenDialog({
       <MailDeliveryNotice demoMail={demoMail} mailboxUrl={mailboxUrl} />
       <form className="remote-form" onSubmit={submit}>
         <ErrorNotice error={error} />
-        {action === "reset" ? (
-          <>
-            <Field label="Nueva contraseña">
-              <input
-                name="password"
-                type="password"
-                minLength={12}
-                maxLength={128}
-                required
-                autoComplete="new-password"
-              />
-            </Field>
-            <Field label="Repite la contraseña">
-              <input
-                name="confirmation"
-                type="password"
-                minLength={12}
-                maxLength={128}
-                required
-                autoComplete="new-password"
-              />
-            </Field>
-          </>
-        ) : (
-          <p>
-            {demoMail
-              ? "Abre el enlace capturado en el buzón local para completar la demostración. No demuestra acceso al correo institucional."
-              : "Confirma que abriste el enlace enviado a tu correo."}{" "}
-            El enlace se puede usar una sola vez.
-          </p>
-        )}
+        <Field label="Nueva contraseña">
+          <input
+            name="password"
+            type="password"
+            minLength={12}
+            maxLength={128}
+            required
+            autoComplete="new-password"
+          />
+        </Field>
+        <Field label="Repite la contraseña">
+          <input
+            name="confirmation"
+            type="password"
+            minLength={12}
+            maxLength={128}
+            required
+            autoComplete="new-password"
+          />
+        </Field>
         <button className="button button-primary" disabled={busy}>
-          {busy
-            ? "Procesando…"
-            : action === "verify"
-              ? "Verificar mi correo"
-              : "Guardar contraseña"}
+          {busy ? "Procesando…" : "Guardar contraseña"}
         </button>
       </form>
     </Modal>

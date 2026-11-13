@@ -51,11 +51,8 @@ const emptyAccount = {
 };
 function initialLink() {
   const params = new URLSearchParams(window.location.hash.slice(1));
-  for (const action of ["verify", "reset"]) {
-    const token = params.get(action);
-    if (token) return { type: "token", action, token };
-  }
-  return null;
+  const token = params.get("reset");
+  return token ? { type: "token", token } : null;
 }
 
 export default function ConnectedApp() {
@@ -221,16 +218,6 @@ export default function ConnectedApp() {
     setDialog({ type: "auth" });
     return false;
   }
-  function verified() {
-    if (!authenticated()) return false;
-    if (!user.verified) {
-      setError(
-        "Verifica tu correo institucional antes de publicar, escribir o solicitar una operación.",
-      );
-      return false;
-    }
-    return true;
-  }
   async function perform(action, message, { close = false } = {}) {
     if (busy) return;
     setBusy(true);
@@ -280,7 +267,7 @@ export default function ConnectedApp() {
     setView(next);
   }
   function publish(item) {
-    if (verified()) setDialog({ type: "listing", item });
+    if (authenticated()) setDialog({ type: "listing", item });
   }
   function filter(key, value) {
     setFilters((current) => ({ ...current, [key]: value, page: 1 }));
@@ -733,7 +720,6 @@ export default function ConnectedApp() {
         )}
         {view === "Gestión" && user?.role === "admin" && (
           <AdminPage
-            demoMail={demoMail}
             revision={revision}
             onRefresh={refresh}
             onResolve={(report) => setDialog({ type: "resolution", report })}
@@ -846,7 +832,6 @@ export default function ConnectedApp() {
       )}
       {dialog?.type === "detail" && (
         <Detail
-          demoMail={demoMail}
           item={dialog.item}
           user={user}
           favorite={account.favorites.includes(dialog.item.id)}
@@ -856,7 +841,7 @@ export default function ConnectedApp() {
           onClose={close}
           onSeller={() => sellerProfile(dialog.item.seller.id)}
           onMessage={() => {
-            if (verified())
+            if (authenticated())
               perform(async () => {
                 const result = await api.openConversation(dialog.item.id);
                 setMessageThread(result.id);
@@ -865,7 +850,8 @@ export default function ConnectedApp() {
               });
           }}
           onOperation={() => {
-            if (verified()) setDialog({ type: "operation", item: dialog.item });
+            if (authenticated())
+              setDialog({ type: "operation", item: dialog.item });
           }}
           onReport={() => {
             if (authenticated())
@@ -881,13 +867,6 @@ export default function ConnectedApp() {
         <Modal title={dialog.user.name} onClose={close}>
           <p>
             {dialog.user.career} · {dialog.user.semester}.º semestre
-          </p>
-          <p>
-            {dialog.user.verified
-              ? demoMail
-                ? "Verificación de demostración completada"
-                : "Correo institucional verificado"
-              : "Verificación pendiente"}
           </p>
           <p>
             {dialog.user.ratingCount

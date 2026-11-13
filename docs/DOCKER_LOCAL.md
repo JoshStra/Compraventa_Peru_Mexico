@@ -47,7 +47,7 @@ En una instalación nueva la base predeterminada se llama `campustrade`; la inst
 
 El script `docker/init-app-role.sh` se ejecuta solo al inicializar un volumen PostgreSQL vacío. Cambiar valores en `.env` no cambia contraseñas ni crea roles en un volumen existente. No borres ese volumen para resolver una discrepancia de configuración: revisa primero la conexión y conserva un respaldo.
 
-`NODE_ENV=development` corresponde a este uso por HTTP en loopback y permite almacenamiento local. No se usa modo test; permanecen los límites de peticiones, permisos, CSRF y validación de dominio. La configuración de producción sigue exigiendo HTTPS y S3 y rechaza el modo de correo `local_demo`. Esta composición no debe exponerse directamente a Internet. El dominio autorizado es `itesa.edu.mx`; Mailpit captura enlaces localmente, sin enviarlos a los correos reales ni acreditar su titularidad. El envío institucional real continúa pendiente y no se verifican cuentas automáticamente.
+`NODE_ENV=development` corresponde a este uso por HTTP en loopback y permite almacenamiento local. No se usa modo test; permanecen los límites de peticiones, permisos, CSRF y validación de dominio. Producción exige HTTPS y S3 y rechaza `local_demo`. Esta composición no debe exponerse directamente a Internet. El registro admite `itesa.edu.mx` sin confirmar el buzón; las cuentas registradas pueden publicar y conversar. Mailpit captura únicamente enlaces de recuperación de contraseña, sin enviarlos a correos reales ni acreditar su titularidad.
 
 ## Migración realizada
 
@@ -67,7 +67,7 @@ npm run test:api
 npm test
 ```
 
-`test:docker` crea un proyecto `campustrade-smoke-<id>` con puertos, secretos y volúmenes propios. Comprueba arranque limpio, rol limitado, registro, permisos, CSRF, subida y lectura de imagen, mensajes, venta, calificación, retiro y persistencia al recrear API y PostgreSQL. Las cuentas verificadas de ese recorrido son fixtures sintéticos exclusivos de su base desechable. Al terminar elimina solo ese proyecto y sus volúmenes, conservando la instalación migrada. El resultado predeterminado queda en `tmp/docker-smoke-result.json`; `DOCKER_EVIDENCE_PATH` permite guardarlo en otro archivo.
+`test:docker` crea un proyecto `campustrade-smoke-<id>` con puertos, secretos y volúmenes propios. Comprueba arranque limpio, rol limitado, registro sin confirmación, permisos, CSRF, subida y lectura de imagen, mensajes, venta, calificación, retiro y persistencia al recrear API y PostgreSQL. Sus cuentas sintéticas operan sin actualizar `verified_at`. Al terminar elimina solo ese proyecto y sus volúmenes, conservando la instalación migrada. El resultado predeterminado queda en `tmp/docker-smoke-result.json`; `DOCKER_EVIDENCE_PATH` permite guardarlo en otro archivo.
 
 La primera ejecución alcanzó siete comprobaciones y falló al reconectar después de la recreación. El arnés se ajustó para cerrar conexiones HTTP entre solicitudes y comprobar explícitamente la sesión persistida; la repetición completó las nueve comprobaciones. Se conserva el resultado inicial junto al final en [evidencia Docker](docker-local/2026-11-10/).
 

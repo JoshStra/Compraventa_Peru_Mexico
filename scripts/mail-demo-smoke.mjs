@@ -23,15 +23,13 @@ async function inbox(route, options = {}) {
   assert.ok(response.ok);
   return response.json();
 }
-async function captured(address, purpose) {
+async function captured(address) {
   for (let attempt = 0; attempt < 30; attempt++) {
     const result = await inbox("/api/v1/messages");
     const candidate = result.messages.find(
       (item) =>
         item.To.some((to) => to.Address === address) &&
-        (purpose === "verify"
-          ? item.Subject.includes("Verifica")
-          : item.Subject.includes("Recupera")) &&
+        item.Subject.includes("Recupera") &&
         !messageIds.has(item.ID),
     );
     if (candidate) {
@@ -43,7 +41,7 @@ async function captured(address, purpose) {
         /Abre este enlace: (https?:\/\/[^\s]+)/,
       )?.[1];
       const token = new URLSearchParams(new URL(link).hash.slice(1)).get(
-        purpose,
+        "reset",
       );
       assert.ok(typeof token === "string" && /^[a-f0-9]{64}$/.test(token));
       return token;
@@ -123,8 +121,12 @@ try {
     ).rows[0].verified_at,
     null,
   );
-  const firstToken = await captured(account.email, "verify");
-  passed("registration_delivered_by_smtp_without_auto_verification");
+  assert.ok(
+    !(await inbox("/api/v1/messages")).messages.some((item) =>
+      item.To.some((to) => to.Address === account.email),
+    ),
+  );
+  passed("registration_without_confirmation_or_email");
   const login = await call("/auth/login", {
     email: account.email,
     password: account.password,
@@ -134,35 +136,62 @@ try {
     cookie: login.response.headers.get("set-cookie").split(";")[0],
     csrf: login.body.csrfToken,
   };
-  stage = "resend";
-  const resend = await call("/auth/verification", {}, session);
-  assert.equal(resend.body.verificationSent, true);
-  const token = await captured(account.email, "verify");
-  assert.notEqual(token, firstToken);
-  assert.equal(
-    (await call("/auth/verify", { token: firstToken })).response.status,
-    400,
+  stage = "publication";
+  const catalog = await call("/catalog");
+  const listing = await call(
+    "/listings",
+    {
+      title: "Material de prueba sin confirmación",
+      description:
+        "Material sintético para comprobar el registro sin confirmación de correo.",
+      location: "Biblioteca del campus",
+      modality: "donation",
+      price: 0,
+      condition: "good",
+      career: account.career,
+      categoryId: catalog.body.categories[0].id,
+      imageIds: [],
+    },
+    session,
   );
-  passed("resend_replaces_previous_link");
-  stage = "verification";
-  const verified = await call("/auth/verify", { token });
-  assert.equal(verified.response.status, 200);
-  assert.match(verified.body.message, /demostración/);
-  assert.equal((await call("/auth/verify", { token })).response.status, 400);
-  passed("verification_link_is_single_use");
+  assert.equal(listing.response.status, 201);
+  passed("publication_without_confirming_email");
   stage = "recovery";
   const recovery = await call("/auth/password-reset", { email: account.email });
   assert.equal(recovery.response.status, 200);
-  const reset = await captured(account.email, "reset");
+  const previous = await captured(account.email);
+  await call("/auth/password-reset", { email: account.email });
+  const reset = await captured(account.email);
+  const newPassword = randomBytes(24).toString("base64url");
+  assert.notEqual(previous, reset);
+  assert.equal(
+    (
+      await call("/auth/password-reset/confirm", {
+        token: previous,
+        password: newPassword,
+      })
+    ).response.status,
+    400,
+  );
   assert.equal(
     (
       await call("/auth/password-reset/confirm", {
         token: reset,
-        password: randomBytes(24).toString("base64url"),
+        password: newPassword,
       })
     ).response.status,
     200,
   );
+  assert.equal(
+    (
+      await call("/auth/password-reset/confirm", {
+        token: reset,
+        password: newPassword,
+      })
+    ).response.status,
+    400,
+  );
+  passed("recovery_links_are_replaced_and_single_use");
   assert.equal(
     (await call("/auth/session", undefined, session)).body.user,
     null,

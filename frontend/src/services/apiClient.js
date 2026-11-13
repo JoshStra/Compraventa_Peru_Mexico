@@ -78,9 +78,6 @@ export const api = {
     csrfToken = null;
     return result;
   },
-  verify: (token) =>
-    request("/auth/verify", { method: "POST", body: { token } }),
-  verification: () => request("/auth/verification", { method: "POST" }),
   forgot: (email) =>
     request("/auth/password-reset", { method: "POST", body: { email } }),
   reset: (body) =>

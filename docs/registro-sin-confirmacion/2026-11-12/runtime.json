@@ -1,0 +1,66 @@
+{
+  "checkedAt": "2026-11-13T03:06:13.509Z",
+  "sourceCheckpoint": "3341d8c",
+  "health": 200,
+  "routeStatuses": {
+    "/listings": 401,
+    "/auth/verify": 404,
+    "/auth/verification": 404
+  },
+  "matchingAssets": [
+    {
+      "file": "ConnectedApp-gsH8CEwz.js",
+      "sha256": "1778f96f0e7938444a177ee6076989d146cd249189b5fb457f1c2846257c94e7"
+    },
+    {
+      "file": "index-B9ae-SeE.js",
+      "sha256": "ff5e342040ee8ac0adeb27e40ab94ea69d280b5ac41b4393f5bbbd93cd0dfa9b"
+    },
+    {
+      "file": "index-BrDJhwrf.css",
+      "sha256": "b2fdb533478fc8172460fdf120c46b157c0cee523f21ac724a97683f08a29014"
+    },
+    {
+      "file": "inter-latin-wght-normal-Dx4kXJAl.woff2",
+      "sha256": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62"
+    }
+  ],
+  "services": {
+    "app": {
+      "health": "healthy",
+      "ports": {
+        "3000/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "3000"
+          }
+        ]
+      },
+      "volumes": ["campustrade_images_data"]
+    },
+    "db": {
+      "health": "healthy",
+      "ports": {
+        "5432/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "55432"
+          }
+        ]
+      },
+      "volumes": ["campustrade_postgres_data"]
+    },
+    "mailpit": {
+      "health": "healthy",
+      "ports": {
+        "8025/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8025"
+          }
+        ]
+      },
+      "volumes": ["campustrade_mailpit_data"]
+    }
+  }
+}

@@ -10,7 +10,7 @@ before(async () => {
   context = await testContext();
   owner = await createTestUser(context, "owner");
   other = await createTestUser(context, "other");
-  unverified = await createTestUser(context, "unverified", { verified: false });
+  unverified = await createTestUser(context, "unverified");
   const catalog = (await request(context.app).get("/api/v1/catalog")).body;
   input = {
     title: "Calculadora científica Casio",
@@ -25,7 +25,7 @@ before(async () => {
   };
 });
 after(async () => context?.close());
-test("publicar exige sesión y correo verificado; no acepta suplantar propietario", async () => {
+test("publicar exige sesión sin confirmar correo y no acepta suplantar propietario", async () => {
   assert.equal(
     (
       await request(context.app)
@@ -35,7 +35,7 @@ test("publicar exige sesión y correo verificado; no acepta suplantar propietari
     ).status,
     401,
   );
-  assert.equal((await unverified.send("post", "/listings", input)).status, 403);
+  assert.equal(owner.user.verified, false);
   assert.equal(
     (
       await owner.send("post", "/listings", {
@@ -126,7 +126,7 @@ test("la carga verifica MIME contenido extensión y tamaño antes de publicar", 
   assert.equal(
     (await upload(unverified, Buffer.from("bad"), "test.png", "image/png"))
       .status,
-    403,
+    400,
   );
   assert.equal(
     (await upload(owner, Buffer.from("<svg/>"), "test.png", "image/png"))

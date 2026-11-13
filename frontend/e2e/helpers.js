@@ -90,7 +90,7 @@ export function identity(prefix = "user") {
     semester: 5,
   };
 }
-export async function actor({ verified = true, prefix = "user" } = {}) {
+export async function actor({ prefix = "user" } = {}) {
   const input = identity(prefix);
   const client = await requestFactory.newContext({
     baseURL: origin,
@@ -103,16 +103,6 @@ export async function actor({ verified = true, prefix = "user" } = {}) {
     data: input,
   });
   expect(registered.status()).toBe(202);
-  if (verified) {
-    const mail = await verificationMail(client, input.email);
-    expect(
-      (
-        await client.post("/api/v1/auth/verify", {
-          data: { token: mail.token },
-        })
-      ).status(),
-    ).toBe(200);
-  }
   const session = await client.post("/api/v1/auth/login", {
     data: { email: input.email, password: input.password },
   });
@@ -124,16 +114,6 @@ export async function actor({ verified = true, prefix = "user" } = {}) {
     user: data.user,
     headers: { "X-CSRF-Token": data.csrfToken },
   };
-}
-export async function verificationMail(client, email) {
-  const response = await client.get(
-    `/__test/mail?to=${encodeURIComponent(email)}`,
-    { headers: { "x-test-key": process.env.E2E_TEST_KEY } },
-  );
-  expect(response.status()).toBe(200);
-  return (await response.json()).items.findLast(
-    (item) => item.purpose === "verify",
-  );
 }
 export async function login(page, input) {
   await page

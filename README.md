@@ -4,7 +4,7 @@ Aplicación universitaria para venta, renta, intercambio y donación de material
 
 La interfaz adopta el diseño minimalista de CampusTrade: blanco, Inter local y acciones teal, con búsqueda en la barra superior, tarjetas sin borde y cinco opciones de navegación móvil. Incluye filtros con chips, detalle y chat adaptados al celular, vistas conservadas en la URL y ayudas de registro. Consulta la [guía de diseño](docs/DESIGN.md) y la [validación del incremento](docs/diseno-minimal/2026-11-11/README.md).
 
-**Sistema local:** [Abrir CampusTrade](http://127.0.0.1:3000/) · [Health de API](http://127.0.0.1:3000/api/v1/health) · [Buzón de pruebas](http://127.0.0.1:8025/). React, API, PostgreSQL e imágenes persistentes se ejecutan en Docker. Los datos de Neon y el objeto de Supabase se copiaron a esta instalación. El buzón local permite demostrar la verificación y recuperación; el envío al correo real de ITESA sigue pendiente.
+**Sistema local:** [Abrir CampusTrade](http://127.0.0.1:3000/) · [Health de API](http://127.0.0.1:3000/api/v1/health) · [Buzón de recuperación de pruebas](http://127.0.0.1:8025/). React, API, PostgreSQL e imágenes persistentes se ejecutan en Docker. Los datos de Neon y el objeto de Supabase se copiaron a esta instalación. El registro ya no requiere confirmar el correo; Mailpit se utiliza únicamente para recuperación de contraseña.
 
 El 10 de noviembre de 2026 se suspendió Render después de validar la copia local. Supabase permanece pausado y Neon se conserva como respaldo; no se eliminaron proyectos ni datos remotos. El [registro de migración](docs/docker-local/2026-11-10/cutover.json) conserva la verificación del cambio.
 
@@ -18,7 +18,7 @@ docker compose up -d --build --wait
 
 La aplicación está en `http://127.0.0.1:3000`. Para una instalación nueva ejecuta antes `npm run docker:setup`, que genera el `.env` privado. Para incluir el buzón escolar ejecuta después `npm run mail:demo:setup`, antes de iniciar Compose. PostgreSQL, las imágenes y el buzón se conservan en volúmenes al detener o recrear los contenedores. La guía [Docker local](docs/DOCKER_LOCAL.md) documenta la base migrada, los respaldos, las pruebas y las diferencias con el entorno de desarrollo anterior.
 
-La instalación de esta computadora ya incluye Mailpit. El apartado de verificación, sus accesos y el aviso de correo pendiente se retiraron de la interfaz por solicitud del responsable. Se conservan el transporte local y el consumo de enlaces capturados al registrar una cuenta. No se envían mensajes a ITESA ni se acredita la titularidad del correo institucional. Consulta [uso y límites del correo de demostración](docs/CORREO_DEMO.md) y las [opciones para verificación real](docs/OPCIONES_VERIFICACION.md).
+Por solicitud del responsable se retiró la confirmación de correo del registro, la API y las restricciones de la interfaz. Una cuenta registrada puede iniciar sesión, publicar, escribir y solicitar operaciones sin consumir un enlace. Se mantiene el dominio `itesa.edu.mx`, la contraseña y la autorización de recursos y roles. No se acredita la titularidad del buzón institucional. Consulta [registro sin confirmación](docs/REGISTRO_SIN_CONFIRMACION.md) y [recuperación con correo local](docs/CORREO_DEMO.md).
 
 ## Desarrollo con Node fuera de Docker
 
@@ -27,7 +27,7 @@ Requiere Node.js 24, npm y Docker con el motor iniciado.
 1. Ejecuta `npm ci` desde la raíz.
 2. Ejecuta `npm run docker:setup` para preparar el `.env` privado y copia `backend/.env.example` a `backend/.env` si aún no existe.
 3. Configura `DATABASE_URL` de `backend/.env` con la contraseña PostgreSQL del `.env` y una clave APP_SECRET de al menos 32 caracteres. Este entorno separado de desarrollo utiliza la base indicada en esa URL; no cambia la conexión de la app Docker.
-4. Mantén `ALLOWED_EMAIL_DOMAINS=itesa.edu.mx`, dominio confirmado para este proyecto. Configura el transporte de correo antes de verificar cuentas reales.
+4. Mantén `ALLOWED_EMAIL_DOMAINS=itesa.edu.mx`, dominio confirmado para este proyecto. El transporte de correo es opcional para el registro y se utiliza únicamente para recuperar contraseñas.
 5. Inicia la base y aplica las migraciones:
 
 ```bash
@@ -43,12 +43,12 @@ Para desarrollar con recarga, usa dos terminales: `npm run dev:api` y `npm run d
 
 ## Estado comprobado
 
-- API con cuentas, sesiones revocables, CSRF, verificación por enlace y recuperación de contraseña.
+- API con registro sin confirmación de correo, sesiones revocables, CSRF y recuperación de contraseña por enlace.
 - Catálogo paginado, búsqueda, filtros, publicaciones autorizadas, imágenes de hasta 5 MB y favoritos persistentes.
 - API de conversaciones privadas, operaciones transaccionales, rentas, intercambios, calificaciones, reportes y administración.
-- Interfaz conectada para registro, login, verificación, perfil, catálogo, creación y edición, imágenes, favoritos, mensajes entre cuentas, operaciones, calificaciones, reportes y gestión administrativa.
+- Interfaz conectada para registro, login, recuperación, perfil, catálogo, creación y edición, imágenes, favoritos, mensajes entre cuentas, operaciones, calificaciones, reportes y gestión administrativa.
 
-La cuenta se crea sin verificar y necesita consumir un enlace de un solo uso. El dominio por sí solo no concede una insignia. En la demostración local el enlace llega a Mailpit y la interfaz indica “Verificación de demostración completada”. El envío real queda pendiente de configurar Resend o SMTP y un remitente autorizado. Las pruebas usan cuentas sintéticas en esquemas aislados; no verifican estudiantes reales.
+El registro no envía mensajes ni genera tokens de verificación. Las cuentas anteriores también pueden operar sin confirmar el correo; conservan sus credenciales, roles e historial. Se retiraron las insignias de verificación. Los campos históricos `verified` y `verified_at` se mantienen por compatibilidad, sin intervenir en permisos ni actualizarse automáticamente. La recuperación usa enlaces de un solo uso; el envío real requiere SMTP o Resend, y en esta computadora se captura únicamente en Mailpit. Las pruebas usan cuentas sintéticas en esquemas aislados.
 
 ## Validación
 
@@ -63,7 +63,7 @@ npm run format:check
 
 Las pruebas de API y navegador requieren PostgreSQL local. Cada ejecución full stack crea un esquema separado y cuentas sintéticas; el servidor de pruebas solo escucha en loopback, exige una clave de ejecución y no forma parte de la aplicación productiva. Los recorridos usan el compilado real, cookies de sesión y datos PostgreSQL.
 
-La [validación del correo local del 12 de noviembre](docs/correo-demo/2026-11-12/README.md) contiene 57 pruebas de frontend, 54 de API y 26 recorridos de navegador aprobados, además de cinco comprobaciones de envío SMTP real a Mailpit con datos desechables.
+La [validación del registro sin confirmación](docs/registro-sin-confirmacion/2026-11-12/README.md) documenta las pruebas del comportamiento actual. La [validación inicial del correo local](docs/correo-demo/2026-11-12/README.md) se conserva como evidencia histórica del flujo anterior.
 
 El prototipo anterior sigue en AppShell como demostración explícita con `VITE_DEMO_MODE=true`. No se usa como sustituto de una API ausente y no es el modo predeterminado. Sus pruebas de regresión se conservan.
 

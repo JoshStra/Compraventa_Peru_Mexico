@@ -1,11 +1,10 @@
 import { navigateSection, searchCampus, openConversation } from "./helpers.js";
-import { test, expect, request as requestFactory } from "@playwright/test";
+import { test, expect } from "@playwright/test";
 import {
   actor,
   identity,
   login,
   listing,
-  verificationMail,
   fixtureImage,
   origin,
   evidencePath,
@@ -19,7 +18,7 @@ test.beforeEach(async ({ page }) => {
   await page.goto("/");
 });
 
-test("registro verificación publicación con imagen y edición persistentes", async ({
+test("registro y publicación con imagen sin confirmar correo, con edición persistente", async ({
   page,
 }, info) => {
   const errors = [];
@@ -43,16 +42,9 @@ test("registro verificación publicación con imagen y edición persistentes", a
     .getByRole("button", { name: "Crear cuenta", exact: true })
     .click();
   await expect(modal.getByRole("status")).toContainText(
-    "recibirás un enlace de verificación",
+    "ya puedes iniciar sesión",
   );
-  const client = await requestFactory.newContext({ baseURL: origin });
-  clients.push(client);
-  const mail = await verificationMail(client, input.email);
-  await page.goto(`/#verify=${mail.token}`);
-  await page
-    .getByRole("button", { name: "Verificar mi correo", exact: true })
-    .click();
-  await expect(page.getByRole("dialog")).toHaveCount(0);
+  await page.reload();
   await login(page, input);
   await page
     .getByRole("button", { name: "Publicar artículo", exact: true })
@@ -154,10 +146,11 @@ test("catálogo y favoritos persisten entre sesiones del navegador", async ({
   ).toBeVisible();
 });
 
-test("perfil sin apartado de verificación conserva la información y los permisos", async ({
+test("una cuenta registrada conserva su perfil y puede publicar sin confirmar correo", async ({
   page,
 }, info) => {
-  const student = await actor({ prefix: "pending", verified: false });
+  const student = await actor({ prefix: "pending" });
+  expect(student.user.verified).toBe(false);
   clients.push(student.client);
   await login(page, student.input);
   await navigateSection(page, "Perfil");
@@ -190,8 +183,8 @@ test("perfil sin apartado de verificación conserva la información y los permis
     .getByRole("button", { name: "Publicar artículo", exact: true })
     .first()
     .click();
-  await expect(page.getByRole("alert")).toContainText(
-    "Verifica tu correo institucional",
-  );
-  await expect(page.getByRole("dialog")).toHaveCount(0);
+  await expect(page.getByRole("dialog")).toBeVisible();
+  await expect(
+    page.getByRole("dialog").getByLabel("Título", { exact: true }),
+  ).toBeEnabled();
 });

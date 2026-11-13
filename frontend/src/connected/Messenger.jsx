@@ -265,12 +265,11 @@ export function Messenger({
                 maxLength={2000}
                 value={body}
                 onChange={(event) => setBody(event.target.value)}
-                disabled={!user.verified}
               />
               <button
                 className="send-button"
                 aria-label="Enviar mensaje"
-                disabled={busy || !body.trim() || !user.verified}
+                disabled={busy || !body.trim()}
               >
                 <Icon name="send" />
               </button>

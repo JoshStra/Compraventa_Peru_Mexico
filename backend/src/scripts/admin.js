@@ -6,13 +6,11 @@ const account = validate(email, process.argv[2]);
 const db = createDatabase(loadConfig().databaseUrl);
 try {
   const result = await db.query(
-    "UPDATE users SET role='admin' WHERE email=$1 AND verified_at IS NOT NULL AND NOT suspended RETURNING id",
+    "UPDATE users SET role='admin' WHERE email=$1 AND NOT suspended RETURNING id",
     [account],
   );
   if (!result.rows.length)
-    throw new Error(
-      "La cuenta debe existir, estar activa y haber verificado su correo.",
-    );
+    throw new Error("La cuenta debe existir y estar activa.");
   await db.query(
     "INSERT INTO audit_events(actor_id,action,resource_id) VALUES($1,'admin_bootstrapped',$1)",
     [result.rows[0].id],

@@ -85,7 +85,7 @@ La [entrega actualizada del 12 de noviembre](entregables/entregable_testing_2026
 
 La ampliación [casos de prueba con fotos](entregables/entregable_testing_2026-11-12/CampusTrade_Casos_Prueba_Con_Fotos_2026-11-12.docx) relaciona las 151 fichas con 32 capturas reales de escritorio y móvil y 30 capturas de los reportes técnicos. Los 26 recorridos de navegador se revalidaron para obtener estas imágenes; no se suman como casos nuevos.
 
-El [Word unificado del 13 de noviembre](entregables/entregable_testing_2026-11-12/CampusTrade_Testing_Unificado_Con_Fotos_2026-11-13.docx) integra ambos documentos: conserva los ocho apartados, las 151 fichas sin duplicados y 65 imágenes, con las fechas originales de ejecución y numeración continua.
+El [Word unificado del 13 de noviembre](entregables/entregable_testing_2026-11-12/CampusTrade_Testing_Unificado_Con_Fotos_2026-11-13.docx) integra ambos documentos en 91 páginas: conserva los ocho apartados, las 151 fichas sin duplicados y 65 imágenes, con las fechas originales de ejecución y numeración continua. El formulario de corrección con ocho campos editables está dentro del apartado 3. La consulta del 13 de noviembre confirmó nuevamente seis issues cerrados con comentarios.
 
 La [entrega del 11 de noviembre](entregables/entregable_testing_2026-11-11/README.md), con 131 pruebas sobre `2075900`, y la [entrega del 9 de noviembre](entregables/entregable_testing_2026-11-09/README.md) se conservan como históricas.
 

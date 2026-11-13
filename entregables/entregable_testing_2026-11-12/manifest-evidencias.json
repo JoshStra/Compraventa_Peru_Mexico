@@ -1,7 +1,7 @@
 {
-  "generatedUtc": "2026-11-13T06:24:16.481169+00:00",
+  "generatedUtc": "2026-11-13T06:47:57.484587+00:00",
   "testedCode": "0274f2b98a376ee67116fd5898ea1c9d14d63092",
-  "scope": "151 casos y ocho apartados integrados en un Word de 90 páginas con 65 imágenes; se conservan fuentes y fechas originales de pruebas",
+  "scope": "151 casos y ocho apartados integrados en un Word de 91 páginas con 65 imágenes y formulario integrado de ocho campos editables; se conservan fuentes y fechas originales de pruebas",
   "files": [
     {
       "path": "01_CASOS_PRUEBA.md",
@@ -15,8 +15,8 @@
     },
     {
       "path": "03_CORRECCION_ERRORES.md",
-      "bytes": 2158,
-      "sha256": "7a3a8ce0f62830c51e1956c212317879845ab2dea5385e5b70d0b285601d000d"
+      "bytes": 2430,
+      "sha256": "2cb8cf65b2d6890f24e74928e5a15b0d3252576124d262b5553f060ed457da96"
     },
     {
       "path": "04_REGISTRO_INCIDENCIAS.md",
@@ -55,8 +55,8 @@
     },
     {
       "path": "CampusTrade_Testing_Unificado_Con_Fotos_2026-11-13.docx",
-      "bytes": 5680762,
-      "sha256": "b2f92122633acb8beb6fd8dff29f143522becccd8b6dd5bef7c994a3baa6cfb6"
+      "bytes": 5681598,
+      "sha256": "52c0b82dccfb4cb396878be27370bd1f87cedc0863a52301f5f42bf5dee3ca7a"
     },
     {
       "path": "casos_ejecutados.csv",
@@ -212,6 +212,11 @@
       "path": "evidencias/github-incidencias.json",
       "bytes": 14423,
       "sha256": "f87ced9ef8fea22338975b07fe3e7ca2c7d8bbb56eff54de96993f54498d5e60"
+    },
+    {
+      "path": "evidencias/github-verificacion_2026-11-13.json",
+      "bytes": 9738,
+      "sha256": "836a539b8a802d522204f23fce8275e8444c07ba5fb1b8ae6d314fac1e663e40"
     },
     {
       "path": "evidencias/interacciones_codex.json",
@@ -830,13 +835,13 @@
     },
     {
       "path": "integracion_2026-11-13.json",
-      "bytes": 14520,
-      "sha256": "f3bff60260cae130f2668b8ee8608b8b4b82b0b4f6cdc03078035810f2cc2b26"
+      "bytes": 23651,
+      "sha256": "6755d7866b4d842b753141a4e48a679e5a3862deff377d862f288e4b2a8c2635"
     },
     {
       "path": "README.md",
-      "bytes": 2318,
-      "sha256": "fa8ac66181e6867b95b8879c9b8b27f61693a04fcdfb5f879ade676978cea747"
+      "bytes": 2588,
+      "sha256": "8e6b6a570c43f2bc027b59aa36619bb5dac08bf654dee84c904690366b77c170"
     },
     {
       "path": "resumen_testing.json",

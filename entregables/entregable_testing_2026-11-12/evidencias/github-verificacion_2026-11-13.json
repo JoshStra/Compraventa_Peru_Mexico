@@ -1,0 +1,115 @@
+{
+  "verifiedUtc": "2026-11-13T06:40:41.886Z",
+  "integrationDateMexico": "2026-11-13",
+  "source": "API oficial de GitHub mediante conector de lectura",
+  "issues": [
+    {
+      "number": 1,
+      "title": "Revisión de arquitectura y separación de componentes",
+      "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/issues/1",
+      "state": "closed",
+      "state_reason": "completed",
+      "created_at": "2026-10-16T22:20:27Z",
+      "closed_at": "2026-10-30T16:49:31Z",
+      "comments": [
+        {
+          "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/issues/1#issuecomment-6528281194",
+          "author": "mora8292",
+          "created_at": "2026-10-30T16:49:30Z",
+          "updated_at": "2026-10-30T16:49:30Z",
+          "body": "Resolución verificada en main: la reorganización 0f91601 separó el cliente en frontend/. Actualmente React, sus componentes y estilos están en frontend/src/; la API Node/Express está en backend/src/ con rutas, servicios, validadores, repositorios y migraciones. No quedan archivos de aplicación CSS/JS sueltos en la raíz; package.json coordina los workspaces.\n\nImplementación: 82c6954 (PostgreSQL/API), c4e2553 (cuentas y publicaciones conectadas) y ff48d53 (mensajes, operaciones y moderación). Validación local del 30-10-2026: npm test (47 pruebas), npm run test:api (28 pruebas en el último incremento backend), npm run build, npm run test:e2e (10 casos en escritorio y móvil) y npm run format:check. CI de c4e2553: https://github.com/JoshStra/Compraventa_Peru_Mexico/actions/runs/41091269918 .\n\nLa separación solicitada y el funcionamiento integrado están comprobados. El despliegue público y el envío de correo institucional se documentan por separado."
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Operaciones: oferta retirada permanece pendiente y fechas de renta incluyen zona horaria",
+      "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/issues/2",
+      "state": "closed",
+      "state_reason": "completed",
+      "created_at": "2026-10-30T16:49:32Z",
+      "closed_at": "2026-10-30T16:52:06Z",
+      "comments": [
+        {
+          "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/issues/2#issuecomment-6528334000",
+          "author": "mora8292",
+          "created_at": "2026-10-30T16:52:05Z",
+          "updated_at": "2026-10-30T16:52:05Z",
+          "body": "Corregido en 6b0d297. El retiro cancela solicitudes pendientes cuando la publicación es principal u ofrecida, dentro de la misma transacción. Las fechas DATE de renta se proyectan con to_char(...,'YYYY-MM-DD'), independientes del huso horario. Se añadieron regresiones que antes fallaban; npm run test:api ahora termina con 30 pruebas correctas, incluyendo persistencia tras reinicio real del proceso y concurrencia de reservas. npm run format:check también correcto. Archivos: backend/src/services/listings.js, backend/src/services/operations.js, backend/test/operations.test.js y backend/test/persistence.test.js."
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Portada: advertencia React por atributo fetchPriority en desarrollo",
+      "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/issues/3",
+      "state": "closed",
+      "state_reason": "completed",
+      "created_at": "2026-11-10T01:19:35Z",
+      "closed_at": "2026-11-10T01:21:16Z",
+      "comments": [
+        {
+          "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/issues/3#issuecomment-6756155231",
+          "author": "mora8292",
+          "created_at": "2026-11-10T01:21:16Z",
+          "updated_at": "2026-11-10T01:21:16Z",
+          "body": "Corregido en 4f1927c9fe73e80f483961d6d204422c59fd29e0. HomeHero utiliza fetchpriority en minúsculas para conservar el atributo HTML de prioridad alta con la versión instalada de React. La ejecución inicial registró 47 pruebas correctas con advertencia; la revalidación registra 47/47 sin esa advertencia y npm run build correcto. No se modificaron API, permisos ni datos. Evidencias: entregables/entregable_testing_2026-11-09/evidencias/frontend-inicial.txt, frontend.txt y build.txt. Comentario elaborado por Codex como agente técnico, publicado con la cuenta Git autorizada del proyecto."
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Filtros: selectores rebasan el borde visible a 320 px",
+      "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/issues/4",
+      "state": "closed",
+      "state_reason": "completed",
+      "created_at": "2026-11-10T01:26:52Z",
+      "closed_at": "2026-11-10T01:28:22Z",
+      "comments": [
+        {
+          "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/issues/4#issuecomment-6756265762",
+          "author": "mora8292",
+          "created_at": "2026-11-10T01:28:21Z",
+          "updated_at": "2026-11-10T01:28:21Z",
+          "body": "Corregido en 664f416e5e84cabb7896be5055d889929045cfb3. Los selectores permiten reducir su ancho intrínseco (min-width: 0 y width: 100%) y el panel usa una columna hasta 400 px. Esto evita que los controles salgan del panel a 320 px.\n\nSe añadió frontend/e2e/responsive.spec.js: comprueba los límites reales de los siete controles dentro del panel y del viewport, además de cambiar y limpiar criterios. La variante móvil fuerza 320x760; la variante de escritorio conserva el viewport de su proyecto. El defecto inicial se conserva en COD-08.jpg/.txt y sesion_codex_inicial.json, sin ocultarlo mediante una comprobación exclusiva de scrollWidth.\n\nRevalidación local: 12/12 recorridos E2E correctos, incluyendo los dos nuevos casos de filtros, y compilación correcta. Evidencias: navegador.json, e2e.txt y desktop/mobile-filtros-responsive.png de entregables/entregable_testing_2026-11-09/evidencias. No se modificaron API, permisos ni datos. Comentario técnico elaborado por Codex y publicado con la cuenta Git autorizada del proyecto.\n"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "UI móvil: foco del detalle, ancho de página y disposición del chat",
+      "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/issues/5",
+      "state": "closed",
+      "state_reason": "completed",
+      "created_at": "2026-11-11T16:09:58Z",
+      "closed_at": "2026-11-11T16:09:59Z",
+      "comments": [
+        {
+          "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/issues/5#issuecomment-6800883528",
+          "author": "mora8292",
+          "created_at": "2026-11-11T16:09:59Z",
+          "updated_at": "2026-11-11T16:09:59Z",
+          "body": "Resolución técnica de Codex: commit LOCAL 20759004c4448e588f6b80e89dc6c127b399198c. Se quitó la altura fija de cabecera, se permitió al historial llenar el espacio disponible, se retiró el ancho mínimo del cuerpo y se excluyeron del recorrido de foco los controles ocultos y sus contenedores.\n\nRevalidación del 11 de noviembre de 2026 sobre ese commit: 55/55 pruebas frontend, 50/50 API y 26/26 E2E aprobadas. Los E2E comprueban cabecera/artículo sin solapamiento, campo de envío de al menos 84 px al pie del móvil, navegación de cinco opciones a 320 px, y Tab/Shift+Tab entre los controles visibles del detalle. La lectura real a 320 px confirma scrollWidth=clientWidth=305 con barras clásicas.\n\nEvidencias: entregables/entregable_testing_2026-11-11/evidencias y docs/diseno-minimal/2026-11-11. El despliegue Docker local está actualizado. Cierre por corrección y validación LOCAL; el commit sigue pendiente de publicación en el repositorio remoto. No se afirma que GitHub o un servicio público ya contengan esta versión."
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "QA Retirar el bloqueo de confirmación de correo para utilizar CampusTrade",
+      "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/issues/6",
+      "state": "closed",
+      "state_reason": "completed",
+      "created_at": "2026-11-13T04:45:14Z",
+      "closed_at": "2026-11-13T04:51:11Z",
+      "comments": [
+        {
+          "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/issues/6#issuecomment-6844408265",
+          "author": "mora8292",
+          "created_at": "2026-11-13T04:51:10Z",
+          "updated_at": "2026-11-13T04:51:10Z",
+          "body": "Resolución de Codex: se retiró requireVerified de publicaciones, cargas, conversaciones y operaciones, conservando requireUser y autorización de recursos. El registro no envía correo ni crea tokens; se retiraron rutas, consumo e insignias. El campo histórico verified_at conserva su valor. La promoción administrativa sigue siendo explícita sobre una cuenta activa y auditada; no se promovieron cuentas en este cambio.\n\nCommit publicado: https://github.com/JoshStra/Compraventa_Peru_Mexico/commit/0274f2b98a376ee67116fd5898ea1c9d14d63092\n\nRevalidación de esta entrega: 57 frontend, 54 API y 26 E2E aprobadas, sin fallos u omisiones. Comprobaciones adicionales del mismo código: nueve Docker y cinco SMTP de recuperación. Los recorridos utilizan cuentas registradas sin activar verified_at y comprueban publicación, imágenes, mensajes, operaciones, roles y permisos. Se conserva caducidad y uso único de recuperación, revocación de sesiones y rechazo de tokens antiguos de verificación para cambiar contraseñas.\n\nEvidencia de código publicada: docs/registro-sin-confirmacion/2026-11-12 en esta rama. La entrega documental del 12 de noviembre incorpora resultados por caso y comentarios identificados como evaluación de Codex, sin participantes humanos externos. El sitio se ejecuta en Docker local; este cierre no afirma despliegue público ni prueba de titularidad del correo institucional."
+        }
+      ]
+    }
+  ]
+}

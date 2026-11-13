@@ -17,3 +17,5 @@ Los issues #2 a #5 conservan correcciones de operaciones, atributo de React, rec
 ## Formulario de resolución
 
 Formulario_Correccion_Errores.docx contiene ocho campos nativos editables de Word: incidencia e issue; responsable y fecha; módulo y pasos; causa; comentario de solución; commit; regresión y estado; evidencia y comentario publicado. La persona encargada debe completarlos al resolver una nueva incidencia. El formulario vacío no equivale a una prueba ni a un issue completado.
+
+En el informe unificado del 13 de noviembre de 2026, este formulario está integrado dentro del apartado 3, con sus ocho campos editables. La versión independiente se conserva como archivo complementario; no es necesaria para completar el formulario del informe único.

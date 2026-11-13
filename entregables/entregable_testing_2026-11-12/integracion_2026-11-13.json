@@ -2,7 +2,7 @@
   "createdUtc": "2026-11-13T06:20:52Z",
   "integrationDateMexico": "2026-11-13",
   "testDatesPreserved": "2026-11-12 America/Mexico_City",
-  "baseCommit": "294ed2457bf7f0635bb0d066bbdf9d55dc933f3c",
+  "baseCommit": "0cec3f66ddd0d7f7683ec76ae26042c44af88f98",
   "sources": [
     {
       "file": "CampusTrade_Testing_Actualizado_2026-11-12.docx",
@@ -14,7 +14,7 @@
     }
   ],
   "output": "CampusTrade_Testing_Unificado_Con_Fotos_2026-11-13.docx",
-  "outputSha256": "b2f92122633acb8beb6fd8dff29f143522becccd8b6dd5bef7c994a3baa6cfb6",
+  "outputSha256": "52c0b82dccfb4cb396878be27370bd1f87cedc0863a52301f5f42bf5dee3ca7a",
   "uniqueCaseCards": 151,
   "drawings": 65,
   "caseScreenshots": 62,
@@ -336,22 +336,420 @@
     "Case"
   ],
   "deduplication": "El anexo original de 151 fichas se reemplaza por las mismas 151 fichas con fotos; se conservan los ocho apartados completos.",
+  "updatedUtc": "2026-11-13T06:42:30.590993+00:00",
+  "priorOutputSha256": "b2f92122633acb8beb6fd8dff29f143522becccd8b6dd5bef7c994a3baa6cfb6",
+  "embeddedForm": {
+    "source": "Formulario_Correccion_Errores.docx",
+    "sourceSha256": "e63a47725b11b16508b65e6c2334c01661fe8998bd26a7fee095d698ee937e16",
+    "tags": [
+      "INCIDENCIA",
+      "RESPONSABLE",
+      "REPRODUCCION",
+      "CAUSA",
+      "SOLUCION",
+      "COMMIT",
+      "REGRESION",
+      "EVIDENCIA"
+    ],
+    "nativeEditableFields": 8
+  },
+  "githubRevalidation": {
+    "dateMexico": "2026-11-13",
+    "verifiedUtc": "2026-11-13T06:40:41.886Z",
+    "file": "evidencias/github-verificacion_2026-11-13.json",
+    "closedIssuesWithComments": 6
+  },
+  "changedPackageParts": [
+    "docProps/core.xml",
+    "word/document.xml"
+  ],
   "validation": {
-    "checkedUtc": "2026-11-13T06:22:37.214284+00:00",
+    "checkedUtc": "2026-11-13T06:44:29.356166+00:00",
     "document": "CampusTrade_Testing_Unificado_Con_Fotos_2026-11-13.docx",
-    "sha256": "b2f92122633acb8beb6fd8dff29f143522becccd8b6dd5bef7c994a3baa6cfb6",
-    "pages": 90,
-    "caseCards": 151,
+    "sha256": "52c0b82dccfb4cb396878be27370bd1f87cedc0863a52301f5f42bf5dee3ca7a",
+    "pages": 91,
     "chapters": 8,
+    "uniqueCaseCards": 151,
+    "caseScreenshots": 62,
+    "generalScreenshots": 3,
     "images": 65,
-    "allSourceImagesPreserved": true,
-    "inputDocumentsUnchanged": true,
+    "nativeEditableFields": [
+      "INCIDENCIA",
+      "RESPONSABLE",
+      "REPRODUCCION",
+      "CAUSA",
+      "SOLUCION",
+      "COMMIT",
+      "REGRESION",
+      "EVIDENCIA"
+    ],
+    "fieldFillTestPassed": true,
     "allCaseIdsPresent": true,
+    "allImagesPreserved": true,
     "validRelationships": true,
-    "oneMainTitle": true,
+    "unchangedPackageParts": 81,
+    "changedPackageParts": [
+      "word/document.xml",
+      "docProps/core.xml"
+    ],
     "outOfMargins": 0,
     "sparsePages": [],
-    "visualReviewCompletedUtc": "2026-11-13T06:24:13.586261+00:00",
+    "closedIssuesWithComments": 6,
+    "codexInteractions": 8,
+    "externalHumanParticipants": 0,
+    "pixelIdenticalPreviouslyVerifiedBodies": [
+      {
+        "page": 2,
+        "unchangedBodyFromPreviouslyVerifiedPage": 2
+      },
+      {
+        "page": 3,
+        "unchangedBodyFromPreviouslyVerifiedPage": 3
+      },
+      {
+        "page": 7,
+        "unchangedBodyFromPreviouslyVerifiedPage": 6
+      },
+      {
+        "page": 8,
+        "unchangedBodyFromPreviouslyVerifiedPage": 7
+      },
+      {
+        "page": 10,
+        "unchangedBodyFromPreviouslyVerifiedPage": 9
+      },
+      {
+        "page": 11,
+        "unchangedBodyFromPreviouslyVerifiedPage": 10
+      },
+      {
+        "page": 12,
+        "unchangedBodyFromPreviouslyVerifiedPage": 11
+      },
+      {
+        "page": 13,
+        "unchangedBodyFromPreviouslyVerifiedPage": 12
+      },
+      {
+        "page": 14,
+        "unchangedBodyFromPreviouslyVerifiedPage": 13
+      },
+      {
+        "page": 15,
+        "unchangedBodyFromPreviouslyVerifiedPage": 14
+      },
+      {
+        "page": 16,
+        "unchangedBodyFromPreviouslyVerifiedPage": 15
+      },
+      {
+        "page": 17,
+        "unchangedBodyFromPreviouslyVerifiedPage": 16
+      },
+      {
+        "page": 18,
+        "unchangedBodyFromPreviouslyVerifiedPage": 17
+      },
+      {
+        "page": 19,
+        "unchangedBodyFromPreviouslyVerifiedPage": 18
+      },
+      {
+        "page": 20,
+        "unchangedBodyFromPreviouslyVerifiedPage": 19
+      },
+      {
+        "page": 21,
+        "unchangedBodyFromPreviouslyVerifiedPage": 20
+      },
+      {
+        "page": 22,
+        "unchangedBodyFromPreviouslyVerifiedPage": 21
+      },
+      {
+        "page": 23,
+        "unchangedBodyFromPreviouslyVerifiedPage": 22
+      },
+      {
+        "page": 24,
+        "unchangedBodyFromPreviouslyVerifiedPage": 23
+      },
+      {
+        "page": 25,
+        "unchangedBodyFromPreviouslyVerifiedPage": 24
+      },
+      {
+        "page": 26,
+        "unchangedBodyFromPreviouslyVerifiedPage": 25
+      },
+      {
+        "page": 27,
+        "unchangedBodyFromPreviouslyVerifiedPage": 26
+      },
+      {
+        "page": 28,
+        "unchangedBodyFromPreviouslyVerifiedPage": 27
+      },
+      {
+        "page": 29,
+        "unchangedBodyFromPreviouslyVerifiedPage": 28
+      },
+      {
+        "page": 30,
+        "unchangedBodyFromPreviouslyVerifiedPage": 29
+      },
+      {
+        "page": 31,
+        "unchangedBodyFromPreviouslyVerifiedPage": 30
+      },
+      {
+        "page": 32,
+        "unchangedBodyFromPreviouslyVerifiedPage": 31
+      },
+      {
+        "page": 33,
+        "unchangedBodyFromPreviouslyVerifiedPage": 32
+      },
+      {
+        "page": 34,
+        "unchangedBodyFromPreviouslyVerifiedPage": 33
+      },
+      {
+        "page": 35,
+        "unchangedBodyFromPreviouslyVerifiedPage": 34
+      },
+      {
+        "page": 36,
+        "unchangedBodyFromPreviouslyVerifiedPage": 35
+      },
+      {
+        "page": 37,
+        "unchangedBodyFromPreviouslyVerifiedPage": 36
+      },
+      {
+        "page": 38,
+        "unchangedBodyFromPreviouslyVerifiedPage": 37
+      },
+      {
+        "page": 39,
+        "unchangedBodyFromPreviouslyVerifiedPage": 38
+      },
+      {
+        "page": 40,
+        "unchangedBodyFromPreviouslyVerifiedPage": 39
+      },
+      {
+        "page": 41,
+        "unchangedBodyFromPreviouslyVerifiedPage": 40
+      },
+      {
+        "page": 42,
+        "unchangedBodyFromPreviouslyVerifiedPage": 41
+      },
+      {
+        "page": 43,
+        "unchangedBodyFromPreviouslyVerifiedPage": 42
+      },
+      {
+        "page": 44,
+        "unchangedBodyFromPreviouslyVerifiedPage": 43
+      },
+      {
+        "page": 45,
+        "unchangedBodyFromPreviouslyVerifiedPage": 44
+      },
+      {
+        "page": 46,
+        "unchangedBodyFromPreviouslyVerifiedPage": 45
+      },
+      {
+        "page": 47,
+        "unchangedBodyFromPreviouslyVerifiedPage": 46
+      },
+      {
+        "page": 48,
+        "unchangedBodyFromPreviouslyVerifiedPage": 47
+      },
+      {
+        "page": 49,
+        "unchangedBodyFromPreviouslyVerifiedPage": 48
+      },
+      {
+        "page": 50,
+        "unchangedBodyFromPreviouslyVerifiedPage": 49
+      },
+      {
+        "page": 51,
+        "unchangedBodyFromPreviouslyVerifiedPage": 50
+      },
+      {
+        "page": 52,
+        "unchangedBodyFromPreviouslyVerifiedPage": 51
+      },
+      {
+        "page": 53,
+        "unchangedBodyFromPreviouslyVerifiedPage": 52
+      },
+      {
+        "page": 54,
+        "unchangedBodyFromPreviouslyVerifiedPage": 53
+      },
+      {
+        "page": 55,
+        "unchangedBodyFromPreviouslyVerifiedPage": 54
+      },
+      {
+        "page": 56,
+        "unchangedBodyFromPreviouslyVerifiedPage": 55
+      },
+      {
+        "page": 57,
+        "unchangedBodyFromPreviouslyVerifiedPage": 56
+      },
+      {
+        "page": 58,
+        "unchangedBodyFromPreviouslyVerifiedPage": 57
+      },
+      {
+        "page": 59,
+        "unchangedBodyFromPreviouslyVerifiedPage": 58
+      },
+      {
+        "page": 60,
+        "unchangedBodyFromPreviouslyVerifiedPage": 59
+      },
+      {
+        "page": 61,
+        "unchangedBodyFromPreviouslyVerifiedPage": 60
+      },
+      {
+        "page": 62,
+        "unchangedBodyFromPreviouslyVerifiedPage": 61
+      },
+      {
+        "page": 63,
+        "unchangedBodyFromPreviouslyVerifiedPage": 62
+      },
+      {
+        "page": 64,
+        "unchangedBodyFromPreviouslyVerifiedPage": 63
+      },
+      {
+        "page": 65,
+        "unchangedBodyFromPreviouslyVerifiedPage": 64
+      },
+      {
+        "page": 66,
+        "unchangedBodyFromPreviouslyVerifiedPage": 65
+      },
+      {
+        "page": 67,
+        "unchangedBodyFromPreviouslyVerifiedPage": 66
+      },
+      {
+        "page": 68,
+        "unchangedBodyFromPreviouslyVerifiedPage": 67
+      },
+      {
+        "page": 69,
+        "unchangedBodyFromPreviouslyVerifiedPage": 68
+      },
+      {
+        "page": 70,
+        "unchangedBodyFromPreviouslyVerifiedPage": 69
+      },
+      {
+        "page": 71,
+        "unchangedBodyFromPreviouslyVerifiedPage": 70
+      },
+      {
+        "page": 72,
+        "unchangedBodyFromPreviouslyVerifiedPage": 71
+      },
+      {
+        "page": 73,
+        "unchangedBodyFromPreviouslyVerifiedPage": 72
+      },
+      {
+        "page": 74,
+        "unchangedBodyFromPreviouslyVerifiedPage": 73
+      },
+      {
+        "page": 75,
+        "unchangedBodyFromPreviouslyVerifiedPage": 74
+      },
+      {
+        "page": 76,
+        "unchangedBodyFromPreviouslyVerifiedPage": 75
+      },
+      {
+        "page": 77,
+        "unchangedBodyFromPreviouslyVerifiedPage": 76
+      },
+      {
+        "page": 78,
+        "unchangedBodyFromPreviouslyVerifiedPage": 77
+      },
+      {
+        "page": 79,
+        "unchangedBodyFromPreviouslyVerifiedPage": 78
+      },
+      {
+        "page": 80,
+        "unchangedBodyFromPreviouslyVerifiedPage": 79
+      },
+      {
+        "page": 81,
+        "unchangedBodyFromPreviouslyVerifiedPage": 80
+      },
+      {
+        "page": 82,
+        "unchangedBodyFromPreviouslyVerifiedPage": 81
+      },
+      {
+        "page": 83,
+        "unchangedBodyFromPreviouslyVerifiedPage": 82
+      },
+      {
+        "page": 84,
+        "unchangedBodyFromPreviouslyVerifiedPage": 83
+      },
+      {
+        "page": 85,
+        "unchangedBodyFromPreviouslyVerifiedPage": 84
+      },
+      {
+        "page": 86,
+        "unchangedBodyFromPreviouslyVerifiedPage": 85
+      },
+      {
+        "page": 87,
+        "unchangedBodyFromPreviouslyVerifiedPage": 86
+      },
+      {
+        "page": 88,
+        "unchangedBodyFromPreviouslyVerifiedPage": 87
+      },
+      {
+        "page": 89,
+        "unchangedBodyFromPreviouslyVerifiedPage": 88
+      },
+      {
+        "page": 90,
+        "unchangedBodyFromPreviouslyVerifiedPage": 89
+      },
+      {
+        "page": 91,
+        "unchangedBodyFromPreviouslyVerifiedPage": 90
+      }
+    ],
+    "changedPagesToInspect": [
+      1,
+      4,
+      5,
+      6,
+      9
+    ],
     "visuallyVerifiedPages": [
       1,
       2,
@@ -442,28 +840,15 @@
       87,
       88,
       89,
-      90
+      90,
+      91
     ],
-    "pixelIdenticalReviewedBodies": 74,
-    "changedPageBodiesInspected": [
-      1,
-      2,
-      13,
-      43,
-      50,
-      54,
-      55,
-      56,
-      57,
-      58,
-      59,
-      60,
-      61,
-      62,
-      67,
-      69
-    ],
-    "continuousPageNumbers": true,
-    "reviewMethod": "Render a 144 dpi; cuerpos de página idénticos contrastados por píxeles con los originales ya revisados y revisión visual de todas las páginas modificadas"
+    "visualReviewCompletedUtc": "2026-11-13T06:46:04.712348+00:00",
+    "reviewMethod": "86 page bodies are pixel-identical to the previously verified integrated report at 144 dpi; all five changed or inserted pages were visually inspected; eight chapter pages also inspected",
+    "filledFormVisuallyVerified": true,
+    "filledFormPage": 5,
+    "sourceDocumentsUnchanged": 3,
+    "knownSecretMatches": 0,
+    "finalReviewUtc": "2026-11-13T06:47:57.150571+00:00"
   }
 }

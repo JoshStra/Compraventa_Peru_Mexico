@@ -1,0 +1,2309 @@
+{
+  "updatedUtc": "2026-11-13T23:31:10.526303+00:00",
+  "document": "CampusTrade_Testing_Unificado_Con_Fotos_2026-11-13.docx",
+  "documentSha256": "1dbddaff1b06ff344fd9f0943e69b7f92878c7cd8d2dc75e8dc4bab03c191099",
+  "uniqueCases": 151,
+  "casesWithImageOnTheirPage": 151,
+  "technicalCases": 125,
+  "browserCases": 26,
+  "uniqueImageAssets": 69,
+  "totalImageOccurrences": 164,
+  "scope": "Cada ficha y sus capturas aparecen en la misma página. Los reportes de grupo originales se repiten en cada ficha técnica, identificando la fila del caso. No se generan resultados ni capturas nuevas.",
+  "cases": [
+    {
+      "caseId": "E2E-DESKTOP-01",
+      "suite": "Navegador",
+      "module": "Precios accesibles",
+      "heading": "Caso E2E DESKTOP 01",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "E2E-DESKTOP-01-F1",
+          "file": "fotos_casos/desktop-rango-precio-accesible.png",
+          "sha256": "52c640d3ee8211da8a778d7a0e11f0ec46367264db93090d6b8bbd319de6f106"
+        }
+      ],
+      "page": 19
+    },
+    {
+      "caseId": "E2E-DESKTOP-02",
+      "suite": "Navegador",
+      "module": "URL e historial",
+      "heading": "Caso E2E DESKTOP 02",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "E2E-DESKTOP-02-F1",
+          "file": "fotos_casos/desktop-url-filtros-persistentes.png",
+          "sha256": "4e446f0ed7660b606cf038da1b37b855af44df0d6e834d4671255a093d53b8c7"
+        }
+      ],
+      "page": 20
+    },
+    {
+      "caseId": "E2E-DESKTOP-03",
+      "suite": "Navegador",
+      "module": "Registro y foco",
+      "heading": "Caso E2E DESKTOP 03",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "E2E-DESKTOP-03-F1",
+          "file": "fotos_casos/desktop-registro-con-ayudas.png",
+          "sha256": "b88e4633acd67b0c6548a9042426eb975a6f22741b8ea2b2412e754c3a340e76"
+        }
+      ],
+      "page": 21
+    },
+    {
+      "caseId": "E2E-DESKTOP-04",
+      "suite": "Navegador",
+      "module": "Navegación y rol",
+      "heading": "Caso E2E DESKTOP 04",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "E2E-DESKTOP-04-F1",
+          "file": "fotos_casos/desktop-administracion-320.png",
+          "sha256": "0fb5408e6863f191450d2e7035378cc168e66e8f453b778f18a90806044143a1"
+        }
+      ],
+      "page": 22
+    },
+    {
+      "caseId": "E2E-DESKTOP-05",
+      "suite": "Navegador",
+      "module": "Búsqueda, fichas y detalle",
+      "heading": "Caso E2E DESKTOP 05",
+      "images": 2,
+      "evidence": [
+        {
+          "id": "E2E-DESKTOP-05-F1",
+          "file": "fotos_casos/desktop-minimal-catalogo.png",
+          "sha256": "0447bcaf41ae5155bb0e567225688fc3004735dd204bffb19c1a54572905d1b7"
+        },
+        {
+          "id": "E2E-DESKTOP-05-F2",
+          "file": "fotos_casos/desktop-minimal-detalle.png",
+          "sha256": "1a77b7c0862934c8fddb5b2651ba3c6b3568d17e39b3454ed5a2df30182242d2"
+        }
+      ],
+      "page": 23
+    },
+    {
+      "caseId": "E2E-DESKTOP-06",
+      "suite": "Navegador",
+      "module": "Publicación con imagen",
+      "heading": "Caso E2E DESKTOP 06",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "E2E-DESKTOP-06-F1",
+          "file": "fotos_casos/desktop-perfil-postgresql.png",
+          "sha256": "d842612e8d7c5e2e7934e4ff2e9d3d493b4041c3e9e52ae416ddcf07b8e97baf"
+        }
+      ],
+      "page": 24
+    },
+    {
+      "caseId": "E2E-DESKTOP-07",
+      "suite": "Navegador",
+      "module": "Favoritos persistentes",
+      "heading": "Caso E2E DESKTOP 07",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "E2E-DESKTOP-07-F1",
+          "file": "fotos_casos/desktop-favoritos-persistentes.png",
+          "sha256": "c27dfd5cb08f0315645c325c36af12bb7b6d3b1e5d9f57005cb5884c75ef6873"
+        }
+      ],
+      "page": 25
+    },
+    {
+      "caseId": "E2E-DESKTOP-08",
+      "suite": "Navegador",
+      "module": "Perfil y acceso directo",
+      "heading": "Caso E2E DESKTOP 08",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "E2E-DESKTOP-08-F1",
+          "file": "fotos_casos/desktop-perfil-sin-apartado-verificacion.png",
+          "sha256": "8862414ba51cb4017c4cc055c22642a4677a9c7a2bd0b9b5a5eb39253d1166f5"
+        }
+      ],
+      "page": 26
+    },
+    {
+      "caseId": "E2E-DESKTOP-09",
+      "suite": "Navegador",
+      "module": "Filtros adaptables",
+      "heading": "Caso E2E DESKTOP 09",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "E2E-DESKTOP-09-F1",
+          "file": "fotos_casos/desktop-filtros-responsive.png",
+          "sha256": "40ac7e89fd63ba84cf06418e41eb7a25b6d2529cdd1f7fdf0b7a9e3f22db5d7c"
+        }
+      ],
+      "page": 27
+    },
+    {
+      "caseId": "E2E-DESKTOP-10",
+      "suite": "Navegador",
+      "module": "Contenido XSS como texto",
+      "heading": "Caso E2E DESKTOP 10",
+      "images": 2,
+      "evidence": [
+        {
+          "id": "E2E-DESKTOP-10-F1",
+          "file": "fotos_casos/desktop-security-xss-catalog.png",
+          "sha256": "b6d4df1439b6144e9bc8fbdbfcf38b03d64f4c40f85d5319c0b566a54493c3e0"
+        },
+        {
+          "id": "E2E-DESKTOP-10-F2",
+          "file": "fotos_casos/desktop-security-xss-message.png",
+          "sha256": "b5c011499395ea60919177ca5cf0f7426e490b189ee6a966dbeeedc3d83bcf9c"
+        }
+      ],
+      "page": 28
+    },
+    {
+      "caseId": "E2E-DESKTOP-11",
+      "suite": "Navegador",
+      "module": "Devolución vigente",
+      "heading": "Caso E2E DESKTOP 11",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "E2E-DESKTOP-11-F1",
+          "file": "fotos_casos/desktop-security-rental-history.png",
+          "sha256": "ca955b8a23866c63cd7f8d99937728c635369a0c2d6ca840260aa9de49600b97"
+        }
+      ],
+      "page": 29
+    },
+    {
+      "caseId": "E2E-DESKTOP-12",
+      "suite": "Navegador",
+      "module": "Mensajes y venta",
+      "heading": "Caso E2E DESKTOP 12",
+      "images": 2,
+      "evidence": [
+        {
+          "id": "E2E-DESKTOP-12-F1",
+          "file": "fotos_casos/desktop-mensajes.png",
+          "sha256": "18e702c41af3dbe262c400db0088797a131b4b1b64ed14702aad3700b7741d00"
+        },
+        {
+          "id": "E2E-DESKTOP-12-F2",
+          "file": "fotos_casos/desktop-operacion-finalizada.png",
+          "sha256": "cb8aa053a90631bbffbe31bdc4784f1675559e965e25d54fae8d781f37b7329c"
+        }
+      ],
+      "page": 30
+    },
+    {
+      "caseId": "E2E-DESKTOP-13",
+      "suite": "Navegador",
+      "module": "Reporte y moderación",
+      "heading": "Caso E2E DESKTOP 13",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "E2E-DESKTOP-13-F1",
+          "file": "fotos_casos/desktop-administracion.png",
+          "sha256": "f0a54f18c7500d6470cc242961200ef71622eba2103975dcb6e4cbe50180a6b2"
+        }
+      ],
+      "page": 31
+    },
+    {
+      "caseId": "E2E-MOBILE-01",
+      "suite": "Navegador",
+      "module": "Precios accesibles",
+      "heading": "Caso E2E MOBILE 01",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "E2E-MOBILE-01-F1",
+          "file": "fotos_casos/mobile-rango-precio-accesible.png",
+          "sha256": "8f689bd10c284e6d5e6af02421c2369589351abf4b8991a8a5d42778425cae0b"
+        }
+      ],
+      "page": 32
+    },
+    {
+      "caseId": "E2E-MOBILE-02",
+      "suite": "Navegador",
+      "module": "URL e historial",
+      "heading": "Caso E2E MOBILE 02",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "E2E-MOBILE-02-F1",
+          "file": "fotos_casos/mobile-url-filtros-persistentes.png",
+          "sha256": "9dfa815a4a327e631dcc1fa6be35f47c113c908345d8e3132ab4df9fa25e0eb9"
+        }
+      ],
+      "page": 33
+    },
+    {
+      "caseId": "E2E-MOBILE-03",
+      "suite": "Navegador",
+      "module": "Registro y foco",
+      "heading": "Caso E2E MOBILE 03",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "E2E-MOBILE-03-F1",
+          "file": "fotos_casos/mobile-registro-con-ayudas.png",
+          "sha256": "b38cda3e7d7084bf34057cfb85dc0f54d1c45b8d95c49d5ca1c7eb983bce771d"
+        }
+      ],
+      "page": 34
+    },
+    {
+      "caseId": "E2E-MOBILE-04",
+      "suite": "Navegador",
+      "module": "Navegación y rol",
+      "heading": "Caso E2E MOBILE 04",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "E2E-MOBILE-04-F1",
+          "file": "fotos_casos/mobile-administracion-320.png",
+          "sha256": "e7bf0d70c0a7d1aa060e4d39012c3e80f35e5e71937d8223c8bfc4f84b151db0"
+        }
+      ],
+      "page": 35
+    },
+    {
+      "caseId": "E2E-MOBILE-05",
+      "suite": "Navegador",
+      "module": "Búsqueda, fichas y detalle",
+      "heading": "Caso E2E MOBILE 05",
+      "images": 2,
+      "evidence": [
+        {
+          "id": "E2E-MOBILE-05-F1",
+          "file": "fotos_casos/mobile-minimal-catalogo.png",
+          "sha256": "5925073a2eb54c7cd88c0af3ba9ec7e1a688928a630c276250f9460069900cf4"
+        },
+        {
+          "id": "E2E-MOBILE-05-F2",
+          "file": "fotos_casos/mobile-minimal-detalle.png",
+          "sha256": "04a1989551f86fe994bd2b00fe0f3c68065072752387edbc5c1bf054d864f014"
+        }
+      ],
+      "page": 36
+    },
+    {
+      "caseId": "E2E-MOBILE-06",
+      "suite": "Navegador",
+      "module": "Publicación con imagen",
+      "heading": "Caso E2E MOBILE 06",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "E2E-MOBILE-06-F1",
+          "file": "fotos_casos/mobile-perfil-postgresql.png",
+          "sha256": "698860769ace4c0f4f7808d1932e863e14638c4738c6b2a8ff8393f1266373c6"
+        }
+      ],
+      "page": 37
+    },
+    {
+      "caseId": "E2E-MOBILE-07",
+      "suite": "Navegador",
+      "module": "Favoritos persistentes",
+      "heading": "Caso E2E MOBILE 07",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "E2E-MOBILE-07-F1",
+          "file": "fotos_casos/mobile-favoritos-persistentes.png",
+          "sha256": "318136d7937711b5bc99be70f03e4f6b535337be5f3b6b94a76f83697e1931be"
+        }
+      ],
+      "page": 38
+    },
+    {
+      "caseId": "E2E-MOBILE-08",
+      "suite": "Navegador",
+      "module": "Perfil y acceso directo",
+      "heading": "Caso E2E MOBILE 08",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "E2E-MOBILE-08-F1",
+          "file": "fotos_casos/mobile-perfil-sin-apartado-verificacion.png",
+          "sha256": "fa2d38ff066bcfe26afc9a4e275815b3afe3ad1b875ac465315d0b20c32422f1"
+        }
+      ],
+      "page": 39
+    },
+    {
+      "caseId": "E2E-MOBILE-09",
+      "suite": "Navegador",
+      "module": "Filtros adaptables",
+      "heading": "Caso E2E MOBILE 09",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "E2E-MOBILE-09-F1",
+          "file": "fotos_casos/mobile-filtros-responsive.png",
+          "sha256": "2e24859a9a61153490e819e6a7d6306f2907b8909052b59f53c08afbe7e4eb36"
+        }
+      ],
+      "page": 40
+    },
+    {
+      "caseId": "E2E-MOBILE-10",
+      "suite": "Navegador",
+      "module": "Contenido XSS como texto",
+      "heading": "Caso E2E MOBILE 10",
+      "images": 2,
+      "evidence": [
+        {
+          "id": "E2E-MOBILE-10-F1",
+          "file": "fotos_casos/mobile-security-xss-catalog.png",
+          "sha256": "9aabce9740ec2e75e585be4589247a11dcb3117bed76e317924ce8eb28ca7b47"
+        },
+        {
+          "id": "E2E-MOBILE-10-F2",
+          "file": "fotos_casos/mobile-security-xss-message.png",
+          "sha256": "7155088b386af4bc40356c961c043a3b83275bf23a9dd6156d7913da15287f07"
+        }
+      ],
+      "page": 41
+    },
+    {
+      "caseId": "E2E-MOBILE-11",
+      "suite": "Navegador",
+      "module": "Devolución vigente",
+      "heading": "Caso E2E MOBILE 11",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "E2E-MOBILE-11-F1",
+          "file": "fotos_casos/mobile-security-rental-history.png",
+          "sha256": "b5d66d2923cc13b11f71c0c7c7e4fa68738f80316c7fafa451885403b9496167"
+        }
+      ],
+      "page": 42
+    },
+    {
+      "caseId": "E2E-MOBILE-12",
+      "suite": "Navegador",
+      "module": "Mensajes y venta",
+      "heading": "Caso E2E MOBILE 12",
+      "images": 2,
+      "evidence": [
+        {
+          "id": "E2E-MOBILE-12-F1",
+          "file": "fotos_casos/mobile-mensajes.png",
+          "sha256": "194c3249f294e10d41317beee69cf6db01f685fc38c94cb84bb420a486fc2050"
+        },
+        {
+          "id": "E2E-MOBILE-12-F2",
+          "file": "fotos_casos/mobile-operacion-finalizada.png",
+          "sha256": "3393196017d407fccfb4152a9107284763605e4e4f6ec9ee7de701dc8549824a"
+        }
+      ],
+      "page": 43
+    },
+    {
+      "caseId": "E2E-MOBILE-13",
+      "suite": "Navegador",
+      "module": "Reporte y moderación",
+      "heading": "Caso E2E MOBILE 13",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "E2E-MOBILE-13-F1",
+          "file": "fotos_casos/mobile-administracion.png",
+          "sha256": "dce88804dbd1fcb7162dbc4b3a5547266ebe4989a61be3c64ba14433ae0d743f"
+        }
+      ],
+      "page": 44
+    },
+    {
+      "caseId": "API-AUTH-00",
+      "suite": "API",
+      "module": "Registro sin confirmación",
+      "heading": "Caso API AUTH 00",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T01",
+          "file": "fotos_casos/t01-reporte-api.png",
+          "sha256": "2b5f33bd5b7c57550970e5e144391c630d7959d292089e156c07cdc32cbc7dae"
+        }
+      ],
+      "page": 45
+    },
+    {
+      "caseId": "API-AUTH-01",
+      "suite": "API",
+      "module": "Cuentas y sesiones",
+      "heading": "Caso API AUTH 01",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T01",
+          "file": "fotos_casos/t01-reporte-api.png",
+          "sha256": "2b5f33bd5b7c57550970e5e144391c630d7959d292089e156c07cdc32cbc7dae"
+        }
+      ],
+      "page": 46
+    },
+    {
+      "caseId": "API-AUTH-02",
+      "suite": "API",
+      "module": "Cuentas y sesiones",
+      "heading": "Caso API AUTH 02",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T01",
+          "file": "fotos_casos/t01-reporte-api.png",
+          "sha256": "2b5f33bd5b7c57550970e5e144391c630d7959d292089e156c07cdc32cbc7dae"
+        }
+      ],
+      "page": 47
+    },
+    {
+      "caseId": "API-AUTH-03",
+      "suite": "API",
+      "module": "Confirmación retirada y recuperación",
+      "heading": "Caso API AUTH 03",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T01",
+          "file": "fotos_casos/t01-reporte-api.png",
+          "sha256": "2b5f33bd5b7c57550970e5e144391c630d7959d292089e156c07cdc32cbc7dae"
+        }
+      ],
+      "page": 48
+    },
+    {
+      "caseId": "API-AUTH-04",
+      "suite": "API",
+      "module": "Cuentas y sesiones",
+      "heading": "Caso API AUTH 04",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T01",
+          "file": "fotos_casos/t01-reporte-api.png",
+          "sha256": "2b5f33bd5b7c57550970e5e144391c630d7959d292089e156c07cdc32cbc7dae"
+        }
+      ],
+      "page": 49
+    },
+    {
+      "caseId": "API-AUTH-05",
+      "suite": "API",
+      "module": "Cuentas y sesiones",
+      "heading": "Caso API AUTH 05",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T01",
+          "file": "fotos_casos/t01-reporte-api.png",
+          "sha256": "2b5f33bd5b7c57550970e5e144391c630d7959d292089e156c07cdc32cbc7dae"
+        }
+      ],
+      "page": 50
+    },
+    {
+      "caseId": "API-AUTH-06",
+      "suite": "API",
+      "module": "Cuentas y sesiones",
+      "heading": "Caso API AUTH 06",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T02",
+          "file": "fotos_casos/t02-reporte-api.png",
+          "sha256": "c2fbec7f66d521276026c9e3727d899bc475558052e9c69d9a92b79bb145e341"
+        }
+      ],
+      "page": 51
+    },
+    {
+      "caseId": "API-CONFIG-01",
+      "suite": "API",
+      "module": "Configuración de producción",
+      "heading": "Caso API CONFIG 01",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T03",
+          "file": "fotos_casos/t03-reporte-api.png",
+          "sha256": "87356aafbe6f97dfd853caeff2b40c8b9a3ec1d83c995a1a7a73072185a6d13e"
+        }
+      ],
+      "page": 52
+    },
+    {
+      "caseId": "API-CONFIG-02",
+      "suite": "API",
+      "module": "Configuración de producción",
+      "heading": "Caso API CONFIG 02",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T03",
+          "file": "fotos_casos/t03-reporte-api.png",
+          "sha256": "87356aafbe6f97dfd853caeff2b40c8b9a3ec1d83c995a1a7a73072185a6d13e"
+        }
+      ],
+      "page": 53
+    },
+    {
+      "caseId": "API-CONFIG-03",
+      "suite": "API",
+      "module": "Configuración de producción",
+      "heading": "Caso API CONFIG 03",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T03",
+          "file": "fotos_casos/t03-reporte-api.png",
+          "sha256": "87356aafbe6f97dfd853caeff2b40c8b9a3ec1d83c995a1a7a73072185a6d13e"
+        }
+      ],
+      "page": 54
+    },
+    {
+      "caseId": "API-CONFIG-04",
+      "suite": "API",
+      "module": "Configuración de producción",
+      "heading": "Caso API CONFIG 04",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T03",
+          "file": "fotos_casos/t03-reporte-api.png",
+          "sha256": "87356aafbe6f97dfd853caeff2b40c8b9a3ec1d83c995a1a7a73072185a6d13e"
+        }
+      ],
+      "page": 55
+    },
+    {
+      "caseId": "API-CONFIG-05",
+      "suite": "API",
+      "module": "Configuración de correo local",
+      "heading": "Caso API CONFIG 05",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T03",
+          "file": "fotos_casos/t03-reporte-api.png",
+          "sha256": "87356aafbe6f97dfd853caeff2b40c8b9a3ec1d83c995a1a7a73072185a6d13e"
+        }
+      ],
+      "page": 56
+    },
+    {
+      "caseId": "API-CONFIG-06",
+      "suite": "API",
+      "module": "Configuración de correo local",
+      "heading": "Caso API CONFIG 06",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T03",
+          "file": "fotos_casos/t03-reporte-api.png",
+          "sha256": "87356aafbe6f97dfd853caeff2b40c8b9a3ec1d83c995a1a7a73072185a6d13e"
+        }
+      ],
+      "page": 57
+    },
+    {
+      "caseId": "API-CONFIG-07",
+      "suite": "API",
+      "module": "Separación de entornos",
+      "heading": "Caso API CONFIG 07",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T04",
+          "file": "fotos_casos/t04-reporte-api.png",
+          "sha256": "9db8d90bf8de28ed7322ecf693a12e2e27e6455475c305cc92567e9490dba728"
+        }
+      ],
+      "page": 58
+    },
+    {
+      "caseId": "API-CONVERSATIONS-01",
+      "suite": "API",
+      "module": "Mensajes privados",
+      "heading": "Caso API CONVERSATIONS 01",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T05",
+          "file": "fotos_casos/t05-reporte-api.png",
+          "sha256": "0264d8bc919d6cbe6be79557d57180b683f417fd2358168208c54398c6f8119f"
+        }
+      ],
+      "page": 59
+    },
+    {
+      "caseId": "API-CONVERSATIONS-02",
+      "suite": "API",
+      "module": "Mensajes privados",
+      "heading": "Caso API CONVERSATIONS 02",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T05",
+          "file": "fotos_casos/t05-reporte-api.png",
+          "sha256": "0264d8bc919d6cbe6be79557d57180b683f417fd2358168208c54398c6f8119f"
+        }
+      ],
+      "page": 60
+    },
+    {
+      "caseId": "API-CONVERSATIONS-03",
+      "suite": "API",
+      "module": "Mensajes privados",
+      "heading": "Caso API CONVERSATIONS 03",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T05",
+          "file": "fotos_casos/t05-reporte-api.png",
+          "sha256": "0264d8bc919d6cbe6be79557d57180b683f417fd2358168208c54398c6f8119f"
+        }
+      ],
+      "page": 61
+    },
+    {
+      "caseId": "API-DATABASE-01",
+      "suite": "API",
+      "module": "PostgreSQL y migraciones",
+      "heading": "Caso API DATABASE 01",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T06",
+          "file": "fotos_casos/t06-reporte-api.png",
+          "sha256": "f01f54b72f4c2c484984f2a5e605cfe7ec01475d2fc1271c713d96622a7f221d"
+        }
+      ],
+      "page": 62
+    },
+    {
+      "caseId": "API-DATABASE-02",
+      "suite": "API",
+      "module": "PostgreSQL y migraciones",
+      "heading": "Caso API DATABASE 02",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T06",
+          "file": "fotos_casos/t06-reporte-api.png",
+          "sha256": "f01f54b72f4c2c484984f2a5e605cfe7ec01475d2fc1271c713d96622a7f221d"
+        }
+      ],
+      "page": 63
+    },
+    {
+      "caseId": "API-DATABASE-03",
+      "suite": "API",
+      "module": "PostgreSQL y migraciones",
+      "heading": "Caso API DATABASE 03",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T06",
+          "file": "fotos_casos/t06-reporte-api.png",
+          "sha256": "f01f54b72f4c2c484984f2a5e605cfe7ec01475d2fc1271c713d96622a7f221d"
+        }
+      ],
+      "page": 64
+    },
+    {
+      "caseId": "API-LISTINGS-01",
+      "suite": "API",
+      "module": "Publicación y propiedad",
+      "heading": "Caso API LISTINGS 01",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T07",
+          "file": "fotos_casos/t07-reporte-api.png",
+          "sha256": "fa64bba271e6188d98c538f29fbe7390744c88a047e59ea7a4fcb72174d39ca4"
+        }
+      ],
+      "page": 65
+    },
+    {
+      "caseId": "API-LISTINGS-02",
+      "suite": "API",
+      "module": "Publicaciones e imágenes",
+      "heading": "Caso API LISTINGS 02",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T07",
+          "file": "fotos_casos/t07-reporte-api.png",
+          "sha256": "fa64bba271e6188d98c538f29fbe7390744c88a047e59ea7a4fcb72174d39ca4"
+        }
+      ],
+      "page": 66
+    },
+    {
+      "caseId": "API-LISTINGS-03",
+      "suite": "API",
+      "module": "Publicaciones e imágenes",
+      "heading": "Caso API LISTINGS 03",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T07",
+          "file": "fotos_casos/t07-reporte-api.png",
+          "sha256": "fa64bba271e6188d98c538f29fbe7390744c88a047e59ea7a4fcb72174d39ca4"
+        }
+      ],
+      "page": 67
+    },
+    {
+      "caseId": "API-LISTINGS-04",
+      "suite": "API",
+      "module": "Publicaciones e imágenes",
+      "heading": "Caso API LISTINGS 04",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T07",
+          "file": "fotos_casos/t07-reporte-api.png",
+          "sha256": "fa64bba271e6188d98c538f29fbe7390744c88a047e59ea7a4fcb72174d39ca4"
+        }
+      ],
+      "page": 68
+    },
+    {
+      "caseId": "API-LISTINGS-05",
+      "suite": "API",
+      "module": "Publicaciones e imágenes",
+      "heading": "Caso API LISTINGS 05",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T07",
+          "file": "fotos_casos/t07-reporte-api.png",
+          "sha256": "fa64bba271e6188d98c538f29fbe7390744c88a047e59ea7a4fcb72174d39ca4"
+        }
+      ],
+      "page": 69
+    },
+    {
+      "caseId": "API-LISTINGS-06",
+      "suite": "API",
+      "module": "Publicaciones e imágenes",
+      "heading": "Caso API LISTINGS 06",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T07",
+          "file": "fotos_casos/t07-reporte-api.png",
+          "sha256": "fa64bba271e6188d98c538f29fbe7390744c88a047e59ea7a4fcb72174d39ca4"
+        }
+      ],
+      "page": 70
+    },
+    {
+      "caseId": "API-MODERATION-01",
+      "suite": "API",
+      "module": "Reportes y administración",
+      "heading": "Caso API MODERATION 01",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T08",
+          "file": "fotos_casos/t08-reporte-api.png",
+          "sha256": "f954020408bf8cfb6262f69d6b16985616fd3f8c016e017a2fb9c2e9277d0c46"
+        }
+      ],
+      "page": 71
+    },
+    {
+      "caseId": "API-MODERATION-02",
+      "suite": "API",
+      "module": "Reportes y administración",
+      "heading": "Caso API MODERATION 02",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T08",
+          "file": "fotos_casos/t08-reporte-api.png",
+          "sha256": "f954020408bf8cfb6262f69d6b16985616fd3f8c016e017a2fb9c2e9277d0c46"
+        }
+      ],
+      "page": 72
+    },
+    {
+      "caseId": "API-MODERATION-03",
+      "suite": "API",
+      "module": "Reportes y administración",
+      "heading": "Caso API MODERATION 03",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T08",
+          "file": "fotos_casos/t08-reporte-api.png",
+          "sha256": "f954020408bf8cfb6262f69d6b16985616fd3f8c016e017a2fb9c2e9277d0c46"
+        }
+      ],
+      "page": 73
+    },
+    {
+      "caseId": "API-MODERATION-04",
+      "suite": "API",
+      "module": "Reportes y administración",
+      "heading": "Caso API MODERATION 04",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T08",
+          "file": "fotos_casos/t08-reporte-api.png",
+          "sha256": "f954020408bf8cfb6262f69d6b16985616fd3f8c016e017a2fb9c2e9277d0c46"
+        }
+      ],
+      "page": 74
+    },
+    {
+      "caseId": "API-MODERATION-05",
+      "suite": "API",
+      "module": "Reportes y administración",
+      "heading": "Caso API MODERATION 05",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T08",
+          "file": "fotos_casos/t08-reporte-api.png",
+          "sha256": "f954020408bf8cfb6262f69d6b16985616fd3f8c016e017a2fb9c2e9277d0c46"
+        }
+      ],
+      "page": 75
+    },
+    {
+      "caseId": "API-OPERATIONS-01",
+      "suite": "API",
+      "module": "Operaciones y calificaciones",
+      "heading": "Caso API OPERATIONS 01",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T09",
+          "file": "fotos_casos/t09-reporte-api.png",
+          "sha256": "64916f6c30e07179cc24e345082316cc4c2f49ce141121980af24df90a3f2563"
+        }
+      ],
+      "page": 76
+    },
+    {
+      "caseId": "API-OPERATIONS-02",
+      "suite": "API",
+      "module": "Operaciones y calificaciones",
+      "heading": "Caso API OPERATIONS 02",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T09",
+          "file": "fotos_casos/t09-reporte-api.png",
+          "sha256": "64916f6c30e07179cc24e345082316cc4c2f49ce141121980af24df90a3f2563"
+        }
+      ],
+      "page": 77
+    },
+    {
+      "caseId": "API-OPERATIONS-03",
+      "suite": "API",
+      "module": "Operaciones y calificaciones",
+      "heading": "Caso API OPERATIONS 03",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T09",
+          "file": "fotos_casos/t09-reporte-api.png",
+          "sha256": "64916f6c30e07179cc24e345082316cc4c2f49ce141121980af24df90a3f2563"
+        }
+      ],
+      "page": 78
+    },
+    {
+      "caseId": "API-OPERATIONS-04",
+      "suite": "API",
+      "module": "Operaciones y calificaciones",
+      "heading": "Caso API OPERATIONS 04",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T09",
+          "file": "fotos_casos/t09-reporte-api.png",
+          "sha256": "64916f6c30e07179cc24e345082316cc4c2f49ce141121980af24df90a3f2563"
+        }
+      ],
+      "page": 79
+    },
+    {
+      "caseId": "API-OPERATIONS-05",
+      "suite": "API",
+      "module": "Operaciones y calificaciones",
+      "heading": "Caso API OPERATIONS 05",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T09",
+          "file": "fotos_casos/t09-reporte-api.png",
+          "sha256": "64916f6c30e07179cc24e345082316cc4c2f49ce141121980af24df90a3f2563"
+        }
+      ],
+      "page": 80
+    },
+    {
+      "caseId": "API-OPERATIONS-06",
+      "suite": "API",
+      "module": "Operaciones y calificaciones",
+      "heading": "Caso API OPERATIONS 06",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T09",
+          "file": "fotos_casos/t09-reporte-api.png",
+          "sha256": "64916f6c30e07179cc24e345082316cc4c2f49ce141121980af24df90a3f2563"
+        }
+      ],
+      "page": 81
+    },
+    {
+      "caseId": "API-PERSISTENCE-01",
+      "suite": "API",
+      "module": "Persistencia entre procesos",
+      "heading": "Caso API PERSISTENCE 01",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T10",
+          "file": "fotos_casos/t10-reporte-api.png",
+          "sha256": "4f36404e91a33ede60cee475f436f44b8ffaf457b307e9a3aba68851ffb1115d"
+        }
+      ],
+      "page": 82
+    },
+    {
+      "caseId": "API-SEC-01",
+      "suite": "API",
+      "module": "Cuentas y privacidad",
+      "heading": "Caso API SEC 01",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T11",
+          "file": "fotos_casos/t11-reporte-api.png",
+          "sha256": "e6a0e6c25bf01b7cba2cf6fa35cb2fe1988008b9676ab417b6ec63ef11076c1d"
+        }
+      ],
+      "page": 83
+    },
+    {
+      "caseId": "API-SEC-02",
+      "suite": "API",
+      "module": "Imágenes y concurrencia",
+      "heading": "Caso API SEC 02",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T11",
+          "file": "fotos_casos/t11-reporte-api.png",
+          "sha256": "e6a0e6c25bf01b7cba2cf6fa35cb2fe1988008b9676ab417b6ec63ef11076c1d"
+        }
+      ],
+      "page": 84
+    },
+    {
+      "caseId": "API-SEC-03",
+      "suite": "API",
+      "module": "Rentas",
+      "heading": "Caso API SEC 03",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T11",
+          "file": "fotos_casos/t11-reporte-api.png",
+          "sha256": "e6a0e6c25bf01b7cba2cf6fa35cb2fe1988008b9676ab417b6ec63ef11076c1d"
+        }
+      ],
+      "page": 85
+    },
+    {
+      "caseId": "API-SEC-04",
+      "suite": "API",
+      "module": "Intercambios",
+      "heading": "Caso API SEC 04",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T11",
+          "file": "fotos_casos/t11-reporte-api.png",
+          "sha256": "e6a0e6c25bf01b7cba2cf6fa35cb2fe1988008b9676ab417b6ec63ef11076c1d"
+        }
+      ],
+      "page": 86
+    },
+    {
+      "caseId": "API-SEC-05",
+      "suite": "API",
+      "module": "Acceso y límites",
+      "heading": "Caso API SEC 05",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T11",
+          "file": "fotos_casos/t11-reporte-api.png",
+          "sha256": "e6a0e6c25bf01b7cba2cf6fa35cb2fe1988008b9676ab417b6ec63ef11076c1d"
+        }
+      ],
+      "page": 87
+    },
+    {
+      "caseId": "API-SEC-06",
+      "suite": "API",
+      "module": "CORS y CSRF",
+      "heading": "Caso API SEC 06",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T11",
+          "file": "fotos_casos/t11-reporte-api.png",
+          "sha256": "e6a0e6c25bf01b7cba2cf6fa35cb2fe1988008b9676ab417b6ec63ef11076c1d"
+        }
+      ],
+      "page": 88
+    },
+    {
+      "caseId": "API-SEC-07",
+      "suite": "API",
+      "module": "Permisos y consultas",
+      "heading": "Caso API SEC 07",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T12",
+          "file": "fotos_casos/t12-reporte-api.png",
+          "sha256": "0451004a9427b284ef6892149678e8f78c18a9183b6aa9fb45aa527a44861684"
+        }
+      ],
+      "page": 89
+    },
+    {
+      "caseId": "API-SEC-08",
+      "suite": "API",
+      "module": "Privacidad de respuestas",
+      "heading": "Caso API SEC 08",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T12",
+          "file": "fotos_casos/t12-reporte-api.png",
+          "sha256": "0451004a9427b284ef6892149678e8f78c18a9183b6aa9fb45aa527a44861684"
+        }
+      ],
+      "page": 90
+    },
+    {
+      "caseId": "API-SEC-09",
+      "suite": "API",
+      "module": "Cargas e imágenes",
+      "heading": "Caso API SEC 09",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T12",
+          "file": "fotos_casos/t12-reporte-api.png",
+          "sha256": "0451004a9427b284ef6892149678e8f78c18a9183b6aa9fb45aa527a44861684"
+        }
+      ],
+      "page": 91
+    },
+    {
+      "caseId": "API-SEC-10",
+      "suite": "API",
+      "module": "Recursos estáticos",
+      "heading": "Caso API SEC 10",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T12",
+          "file": "fotos_casos/t12-reporte-api.png",
+          "sha256": "0451004a9427b284ef6892149678e8f78c18a9183b6aa9fb45aa527a44861684"
+        }
+      ],
+      "page": 92
+    },
+    {
+      "caseId": "API-SEC-11",
+      "suite": "API",
+      "module": "Errores de API",
+      "heading": "Caso API SEC 11",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T12",
+          "file": "fotos_casos/t12-reporte-api.png",
+          "sha256": "0451004a9427b284ef6892149678e8f78c18a9183b6aa9fb45aa527a44861684"
+        }
+      ],
+      "page": 93
+    },
+    {
+      "caseId": "API-SEC-12",
+      "suite": "API",
+      "module": "Sesiones",
+      "heading": "Caso API SEC 12",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T12",
+          "file": "fotos_casos/t12-reporte-api.png",
+          "sha256": "0451004a9427b284ef6892149678e8f78c18a9183b6aa9fb45aa527a44861684"
+        }
+      ],
+      "page": 94
+    },
+    {
+      "caseId": "API-SEC-13",
+      "suite": "API",
+      "module": "Recuperación de contraseña",
+      "heading": "Caso API SEC 13",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T13",
+          "file": "fotos_casos/t13-reporte-api.png",
+          "sha256": "0266521bdbea7721e8f23a4a0499fa45b3d150b5cebb2145288d67b1f32dd540"
+        }
+      ],
+      "page": 95
+    },
+    {
+      "caseId": "API-SEC-14",
+      "suite": "API",
+      "module": "Cabeceras",
+      "heading": "Caso API SEC 14",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T13",
+          "file": "fotos_casos/t13-reporte-api.png",
+          "sha256": "0266521bdbea7721e8f23a4a0499fa45b3d150b5cebb2145288d67b1f32dd540"
+        }
+      ],
+      "page": 96
+    },
+    {
+      "caseId": "API-SEC-15",
+      "suite": "API",
+      "module": "Acceso y límites",
+      "heading": "Caso API SEC 15",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T13",
+          "file": "fotos_casos/t13-reporte-api.png",
+          "sha256": "0266521bdbea7721e8f23a4a0499fa45b3d150b5cebb2145288d67b1f32dd540"
+        }
+      ],
+      "page": 97
+    },
+    {
+      "caseId": "API-SEC-16",
+      "suite": "API",
+      "module": "Dominio institucional",
+      "heading": "Caso API SEC 16",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T13",
+          "file": "fotos_casos/t13-reporte-api.png",
+          "sha256": "0266521bdbea7721e8f23a4a0499fa45b3d150b5cebb2145288d67b1f32dd540"
+        }
+      ],
+      "page": 98
+    },
+    {
+      "caseId": "FE-APP-01",
+      "suite": "Frontend",
+      "module": "Regresión de interfaz local",
+      "heading": "Caso FE APP 01",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T14",
+          "file": "fotos_casos/t14-reporte-frontend.png",
+          "sha256": "0ad7e4eb0f3101732c0ff12b9293b8934d247fab20719d90e271ff81b9c518f2"
+        }
+      ],
+      "page": 99
+    },
+    {
+      "caseId": "FE-APP-02",
+      "suite": "Frontend",
+      "module": "Regresión de interfaz local",
+      "heading": "Caso FE APP 02",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T14",
+          "file": "fotos_casos/t14-reporte-frontend.png",
+          "sha256": "0ad7e4eb0f3101732c0ff12b9293b8934d247fab20719d90e271ff81b9c518f2"
+        }
+      ],
+      "page": 100
+    },
+    {
+      "caseId": "FE-APP-03",
+      "suite": "Frontend",
+      "module": "Regresión de interfaz local",
+      "heading": "Caso FE APP 03",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T14",
+          "file": "fotos_casos/t14-reporte-frontend.png",
+          "sha256": "0ad7e4eb0f3101732c0ff12b9293b8934d247fab20719d90e271ff81b9c518f2"
+        }
+      ],
+      "page": 101
+    },
+    {
+      "caseId": "FE-APP-04",
+      "suite": "Frontend",
+      "module": "Regresión de interfaz local",
+      "heading": "Caso FE APP 04",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T14",
+          "file": "fotos_casos/t14-reporte-frontend.png",
+          "sha256": "0ad7e4eb0f3101732c0ff12b9293b8934d247fab20719d90e271ff81b9c518f2"
+        }
+      ],
+      "page": 102
+    },
+    {
+      "caseId": "FE-APP-05",
+      "suite": "Frontend",
+      "module": "Regresión de interfaz local",
+      "heading": "Caso FE APP 05",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T14",
+          "file": "fotos_casos/t14-reporte-frontend.png",
+          "sha256": "0ad7e4eb0f3101732c0ff12b9293b8934d247fab20719d90e271ff81b9c518f2"
+        }
+      ],
+      "page": 103
+    },
+    {
+      "caseId": "FE-APP-06",
+      "suite": "Frontend",
+      "module": "Regresión de interfaz local",
+      "heading": "Caso FE APP 06",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T14",
+          "file": "fotos_casos/t14-reporte-frontend.png",
+          "sha256": "0ad7e4eb0f3101732c0ff12b9293b8934d247fab20719d90e271ff81b9c518f2"
+        }
+      ],
+      "page": 104
+    },
+    {
+      "caseId": "FE-APP-07",
+      "suite": "Frontend",
+      "module": "Regresión de interfaz local",
+      "heading": "Caso FE APP 07",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T15",
+          "file": "fotos_casos/t15-reporte-frontend.png",
+          "sha256": "bb8819b46c5fe332886f1f9793ba771e453748c004adc2d2dfa819ac8c7d863c"
+        }
+      ],
+      "page": 105
+    },
+    {
+      "caseId": "FE-MAIL-01",
+      "suite": "Frontend",
+      "module": "Aviso de recuperación local",
+      "heading": "Caso FE MAIL 01",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T16",
+          "file": "fotos_casos/t16-reporte-frontend.png",
+          "sha256": "3e950a32a1bc170f2dc9f4745c3dec29e07ec2cf7b3029fdc6be7e4413dd181b"
+        }
+      ],
+      "page": 106
+    },
+    {
+      "caseId": "FE-MAIL-02",
+      "suite": "Frontend",
+      "module": "Aviso de recuperación local",
+      "heading": "Caso FE MAIL 02",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T16",
+          "file": "fotos_casos/t16-reporte-frontend.png",
+          "sha256": "3e950a32a1bc170f2dc9f4745c3dec29e07ec2cf7b3029fdc6be7e4413dd181b"
+        }
+      ],
+      "page": 107
+    },
+    {
+      "caseId": "FE-HEADER-01",
+      "suite": "Frontend",
+      "module": "Encabezado y búsqueda",
+      "heading": "Caso FE HEADER 01",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T17",
+          "file": "fotos_casos/t17-reporte-frontend.png",
+          "sha256": "e97516f6c54b45f569c7bceac4d3495b0ad5b8149431f5654f73ace44ec28377"
+        }
+      ],
+      "page": 108
+    },
+    {
+      "caseId": "FE-HEADER-02",
+      "suite": "Frontend",
+      "module": "Menú de cuenta",
+      "heading": "Caso FE HEADER 02",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T17",
+          "file": "fotos_casos/t17-reporte-frontend.png",
+          "sha256": "e97516f6c54b45f569c7bceac4d3495b0ad5b8149431f5654f73ace44ec28377"
+        }
+      ],
+      "page": 109
+    },
+    {
+      "caseId": "FE-HEADER-03",
+      "suite": "Frontend",
+      "module": "Menú y novedades",
+      "heading": "Caso FE HEADER 03",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T17",
+          "file": "fotos_casos/t17-reporte-frontend.png",
+          "sha256": "e97516f6c54b45f569c7bceac4d3495b0ad5b8149431f5654f73ace44ec28377"
+        }
+      ],
+      "page": 110
+    },
+    {
+      "caseId": "FE-APICLIENT-01",
+      "suite": "Frontend",
+      "module": "Cliente HTTP",
+      "heading": "Caso FE APICLIENT 01",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T18",
+          "file": "fotos_casos/t18-reporte-frontend.png",
+          "sha256": "fa8d13bb2e5792a21d127dd0056650bc976a234b608020658f0e74a2c83d3957"
+        }
+      ],
+      "page": 111
+    },
+    {
+      "caseId": "FE-APICLIENT-02",
+      "suite": "Frontend",
+      "module": "Cliente HTTP",
+      "heading": "Caso FE APICLIENT 02",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T18",
+          "file": "fotos_casos/t18-reporte-frontend.png",
+          "sha256": "fa8d13bb2e5792a21d127dd0056650bc976a234b608020658f0e74a2c83d3957"
+        }
+      ],
+      "page": 112
+    },
+    {
+      "caseId": "FE-APICLIENT-03",
+      "suite": "Frontend",
+      "module": "Cliente HTTP",
+      "heading": "Caso FE APICLIENT 03",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T18",
+          "file": "fotos_casos/t18-reporte-frontend.png",
+          "sha256": "fa8d13bb2e5792a21d127dd0056650bc976a234b608020658f0e74a2c83d3957"
+        }
+      ],
+      "page": 113
+    },
+    {
+      "caseId": "FE-CAMPUSREPOSITORY-01",
+      "suite": "Frontend",
+      "module": "Regresión de repositorio local",
+      "heading": "Caso FE CAMPUSREPOSITORY 01",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T19",
+          "file": "fotos_casos/t19-reporte-frontend.png",
+          "sha256": "e5b531392242825477ae5f7cb61257692ac8e050dbe0059424af5b6f3c15b964"
+        }
+      ],
+      "page": 114
+    },
+    {
+      "caseId": "FE-CAMPUSREPOSITORY-02",
+      "suite": "Frontend",
+      "module": "Regresión de repositorio local",
+      "heading": "Caso FE CAMPUSREPOSITORY 02",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T19",
+          "file": "fotos_casos/t19-reporte-frontend.png",
+          "sha256": "e5b531392242825477ae5f7cb61257692ac8e050dbe0059424af5b6f3c15b964"
+        }
+      ],
+      "page": 115
+    },
+    {
+      "caseId": "FE-CAMPUSREPOSITORY-03",
+      "suite": "Frontend",
+      "module": "Regresión de repositorio local",
+      "heading": "Caso FE CAMPUSREPOSITORY 03",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T19",
+          "file": "fotos_casos/t19-reporte-frontend.png",
+          "sha256": "e5b531392242825477ae5f7cb61257692ac8e050dbe0059424af5b6f3c15b964"
+        }
+      ],
+      "page": 116
+    },
+    {
+      "caseId": "FE-CAMPUSREPOSITORY-04",
+      "suite": "Frontend",
+      "module": "Regresión de repositorio local",
+      "heading": "Caso FE CAMPUSREPOSITORY 04",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T19",
+          "file": "fotos_casos/t19-reporte-frontend.png",
+          "sha256": "e5b531392242825477ae5f7cb61257692ac8e050dbe0059424af5b6f3c15b964"
+        }
+      ],
+      "page": 117
+    },
+    {
+      "caseId": "FE-CAMPUSREPOSITORY-05",
+      "suite": "Frontend",
+      "module": "Regresión de repositorio local",
+      "heading": "Caso FE CAMPUSREPOSITORY 05",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T19",
+          "file": "fotos_casos/t19-reporte-frontend.png",
+          "sha256": "e5b531392242825477ae5f7cb61257692ac8e050dbe0059424af5b6f3c15b964"
+        }
+      ],
+      "page": 118
+    },
+    {
+      "caseId": "FE-CAMPUSREPOSITORY-06",
+      "suite": "Frontend",
+      "module": "Regresión de repositorio local",
+      "heading": "Caso FE CAMPUSREPOSITORY 06",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T19",
+          "file": "fotos_casos/t19-reporte-frontend.png",
+          "sha256": "e5b531392242825477ae5f7cb61257692ac8e050dbe0059424af5b6f3c15b964"
+        }
+      ],
+      "page": 119
+    },
+    {
+      "caseId": "FE-CAMPUSREPOSITORY-07",
+      "suite": "Frontend",
+      "module": "Regresión de repositorio local",
+      "heading": "Caso FE CAMPUSREPOSITORY 07",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T20",
+          "file": "fotos_casos/t20-reporte-frontend.png",
+          "sha256": "7df101ecff3f0d8b627eaa7745928073b914cadfd306ee06d7333e1bfb4995be"
+        }
+      ],
+      "page": 120
+    },
+    {
+      "caseId": "FE-CAMPUSREPOSITORY-08",
+      "suite": "Frontend",
+      "module": "Regresión de repositorio local",
+      "heading": "Caso FE CAMPUSREPOSITORY 08",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T20",
+          "file": "fotos_casos/t20-reporte-frontend.png",
+          "sha256": "7df101ecff3f0d8b627eaa7745928073b914cadfd306ee06d7333e1bfb4995be"
+        }
+      ],
+      "page": 121
+    },
+    {
+      "caseId": "FE-CAMPUSREPOSITORY-09",
+      "suite": "Frontend",
+      "module": "Regresión de repositorio local",
+      "heading": "Caso FE CAMPUSREPOSITORY 09",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T20",
+          "file": "fotos_casos/t20-reporte-frontend.png",
+          "sha256": "7df101ecff3f0d8b627eaa7745928073b914cadfd306ee06d7333e1bfb4995be"
+        }
+      ],
+      "page": 122
+    },
+    {
+      "caseId": "FE-CAMPUSREPOSITORY-10",
+      "suite": "Frontend",
+      "module": "Regresión de repositorio local",
+      "heading": "Caso FE CAMPUSREPOSITORY 10",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T20",
+          "file": "fotos_casos/t20-reporte-frontend.png",
+          "sha256": "7df101ecff3f0d8b627eaa7745928073b914cadfd306ee06d7333e1bfb4995be"
+        }
+      ],
+      "page": 123
+    },
+    {
+      "caseId": "FE-CAMPUSREPOSITORY-11",
+      "suite": "Frontend",
+      "module": "Regresión de repositorio local",
+      "heading": "Caso FE CAMPUSREPOSITORY 11",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T20",
+          "file": "fotos_casos/t20-reporte-frontend.png",
+          "sha256": "7df101ecff3f0d8b627eaa7745928073b914cadfd306ee06d7333e1bfb4995be"
+        }
+      ],
+      "page": 124
+    },
+    {
+      "caseId": "FE-CAMPUSREPOSITORY-12",
+      "suite": "Frontend",
+      "module": "Regresión de repositorio local",
+      "heading": "Caso FE CAMPUSREPOSITORY 12",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T20",
+          "file": "fotos_casos/t20-reporte-frontend.png",
+          "sha256": "7df101ecff3f0d8b627eaa7745928073b914cadfd306ee06d7333e1bfb4995be"
+        }
+      ],
+      "page": 125
+    },
+    {
+      "caseId": "FE-CAMPUSREPOSITORY-13",
+      "suite": "Frontend",
+      "module": "Regresión de repositorio local",
+      "heading": "Caso FE CAMPUSREPOSITORY 13",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T21",
+          "file": "fotos_casos/t21-reporte-frontend.png",
+          "sha256": "2eaa8bb7b7feba06edea63d415bc23db2067be321e7a8b5b7de0e58bd7ee6835"
+        }
+      ],
+      "page": 126
+    },
+    {
+      "caseId": "FE-CAMPUSREPOSITORY-14",
+      "suite": "Frontend",
+      "module": "Regresión de repositorio local",
+      "heading": "Caso FE CAMPUSREPOSITORY 14",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T21",
+          "file": "fotos_casos/t21-reporte-frontend.png",
+          "sha256": "2eaa8bb7b7feba06edea63d415bc23db2067be321e7a8b5b7de0e58bd7ee6835"
+        }
+      ],
+      "page": 127
+    },
+    {
+      "caseId": "FE-LISTINGIMAGE-01",
+      "suite": "Frontend",
+      "module": "Regresión de imágenes locales",
+      "heading": "Caso FE LISTINGIMAGE 01",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T22",
+          "file": "fotos_casos/t22-reporte-frontend.png",
+          "sha256": "3e1c35d88f11a6163190e336b3b7237c83a34409875f61c4f62628ca6f1dfc42"
+        }
+      ],
+      "page": 128
+    },
+    {
+      "caseId": "FE-LISTINGIMAGE-02",
+      "suite": "Frontend",
+      "module": "Regresión de imágenes locales",
+      "heading": "Caso FE LISTINGIMAGE 02",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T22",
+          "file": "fotos_casos/t22-reporte-frontend.png",
+          "sha256": "3e1c35d88f11a6163190e336b3b7237c83a34409875f61c4f62628ca6f1dfc42"
+        }
+      ],
+      "page": 129
+    },
+    {
+      "caseId": "FE-LISTINGIMAGE-03",
+      "suite": "Frontend",
+      "module": "Regresión de imágenes locales",
+      "heading": "Caso FE LISTINGIMAGE 03",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T22",
+          "file": "fotos_casos/t22-reporte-frontend.png",
+          "sha256": "3e1c35d88f11a6163190e336b3b7237c83a34409875f61c4f62628ca6f1dfc42"
+        }
+      ],
+      "page": 130
+    },
+    {
+      "caseId": "FE-CATALOG-01",
+      "suite": "Frontend",
+      "module": "Regresión del catálogo local",
+      "heading": "Caso FE CATALOG 01",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T23",
+          "file": "fotos_casos/t23-reporte-frontend.png",
+          "sha256": "8c041dac6eb72536f128dbaa6ba8b23945dc15abbb283847bd9ae95e3ddf2421"
+        }
+      ],
+      "page": 131
+    },
+    {
+      "caseId": "FE-CATALOG-02",
+      "suite": "Frontend",
+      "module": "Regresión del catálogo local",
+      "heading": "Caso FE CATALOG 02",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T23",
+          "file": "fotos_casos/t23-reporte-frontend.png",
+          "sha256": "8c041dac6eb72536f128dbaa6ba8b23945dc15abbb283847bd9ae95e3ddf2421"
+        }
+      ],
+      "page": 132
+    },
+    {
+      "caseId": "FE-CATALOG-03",
+      "suite": "Frontend",
+      "module": "Regresión del catálogo local",
+      "heading": "Caso FE CATALOG 03",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T23",
+          "file": "fotos_casos/t23-reporte-frontend.png",
+          "sha256": "8c041dac6eb72536f128dbaa6ba8b23945dc15abbb283847bd9ae95e3ddf2421"
+        }
+      ],
+      "page": 133
+    },
+    {
+      "caseId": "FE-CATALOG-04",
+      "suite": "Frontend",
+      "module": "Regresión del catálogo local",
+      "heading": "Caso FE CATALOG 04",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T23",
+          "file": "fotos_casos/t23-reporte-frontend.png",
+          "sha256": "8c041dac6eb72536f128dbaa6ba8b23945dc15abbb283847bd9ae95e3ddf2421"
+        }
+      ],
+      "page": 134
+    },
+    {
+      "caseId": "FE-CATALOG-05",
+      "suite": "Frontend",
+      "module": "Regresión del catálogo local",
+      "heading": "Caso FE CATALOG 05",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T23",
+          "file": "fotos_casos/t23-reporte-frontend.png",
+          "sha256": "8c041dac6eb72536f128dbaa6ba8b23945dc15abbb283847bd9ae95e3ddf2421"
+        }
+      ],
+      "page": 135
+    },
+    {
+      "caseId": "FE-CATALOG-06",
+      "suite": "Frontend",
+      "module": "Regresión del catálogo local",
+      "heading": "Caso FE CATALOG 06",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T23",
+          "file": "fotos_casos/t23-reporte-frontend.png",
+          "sha256": "8c041dac6eb72536f128dbaa6ba8b23945dc15abbb283847bd9ae95e3ddf2421"
+        }
+      ],
+      "page": 136
+    },
+    {
+      "caseId": "FE-CATALOG-07",
+      "suite": "Frontend",
+      "module": "Regresión del catálogo local",
+      "heading": "Caso FE CATALOG 07",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T24",
+          "file": "fotos_casos/t24-reporte-frontend.png",
+          "sha256": "a90b5977af2ed301474641de8487c4d244f6dcaba007dbc62dcaf86ade336a5e"
+        }
+      ],
+      "page": 137
+    },
+    {
+      "caseId": "FE-CATALOG-08",
+      "suite": "Frontend",
+      "module": "Regresión del catálogo local",
+      "heading": "Caso FE CATALOG 08",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T24",
+          "file": "fotos_casos/t24-reporte-frontend.png",
+          "sha256": "a90b5977af2ed301474641de8487c4d244f6dcaba007dbc62dcaf86ade336a5e"
+        }
+      ],
+      "page": 138
+    },
+    {
+      "caseId": "FE-CATALOG-09",
+      "suite": "Frontend",
+      "module": "Regresión del catálogo local",
+      "heading": "Caso FE CATALOG 09",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T24",
+          "file": "fotos_casos/t24-reporte-frontend.png",
+          "sha256": "a90b5977af2ed301474641de8487c4d244f6dcaba007dbc62dcaf86ade336a5e"
+        }
+      ],
+      "page": 139
+    },
+    {
+      "caseId": "FE-CATALOG-10",
+      "suite": "Frontend",
+      "module": "Regresión del catálogo local",
+      "heading": "Caso FE CATALOG 10",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T24",
+          "file": "fotos_casos/t24-reporte-frontend.png",
+          "sha256": "a90b5977af2ed301474641de8487c4d244f6dcaba007dbc62dcaf86ade336a5e"
+        }
+      ],
+      "page": 140
+    },
+    {
+      "caseId": "FE-CATALOG-11",
+      "suite": "Frontend",
+      "module": "Regresión del catálogo local",
+      "heading": "Caso FE CATALOG 11",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T24",
+          "file": "fotos_casos/t24-reporte-frontend.png",
+          "sha256": "a90b5977af2ed301474641de8487c4d244f6dcaba007dbc62dcaf86ade336a5e"
+        }
+      ],
+      "page": 141
+    },
+    {
+      "caseId": "FE-CATALOG-12",
+      "suite": "Frontend",
+      "module": "Regresión del catálogo local",
+      "heading": "Caso FE CATALOG 12",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T24",
+          "file": "fotos_casos/t24-reporte-frontend.png",
+          "sha256": "a90b5977af2ed301474641de8487c4d244f6dcaba007dbc62dcaf86ade336a5e"
+        }
+      ],
+      "page": 142
+    },
+    {
+      "caseId": "FE-CATALOG-13",
+      "suite": "Frontend",
+      "module": "Regresión del catálogo local",
+      "heading": "Caso FE CATALOG 13",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T25",
+          "file": "fotos_casos/t25-reporte-frontend.png",
+          "sha256": "4f007fbf8171d536b7175228fc414851047036e7afa1593f0473f7ba5436e19a"
+        }
+      ],
+      "page": 143
+    },
+    {
+      "caseId": "FE-CATALOG-14",
+      "suite": "Frontend",
+      "module": "Regresión del catálogo local",
+      "heading": "Caso FE CATALOG 14",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T25",
+          "file": "fotos_casos/t25-reporte-frontend.png",
+          "sha256": "4f007fbf8171d536b7175228fc414851047036e7afa1593f0473f7ba5436e19a"
+        }
+      ],
+      "page": 144
+    },
+    {
+      "caseId": "FE-CATALOG-15",
+      "suite": "Frontend",
+      "module": "Regresión del catálogo local",
+      "heading": "Caso FE CATALOG 15",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T25",
+          "file": "fotos_casos/t25-reporte-frontend.png",
+          "sha256": "4f007fbf8171d536b7175228fc414851047036e7afa1593f0473f7ba5436e19a"
+        }
+      ],
+      "page": 145
+    },
+    {
+      "caseId": "FE-CATALOG-16",
+      "suite": "Frontend",
+      "module": "Regresión del catálogo local",
+      "heading": "Caso FE CATALOG 16",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T25",
+          "file": "fotos_casos/t25-reporte-frontend.png",
+          "sha256": "4f007fbf8171d536b7175228fc414851047036e7afa1593f0473f7ba5436e19a"
+        }
+      ],
+      "page": 146
+    },
+    {
+      "caseId": "FE-CATALOG-17",
+      "suite": "Frontend",
+      "module": "Regresión del catálogo local",
+      "heading": "Caso FE CATALOG 17",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T25",
+          "file": "fotos_casos/t25-reporte-frontend.png",
+          "sha256": "4f007fbf8171d536b7175228fc414851047036e7afa1593f0473f7ba5436e19a"
+        }
+      ],
+      "page": 147
+    },
+    {
+      "caseId": "FE-CATALOG-18",
+      "suite": "Frontend",
+      "module": "Regresión del catálogo local",
+      "heading": "Caso FE CATALOG 18",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T25",
+          "file": "fotos_casos/t25-reporte-frontend.png",
+          "sha256": "4f007fbf8171d536b7175228fc414851047036e7afa1593f0473f7ba5436e19a"
+        }
+      ],
+      "page": 148
+    },
+    {
+      "caseId": "FE-CATALOG-19",
+      "suite": "Frontend",
+      "module": "Regresión del catálogo local",
+      "heading": "Caso FE CATALOG 19",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T26",
+          "file": "fotos_casos/t26-reporte-frontend.png",
+          "sha256": "839b0f475ea47f7105808b2b1ab56ce659008b1201981a07e68c470489a3ccf3"
+        }
+      ],
+      "page": 149
+    },
+    {
+      "caseId": "FE-CATALOG-20",
+      "suite": "Frontend",
+      "module": "Regresión del catálogo local",
+      "heading": "Caso FE CATALOG 20",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T26",
+          "file": "fotos_casos/t26-reporte-frontend.png",
+          "sha256": "839b0f475ea47f7105808b2b1ab56ce659008b1201981a07e68c470489a3ccf3"
+        }
+      ],
+      "page": 150
+    },
+    {
+      "caseId": "FE-NAV-01",
+      "suite": "Frontend",
+      "module": "URL de catálogo",
+      "heading": "Caso FE NAV 01",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T27",
+          "file": "fotos_casos/t27-reporte-frontend.png",
+          "sha256": "99af923acf8458a0a93884a63cd5f5df92d7b9be6f9737c37ad74c352654bf6e"
+        }
+      ],
+      "page": 151
+    },
+    {
+      "caseId": "FE-NAV-02",
+      "suite": "Frontend",
+      "module": "URL de catálogo",
+      "heading": "Caso FE NAV 02",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T27",
+          "file": "fotos_casos/t27-reporte-frontend.png",
+          "sha256": "99af923acf8458a0a93884a63cd5f5df92d7b9be6f9737c37ad74c352654bf6e"
+        }
+      ],
+      "page": 152
+    },
+    {
+      "caseId": "FE-NAV-03",
+      "suite": "Frontend",
+      "module": "URL de cuenta y parámetros heredados",
+      "heading": "Caso FE NAV 03",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T27",
+          "file": "fotos_casos/t27-reporte-frontend.png",
+          "sha256": "99af923acf8458a0a93884a63cd5f5df92d7b9be6f9737c37ad74c352654bf6e"
+        }
+      ],
+      "page": 153
+    },
+    {
+      "caseId": "FE-NAV-04",
+      "suite": "Frontend",
+      "module": "URL de catálogo",
+      "heading": "Caso FE NAV 04",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T27",
+          "file": "fotos_casos/t27-reporte-frontend.png",
+          "sha256": "99af923acf8458a0a93884a63cd5f5df92d7b9be6f9737c37ad74c352654bf6e"
+        }
+      ],
+      "page": 154
+    },
+    {
+      "caseId": "FE-NAV-05",
+      "suite": "Frontend",
+      "module": "Rango de precios",
+      "heading": "Caso FE NAV 05",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T27",
+          "file": "fotos_casos/t27-reporte-frontend.png",
+          "sha256": "99af923acf8458a0a93884a63cd5f5df92d7b9be6f9737c37ad74c352654bf6e"
+        }
+      ],
+      "page": 155
+    },
+    {
+      "caseId": "DOCKER-01",
+      "suite": "Docker",
+      "module": "Integración y persistencia Docker",
+      "heading": "Caso DOCKER 01",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T28",
+          "file": "fotos_casos/t28-reporte-docker.png",
+          "sha256": "2693401ae160a10afab4519703b05fac1f66b2f075d512d790c910c61f3a7deb"
+        }
+      ],
+      "page": 156
+    },
+    {
+      "caseId": "DOCKER-02",
+      "suite": "Docker",
+      "module": "Integración y persistencia Docker",
+      "heading": "Caso DOCKER 02",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T28",
+          "file": "fotos_casos/t28-reporte-docker.png",
+          "sha256": "2693401ae160a10afab4519703b05fac1f66b2f075d512d790c910c61f3a7deb"
+        }
+      ],
+      "page": 157
+    },
+    {
+      "caseId": "DOCKER-03",
+      "suite": "Docker",
+      "module": "Integración y persistencia Docker",
+      "heading": "Caso DOCKER 03",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T28",
+          "file": "fotos_casos/t28-reporte-docker.png",
+          "sha256": "2693401ae160a10afab4519703b05fac1f66b2f075d512d790c910c61f3a7deb"
+        }
+      ],
+      "page": 158
+    },
+    {
+      "caseId": "DOCKER-04",
+      "suite": "Docker",
+      "module": "Integración y persistencia Docker",
+      "heading": "Caso DOCKER 04",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T28",
+          "file": "fotos_casos/t28-reporte-docker.png",
+          "sha256": "2693401ae160a10afab4519703b05fac1f66b2f075d512d790c910c61f3a7deb"
+        }
+      ],
+      "page": 159
+    },
+    {
+      "caseId": "DOCKER-05",
+      "suite": "Docker",
+      "module": "Integración y persistencia Docker",
+      "heading": "Caso DOCKER 05",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T28",
+          "file": "fotos_casos/t28-reporte-docker.png",
+          "sha256": "2693401ae160a10afab4519703b05fac1f66b2f075d512d790c910c61f3a7deb"
+        }
+      ],
+      "page": 160
+    },
+    {
+      "caseId": "DOCKER-06",
+      "suite": "Docker",
+      "module": "Integración y persistencia Docker",
+      "heading": "Caso DOCKER 06",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T28",
+          "file": "fotos_casos/t28-reporte-docker.png",
+          "sha256": "2693401ae160a10afab4519703b05fac1f66b2f075d512d790c910c61f3a7deb"
+        }
+      ],
+      "page": 161
+    },
+    {
+      "caseId": "DOCKER-07",
+      "suite": "Docker",
+      "module": "Integración y persistencia Docker",
+      "heading": "Caso DOCKER 07",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T29",
+          "file": "fotos_casos/t29-reporte-docker.png",
+          "sha256": "adbeb093a2248869e5b85a55448dffa2e17213eca82e367a8bdfc6ef0ce1feee"
+        }
+      ],
+      "page": 162
+    },
+    {
+      "caseId": "DOCKER-08",
+      "suite": "Docker",
+      "module": "Integración y persistencia Docker",
+      "heading": "Caso DOCKER 08",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T29",
+          "file": "fotos_casos/t29-reporte-docker.png",
+          "sha256": "adbeb093a2248869e5b85a55448dffa2e17213eca82e367a8bdfc6ef0ce1feee"
+        }
+      ],
+      "page": 163
+    },
+    {
+      "caseId": "DOCKER-09",
+      "suite": "Docker",
+      "module": "Integración y persistencia Docker",
+      "heading": "Caso DOCKER 09",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T29",
+          "file": "fotos_casos/t29-reporte-docker.png",
+          "sha256": "adbeb093a2248869e5b85a55448dffa2e17213eca82e367a8bdfc6ef0ce1feee"
+        }
+      ],
+      "page": 164
+    },
+    {
+      "caseId": "SMTP-01",
+      "suite": "SMTP",
+      "module": "Registro y recuperación local",
+      "heading": "Caso SMTP 01",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T30",
+          "file": "fotos_casos/t30-reporte-smtp.png",
+          "sha256": "fdddc108912fd9cf77dc42dd63455852b064c0b5ef1ebf0329512c3e861efa6f"
+        }
+      ],
+      "page": 165
+    },
+    {
+      "caseId": "SMTP-02",
+      "suite": "SMTP",
+      "module": "Registro y recuperación local",
+      "heading": "Caso SMTP 02",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T30",
+          "file": "fotos_casos/t30-reporte-smtp.png",
+          "sha256": "fdddc108912fd9cf77dc42dd63455852b064c0b5ef1ebf0329512c3e861efa6f"
+        }
+      ],
+      "page": 166
+    },
+    {
+      "caseId": "SMTP-03",
+      "suite": "SMTP",
+      "module": "Registro y recuperación local",
+      "heading": "Caso SMTP 03",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T30",
+          "file": "fotos_casos/t30-reporte-smtp.png",
+          "sha256": "fdddc108912fd9cf77dc42dd63455852b064c0b5ef1ebf0329512c3e861efa6f"
+        }
+      ],
+      "page": 167
+    },
+    {
+      "caseId": "SMTP-04",
+      "suite": "SMTP",
+      "module": "Registro y recuperación local",
+      "heading": "Caso SMTP 04",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T30",
+          "file": "fotos_casos/t30-reporte-smtp.png",
+          "sha256": "fdddc108912fd9cf77dc42dd63455852b064c0b5ef1ebf0329512c3e861efa6f"
+        }
+      ],
+      "page": 168
+    },
+    {
+      "caseId": "SMTP-05",
+      "suite": "SMTP",
+      "module": "Registro y recuperación local",
+      "heading": "Caso SMTP 05",
+      "images": 1,
+      "evidence": [
+        {
+          "id": "T30",
+          "file": "fotos_casos/t30-reporte-smtp.png",
+          "sha256": "fdddc108912fd9cf77dc42dd63455852b064c0b5ef1ebf0329512c3e861efa6f"
+        }
+      ],
+      "page": 169
+    }
+  ]
+}

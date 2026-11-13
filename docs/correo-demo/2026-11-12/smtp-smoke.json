@@ -1,0 +1,29 @@
+{
+  "checkedAt": "2026-11-12T23:46:44.804Z",
+  "success": true,
+  "stage": "complete",
+  "checks": [
+    {
+      "id": "registration_delivered_by_smtp_without_auto_verification",
+      "state": "passed"
+    },
+    {
+      "id": "resend_replaces_previous_link",
+      "state": "passed"
+    },
+    {
+      "id": "verification_link_is_single_use",
+      "state": "passed"
+    },
+    {
+      "id": "recovery_delivered_by_smtp_and_old_session_revoked",
+      "state": "passed"
+    },
+    {
+      "id": "existing_users_and_admin_verification_unchanged",
+      "state": "passed"
+    }
+  ],
+  "disposableSchemaRemoved": true,
+  "tokensOrPasswordsPrinted": false
+}

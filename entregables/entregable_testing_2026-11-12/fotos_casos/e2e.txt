@@ -1,0 +1,41 @@
+[WebServer] (node:44104) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 26 tests using 2 workers
+
+(node:39480) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:39896) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [desktop] › frontend\e2e\design.spec.js:7:1 › rango inválido explicado y asociado sin consultar el catálogo (2.4s)
+  ok  2 [desktop] › frontend\e2e\design.spec.js:53:1 › URL conserva consulta, filtros y página al recargar y recorrer el historial (2.6s)
+  ok  3 [desktop] › frontend\e2e\design.spec.js:110:1 › registro explica requisitos y permite mostrar la contraseña sin perder el valor (1.8s)
+  ok  4 [desktop] › frontend\e2e\design.spec.js:167:1 › cinco opciones móviles y acceso a Favoritos, Operaciones y Gestión desde Perfil (3.0s)
+  ok  5 [desktop] › frontend\e2e\design.spec.js:232:1 › buscador global, chips removibles y detalle minimalista conservan el catálogo (3.0s)
+  ok  6 [desktop] › frontend\e2e\fullstack.spec.js:21:1 › registro y publicación con imagen sin confirmar correo, con edición persistente (3.8s)
+  ok  7 [desktop] › frontend\e2e\fullstack.spec.js:108:1 › catálogo y favoritos persisten entre sesiones del navegador (4.3s)
+  ok  8 [desktop] › frontend\e2e\fullstack.spec.js:153:1 › una cuenta registrada conserva su perfil y puede publicar sin confirmar correo (3.0s)
+  ok  9 [desktop] › frontend\e2e\responsive.spec.js:5:1 › filtros visibles sin recorte y reinicio de criterios (1.5s)
+  ok 10 [desktop] › frontend\e2e\security.spec.js:15:1 › SEC-UI-01 contenido XSS almacenado se representa como texto en catálogo y mensajes (2.9s)
+  ok 11 [desktop] › frontend\e2e\security.spec.js:68:1 › SEC-UI-02 historial de rentas ofrece devolución solo para la renta vigente (2.7s)
+  ok 13 [desktop] › frontend\e2e\workflows.spec.js:152:1 › reporte y resolución real desde la administración (5.4s)
+(node:43192) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 14 [mobile] › frontend\e2e\design.spec.js:7:1 › rango inválido explicado y asociado sin consultar el catálogo (1.8s)
+  ok 15 [mobile] › frontend\e2e\design.spec.js:53:1 › URL conserva consulta, filtros y página al recargar y recorrer el historial (1.6s)
+  ok 16 [mobile] › frontend\e2e\design.spec.js:110:1 › registro explica requisitos y permite mostrar la contraseña sin perder el valor (1.6s)
+  ok 12 [desktop] › frontend\e2e\workflows.spec.js:26:1 › mensajes entre dos sesiones y venta con calificación (15.6s)
+  ok 17 [mobile] › frontend\e2e\design.spec.js:167:1 › cinco opciones móviles y acceso a Favoritos, Operaciones y Gestión desde Perfil (3.2s)
+(node:44888) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 18 [mobile] › frontend\e2e\fullstack.spec.js:21:1 › registro y publicación con imagen sin confirmar correo, con edición persistente (3.5s)
+  ok 19 [mobile] › frontend\e2e\design.spec.js:232:1 › buscador global, chips removibles y detalle minimalista conservan el catálogo (3.3s)
+  ok 20 [mobile] › frontend\e2e\fullstack.spec.js:108:1 › catálogo y favoritos persisten entre sesiones del navegador (3.6s)
+  ok 21 [mobile] › frontend\e2e\fullstack.spec.js:153:1 › una cuenta registrada conserva su perfil y puede publicar sin confirmar correo (2.3s)
+  ok 22 [mobile] › frontend\e2e\responsive.spec.js:5:1 › filtros visibles sin recorte y reinicio de criterios (1.7s)
+  ok 23 [mobile] › frontend\e2e\security.spec.js:15:1 › SEC-UI-01 contenido XSS almacenado se representa como texto en catálogo y mensajes (3.2s)
+  ok 24 [mobile] › frontend\e2e\security.spec.js:68:1 › SEC-UI-02 historial de rentas ofrece devolución solo para la renta vigente (3.0s)
+  ok 26 [mobile] › frontend\e2e\workflows.spec.js:152:1 › reporte y resolución real desde la administración (9.0s)
+  ok 25 [mobile] › frontend\e2e\workflows.spec.js:26:1 › mensajes entre dos sesiones y venta con calificación (16.2s)
+
+  26 passed (1.1m)

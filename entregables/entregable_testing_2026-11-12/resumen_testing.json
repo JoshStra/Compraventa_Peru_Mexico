@@ -1,0 +1,67 @@
+{
+  "generatedUtc": "2026-11-13T05:00:34.292097+00:00",
+  "codeCommit": "0274f2b98a376ee67116fd5898ea1c9d14d63092",
+  "branch": "codex/sin-confirmacion-correo-2026-11-12",
+  "groups": {
+    "Frontend": 57,
+    "API": 54,
+    "Navegador": 26,
+    "Docker": 9,
+    "SMTP": 5
+  },
+  "applicationTests": 137,
+  "complementaryChecks": 14,
+  "total": 151,
+  "passed": 151,
+  "failed": 0,
+  "skipped": 0,
+  "humanParticipants": 0,
+  "codexInteractions": 8,
+  "delivery": "Código publicado en rama origin; aplicación en Docker local",
+  "runs": {
+    "frontend": {
+      "suite": "frontend",
+      "startedUtc": "2026-11-13T04:43:51.213Z",
+      "finishedUtc": "2026-11-13T04:44:09.940Z",
+      "durationSeconds": 18.727,
+      "exitCode": 0,
+      "sha": "0274f2b98a376ee67116fd5898ea1c9d14d63092",
+      "command": "node <REPO>\\node_modules\\vitest\\vitest.mjs run --reporter=default --reporter=json --outputFile.json=<REPO>\\tmp\\testing-2026-11-12\\frontend.json",
+      "node": "v24.12.0",
+      "timezone": "America/Mexico_City"
+    },
+    "api": {
+      "suite": "api",
+      "startedUtc": "2026-11-13T04:43:55.013Z",
+      "finishedUtc": "2026-11-13T04:44:27.623Z",
+      "durationSeconds": 32.61,
+      "exitCode": 0,
+      "sha": "0274f2b98a376ee67116fd5898ea1c9d14d63092",
+      "command": "node --env-file-if-exists=.env --test --test-concurrency=1 --test-reporter=spec --test-reporter-destination=stdout --test-reporter=junit --test-reporter-destination=<REPO>\\entregables\\entregable_testing_2026-11-12\\evidencias\\api.xml test/auth.test.js test/config.test.js test/conversations.test.js test/database.test.js test/listings.test.js test/moderation.test.js test/operations.test.js test/persistence.test.js test/security.test.js",
+      "node": "v24.12.0",
+      "timezone": "America/Mexico_City"
+    },
+    "e2e": {
+      "suite": "e2e",
+      "startedUtc": "2026-11-13T04:45:07.421Z",
+      "finishedUtc": "2026-11-13T04:46:03.563Z",
+      "durationSeconds": 56.142,
+      "exitCode": 0,
+      "sha": "0274f2b98a376ee67116fd5898ea1c9d14d63092",
+      "command": "node <REPO>\\node_modules\\@playwright\\test\\cli.js test --config=frontend/playwright.config.js --reporter=list,json",
+      "node": "v24.12.0",
+      "timezone": "America/Mexico_City"
+    },
+    "build": {
+      "suite": "build",
+      "startedUtc": "2026-11-13T04:43:51.213Z",
+      "finishedUtc": "2026-11-13T04:43:52.837Z",
+      "durationSeconds": 1.624,
+      "exitCode": 0,
+      "sha": "0274f2b98a376ee67116fd5898ea1c9d14d63092",
+      "command": "node <REPO>\\node_modules\\vite\\bin\\vite.js build",
+      "node": "v24.12.0",
+      "timezone": "America/Mexico_City"
+    }
+  }
+}

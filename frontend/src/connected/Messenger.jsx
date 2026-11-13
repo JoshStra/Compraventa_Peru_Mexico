@@ -3,9 +3,20 @@ import { api, initials } from "../services/apiClient.js";
 import { Icon } from "../components/Visuals.jsx";
 import { EmptyState } from "../components/Catalog.jsx";
 
-export function Messenger({ user, threads, initialId, onExplore }) {
+export function Messenger({
+  user,
+  threads,
+  initialId,
+  onExplore,
+  onConversationChange,
+  onThreads,
+  onRead,
+  onListing,
+  onOperations,
+}) {
   const [items, setItems] = useState(threads);
   const [selected, setSelected] = useState(initialId);
+  const [chatOpen, setChatOpen] = useState(Boolean(initialId));
   const [query, setQuery] = useState("");
   const [history, setHistory] = useState({ items: [], total: 0 });
   const [page, setPage] = useState(1);
@@ -20,6 +31,13 @@ export function Messenger({ user, threads, initialId, onExplore }) {
     items[0];
   const currentId = useRef(active?.id);
   currentId.current = active?.id;
+  useEffect(() => {
+    onConversationChange?.(chatOpen && Boolean(active));
+  }, [chatOpen, active?.id, onConversationChange]);
+  useEffect(() => {
+    if (active && (chatOpen || window.matchMedia("(min-width: 651px)").matches))
+      onRead?.(active);
+  }, [active?.id, active?.updatedAt, chatOpen, onRead]);
   useEffect(() => setItems(threads), [threads]);
   useEffect(() => {
     let mounted = true;
@@ -28,6 +46,7 @@ export function Messenger({ user, threads, initialId, onExplore }) {
         const result = await api.conversations();
         if (mounted) {
           setItems(result.items);
+          onThreads?.(result.items);
           setLoading(false);
         }
       } catch (failure) {
@@ -43,7 +62,7 @@ export function Messenger({ user, threads, initialId, onExplore }) {
       mounted = false;
       window.clearInterval(timer);
     };
-  }, [user.id]);
+  }, [user.id, onThreads]);
   useEffect(() => {
     setBody("");
     setPage(1);
@@ -131,7 +150,7 @@ export function Messenger({ user, threads, initialId, onExplore }) {
           />
         )
       ) : (
-        <div className="messages-layout">
+        <div className={`messages-layout ${chatOpen ? "chat-open" : ""}`}>
           <aside className="thread-list">
             <label className="thread-search">
               <Icon name="search" />
@@ -147,11 +166,16 @@ export function Messenger({ user, threads, initialId, onExplore }) {
                 key={item.id}
                 className={`thread ${item.id === active.id ? "active" : ""}`}
                 aria-pressed={item.id === active.id}
-                onClick={() => setSelected(item.id)}
+                aria-label={`Abrir conversación: ${item.title}`}
+                onClick={() => {
+                  setSelected(item.id);
+                  setChatOpen(true);
+                }}
               >
                 <span className="avatar">{initials(item.name)}</span>
                 <span>
                   <strong>{item.name}</strong>
+                  <small>{item.title}</small>
                   <small>{item.lastMessage || item.title}</small>
                 </span>
               </button>
@@ -163,12 +187,29 @@ export function Messenger({ user, threads, initialId, onExplore }) {
             aria-label={`Conversación con ${active.name}`}
           >
             <header>
+              <button
+                className="text-link chat-back"
+                onClick={() => setChatOpen(false)}
+              >
+                ‹ Volver a conversaciones
+              </button>
               <span className="avatar">{initials(active.name)}</span>
               <div>
                 <strong>{active.name}</strong>
                 <small>{active.title}</small>
               </div>
             </header>
+            <div className="chat-article">
+              <button
+                className="text-link"
+                onClick={() => onListing?.(active.listingId)}
+              >
+                {active.title}
+              </button>
+              <button className="text-link" onClick={onOperations}>
+                Ver operaciones
+              </button>
+            </div>
             <div
               className="chat-body"
               role="log"
@@ -224,12 +265,11 @@ export function Messenger({ user, threads, initialId, onExplore }) {
                 maxLength={2000}
                 value={body}
                 onChange={(event) => setBody(event.target.value)}
-                disabled={!user.verified}
               />
               <button
                 className="send-button"
                 aria-label="Enviar mensaje"
-                disabled={busy || !body.trim() || !user.verified}
+                disabled={busy || !body.trim()}
               >
                 <Icon name="send" />
               </button>

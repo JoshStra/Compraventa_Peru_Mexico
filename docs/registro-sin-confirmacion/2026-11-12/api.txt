@@ -1,0 +1,71 @@
+
+> campustrade@0.3.0 test:api
+> npm run test --workspace backend
+
+
+> campustrade-api@0.3.0 test
+> node --env-file-if-exists=.env --test --test-concurrency=1 test/*.test.js
+
+✔ el registro funciona sin correo y no genera tokens ni mensajes de verificación (327.6159ms)
+✔ registro institucional almacena hash y nunca inventa la verificación (48.3773ms)
+✔ rechaza dominios ajenos, contraseñas cortas, roles y duplicados (55.3102ms)
+✔ las rutas retiradas de verificación ya no aceptan enlaces (64.44ms)
+✔ sesión HttpOnly, CSRF, persistencia y cierre revocable (64.3905ms)
+✔ recuperación cambia la contraseña y revoca las sesiones previas (148.7832ms)
+✔ rechaza orígenes extraños y tokens vencidos (115.1182ms)
+✔ Render proporciona el origen HTTPS inicial sin adivinar el dominio asignado (1.6983ms)
+✔ PUBLIC_URL y CORS_ORIGINS explícitos prevalecen sobre el dominio de Render (0.7976ms)
+✔ la detección de Render no permite HTTP ni orígenes con rutas (0.4416ms)
+✔ producción sigue rechazando URL ausente y almacenamiento local (0.1784ms)
+✔ el buzón de demostración solo permite SMTP y una interfaz locales (0.2902ms)
+✔ la demostración rechaza proveedores externos y remitente ausente (0.2455ms)
+✔ la configuración productiva no acepta el correo de demostración (0.1263ms)
+✔ conversación única entre participantes distintos (470.8103ms)
+✔ mensaje del comprador llega al vendedor y persiste (21.0373ms)
+✔ bloquea lectura escritura y suplantación por terceros (19.7797ms)
+✔ migraciones PostgreSQL idempotentes y catálogo inicial (70.4968ms)
+✔ health confirma la conexión real y no expone secretos (11.6994ms)
+✔ rollback conserva la integridad cuando falla una escritura (9.476ms)
+✔ publicar exige sesión sin confirmar correo y no acepta suplantar propietario (513.4667ms)
+✔ contenido inválido se rechaza y las consultas están parametrizadas (41.5767ms)
+✔ solo el propietario edita y retira; persiste con una nueva instancia de API (33.85ms)
+✔ favoritos idempotentes se conservan en PostgreSQL (58.1096ms)
+✔ la carga verifica MIME contenido extensión y tamaño antes de publicar (150.3923ms)
+✔ retirar conserva historial y excluye el artículo del catálogo (19.0771ms)
+✔ reporte persistente evita duplicados y limita acceso administrativo (491.2205ms)
+✔ administrador revisa resuelve y registra una decisión real (46.8064ms)
+✔ moderación retira contenido sin borrar su historial (19.7916ms)
+✔ suspensión revoca sesiones y oculta publicaciones; no modifica administradores (51.5053ms)
+✔ categorías y carreras se administran sin modificar referencias históricas (22.0037ms)
+✔ dos aceptaciones simultáneas solo reservan el artículo una vez (520.3979ms)
+✔ estados terminales bloquean solicitudes y las calificaciones exigen finalización (68.8757ms)
+✔ cancelar una reserva libera disponibilidad y rechaza terceros (67.4444ms)
+✔ renta valida fechas e importe y permite registrar devolución (123.0946ms)
+✔ intercambio reserva ambos artículos y no permite reutilizar el ofrecido (83.9915ms)
+✔ retirar una oferta de intercambio cancela las solicitudes pendientes relacionadas (52.6725ms)
+✔ publicación y sesión sobreviven al reinicio real del proceso Node (1844.5549ms)
+✔ SEC-01 registro no revela si el correo o la matrícula ya existen (496.7475ms)
+✔ SEC-02 subidas concurrentes respetan el cupo de veinte imágenes pendientes (260.8676ms)
+✔ SEC-03 una devolución anterior no libera una renta posterior (114.7559ms)
+✔ SEC-04 aceptar un intercambio revalida la modalidad de la oferta (68.8941ms)
+✔ SEC-05 login limita fallos de una cuenta aunque cambie la IP (436.1727ms)
+✔ SEC-06 CORS exacto y CSRF rechazan orígenes y tokens manipulados (31.3487ms)
+✔ SEC-07 SQLi y mass assignment no alteran datos ni elevan privilegios (57.7804ms)
+✔ SEC-08 respuestas públicas no exponen correo hashes ni tokens (31.729ms)
+✔ SEC-09 subida normaliza contenido y elimina metadatos sin usar rutas del cliente (109.7893ms)
+✔ SEC-10 rutas archivos secretos y enlaces externos no se resuelven como recursos (14.8979ms)
+{"event":"request_failed","requestId":"33098c14-2a29-4d92-8bdb-8e24efe3aa9a","code":"INTERNAL_ERROR"}
+✔ SEC-11 errores JSON y fallos internos devuelven mensajes seguros (7.9438ms)
+✔ SEC-12 cookie de producción expira y sesiones nuevas no reutilizan tokens (127.4765ms)
+✔ SEC-13 token de recuperación concurrente se consume una sola vez (127.7771ms)
+✔ SEC-14 cabeceras CSP HSTS nosniff y bloqueo de marcos están presentes (3.0744ms)
+✔ SEC-15 login correcto no consume el cupo de fallos por cuenta (511.7687ms)
+✔ SEC-16 dominio itesa.edu.mx se compara completo sin verificar cuentas automáticamente (65.943ms)
+ℹ tests 54
+ℹ suites 0
+ℹ pass 54
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 14885.1519

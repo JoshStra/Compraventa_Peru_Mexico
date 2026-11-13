@@ -22,16 +22,6 @@ export function requireUser(req, res, next) {
     throw new HttpError(401, "AUTH_REQUIRED", "Inicia sesión para continuar.");
   next();
 }
-export function requireVerified(req, res, next) {
-  requireUser(req, res, () => {});
-  if (!req.session.user.verified)
-    throw new HttpError(
-      403,
-      "VERIFICATION_REQUIRED",
-      "Verifica tu correo institucional para realizar esta acción.",
-    );
-  next();
-}
 export function requireAdmin(req, res, next) {
   requireUser(req, res, () => {});
   if (req.session.user.role !== "admin")

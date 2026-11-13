@@ -1,3 +1,4 @@
+import { navigateSection, searchCampus, openConversation } from "./helpers.js";
 import { test, expect } from "@playwright/test";
 import { actor, listing, login, origin, evidencePath } from "./helpers.js";
 const clients = [];
@@ -10,10 +11,8 @@ async function person(prefix) {
   return result;
 }
 async function open(page, item) {
-  await page.getByRole("button", { name: "Explorar", exact: true }).click();
-  await page
-    .getByRole("textbox", { name: "Buscar artículos" })
-    .fill(item.title);
+  await navigateSection(page, "Explorar");
+  await searchCampus(page, item.title);
   await page.getByRole("button", { name: item.title, exact: true }).click();
 }
 async function confirm(page) {
@@ -38,7 +37,7 @@ test("mensajes entre dos sesiones y venta con calificación", async ({
     await login(page, buyer.input);
     await open(page, item);
     await page
-      .getByRole("button", { name: "Abrir conversación", exact: true })
+      .getByRole("button", { name: "Enviar mensaje", exact: true })
       .click();
     await page
       .getByRole("textbox", { name: "Mensaje", exact: true })
@@ -51,7 +50,8 @@ test("mensajes entre dos sesiones y venta con calificación", async ({
     );
     await owner.goto(origin);
     await login(owner, seller.input);
-    await owner.getByRole("button", { name: "Mensajes", exact: true }).click();
+    await navigateSection(owner, "Mensajes");
+    await openConversation(owner, item.title);
     await expect(owner.getByRole("log")).toContainText(
       "¿Podemos entregar en la biblioteca?",
     );
@@ -65,9 +65,33 @@ test("mensajes entre dos sesiones y venta con calificación", async ({
       "Sí, nos vemos en la biblioteca.",
       { timeout: 15000 },
     );
+    const geometry = await page.locator(".conversation").evaluate((el) => ({
+      headerBottom: el.querySelector("header").getBoundingClientRect().bottom,
+      articleTop: el.querySelector(".chat-article").getBoundingClientRect().top,
+      composerHeight: el
+        .querySelector(".message-composer")
+        .getBoundingClientRect().height,
+      composerBottom: el
+        .querySelector(".message-composer")
+        .getBoundingClientRect().bottom,
+      viewportHeight: innerHeight,
+    }));
+    expect(geometry.articleTop).toBeGreaterThanOrEqual(
+      geometry.headerBottom - 1,
+    );
+    expect(geometry.composerHeight).toBeGreaterThanOrEqual(84);
+    if (info.project.name === "mobile") {
+      expect(geometry.composerBottom).toBeCloseTo(geometry.viewportHeight, 0);
+      await expect(
+        page.getByRole("navigation", {
+          name: "Navegación principal",
+          exact: true,
+        }),
+      ).not.toBeVisible();
+    }
     await page.screenshot({
       path: evidencePath(info, "mensajes"),
-      fullPage: true,
+      fullPage: false,
     });
     await open(page, item);
     await page
@@ -81,9 +105,7 @@ test("mensajes entre dos sesiones y venta con calificación", async ({
       exact: true,
     });
     await expect(card).toContainText("Pendiente");
-    await owner
-      .getByRole("button", { name: "Operaciones", exact: true })
-      .click();
+    await navigateSection(owner, "Operaciones");
     const sellerCard = owner.getByRole("article", {
       name: `Operación de ${item.title}`,
       exact: true,
@@ -154,12 +176,12 @@ test("reporte y resolución real desde la administración", async ({
     .getByRole("button", { name: "Enviar reporte", exact: true })
     .click();
   await expect(page.getByRole("dialog")).toHaveCount(0);
-  await page.getByRole("button", { name: "Perfil", exact: true }).click();
+  await navigateSection(page, "Perfil");
   await page
     .getByRole("button", { name: "Cerrar sesión", exact: true })
     .click();
   await login(page, admin.input);
-  await page.getByRole("button", { name: "Gestión", exact: true }).click();
+  await navigateSection(page, "Gestión");
   const report = page
     .getByRole("listitem")
     .filter({ hasText: item.title })
@@ -188,16 +210,24 @@ test("reporte y resolución real desde la administración", async ({
         { exact: true },
       ),
   ).toBeVisible();
+  await page
+    .getByRole("listitem")
+    .filter({ hasText: item.title })
+    .getByText(
+      "Resolución: Se revisó el contenido y se documentó la aclaración.",
+      { exact: true },
+    )
+    .scrollIntoViewIfNeeded();
   await page.screenshot({
     path: evidencePath(info, "administracion"),
-    fullPage: true,
+    fullPage: false,
   });
-  await page.getByRole("button", { name: "Perfil", exact: true }).click();
+  await navigateSection(page, "Perfil");
   await page
     .getByRole("button", { name: "Cerrar sesión", exact: true })
     .click();
   await login(page, reporter.input);
-  await page.getByRole("button", { name: "Perfil", exact: true }).click();
+  await navigateSection(page, "Perfil");
   await expect(
     page.getByText(
       "Resolución: Se revisó el contenido y se documentó la aclaración.",

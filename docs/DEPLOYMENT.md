@@ -1,5 +1,7 @@
 # Despliegue real de CampusTrade
 
+Actualización del 10 de noviembre de 2026: el servicio de Render se suspendió después de migrar los datos y verificar el sistema en [Docker local](DOCKER_LOCAL.md). Supabase permanece pausado y Neon se conserva como respaldo. Los apartados siguientes documentan el despliegue público histórico; el estado posterior está en [cutover.json](docker-local/2026-11-10/cutover.json).
+
 ## Estado actual al cierre del 9 de noviembre de 2026
 
 El código publicado es `664f416e5e84cabb7896be5055d889929045cfb3`, que conserva el rediseño y corrige las incidencias #3 (atributo React de prioridad de imagen) y #4 (recorte de filtros a 320 px). El [despliegue final](https://dashboard.render.com/web/srv-dbigt7hsrm7s73bmnvn0/deploys/dep-dbp76rgm7kps73a20m6g) quedó Live a las **19:30:09 CST (UTC−06)** en el mismo Render Free. No se modificaron secretos, proveedores ni permisos.

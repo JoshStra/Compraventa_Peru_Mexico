@@ -6,6 +6,7 @@ export function Modal({
   onClose,
   children,
   className = "publish-modal",
+  titleInContent = false,
 }) {
   const titleId = useId();
   const dialog = useRef(null);
@@ -28,7 +29,23 @@ export function Modal({
         ...dialog.current.querySelectorAll(
           'button:not([disabled]), input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), a[href], [tabindex="0"]',
         ),
-      ];
+      ].filter((control) => {
+        for (
+          let node = control;
+          node && node !== dialog.current;
+          node = node.parentElement
+        ) {
+          const style = getComputedStyle(node);
+          if (
+            node.hidden ||
+            node.hasAttribute("inert") ||
+            style.display === "none" ||
+            style.visibility === "hidden"
+          )
+            return false;
+        }
+        return true;
+      });
       const first = controls[0];
       const last = controls.at(-1);
       if (!controls.length) {
@@ -80,8 +97,8 @@ export function Modal({
         >
           <Icon name="close" />
         </button>
-        <h2 id={titleId}>{title}</h2>
-        {children}
+        {!titleInContent && <h2 id={titleId}>{title}</h2>}
+        {typeof children === "function" ? children(titleId) : children}
       </section>
     </div>
   );

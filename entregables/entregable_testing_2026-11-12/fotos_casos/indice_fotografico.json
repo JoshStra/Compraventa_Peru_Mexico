@@ -1,0 +1,334 @@
+{
+  "createdUtc": "2026-11-13T05:32:46.850635+00:00",
+  "baseCommit": "ce4663462d7f73528c6575ca02c1b27753ef2025",
+  "uniqueCases": 151,
+  "browserCases": 26,
+  "technicalCases": 125,
+  "applicationScreenshots": 32,
+  "technicalReportScreenshots": 30,
+  "browserRun": {
+    "suite": "e2e",
+    "startedUtc": "2026-11-13T05:24:33.519Z",
+    "finishedUtc": "2026-11-13T05:25:42.055Z",
+    "durationSeconds": 68.536,
+    "exitCode": 0,
+    "sha": "ce4663462d7f73528c6575ca02c1b27753ef2025",
+    "command": "node <REPO>\\node_modules\\@playwright\\test\\cli.js test --config=frontend/playwright.config.js --reporter=list,json",
+    "node": "v24.12.0",
+    "timezone": "America/Mexico_City"
+  },
+  "images": [
+    {
+      "path": "fotos_casos/desktop-administracion-320.png",
+      "bytes": 45363,
+      "sha256": "0fb5408e6863f191450d2e7035378cc168e66e8f453b778f18a90806044143a1"
+    },
+    {
+      "path": "fotos_casos/desktop-administracion.png",
+      "bytes": 57967,
+      "sha256": "f0a54f18c7500d6470cc242961200ef71622eba2103975dcb6e4cbe50180a6b2"
+    },
+    {
+      "path": "fotos_casos/desktop-favoritos-persistentes.png",
+      "bytes": 38474,
+      "sha256": "c27dfd5cb08f0315645c325c36af12bb7b6d3b1e5d9f57005cb5884c75ef6873"
+    },
+    {
+      "path": "fotos_casos/desktop-filtros-responsive.png",
+      "bytes": 72633,
+      "sha256": "40ac7e89fd63ba84cf06418e41eb7a25b6d2529cdd1f7fdf0b7a9e3f22db5d7c"
+    },
+    {
+      "path": "fotos_casos/desktop-mensajes.png",
+      "bytes": 57145,
+      "sha256": "18e702c41af3dbe262c400db0088797a131b4b1b64ed14702aad3700b7741d00"
+    },
+    {
+      "path": "fotos_casos/desktop-minimal-catalogo.png",
+      "bytes": 62255,
+      "sha256": "0447bcaf41ae5155bb0e567225688fc3004735dd204bffb19c1a54572905d1b7"
+    },
+    {
+      "path": "fotos_casos/desktop-minimal-detalle.png",
+      "bytes": 47525,
+      "sha256": "1a77b7c0862934c8fddb5b2651ba3c6b3568d17e39b3454ed5a2df30182242d2"
+    },
+    {
+      "path": "fotos_casos/desktop-operacion-finalizada.png",
+      "bytes": 58822,
+      "sha256": "cb8aa053a90631bbffbe31bdc4784f1675559e965e25d54fae8d781f37b7329c"
+    },
+    {
+      "path": "fotos_casos/desktop-perfil-postgresql.png",
+      "bytes": 80714,
+      "sha256": "d842612e8d7c5e2e7934e4ff2e9d3d493b4041c3e9e52ae416ddcf07b8e97baf"
+    },
+    {
+      "path": "fotos_casos/desktop-perfil-sin-apartado-verificacion.png",
+      "bytes": 77517,
+      "sha256": "8862414ba51cb4017c4cc055c22642a4677a9c7a2bd0b9b5a5eb39253d1166f5"
+    },
+    {
+      "path": "fotos_casos/desktop-rango-precio-accesible.png",
+      "bytes": 60393,
+      "sha256": "52c640d3ee8211da8a778d7a0e11f0ec46367264db93090d6b8bbd319de6f106"
+    },
+    {
+      "path": "fotos_casos/desktop-registro-con-ayudas.png",
+      "bytes": 71664,
+      "sha256": "b88e4633acd67b0c6548a9042426eb975a6f22741b8ea2b2412e754c3a340e76"
+    },
+    {
+      "path": "fotos_casos/desktop-security-rental-history.png",
+      "bytes": 87130,
+      "sha256": "ca955b8a23866c63cd7f8d99937728c635369a0c2d6ca840260aa9de49600b97"
+    },
+    {
+      "path": "fotos_casos/desktop-security-xss-catalog.png",
+      "bytes": 60164,
+      "sha256": "b6d4df1439b6144e9bc8fbdbfcf38b03d64f4c40f85d5319c0b566a54493c3e0"
+    },
+    {
+      "path": "fotos_casos/desktop-security-xss-message.png",
+      "bytes": 81559,
+      "sha256": "b5c011499395ea60919177ca5cf0f7426e490b189ee6a966dbeeedc3d83bcf9c"
+    },
+    {
+      "path": "fotos_casos/desktop-url-filtros-persistentes.png",
+      "bytes": 71242,
+      "sha256": "4e446f0ed7660b606cf038da1b37b855af44df0d6e834d4671255a093d53b8c7"
+    },
+    {
+      "path": "fotos_casos/mobile-administracion-320.png",
+      "bytes": 159053,
+      "sha256": "e7bf0d70c0a7d1aa060e4d39012c3e80f35e5e71937d8223c8bfc4f84b151db0"
+    },
+    {
+      "path": "fotos_casos/mobile-administracion.png",
+      "bytes": 178366,
+      "sha256": "dce88804dbd1fcb7162dbc4b3a5547266ebe4989a61be3c64ba14433ae0d743f"
+    },
+    {
+      "path": "fotos_casos/mobile-favoritos-persistentes.png",
+      "bytes": 108913,
+      "sha256": "318136d7937711b5bc99be70f03e4f6b535337be5f3b6b94a76f83697e1931be"
+    },
+    {
+      "path": "fotos_casos/mobile-filtros-responsive.png",
+      "bytes": 94239,
+      "sha256": "2e24859a9a61153490e819e6a7d6306f2907b8909052b59f53c08afbe7e4eb36"
+    },
+    {
+      "path": "fotos_casos/mobile-mensajes.png",
+      "bytes": 99667,
+      "sha256": "194c3249f294e10d41317beee69cf6db01f685fc38c94cb84bb420a486fc2050"
+    },
+    {
+      "path": "fotos_casos/mobile-minimal-catalogo.png",
+      "bytes": 205384,
+      "sha256": "5925073a2eb54c7cd88c0af3ba9ec7e1a688928a630c276250f9460069900cf4"
+    },
+    {
+      "path": "fotos_casos/mobile-minimal-detalle.png",
+      "bytes": 126502,
+      "sha256": "04a1989551f86fe994bd2b00fe0f3c68065072752387edbc5c1bf054d864f014"
+    },
+    {
+      "path": "fotos_casos/mobile-operacion-finalizada.png",
+      "bytes": 179196,
+      "sha256": "3393196017d407fccfb4152a9107284763605e4e4f6ec9ee7de701dc8549824a"
+    },
+    {
+      "path": "fotos_casos/mobile-perfil-postgresql.png",
+      "bytes": 243521,
+      "sha256": "698860769ace4c0f4f7808d1932e863e14638c4738c6b2a8ff8393f1266373c6"
+    },
+    {
+      "path": "fotos_casos/mobile-perfil-sin-apartado-verificacion.png",
+      "bytes": 232876,
+      "sha256": "fa2d38ff066bcfe26afc9a4e275815b3afe3ad1b875ac465315d0b20c32422f1"
+    },
+    {
+      "path": "fotos_casos/mobile-rango-precio-accesible.png",
+      "bytes": 148667,
+      "sha256": "8f689bd10c284e6d5e6af02421c2369589351abf4b8991a8a5d42778425cae0b"
+    },
+    {
+      "path": "fotos_casos/mobile-registro-con-ayudas.png",
+      "bytes": 114598,
+      "sha256": "b38cda3e7d7084bf34057cfb85dc0f54d1c45b8d95c49d5ca1c7eb983bce771d"
+    },
+    {
+      "path": "fotos_casos/mobile-security-rental-history.png",
+      "bytes": 237580,
+      "sha256": "b5d66d2923cc13b11f71c0c7c7e4fa68738f80316c7fafa451885403b9496167"
+    },
+    {
+      "path": "fotos_casos/mobile-security-xss-catalog.png",
+      "bytes": 136145,
+      "sha256": "9aabce9740ec2e75e585be4589247a11dcb3117bed76e317924ce8eb28ca7b47"
+    },
+    {
+      "path": "fotos_casos/mobile-security-xss-message.png",
+      "bytes": 108928,
+      "sha256": "7155088b386af4bc40356c961c043a3b83275bf23a9dd6156d7913da15287f07"
+    },
+    {
+      "path": "fotos_casos/mobile-url-filtros-persistentes.png",
+      "bytes": 134317,
+      "sha256": "9dfa815a4a327e631dcc1fa6be35f47c113c908345d8e3132ab4df9fa25e0eb9"
+    },
+    {
+      "path": "fotos_casos/t01-reporte-api.png",
+      "bytes": 87520,
+      "sha256": "2b5f33bd5b7c57550970e5e144391c630d7959d292089e156c07cdc32cbc7dae"
+    },
+    {
+      "path": "fotos_casos/t02-reporte-api.png",
+      "bytes": 37598,
+      "sha256": "c2fbec7f66d521276026c9e3727d899bc475558052e9c69d9a92b79bb145e341"
+    },
+    {
+      "path": "fotos_casos/t03-reporte-api.png",
+      "bytes": 95322,
+      "sha256": "87356aafbe6f97dfd853caeff2b40c8b9a3ec1d83c995a1a7a73072185a6d13e"
+    },
+    {
+      "path": "fotos_casos/t04-reporte-api.png",
+      "bytes": 38826,
+      "sha256": "9db8d90bf8de28ed7322ecf693a12e2e27e6455475c305cc92567e9490dba728"
+    },
+    {
+      "path": "fotos_casos/t05-reporte-api.png",
+      "bytes": 65737,
+      "sha256": "0264d8bc919d6cbe6be79557d57180b683f417fd2358168208c54398c6f8119f"
+    },
+    {
+      "path": "fotos_casos/t06-reporte-api.png",
+      "bytes": 60329,
+      "sha256": "f01f54b72f4c2c484984f2a5e605cfe7ec01475d2fc1271c713d96622a7f221d"
+    },
+    {
+      "path": "fotos_casos/t07-reporte-api.png",
+      "bytes": 91571,
+      "sha256": "fa64bba271e6188d98c538f29fbe7390744c88a047e59ea7a4fcb72174d39ca4"
+    },
+    {
+      "path": "fotos_casos/t08-reporte-api.png",
+      "bytes": 86734,
+      "sha256": "f954020408bf8cfb6262f69d6b16985616fd3f8c016e017a2fb9c2e9277d0c46"
+    },
+    {
+      "path": "fotos_casos/t09-reporte-api.png",
+      "bytes": 100427,
+      "sha256": "64916f6c30e07179cc24e345082316cc4c2f49ce141121980af24df90a3f2563"
+    },
+    {
+      "path": "fotos_casos/t10-reporte-api.png",
+      "bytes": 40772,
+      "sha256": "4f36404e91a33ede60cee475f436f44b8ffaf457b307e9a3aba68851ffb1115d"
+    },
+    {
+      "path": "fotos_casos/t11-reporte-api.png",
+      "bytes": 87687,
+      "sha256": "e6a0e6c25bf01b7cba2cf6fa35cb2fe1988008b9676ab417b6ec63ef11076c1d"
+    },
+    {
+      "path": "fotos_casos/t12-reporte-api.png",
+      "bytes": 94428,
+      "sha256": "0451004a9427b284ef6892149678e8f78c18a9183b6aa9fb45aa527a44861684"
+    },
+    {
+      "path": "fotos_casos/t13-reporte-api.png",
+      "bytes": 72380,
+      "sha256": "0266521bdbea7721e8f23a4a0499fa45b3d150b5cebb2145288d67b1f32dd540"
+    },
+    {
+      "path": "fotos_casos/t14-reporte-frontend.png",
+      "bytes": 87536,
+      "sha256": "0ad7e4eb0f3101732c0ff12b9293b8934d247fab20719d90e271ff81b9c518f2"
+    },
+    {
+      "path": "fotos_casos/t15-reporte-frontend.png",
+      "bytes": 37568,
+      "sha256": "bb8819b46c5fe332886f1f9793ba771e453748c004adc2d2dfa819ac8c7d863c"
+    },
+    {
+      "path": "fotos_casos/t16-reporte-frontend.png",
+      "bytes": 52432,
+      "sha256": "3e950a32a1bc170f2dc9f4745c3dec29e07ec2cf7b3029fdc6be7e4413dd181b"
+    },
+    {
+      "path": "fotos_casos/t17-reporte-frontend.png",
+      "bytes": 65402,
+      "sha256": "e97516f6c54b45f569c7bceac4d3495b0ad5b8149431f5654f73ace44ec28377"
+    },
+    {
+      "path": "fotos_casos/t18-reporte-frontend.png",
+      "bytes": 59433,
+      "sha256": "fa8d13bb2e5792a21d127dd0056650bc976a234b608020658f0e74a2c83d3957"
+    },
+    {
+      "path": "fotos_casos/t19-reporte-frontend.png",
+      "bytes": 102782,
+      "sha256": "e5b531392242825477ae5f7cb61257692ac8e050dbe0059424af5b6f3c15b964"
+    },
+    {
+      "path": "fotos_casos/t20-reporte-frontend.png",
+      "bytes": 103718,
+      "sha256": "7df101ecff3f0d8b627eaa7745928073b914cadfd306ee06d7333e1bfb4995be"
+    },
+    {
+      "path": "fotos_casos/t21-reporte-frontend.png",
+      "bytes": 54213,
+      "sha256": "2eaa8bb7b7feba06edea63d415bc23db2067be321e7a8b5b7de0e58bd7ee6835"
+    },
+    {
+      "path": "fotos_casos/t22-reporte-frontend.png",
+      "bytes": 61486,
+      "sha256": "3e1c35d88f11a6163190e336b3b7237c83a34409875f61c4f62628ca6f1dfc42"
+    },
+    {
+      "path": "fotos_casos/t23-reporte-frontend.png",
+      "bytes": 77489,
+      "sha256": "8c041dac6eb72536f128dbaa6ba8b23945dc15abbb283847bd9ae95e3ddf2421"
+    },
+    {
+      "path": "fotos_casos/t24-reporte-frontend.png",
+      "bytes": 79312,
+      "sha256": "a90b5977af2ed301474641de8487c4d244f6dcaba007dbc62dcaf86ade336a5e"
+    },
+    {
+      "path": "fotos_casos/t25-reporte-frontend.png",
+      "bytes": 83654,
+      "sha256": "4f007fbf8171d536b7175228fc414851047036e7afa1593f0473f7ba5436e19a"
+    },
+    {
+      "path": "fotos_casos/t26-reporte-frontend.png",
+      "bytes": 49114,
+      "sha256": "839b0f475ea47f7105808b2b1ab56ce659008b1201981a07e68c470489a3ccf3"
+    },
+    {
+      "path": "fotos_casos/t27-reporte-frontend.png",
+      "bytes": 76807,
+      "sha256": "99af923acf8458a0a93884a63cd5f5df92d7b9be6f9737c37ad74c352654bf6e"
+    },
+    {
+      "path": "fotos_casos/t28-reporte-docker.png",
+      "bytes": 108218,
+      "sha256": "2693401ae160a10afab4519703b05fac1f66b2f075d512d790c910c61f3a7deb"
+    },
+    {
+      "path": "fotos_casos/t29-reporte-docker.png",
+      "bytes": 71798,
+      "sha256": "adbeb093a2248869e5b85a55448dffa2e17213eca82e367a8bdfc6ef0ce1feee"
+    },
+    {
+      "path": "fotos_casos/t30-reporte-smtp.png",
+      "bytes": 79183,
+      "sha256": "fdddc108912fd9cf77dc42dd63455852b064c0b5ef1ebf0329512c3e861efa6f"
+    }
+  ],
+  "document": "CampusTrade_Casos_Prueba_Con_Fotos_2026-11-12.docx",
+  "documentSha256": "d5d838bdc66d0dc0c4837d13ae231a2561f8ea39c9327c541f5005f90b14aa69"
+}

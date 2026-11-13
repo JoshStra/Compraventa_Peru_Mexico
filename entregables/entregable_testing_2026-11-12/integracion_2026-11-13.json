@@ -1,0 +1,1026 @@
+{
+  "createdUtc": "2026-11-13T06:20:52Z",
+  "integrationDateMexico": "2026-11-13",
+  "testDatesPreserved": "2026-11-12 America/Mexico_City",
+  "baseCommit": "9c5e64eaf785115c13ec19822d6687bad81ad0b1",
+  "sources": [
+    {
+      "file": "CampusTrade_Testing_Actualizado_2026-11-12.docx",
+      "sha256": "e1e4b4d292e72538b27cb2c628f650553824a93c53afe97ca8807e32e12fcf9f"
+    },
+    {
+      "file": "CampusTrade_Casos_Prueba_Con_Fotos_2026-11-12.docx",
+      "sha256": "d5d838bdc66d0dc0c4837d13ae231a2561f8ea39c9327c541f5005f90b14aa69"
+    }
+  ],
+  "output": "CampusTrade_Testing_Unificado_Con_Fotos_2026-11-13.docx",
+  "outputSha256": "1dbddaff1b06ff344fd9f0943e69b7f92878c7cd8d2dc75e8dc4bab03c191099",
+  "uniqueCaseCards": 151,
+  "drawings": 164,
+  "caseScreenshots": 62,
+  "generalScreenshots": 3,
+  "copiedImages": [
+    {
+      "source": "word/media/image1.png",
+      "target": "word/media/fotos_image1.png",
+      "sha256": "52c640d3ee8211da8a778d7a0e11f0ec46367264db93090d6b8bbd319de6f106"
+    },
+    {
+      "source": "word/media/image2.png",
+      "target": "word/media/fotos_image2.png",
+      "sha256": "4e446f0ed7660b606cf038da1b37b855af44df0d6e834d4671255a093d53b8c7"
+    },
+    {
+      "source": "word/media/image3.png",
+      "target": "word/media/fotos_image3.png",
+      "sha256": "b88e4633acd67b0c6548a9042426eb975a6f22741b8ea2b2412e754c3a340e76"
+    },
+    {
+      "source": "word/media/image4.png",
+      "target": "word/media/fotos_image4.png",
+      "sha256": "0fb5408e6863f191450d2e7035378cc168e66e8f453b778f18a90806044143a1"
+    },
+    {
+      "source": "word/media/image5.png",
+      "target": "word/media/fotos_image5.png",
+      "sha256": "0447bcaf41ae5155bb0e567225688fc3004735dd204bffb19c1a54572905d1b7"
+    },
+    {
+      "source": "word/media/image6.png",
+      "target": "word/media/fotos_image6.png",
+      "sha256": "1a77b7c0862934c8fddb5b2651ba3c6b3568d17e39b3454ed5a2df30182242d2"
+    },
+    {
+      "source": "word/media/image7.png",
+      "target": "word/media/fotos_image7.png",
+      "sha256": "d842612e8d7c5e2e7934e4ff2e9d3d493b4041c3e9e52ae416ddcf07b8e97baf"
+    },
+    {
+      "source": "word/media/image8.png",
+      "target": "word/media/fotos_image8.png",
+      "sha256": "c27dfd5cb08f0315645c325c36af12bb7b6d3b1e5d9f57005cb5884c75ef6873"
+    },
+    {
+      "source": "word/media/image9.png",
+      "target": "word/media/fotos_image9.png",
+      "sha256": "8862414ba51cb4017c4cc055c22642a4677a9c7a2bd0b9b5a5eb39253d1166f5"
+    },
+    {
+      "source": "word/media/image10.png",
+      "target": "word/media/fotos_image10.png",
+      "sha256": "40ac7e89fd63ba84cf06418e41eb7a25b6d2529cdd1f7fdf0b7a9e3f22db5d7c"
+    },
+    {
+      "source": "word/media/image11.png",
+      "target": "word/media/fotos_image11.png",
+      "sha256": "b6d4df1439b6144e9bc8fbdbfcf38b03d64f4c40f85d5319c0b566a54493c3e0"
+    },
+    {
+      "source": "word/media/image12.png",
+      "target": "word/media/fotos_image12.png",
+      "sha256": "b5c011499395ea60919177ca5cf0f7426e490b189ee6a966dbeeedc3d83bcf9c"
+    },
+    {
+      "source": "word/media/image13.png",
+      "target": "word/media/fotos_image13.png",
+      "sha256": "ca955b8a23866c63cd7f8d99937728c635369a0c2d6ca840260aa9de49600b97"
+    },
+    {
+      "source": "word/media/image14.png",
+      "target": "word/media/fotos_image14.png",
+      "sha256": "18e702c41af3dbe262c400db0088797a131b4b1b64ed14702aad3700b7741d00"
+    },
+    {
+      "source": "word/media/image15.png",
+      "target": "word/media/fotos_image15.png",
+      "sha256": "cb8aa053a90631bbffbe31bdc4784f1675559e965e25d54fae8d781f37b7329c"
+    },
+    {
+      "source": "word/media/image16.png",
+      "target": "word/media/fotos_image16.png",
+      "sha256": "f0a54f18c7500d6470cc242961200ef71622eba2103975dcb6e4cbe50180a6b2"
+    },
+    {
+      "source": "word/media/image17.png",
+      "target": "word/media/fotos_image17.png",
+      "sha256": "8f689bd10c284e6d5e6af02421c2369589351abf4b8991a8a5d42778425cae0b"
+    },
+    {
+      "source": "word/media/image18.png",
+      "target": "word/media/fotos_image18.png",
+      "sha256": "9dfa815a4a327e631dcc1fa6be35f47c113c908345d8e3132ab4df9fa25e0eb9"
+    },
+    {
+      "source": "word/media/image19.png",
+      "target": "word/media/fotos_image19.png",
+      "sha256": "b38cda3e7d7084bf34057cfb85dc0f54d1c45b8d95c49d5ca1c7eb983bce771d"
+    },
+    {
+      "source": "word/media/image20.png",
+      "target": "word/media/fotos_image20.png",
+      "sha256": "e7bf0d70c0a7d1aa060e4d39012c3e80f35e5e71937d8223c8bfc4f84b151db0"
+    },
+    {
+      "source": "word/media/image21.png",
+      "target": "word/media/fotos_image21.png",
+      "sha256": "5925073a2eb54c7cd88c0af3ba9ec7e1a688928a630c276250f9460069900cf4"
+    },
+    {
+      "source": "word/media/image22.png",
+      "target": "word/media/fotos_image22.png",
+      "sha256": "04a1989551f86fe994bd2b00fe0f3c68065072752387edbc5c1bf054d864f014"
+    },
+    {
+      "source": "word/media/image23.png",
+      "target": "word/media/fotos_image23.png",
+      "sha256": "698860769ace4c0f4f7808d1932e863e14638c4738c6b2a8ff8393f1266373c6"
+    },
+    {
+      "source": "word/media/image24.png",
+      "target": "word/media/fotos_image24.png",
+      "sha256": "318136d7937711b5bc99be70f03e4f6b535337be5f3b6b94a76f83697e1931be"
+    },
+    {
+      "source": "word/media/image25.png",
+      "target": "word/media/fotos_image25.png",
+      "sha256": "fa2d38ff066bcfe26afc9a4e275815b3afe3ad1b875ac465315d0b20c32422f1"
+    },
+    {
+      "source": "word/media/image26.png",
+      "target": "word/media/fotos_image26.png",
+      "sha256": "2e24859a9a61153490e819e6a7d6306f2907b8909052b59f53c08afbe7e4eb36"
+    },
+    {
+      "source": "word/media/image27.png",
+      "target": "word/media/fotos_image27.png",
+      "sha256": "9aabce9740ec2e75e585be4589247a11dcb3117bed76e317924ce8eb28ca7b47"
+    },
+    {
+      "source": "word/media/image28.png",
+      "target": "word/media/fotos_image28.png",
+      "sha256": "7155088b386af4bc40356c961c043a3b83275bf23a9dd6156d7913da15287f07"
+    },
+    {
+      "source": "word/media/image29.png",
+      "target": "word/media/fotos_image29.png",
+      "sha256": "b5d66d2923cc13b11f71c0c7c7e4fa68738f80316c7fafa451885403b9496167"
+    },
+    {
+      "source": "word/media/image30.png",
+      "target": "word/media/fotos_image30.png",
+      "sha256": "194c3249f294e10d41317beee69cf6db01f685fc38c94cb84bb420a486fc2050"
+    },
+    {
+      "source": "word/media/image31.png",
+      "target": "word/media/fotos_image31.png",
+      "sha256": "3393196017d407fccfb4152a9107284763605e4e4f6ec9ee7de701dc8549824a"
+    },
+    {
+      "source": "word/media/image32.png",
+      "target": "word/media/fotos_image32.png",
+      "sha256": "dce88804dbd1fcb7162dbc4b3a5547266ebe4989a61be3c64ba14433ae0d743f"
+    },
+    {
+      "source": "word/media/image33.png",
+      "target": "word/media/fotos_image33.png",
+      "sha256": "2b5f33bd5b7c57550970e5e144391c630d7959d292089e156c07cdc32cbc7dae"
+    },
+    {
+      "source": "word/media/image34.png",
+      "target": "word/media/fotos_image34.png",
+      "sha256": "c2fbec7f66d521276026c9e3727d899bc475558052e9c69d9a92b79bb145e341"
+    },
+    {
+      "source": "word/media/image35.png",
+      "target": "word/media/fotos_image35.png",
+      "sha256": "87356aafbe6f97dfd853caeff2b40c8b9a3ec1d83c995a1a7a73072185a6d13e"
+    },
+    {
+      "source": "word/media/image36.png",
+      "target": "word/media/fotos_image36.png",
+      "sha256": "9db8d90bf8de28ed7322ecf693a12e2e27e6455475c305cc92567e9490dba728"
+    },
+    {
+      "source": "word/media/image37.png",
+      "target": "word/media/fotos_image37.png",
+      "sha256": "0264d8bc919d6cbe6be79557d57180b683f417fd2358168208c54398c6f8119f"
+    },
+    {
+      "source": "word/media/image38.png",
+      "target": "word/media/fotos_image38.png",
+      "sha256": "f01f54b72f4c2c484984f2a5e605cfe7ec01475d2fc1271c713d96622a7f221d"
+    },
+    {
+      "source": "word/media/image39.png",
+      "target": "word/media/fotos_image39.png",
+      "sha256": "fa64bba271e6188d98c538f29fbe7390744c88a047e59ea7a4fcb72174d39ca4"
+    },
+    {
+      "source": "word/media/image40.png",
+      "target": "word/media/fotos_image40.png",
+      "sha256": "f954020408bf8cfb6262f69d6b16985616fd3f8c016e017a2fb9c2e9277d0c46"
+    },
+    {
+      "source": "word/media/image41.png",
+      "target": "word/media/fotos_image41.png",
+      "sha256": "64916f6c30e07179cc24e345082316cc4c2f49ce141121980af24df90a3f2563"
+    },
+    {
+      "source": "word/media/image42.png",
+      "target": "word/media/fotos_image42.png",
+      "sha256": "4f36404e91a33ede60cee475f436f44b8ffaf457b307e9a3aba68851ffb1115d"
+    },
+    {
+      "source": "word/media/image43.png",
+      "target": "word/media/fotos_image43.png",
+      "sha256": "e6a0e6c25bf01b7cba2cf6fa35cb2fe1988008b9676ab417b6ec63ef11076c1d"
+    },
+    {
+      "source": "word/media/image44.png",
+      "target": "word/media/fotos_image44.png",
+      "sha256": "0451004a9427b284ef6892149678e8f78c18a9183b6aa9fb45aa527a44861684"
+    },
+    {
+      "source": "word/media/image45.png",
+      "target": "word/media/fotos_image45.png",
+      "sha256": "0266521bdbea7721e8f23a4a0499fa45b3d150b5cebb2145288d67b1f32dd540"
+    },
+    {
+      "source": "word/media/image46.png",
+      "target": "word/media/fotos_image46.png",
+      "sha256": "0ad7e4eb0f3101732c0ff12b9293b8934d247fab20719d90e271ff81b9c518f2"
+    },
+    {
+      "source": "word/media/image47.png",
+      "target": "word/media/fotos_image47.png",
+      "sha256": "bb8819b46c5fe332886f1f9793ba771e453748c004adc2d2dfa819ac8c7d863c"
+    },
+    {
+      "source": "word/media/image48.png",
+      "target": "word/media/fotos_image48.png",
+      "sha256": "3e950a32a1bc170f2dc9f4745c3dec29e07ec2cf7b3029fdc6be7e4413dd181b"
+    },
+    {
+      "source": "word/media/image49.png",
+      "target": "word/media/fotos_image49.png",
+      "sha256": "e97516f6c54b45f569c7bceac4d3495b0ad5b8149431f5654f73ace44ec28377"
+    },
+    {
+      "source": "word/media/image50.png",
+      "target": "word/media/fotos_image50.png",
+      "sha256": "fa8d13bb2e5792a21d127dd0056650bc976a234b608020658f0e74a2c83d3957"
+    },
+    {
+      "source": "word/media/image51.png",
+      "target": "word/media/fotos_image51.png",
+      "sha256": "e5b531392242825477ae5f7cb61257692ac8e050dbe0059424af5b6f3c15b964"
+    },
+    {
+      "source": "word/media/image52.png",
+      "target": "word/media/fotos_image52.png",
+      "sha256": "7df101ecff3f0d8b627eaa7745928073b914cadfd306ee06d7333e1bfb4995be"
+    },
+    {
+      "source": "word/media/image53.png",
+      "target": "word/media/fotos_image53.png",
+      "sha256": "2eaa8bb7b7feba06edea63d415bc23db2067be321e7a8b5b7de0e58bd7ee6835"
+    },
+    {
+      "source": "word/media/image54.png",
+      "target": "word/media/fotos_image54.png",
+      "sha256": "3e1c35d88f11a6163190e336b3b7237c83a34409875f61c4f62628ca6f1dfc42"
+    },
+    {
+      "source": "word/media/image55.png",
+      "target": "word/media/fotos_image55.png",
+      "sha256": "8c041dac6eb72536f128dbaa6ba8b23945dc15abbb283847bd9ae95e3ddf2421"
+    },
+    {
+      "source": "word/media/image56.png",
+      "target": "word/media/fotos_image56.png",
+      "sha256": "a90b5977af2ed301474641de8487c4d244f6dcaba007dbc62dcaf86ade336a5e"
+    },
+    {
+      "source": "word/media/image57.png",
+      "target": "word/media/fotos_image57.png",
+      "sha256": "4f007fbf8171d536b7175228fc414851047036e7afa1593f0473f7ba5436e19a"
+    },
+    {
+      "source": "word/media/image58.png",
+      "target": "word/media/fotos_image58.png",
+      "sha256": "839b0f475ea47f7105808b2b1ab56ce659008b1201981a07e68c470489a3ccf3"
+    },
+    {
+      "source": "word/media/image59.png",
+      "target": "word/media/fotos_image59.png",
+      "sha256": "99af923acf8458a0a93884a63cd5f5df92d7b9be6f9737c37ad74c352654bf6e"
+    },
+    {
+      "source": "word/media/image60.png",
+      "target": "word/media/fotos_image60.png",
+      "sha256": "2693401ae160a10afab4519703b05fac1f66b2f075d512d790c910c61f3a7deb"
+    },
+    {
+      "source": "word/media/image61.png",
+      "target": "word/media/fotos_image61.png",
+      "sha256": "adbeb093a2248869e5b85a55448dffa2e17213eca82e367a8bdfc6ef0ce1feee"
+    },
+    {
+      "source": "word/media/image62.png",
+      "target": "word/media/fotos_image62.png",
+      "sha256": "fdddc108912fd9cf77dc42dd63455852b064c0b5ef1ebf0329512c3e861efa6f"
+    }
+  ],
+  "stylesChangedToPhotoVersion": [
+    "Small",
+    "Case"
+  ],
+  "deduplication": "El anexo original de 151 fichas se reemplaza por las mismas 151 fichas con fotos; se conservan los ocho apartados completos.",
+  "updatedUtc": "2026-11-13T23:29:27.590636+00:00",
+  "priorOutputSha256": "5803ba6a5232dcfe6b743d7c929b8b14f2de367f9e0dc0154093b70217484e61",
+  "embeddedForm": {
+    "source": "Formulario_Correccion_Errores.docx",
+    "sourceSha256": "e63a47725b11b16508b65e6c2334c01661fe8998bd26a7fee095d698ee937e16",
+    "tags": [
+      "INCIDENCIA",
+      "RESPONSABLE",
+      "REPRODUCCION",
+      "CAUSA",
+      "SOLUCION",
+      "COMMIT",
+      "REGRESION",
+      "EVIDENCIA"
+    ],
+    "nativeEditableFields": 8
+  },
+  "githubRevalidation": {
+    "dateMexico": "2026-11-13",
+    "verifiedUtc": "2026-11-13T06:40:41.886Z",
+    "file": "evidencias/github-verificacion_2026-11-13.json",
+    "closedIssuesWithComments": 6
+  },
+  "changedPackageParts": [
+    "word/document.xml",
+    "docProps/core.xml"
+  ],
+  "githubScreenshots": 4,
+  "githubScreenshotIndex": "github_capturas/indice_capturas.json",
+  "addedPackageParts": [],
+  "previousValidationSummary": {
+    "checkedUtc": "2026-11-13T22:35:54.162069+00:00",
+    "sha256": "5803ba6a5232dcfe6b743d7c929b8b14f2de367f9e0dc0154093b70217484e61",
+    "pages": 95,
+    "uniqueCaseCards": 151,
+    "images": 69
+  },
+  "uniqueImageAssets": 69,
+  "caseScreenshotOccurrences": 157,
+  "technicalCasesWithInlineCapture": 125,
+  "caseCardsWithInlineCapture": 151,
+  "casePageIndex": "indice_casos_word.json",
+  "validation": {
+    "checkedUtc": "2026-11-13T23:31:10.526303+00:00",
+    "document": "CampusTrade_Testing_Unificado_Con_Fotos_2026-11-13.docx",
+    "sha256": "1dbddaff1b06ff344fd9f0943e69b7f92878c7cd8d2dc75e8dc4bab03c191099",
+    "pages": 169,
+    "chapters": 8,
+    "uniqueCaseCards": 151,
+    "casesWithCaptureOnSamePage": 151,
+    "technicalCasePagesWithCapture": 125,
+    "browserCasePagesWithCapture": 26,
+    "images": 164,
+    "uniqueImageAssets": 69,
+    "caseScreenshots": 62,
+    "generalScreenshots": 3,
+    "githubScreenshots": 4,
+    "caseScreenshotOccurrences": 157,
+    "nativeControlsUnchanged": true,
+    "nativeEditableFields": [
+      "INCIDENCIA",
+      "RESPONSABLE",
+      "REPRODUCCION",
+      "CAUSA",
+      "SOLUCION",
+      "COMMIT",
+      "REGRESION",
+      "EVIDENCIA"
+    ],
+    "priorFormFillTestPreserved": true,
+    "allCaseIdsPresent": true,
+    "allPriorImagesPreservedByteForByte": true,
+    "eachCaseHasItsCorrectCapture": true,
+    "caseStepsResultsAndDatesUnchanged": true,
+    "validRelationships": true,
+    "changedPackageParts": [
+      "docProps/core.xml",
+      "word/document.xml"
+    ],
+    "sourceDocumentsUnchanged": 3,
+    "outOfMargins": 0,
+    "sparsePages": [],
+    "externalHumanParticipants": 0,
+    "pixelIdenticalPreviouslyVerifiedBodies": [
+      {
+        "page": 2,
+        "unchangedBodyFromPreviouslyVerifiedPage": 2
+      },
+      {
+        "page": 3,
+        "unchangedBodyFromPreviouslyVerifiedPage": 3
+      },
+      {
+        "page": 4,
+        "unchangedBodyFromPreviouslyVerifiedPage": 4
+      },
+      {
+        "page": 5,
+        "unchangedBodyFromPreviouslyVerifiedPage": 5
+      },
+      {
+        "page": 6,
+        "unchangedBodyFromPreviouslyVerifiedPage": 6
+      },
+      {
+        "page": 7,
+        "unchangedBodyFromPreviouslyVerifiedPage": 7
+      },
+      {
+        "page": 8,
+        "unchangedBodyFromPreviouslyVerifiedPage": 8
+      },
+      {
+        "page": 9,
+        "unchangedBodyFromPreviouslyVerifiedPage": 9
+      },
+      {
+        "page": 10,
+        "unchangedBodyFromPreviouslyVerifiedPage": 10
+      },
+      {
+        "page": 11,
+        "unchangedBodyFromPreviouslyVerifiedPage": 11
+      },
+      {
+        "page": 12,
+        "unchangedBodyFromPreviouslyVerifiedPage": 12
+      },
+      {
+        "page": 13,
+        "unchangedBodyFromPreviouslyVerifiedPage": 13
+      },
+      {
+        "page": 14,
+        "unchangedBodyFromPreviouslyVerifiedPage": 14
+      },
+      {
+        "page": 15,
+        "unchangedBodyFromPreviouslyVerifiedPage": 15
+      },
+      {
+        "page": 16,
+        "unchangedBodyFromPreviouslyVerifiedPage": 16
+      },
+      {
+        "page": 17,
+        "unchangedBodyFromPreviouslyVerifiedPage": 17
+      },
+      {
+        "page": 18,
+        "unchangedBodyFromPreviouslyVerifiedPage": 18
+      },
+      {
+        "page": 19,
+        "unchangedBodyFromPreviouslyVerifiedPage": 19
+      },
+      {
+        "page": 20,
+        "unchangedBodyFromPreviouslyVerifiedPage": 20
+      },
+      {
+        "page": 21,
+        "unchangedBodyFromPreviouslyVerifiedPage": 21
+      },
+      {
+        "page": 22,
+        "unchangedBodyFromPreviouslyVerifiedPage": 22
+      },
+      {
+        "page": 23,
+        "unchangedBodyFromPreviouslyVerifiedPage": 23
+      },
+      {
+        "page": 24,
+        "unchangedBodyFromPreviouslyVerifiedPage": 24
+      },
+      {
+        "page": 25,
+        "unchangedBodyFromPreviouslyVerifiedPage": 25
+      },
+      {
+        "page": 26,
+        "unchangedBodyFromPreviouslyVerifiedPage": 26
+      },
+      {
+        "page": 27,
+        "unchangedBodyFromPreviouslyVerifiedPage": 27
+      },
+      {
+        "page": 28,
+        "unchangedBodyFromPreviouslyVerifiedPage": 28
+      },
+      {
+        "page": 29,
+        "unchangedBodyFromPreviouslyVerifiedPage": 29
+      },
+      {
+        "page": 30,
+        "unchangedBodyFromPreviouslyVerifiedPage": 30
+      },
+      {
+        "page": 31,
+        "unchangedBodyFromPreviouslyVerifiedPage": 31
+      },
+      {
+        "page": 32,
+        "unchangedBodyFromPreviouslyVerifiedPage": 32
+      },
+      {
+        "page": 33,
+        "unchangedBodyFromPreviouslyVerifiedPage": 33
+      },
+      {
+        "page": 34,
+        "unchangedBodyFromPreviouslyVerifiedPage": 34
+      },
+      {
+        "page": 35,
+        "unchangedBodyFromPreviouslyVerifiedPage": 35
+      },
+      {
+        "page": 36,
+        "unchangedBodyFromPreviouslyVerifiedPage": 36
+      },
+      {
+        "page": 37,
+        "unchangedBodyFromPreviouslyVerifiedPage": 37
+      },
+      {
+        "page": 38,
+        "unchangedBodyFromPreviouslyVerifiedPage": 38
+      },
+      {
+        "page": 39,
+        "unchangedBodyFromPreviouslyVerifiedPage": 39
+      },
+      {
+        "page": 40,
+        "unchangedBodyFromPreviouslyVerifiedPage": 40
+      },
+      {
+        "page": 41,
+        "unchangedBodyFromPreviouslyVerifiedPage": 41
+      },
+      {
+        "page": 42,
+        "unchangedBodyFromPreviouslyVerifiedPage": 42
+      },
+      {
+        "page": 43,
+        "unchangedBodyFromPreviouslyVerifiedPage": 43
+      },
+      {
+        "page": 44,
+        "unchangedBodyFromPreviouslyVerifiedPage": 44
+      }
+    ],
+    "changedPagesToInspect": [
+      1,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      119,
+      120,
+      121,
+      122,
+      123,
+      124,
+      125,
+      126,
+      127,
+      128,
+      129,
+      130,
+      131,
+      132,
+      133,
+      134,
+      135,
+      136,
+      137,
+      138,
+      139,
+      140,
+      141,
+      142,
+      143,
+      144,
+      145,
+      146,
+      147,
+      148,
+      149,
+      150,
+      151,
+      152,
+      153,
+      154,
+      155,
+      156,
+      157,
+      158,
+      159,
+      160,
+      161,
+      162,
+      163,
+      164,
+      165,
+      166,
+      167,
+      168,
+      169
+    ],
+    "visuallyInspectedChangedPages": [
+      1,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      119,
+      120,
+      121,
+      122,
+      123,
+      124,
+      125,
+      126,
+      127,
+      128,
+      129,
+      130,
+      131,
+      132,
+      133,
+      134,
+      135,
+      136,
+      137,
+      138,
+      139,
+      140,
+      141,
+      142,
+      143,
+      144,
+      145,
+      146,
+      147,
+      148,
+      149,
+      150,
+      151,
+      152,
+      153,
+      154,
+      155,
+      156,
+      157,
+      158,
+      159,
+      160,
+      161,
+      162,
+      163,
+      164,
+      165,
+      166,
+      167,
+      168,
+      169
+    ],
+    "visuallyVerifiedPages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      119,
+      120,
+      121,
+      122,
+      123,
+      124,
+      125,
+      126,
+      127,
+      128,
+      129,
+      130,
+      131,
+      132,
+      133,
+      134,
+      135,
+      136,
+      137,
+      138,
+      139,
+      140,
+      141,
+      142,
+      143,
+      144,
+      145,
+      146,
+      147,
+      148,
+      149,
+      150,
+      151,
+      152,
+      153,
+      154,
+      155,
+      156,
+      157,
+      158,
+      159,
+      160,
+      161,
+      162,
+      163,
+      164,
+      165,
+      166,
+      167,
+      168,
+      169
+    ],
+    "visualReviewCompletedUtc": "2026-11-13T23:34:23.515484+00:00",
+    "reviewMethod": "43 page bodies are pixel-identical to the previously visually verified report at 144 dpi. The cover and all 125 reorganized technical pages were opened and visually inspected at full rendered resolution. Each of the 151 case cards has its exact source capture(s), steps and results on the same rendered page; source image bytes, case text and editable form controls are unchanged."
+  }
+}

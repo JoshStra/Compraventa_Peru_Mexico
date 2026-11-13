@@ -1,0 +1,52 @@
+✔ SEC-01 registro no revela si el correo o la matrícula ya existen (605.2445ms)
+✔ SEC-02 subidas concurrentes respetan el cupo de veinte imágenes pendientes (261.0049ms)
+✔ SEC-03 una devolución anterior no libera una renta posterior (123.52ms)
+✔ SEC-04 aceptar un intercambio revalida la modalidad de la oferta (66.5341ms)
+✖ SEC-05 login limita fallos de una cuenta aunque cambie la IP (506.7109ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2565.1972
+
+✖ failing tests:
+
+test at backend\test\security.test.js:93:1
+✖ SEC-05 login limita fallos de una cuenta aunque cambie la IP (506.7109ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+
+    [
+      401,
+      401,
+      401,
+      401,
+  ...
+      401,
+  +   401
+  -   429
+    ]
+
+      at TestContext.<anonymous> (file:///<REPO>/backend/test/security.test.js:99:10)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [
+      401, 401, 401, 401,
+      401, 401, 401, 401,
+      401, 401, 401
+    ],
+    expected: [
+      401, 401, 401, 401,
+      401, 401, 401, 401,
+      401, 401, 429
+    ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

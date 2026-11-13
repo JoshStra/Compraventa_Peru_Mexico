@@ -5,7 +5,7 @@ import { Modal } from "./Modal.jsx";
 export function priceLabel(item) {
   if (item.modality === "Donación") return "Gratis";
   if (item.modality === "Intercambio") return "Intercambio";
-  return `${new Intl.NumberFormat("es-MX", { style: "currency", currency: "MXN" }).format(listingPrice(item))}${item.modality === "Renta" ? " / día" : ""}`;
+  return `${new Intl.NumberFormat("es-MX", { style: "currency", currency: "MXN", minimumFractionDigits: 0, maximumFractionDigits: 2 }).format(listingPrice(item))}${item.modality === "Renta" ? " / día" : ""}`;
 }
 
 export function ProductCard({ item, isFavorite, onFavorite, onOpen }) {
@@ -22,7 +22,6 @@ export function ProductCard({ item, isFavorite, onFavorite, onOpen }) {
             imageUrl={item.imageUrl}
             title={item.title}
           />
-          <Badge modality={item.modality} />
         </button>
         <button
           className={`icon-button favorite-button ${isFavorite ? "is-favorite" : ""}`}
@@ -34,7 +33,7 @@ export function ProductCard({ item, isFavorite, onFavorite, onOpen }) {
         </button>
       </div>
       <div className="card-body">
-        <p className="eyebrow">{item.career}</p>
+        <Badge modality={item.modality} />
         <h3>
           <button className="title-open" onClick={() => onOpen(item.id)}>
             {item.title}
@@ -42,19 +41,11 @@ export function ProductCard({ item, isFavorite, onFavorite, onOpen }) {
         </h3>
         <p className="card-price">{priceLabel(item)}</p>
         <div className="card-meta">
+          <span>{item.career}</span>
+          <span>·</span>
           <span>{item.condition}</span>
           <span>·</span>
           <span>{item.status}</span>
-        </div>
-        <div className="seller-mini">
-          <span className="avatar avatar-small">{item.seller.initials}</span>
-          <span>{item.seller.name}</span>
-          {item.seller.rating > 0 && (
-            <span className="seller-rating">
-              <Icon name="star" size={13} />
-              {item.seller.rating.toFixed(1)}
-            </span>
-          )}
         </div>
       </div>
     </article>

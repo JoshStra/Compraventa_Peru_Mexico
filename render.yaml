@@ -1,4 +1,5 @@
-# Plantilla preparada; requiere cuentas Free y secretos reales antes de desplegar.
+# Plantilla histórica. Servicio suspendido el 10-11-2026 tras migrar a Docker local.
+# Ver compose.yaml y docs/DOCKER_LOCAL.md para la instalación actual.
 services:
   - type: web
     name: campustrade

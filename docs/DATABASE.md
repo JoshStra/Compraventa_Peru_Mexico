@@ -32,4 +32,8 @@ El ejecutor toma bloqueo asesor, normaliza CRLF/LF para el checksum, aplica migr
 
 Desarrollo: Docker, puerto 127.0.0.1:55432, volumen campustrade_postgres_data. Las pruebas rechazan hosts remotos, crean un esquema test_UUID por suite y eliminan solo ese esquema y sus archivos. La prueba persistence.test.js inicia dos procesos Node sucesivos y comprueba publicación y sesión conservadas. No demuestra todavía recuperación ante pérdida de disco o restauración de backup.
 
-Respaldo operativo: `pg_dump --format=custom` hacia un archivo fuera de Git usando DATABASE_URL solo desde el entorno; guardar también objetos e inventario. Probar `pg_restore` primero en una base nueva, verificar migraciones/health y los flujos antes de cambiar el servicio. No usar docker compose down -v para reiniciar. No se ejecutó restauración productiva ni existe una base remota creada.
+Respaldo operativo: `pg_dump --format=custom` hacia un archivo fuera de Git usando credenciales solo desde el entorno; guardar también objetos e inventario. Probar `pg_restore` primero en una base nueva, verificar migraciones/health y los flujos antes de cambiar el servicio. No usar docker compose down -v para reiniciar.
+
+## Instalación Docker migrada el 10 de noviembre de 2026
+
+La base de Neon se restauró en `campustrade_docker`, dentro del PostgreSQL local, y la base anterior `campustrade` se conservó. Las quince tablas coincidieron en recuentos y hashes antes y después de suspender Render. La aplicación usa `campustrade_app`, sin privilegios de superusuario, creación de bases/roles ni BYPASSRLS; conserva propiedad de su base para las migraciones de arranque. La [guía Docker](DOCKER_LOCAL.md) detalla volúmenes, respaldos y verificación. La restauración del dump y del objeto WebP fue validada; no se ensayó una pérdida física del disco del host.

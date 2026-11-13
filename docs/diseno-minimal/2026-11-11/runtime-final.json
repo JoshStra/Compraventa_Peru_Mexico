@@ -1,0 +1,80 @@
+{
+  "checkedAt": "2026-11-11T15:00:18.658Z",
+  "url": "http://127.0.0.1:3000/",
+  "states": [
+    {
+      "name": "campustrade-app-1",
+      "image": "sha256:0797fee53b61f4d267dacfe462ecdc62c23fd52dfb9b4ced639f225062ed805a",
+      "health": "healthy",
+      "volumes": [
+        {
+          "name": "campustrade_images_data",
+          "destination": "/app/backend/.data/images"
+        }
+      ],
+      "volumesPreserved": true,
+      "ports": {
+        "3000/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "3000"
+          }
+        ]
+      }
+    },
+    {
+      "name": "campustrade-db-1",
+      "image": "sha256:266d3c257594e195b309ae9d1805e54c788f1d7b375f56bf6c367aac6c917e7b",
+      "health": "healthy",
+      "volumes": [
+        {
+          "name": "campustrade_postgres_data",
+          "destination": "/var/lib/postgresql/data"
+        }
+      ],
+      "volumesPreserved": true,
+      "ports": {
+        "5432/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "55432"
+          }
+        ]
+      }
+    }
+  ],
+  "health": {
+    "status": "ok",
+    "database": "connected",
+    "version": "0.3.0"
+  },
+  "emailDomains": ["itesa.edu.mx"],
+  "emailDeliveryConfigured": false,
+  "catalogTotal": 0,
+  "deployedAssets": [
+    {
+      "file": "ConnectedApp-BNLLA-7F.js",
+      "bytes": 72298,
+      "sha256": "f021dcf7e08c14c2cbddd2d6f4accdc0e243e8b63ec3ce0d2cfe5d81ac7dbab7",
+      "matchesBuild": true
+    },
+    {
+      "file": "index-BOUTxRel.js",
+      "bytes": 142425,
+      "sha256": "40fb8668c96831ea04d0a90880d0d5c35b6976e9eff3b8c6ef325b034546d5da",
+      "matchesBuild": true
+    },
+    {
+      "file": "index-tLWiF-8o.css",
+      "bytes": 61251,
+      "sha256": "9613c56e5243898a720f0178a3af48d869506d617d1c2463f060e12562b67f65",
+      "matchesBuild": true
+    },
+    {
+      "file": "inter-latin-wght-normal-Dx4kXJAl.woff2",
+      "bytes": 48256,
+      "sha256": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62",
+      "matchesBuild": true
+    }
+  ]
+}

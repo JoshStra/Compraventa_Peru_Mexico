@@ -1,0 +1,11 @@
+{
+  "suite": "build",
+  "startedUtc": "2026-11-13T04:43:51.213Z",
+  "finishedUtc": "2026-11-13T04:43:52.837Z",
+  "durationSeconds": 1.624,
+  "exitCode": 0,
+  "sha": "0274f2b98a376ee67116fd5898ea1c9d14d63092",
+  "command": "node <REPO>\\node_modules\\vite\\bin\\vite.js build",
+  "node": "v24.12.0",
+  "timezone": "America/Mexico_City"
+}

@@ -1,10 +1,10 @@
-import { test, expect, request as requestFactory } from "@playwright/test";
+import { navigateSection, searchCampus, openConversation } from "./helpers.js";
+import { test, expect } from "@playwright/test";
 import {
   actor,
   identity,
   login,
   listing,
-  verificationMail,
   fixtureImage,
   origin,
   evidencePath,
@@ -18,7 +18,7 @@ test.beforeEach(async ({ page }) => {
   await page.goto("/");
 });
 
-test("registro verificación publicación con imagen y edición persistentes", async ({
+test("registro y publicación con imagen sin confirmar correo, con edición persistente", async ({
   page,
 }, info) => {
   const errors = [];
@@ -41,15 +41,10 @@ test("registro verificación publicación con imagen y edición persistentes", a
   await modal
     .getByRole("button", { name: "Crear cuenta", exact: true })
     .click();
-  await expect(modal.getByRole("status")).toContainText("Cuenta creada");
-  const client = await requestFactory.newContext({ baseURL: origin });
-  clients.push(client);
-  const mail = await verificationMail(client, input.email);
-  await page.goto(`/#verify=${mail.token}`);
-  await page
-    .getByRole("button", { name: "Verificar mi correo", exact: true })
-    .click();
-  await expect(page.getByRole("dialog")).toHaveCount(0);
+  await expect(modal.getByRole("status")).toContainText(
+    "ya puedes iniciar sesión",
+  );
+  await page.reload();
   await login(page, input);
   await page
     .getByRole("button", { name: "Publicar artículo", exact: true })
@@ -82,7 +77,7 @@ test("registro verificación publicación con imagen y edición persistentes", a
   await expect(
     page.getByRole("button", { name: title, exact: true }),
   ).toBeVisible();
-  await page.getByRole("button", { name: "Perfil", exact: true }).click();
+  await navigateSection(page, "Perfil");
   await expect(
     page.getByRole("heading", { name: input.name, exact: true }),
   ).toBeVisible();
@@ -121,10 +116,8 @@ test("catálogo y favoritos persisten entre sesiones del navegador", async ({
     title: `Libro de cálculo ${info.project.name}`,
   });
   await login(page, buyer.input);
-  await page.getByRole("button", { name: "Explorar", exact: true }).click();
-  await page
-    .getByRole("textbox", { name: "Buscar artículos" })
-    .fill(item.title);
+  await navigateSection(page, "Explorar");
+  await searchCampus(page, item.title);
   await expect(
     page.getByRole("button", { name: item.title, exact: true }),
   ).toBeVisible();
@@ -135,11 +128,11 @@ test("catálogo y favoritos persisten entre sesiones del navegador", async ({
     })
     .click();
   await page.reload();
-  await page.getByRole("button", { name: "Favoritos", exact: true }).click();
+  await navigateSection(page, "Favoritos");
   await expect(
     page.getByRole("button", { name: item.title, exact: true }),
   ).toBeVisible();
-  await page.getByRole("button", { name: "Perfil", exact: true }).click();
+  await navigateSection(page, "Perfil");
   await page
     .getByRole("button", { name: "Cerrar sesión", exact: true })
     .click();
@@ -147,29 +140,55 @@ test("catálogo y favoritos persisten entre sesiones del navegador", async ({
     page.getByRole("button", { name: "Iniciar sesión", exact: true }),
   ).toBeVisible();
   await login(page, buyer.input);
-  await page.getByRole("button", { name: "Favoritos", exact: true }).click();
+  await navigateSection(page, "Favoritos");
   await expect(
     page.getByRole("button", { name: item.title, exact: true }),
   ).toBeVisible();
+  await page.screenshot({
+    path: evidencePath(info, "favoritos-persistentes"),
+    fullPage: true,
+  });
 });
 
-test("una cuenta sin verificar no publica ni obtiene una insignia falsa", async ({
+test("una cuenta registrada conserva su perfil y puede publicar sin confirmar correo", async ({
   page,
-}) => {
-  const student = await actor({ prefix: "pending", verified: false });
+}, info) => {
+  const student = await actor({ prefix: "pending" });
+  expect(student.user.verified).toBe(false);
   clients.push(student.client);
   await login(page, student.input);
+  await navigateSection(page, "Perfil");
   await expect(
-    page.getByText("Tu correo institucional está pendiente de verificación.", {
-      exact: true,
-    }),
+    page.getByRole("heading", { name: student.input.name }),
   ).toBeVisible();
+  await expect(
+    page.getByText(student.input.email, { exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("button", { name: "Editar perfil", exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("button", { name: "Verificación de cuenta" }),
+  ).toHaveCount(0);
+  await expect(
+    page.getByRole("button", { name: "Reenviar enlace" }),
+  ).toHaveCount(0);
+  await expect(page.getByText(/verificación/i)).toHaveCount(0);
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBe(true);
+  await page.screenshot({
+    path: evidencePath(info, "perfil-sin-apartado-verificacion"),
+    fullPage: true,
+  });
   await page
     .getByRole("button", { name: "Publicar artículo", exact: true })
     .first()
     .click();
-  await expect(page.getByRole("alert")).toContainText(
-    "Verifica tu correo institucional",
-  );
-  await expect(page.getByRole("dialog")).toHaveCount(0);
+  await expect(page.getByRole("dialog")).toBeVisible();
+  await expect(
+    page.getByRole("dialog").getByLabel("Título", { exact: true }),
+  ).toBeEnabled();
 });

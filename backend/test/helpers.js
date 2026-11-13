@@ -69,28 +69,15 @@ export const registration = (suffix = "a") => ({
   semester: 5,
 });
 
-export async function createTestUser(
-  context,
-  suffix,
-  { verified = true } = {},
-) {
+export async function createTestUser(context, suffix) {
   const input = registration(suffix);
   const origin = context.config.origins[0];
   const registered = await request(context.app)
     .post("/api/v1/auth/register")
     .set("Origin", origin)
     .send(input);
-  if (registered.status !== 201)
+  if (registered.status !== 202)
     throw new Error(`Fixture registration failed: ${registered.status}`);
-  if (verified) {
-    const mail = context.mail.findLast(
-      (item) => item.to === input.email && item.purpose === "verify",
-    );
-    await request(context.app)
-      .post("/api/v1/auth/verify")
-      .set("Origin", origin)
-      .send({ token: mail.token });
-  }
   const agent = request.agent(context.app);
   const login = await agent
     .post("/api/v1/auth/login")

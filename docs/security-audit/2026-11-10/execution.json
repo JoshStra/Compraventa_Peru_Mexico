@@ -1,0 +1,134 @@
+{
+  "collectedAt": "2026-11-10T15:52:50.856Z",
+  "date": "2026-11-10",
+  "timezone": "America/Mexico_City",
+  "baselineCommit": "3c2a8d80c966e57b1af81dde94df22e075b4fbe3",
+  "branch": "codex/security-audit-2026-11-10",
+  "runtime": {
+    "node": "v24.12.0",
+    "npm": "11.6.2",
+    "localPostgres": "17.11"
+  },
+  "results": {
+    "frontend": {
+      "passed": 47,
+      "failed": 0,
+      "exitCode": 0
+    },
+    "backend": {
+      "passed": 50,
+      "failed": 0,
+      "exitCode": 0,
+      "securityCases": 16
+    },
+    "e2e": {
+      "passed": 16,
+      "failed": 0,
+      "exitCode": 0,
+      "retries": 0
+    },
+    "totalApplicationTests": 113,
+    "buildExitCode": 0,
+    "scaAllKnownVulnerabilities": 0,
+    "scaProductionKnownVulnerabilities": 0,
+    "inventoryExitCode": 0
+  },
+  "previousRuns": {
+    "securityBefore": {
+      "passed": 0,
+      "failed": 4,
+      "expectedFailure": true
+    },
+    "accountLimitBefore": {
+      "passed": 4,
+      "failed": 1,
+      "expectedFailure": true
+    },
+    "firstE2E": {
+      "passed": 15,
+      "failed": 1,
+      "cause": "test-data collision between desktop and mobile titles"
+    },
+    "auxiliaryInventoryAttemptInterruptedForBatchOptimization": true
+  },
+  "scope": {
+    "dast": "local only",
+    "productionAccess": "public GET and read-only Neon settings/role-capability metadata",
+    "productionDataModified": false,
+    "pushed": false,
+    "deployed": false
+  },
+  "cleanup": {
+    "testSchemasRemaining": 0,
+    "localDatabaseInitiallyStopped": true,
+    "localDatabaseStoppedAfterTests": true,
+    "volumePreserved": true
+  },
+  "artifactNormalization": {
+    "lineEndings": "LF",
+    "machineWorkspacePath": "<REPO>",
+    "timestamps": "File mtimes indicate capture/serialization, not fabricated execution start times."
+  },
+  "captures": [
+    {
+      "file": "account-limit-before.txt",
+      "originalFileWrittenUTC": "2026-11-10T15:21:01.582Z"
+    },
+    {
+      "file": "api-tests.txt",
+      "originalFileWrittenUTC": "2026-11-10T15:28:28.492Z"
+    },
+    {
+      "file": "before-fixes.txt",
+      "originalFileWrittenUTC": "2026-11-10T15:18:55.999Z"
+    },
+    {
+      "file": "build.txt",
+      "originalFileWrittenUTC": "2026-11-10T15:24:59.007Z"
+    },
+    {
+      "file": "e2e-first-run.txt",
+      "originalFileWrittenUTC": "2026-11-10T15:25:44.546Z"
+    },
+    {
+      "file": "e2e-tests.txt",
+      "originalFileWrittenUTC": "2026-11-10T15:28:42.032Z"
+    },
+    {
+      "file": "format-check.txt",
+      "originalFileWrittenUTC": "2026-11-10T15:37:57.883Z"
+    },
+    {
+      "file": "frontend-tests.txt",
+      "originalFileWrittenUTC": "2026-11-10T15:23:37.924Z"
+    },
+    {
+      "file": "local-cleanup.json",
+      "originalFileWrittenUTC": "2026-11-10T15:38:30.050Z"
+    },
+    {
+      "file": "neon-readonly.json",
+      "originalFileWrittenUTC": "2026-11-10T15:41:28.256Z"
+    },
+    {
+      "file": "npm-audit-all.json",
+      "originalFileWrittenUTC": "2026-11-10T15:28:53.165Z"
+    },
+    {
+      "file": "npm-audit-production.json",
+      "originalFileWrittenUTC": "2026-11-10T15:28:11.016Z"
+    },
+    {
+      "file": "public-headers.json",
+      "originalFileWrittenUTC": "2026-11-10T15:28:54.869Z"
+    },
+    {
+      "file": "scanner-self-test.json",
+      "originalFileWrittenUTC": "2026-11-10T15:51:20.404Z"
+    },
+    {
+      "file": "secret-inventory.json",
+      "originalFileWrittenUTC": "2026-11-10T15:50:34.220Z"
+    }
+  ]
+}

@@ -47,6 +47,10 @@ export function loadConfig(env = process.env) {
       from: env.MAIL_FROM,
     },
     resend: { key: env.RESEND_API_KEY, from: env.MAIL_FROM },
+    mailDelivery: {
+      mode: env.MAIL_DELIVERY_MODE || "external",
+      mailboxUrl: env.LOCAL_MAILBOX_URL || "",
+    },
     trustProxy: Number(env.TRUST_PROXY || 0),
     testMode: env.NODE_ENV === "test",
   };
@@ -82,5 +86,39 @@ export function loadConfig(env = process.env) {
     throw new Error("Falta configuración de almacenamiento S3.");
   if (!["local", "s3"].includes(config.storageDriver))
     throw new Error("STORAGE_DRIVER inválido.");
+  if (!["external", "local_demo"].includes(config.mailDelivery.mode))
+    throw new Error("MAIL_DELIVERY_MODE inválido.");
+  if (config.mailDelivery.mode === "local_demo") {
+    if (production)
+      throw new Error("El correo de demostración no se permite en producción.");
+    if (
+      !["mailpit", "127.0.0.1", "localhost", "::1"].includes(
+        config.smtp.host,
+      ) ||
+      !config.smtp.from ||
+      config.resend.key
+    )
+      throw new Error(
+        "La demostración requiere SMTP local y un remitente, sin Resend.",
+      );
+    let mailbox;
+    try {
+      mailbox = new URL(config.mailDelivery.mailboxUrl);
+    } catch {
+      throw new Error("LOCAL_MAILBOX_URL requiere una dirección local válida.");
+    }
+    if (
+      mailbox.protocol !== "http:" ||
+      !["localhost", "127.0.0.1", "[::1]"].includes(mailbox.hostname) ||
+      mailbox.username ||
+      mailbox.password ||
+      mailbox.search ||
+      mailbox.hash ||
+      mailbox.pathname !== "/"
+    )
+      throw new Error(
+        "LOCAL_MAILBOX_URL solo permite el buzón HTTP en loopback.",
+      );
+  }
   return config;
 }

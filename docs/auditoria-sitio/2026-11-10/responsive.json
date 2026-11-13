@@ -1,0 +1,14 @@
+{
+  "at390": {
+    "documentWidth": 375,
+    "navClient": 375,
+    "navScroll": 375,
+    "viewport": 390
+  },
+  "at768": {
+    "documentWidth": 753,
+    "navClient": 538,
+    "navScroll": 538,
+    "viewport": 768
+  }
+}

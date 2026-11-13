@@ -1,5 +1,6 @@
-import { cloneElement, useId, useState } from "react";
+import { cloneElement, useEffect, useId, useRef, useState } from "react";
 import { Modal } from "../components/Modal.jsx";
+import { MailDeliveryNotice } from "../components/MailDeliveryNotice.jsx";
 import {
   api,
   imageUrl,
@@ -7,7 +8,7 @@ import {
   conditionLabels,
 } from "../services/apiClient.js";
 
-export function Field({ label, error, children }) {
+export function Field({ label, hint, error, action, children }) {
   const id = useId();
   return (
     <div className="form-field">
@@ -16,13 +17,26 @@ export function Field({ label, error, children }) {
         id,
         "aria-label": label,
         "aria-invalid": Boolean(error),
-        "aria-describedby": error ? `${id}-error` : undefined,
+        "aria-describedby":
+          [
+            children.props["aria-describedby"],
+            hint && `${id}-hint`,
+            error && `${id}-error`,
+          ]
+            .filter(Boolean)
+            .join(" ") || undefined,
       })}
+      {hint && (
+        <small className="field-hint" id={`${id}-hint`}>
+          {hint}
+        </small>
+      )}
       {error && (
         <small className="field-error" id={`${id}-error`}>
           {error}
         </small>
       )}
+      {action}
     </div>
   );
 }
@@ -45,11 +59,17 @@ export function AuthDialog({
   const [notice, setNotice] = useState("");
   const [fields, setFields] = useState({});
   const [email, setEmail] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const authForm = useRef(null);
+  useEffect(() => {
+    authForm.current?.querySelector("input")?.focus();
+  }, [mode]);
   function change(next) {
     setMode(next);
     setError("");
     setFields({});
     setNotice("");
+    setShowPassword(false);
   }
   async function submit(event) {
     event.preventDefault();
@@ -75,11 +95,8 @@ export function AuthDialog({
           semester: Number(values.semester),
         });
         setMode("login");
-        setNotice(
-          result.verificationSent
-            ? "Cuenta creada. Revisa tu correo para verificarla y luego inicia sesión."
-            : "Cuenta creada. El envío de verificación aún no está disponible; podrás iniciar sesión y consultar el catálogo, pero publicar requiere verificar tu correo.",
-        );
+        setShowPassword(false);
+        setNotice(result.message);
       } else {
         const result = await api.forgot(email);
         setNotice(result.message);
@@ -108,7 +125,7 @@ export function AuthDialog({
         Dominio autorizado:{" "}
         {catalog.emailDomains.join(", ") || "pendiente de configurar"}.
       </p>
-      <form className="remote-form" key={mode} onSubmit={submit}>
+      <form className="remote-form" ref={authForm} key={mode} onSubmit={submit}>
         <ErrorNotice error={error} />
         {notice && (
           <p className="success-notice" role="status">
@@ -139,10 +156,25 @@ export function AuthDialog({
           />
         </Field>
         {mode !== "forgot" && (
-          <Field label="Contraseña" error={fields.password}>
+          <Field
+            label="Contraseña"
+            error={fields.password}
+            hint={mode === "register" ? "Mínimo 12 caracteres." : undefined}
+            action={
+              <button
+                type="button"
+                className="text-link password-toggle"
+                aria-pressed={showPassword}
+                disabled={busy}
+                onClick={() => setShowPassword((value) => !value)}
+              >
+                {showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
+              </button>
+            }
+          >
             <input
               name="password"
-              type="password"
+              type={showPassword ? "text" : "password"}
               required
               minLength={mode === "register" ? 12 : 1}
               maxLength={128}
@@ -154,7 +186,11 @@ export function AuthDialog({
         )}
         {mode === "register" && (
           <>
-            <Field label="Matrícula" error={fields.studentId}>
+            <Field
+              label="Matrícula"
+              error={fields.studentId}
+              hint="Entre 4 y 30 caracteres: letras, números y guiones."
+            >
               <input
                 name="studentId"
                 required
@@ -228,23 +264,26 @@ export function AuthDialog({
   );
 }
 
-export function TokenDialog({ action, token, onClose, onComplete }) {
+export function TokenDialog({
+  token,
+  onClose,
+  onComplete,
+  demoMail = false,
+  mailboxUrl,
+}) {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   async function submit(event) {
     event.preventDefault();
     const values = Object.fromEntries(new FormData(event.currentTarget));
-    if (action === "reset" && values.password !== values.confirmation) {
+    if (values.password !== values.confirmation) {
       setError("Las contraseñas no coinciden.");
       return;
     }
     setBusy(true);
     setError("");
     try {
-      const result =
-        action === "verify"
-          ? await api.verify(token)
-          : await api.reset({ token, password: values.password });
+      const result = await api.reset({ token, password: values.password });
       await onComplete(result.message);
     } catch (failure) {
       setError(failure.message);
@@ -254,52 +293,36 @@ export function TokenDialog({ action, token, onClose, onComplete }) {
   }
   return (
     <Modal
-      title={
-        action === "verify"
-          ? "Verifica tu correo institucional"
-          : "Elige una nueva contraseña"
-      }
+      title="Elige una nueva contraseña"
       onClose={() => {
         if (!busy) onClose();
       }}
     >
+      <MailDeliveryNotice demoMail={demoMail} mailboxUrl={mailboxUrl} />
       <form className="remote-form" onSubmit={submit}>
         <ErrorNotice error={error} />
-        {action === "reset" ? (
-          <>
-            <Field label="Nueva contraseña">
-              <input
-                name="password"
-                type="password"
-                minLength={12}
-                maxLength={128}
-                required
-                autoComplete="new-password"
-              />
-            </Field>
-            <Field label="Repite la contraseña">
-              <input
-                name="confirmation"
-                type="password"
-                minLength={12}
-                maxLength={128}
-                required
-                autoComplete="new-password"
-              />
-            </Field>
-          </>
-        ) : (
-          <p>
-            Confirma que abriste el enlace enviado a tu correo. El enlace se
-            puede usar una sola vez.
-          </p>
-        )}
+        <Field label="Nueva contraseña">
+          <input
+            name="password"
+            type="password"
+            minLength={12}
+            maxLength={128}
+            required
+            autoComplete="new-password"
+          />
+        </Field>
+        <Field label="Repite la contraseña">
+          <input
+            name="confirmation"
+            type="password"
+            minLength={12}
+            maxLength={128}
+            required
+            autoComplete="new-password"
+          />
+        </Field>
         <button className="button button-primary" disabled={busy}>
-          {busy
-            ? "Procesando…"
-            : action === "verify"
-              ? "Verificar mi correo"
-              : "Guardar contraseña"}
+          {busy ? "Procesando…" : "Guardar contraseña"}
         </button>
       </form>
     </Modal>

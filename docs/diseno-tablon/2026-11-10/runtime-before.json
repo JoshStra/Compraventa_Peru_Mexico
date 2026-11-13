@@ -1,0 +1,25 @@
+{
+  "at": "2026-11-10T22:38:21.252Z",
+  "states": [
+    {
+      "name": "campustrade-app-1",
+      "image": "sha256:164f38f15a203cdaeae46c35fc2193f16d8c4da7cdd414e276516ebb2c5e7678",
+      "volumes": [
+        {
+          "name": "campustrade_images_data",
+          "destination": "/app/backend/.data/images"
+        }
+      ]
+    },
+    {
+      "name": "campustrade-db-1",
+      "image": "sha256:266d3c257594e195b309ae9d1805e54c788f1d7b375f56bf6c367aac6c917e7b",
+      "volumes": [
+        {
+          "name": "campustrade_postgres_data",
+          "destination": "/var/lib/postgresql/data"
+        }
+      ]
+    }
+  ]
+}

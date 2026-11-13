@@ -16,6 +16,69 @@ export const origin = "http://127.0.0.1:4180";
 export const fixtureImage = fileURLToPath(
   new URL("./fixtures/article.png", import.meta.url),
 );
+
+export async function navigateSection(page, section) {
+  const filters = page.getByRole("dialog", { name: "Filtros", exact: true });
+  if (await filters.isVisible())
+    await filters.getByRole("button", { name: "Cerrar", exact: true }).click();
+  const back = page.getByRole("button", {
+    name: "‹ Volver a conversaciones",
+    exact: true,
+  });
+  if (await back.isVisible()) await back.click();
+  const nav = page.getByRole("navigation", {
+    name: "Navegación principal",
+    exact: true,
+  });
+  if (await nav.isVisible()) {
+    if (["Inicio", "Explorar", "Mensajes", "Perfil"].includes(section)) {
+      await nav.getByRole("button", { name: section, exact: true }).click();
+      return;
+    }
+    await nav.getByRole("button", { name: "Perfil", exact: true }).click();
+    await page
+      .getByRole("navigation", { name: "Secciones de mi cuenta" })
+      .getByRole("button", { name: section, exact: true })
+      .click();
+    return;
+  }
+  if (section === "Inicio")
+    await page
+      .getByRole("button", { name: "Ir a inicio", exact: true })
+      .click();
+  else if (section === "Explorar")
+    await page
+      .getByRole("textbox", { name: "Buscar en el campus", exact: true })
+      .press("Enter");
+  else if (["Mensajes", "Favoritos"].includes(section))
+    await page.getByRole("button", { name: section, exact: true }).click();
+  else {
+    await page
+      .getByRole("button", { name: "Abrir mi perfil", exact: true })
+      .click();
+    await page
+      .getByRole("menuitem", {
+        name: section === "Perfil" ? "Mi perfil" : section,
+        exact: true,
+      })
+      .click();
+  }
+}
+
+export async function searchCampus(page, query) {
+  const input = page.getByRole("textbox", {
+    name: "Buscar en el campus",
+    exact: true,
+  });
+  await input.fill(query);
+  await input.press("Enter");
+}
+
+export async function openConversation(page, title) {
+  await page
+    .getByRole("button", { name: `Abrir conversación: ${title}`, exact: true })
+    .click();
+}
 export function identity(prefix = "user") {
   const suffix = `${prefix}-${randomUUID().slice(0, 8)}`;
   return {
@@ -27,7 +90,7 @@ export function identity(prefix = "user") {
     semester: 5,
   };
 }
-export async function actor({ verified = true, prefix = "user" } = {}) {
+export async function actor({ prefix = "user" } = {}) {
   const input = identity(prefix);
   const client = await requestFactory.newContext({
     baseURL: origin,
@@ -39,17 +102,7 @@ export async function actor({ verified = true, prefix = "user" } = {}) {
   const registered = await client.post("/api/v1/auth/register", {
     data: input,
   });
-  expect(registered.status()).toBe(201);
-  if (verified) {
-    const mail = await verificationMail(client, input.email);
-    expect(
-      (
-        await client.post("/api/v1/auth/verify", {
-          data: { token: mail.token },
-        })
-      ).status(),
-    ).toBe(200);
-  }
+  expect(registered.status()).toBe(202);
   const session = await client.post("/api/v1/auth/login", {
     data: { email: input.email, password: input.password },
   });
@@ -61,16 +114,6 @@ export async function actor({ verified = true, prefix = "user" } = {}) {
     user: data.user,
     headers: { "X-CSRF-Token": data.csrfToken },
   };
-}
-export async function verificationMail(client, email) {
-  const response = await client.get(
-    `/__test/mail?to=${encodeURIComponent(email)}`,
-    { headers: { "x-test-key": process.env.E2E_TEST_KEY } },
-  );
-  expect(response.status()).toBe(200);
-  return (await response.json()).items.findLast(
-    (item) => item.purpose === "verify",
-  );
 }
 export async function login(page, input) {
   await page

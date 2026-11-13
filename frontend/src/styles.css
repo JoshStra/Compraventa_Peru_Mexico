@@ -1,31 +1,67 @@
 :root {
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  --color-pure-canvas: #f5f5f7;
-  --color-paper-white: #ffffff;
-  --color-obsidian: #1d1d1f;
-  --color-iron-gray: #707070;
-  --color-slate: #474747;
-  --color-charcoal: #333336;
-  --color-mist: #e2e2e5;
-  --color-fog: #d6d6d6;
-  --color-void: #000000;
-  --color-signal-blue: #0071e3;
-  --color-deep-link-blue: #0066cc;
-  --color-pulse-green: #03aa49;
-  --color-deep-green: #03873a;
-  --color-ultraviolet: #8668ff;
-  --color-ember-orange: #ed6300;
-  --color-lagoon-teal: #00a1b3;
-  --font-display:
-    "SF Pro Display", "Inter", "Helvetica Neue", Arial, sans-serif;
-  --font-text: "SF Pro Text", "Inter", "Helvetica Neue", Arial, sans-serif;
-  --radius-card: 28px;
-  --radius-control: 10px;
-  --radius-pill: 980px;
-  --page-width: 1440px;
+  --color-primario: #00716a;
+  --color-primario-hover: #005650;
+  --color-primario-oscuro: #003d39;
+  --color-teal-claro: #e0f2f0;
+  --color-acento: var(--color-primario);
+  --color-fondo: #ffffff;
+  --color-fondo-suave: #f2f6f5;
+  --color-foto: #eef3f2;
+  --color-borde-control: #cfdad8;
+  --radius-foto: 8px;
+  --radius-foto-grande: 10px;
+  --page-pad: 72px;
+  --color-superficie: #ffffff;
+  --color-borde: #e6eceb;
+  --color-tinta: #111111;
+  --color-tinta-media: var(--color-tinta-suave);
+  --color-tinta-suave: #5b6a68;
+  --color-exito: var(--color-primario);
+  --color-error: #b42318;
+  --color-error-fondo: #fdecea;
+  --color-aviso-fondo: #fff3df;
+  --color-aviso-texto: #4a3100;
+  --color-aviso-borde: var(--color-borde);
+  --color-pie-texto: var(--color-tinta-suave);
+  --color-imagen-fondo: var(--color-foto);
+  --color-borde-vacio: var(--color-borde);
+  --color-velo: rgba(0, 0, 0, 0.4);
+  --tag-venta-fondo: transparent;
+  --tag-venta-texto: var(--color-primario);
+  --tag-renta-fondo: transparent;
+  --tag-renta-texto: var(--color-primario);
+  --tag-intercambio-fondo: transparent;
+  --tag-intercambio-texto: var(--color-primario);
+  --tag-donacion-fondo: transparent;
+  --tag-donacion-texto: var(--color-primario);
+  --font-display: var(--font-text);
+  --font-text: "Inter", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  --radius-card: 0px;
+  --radius-control: 12px;
+  --radius-pill: 999px;
+  --sombra-tarjeta: none;
+  --page-width: 1360px;
+  /* Compatibility aliases for the existing component classes. */
+  --color-pure-canvas: var(--color-fondo);
+  --color-paper-white: var(--color-superficie);
+  --color-obsidian: var(--color-tinta);
+  --color-iron-gray: var(--color-tinta-suave);
+  --color-slate: var(--color-tinta-media);
+  --color-charcoal: var(--color-tinta-media);
+  --color-mist: var(--color-teal-claro);
+  --color-fog: var(--color-borde);
+  --color-void: var(--color-primario-oscuro);
+  --color-signal-blue: var(--color-primario);
+  --color-deep-link-blue: var(--color-primario);
+  --color-pulse-green: var(--color-exito);
+  --color-deep-green: var(--color-primario-oscuro);
+  --color-ultraviolet: var(--color-primario);
+  --color-ember-orange: var(--color-acento);
+  --color-lagoon-teal: var(--color-primario);
   font-family: var(--font-text);
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.47;
   letter-spacing: -0.016em;
   color: var(--color-obsidian);
@@ -38,7 +74,7 @@
 }
 body {
   margin: 0;
-  min-width: 320px;
+  min-width: 0;
   background: var(--color-pure-canvas);
   color: var(--color-obsidian);
 }
@@ -283,7 +319,7 @@ p {
   box-shadow: none;
 }
 .button-primary:hover {
-  background: #0077ed;
+  background: var(--color-primario-hover);
   box-shadow: none;
 }
 .button-secondary {
@@ -292,7 +328,7 @@ p {
   border: 0;
 }
 .button-secondary:hover {
-  background: #d6d6da;
+  background: var(--color-teal-claro);
 }
 .trust-line {
   display: flex;
@@ -403,7 +439,7 @@ p {
 }
 .category-card:hover {
   border-color: var(--color-fog);
-  background: #fbfbfd;
+  background: var(--color-teal-claro);
   box-shadow: none;
 }
 .category-icon {
@@ -447,7 +483,7 @@ p {
   transition: border-color 160ms ease;
 }
 .product-card:hover {
-  border-color: #86868b;
+  border-color: var(--color-primario);
   box-shadow: none;
 }
 .card-media {
@@ -742,7 +778,7 @@ p {
   inset: 0;
   display: grid;
   place-items: center;
-  background: rgba(0, 0, 0, 0.28);
+  background: var(--color-velo);
   backdrop-filter: none;
   padding: 24px;
 }
@@ -766,7 +802,7 @@ p {
   height: 35px;
   border: 0;
   border-radius: 28px;
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--color-superficie);
   color: var(--color-obsidian);
   display: grid;
   place-items: center;
@@ -1134,7 +1170,7 @@ p {
   position: absolute;
   width: 300px;
   height: 300px;
-  border: 42px solid rgba(255, 255, 255, 0.1);
+  border: 42px solid var(--color-borde);
   border-radius: 28px;
   right: 9%;
   top: -180px;
@@ -1664,7 +1700,7 @@ footer b {
 .global-error {
   padding: 13px;
   line-height: 1.5;
-  color: #b42318;
+  color: var(--color-error);
   background: var(--color-paper-white);
   border: 1px solid var(--color-fog);
   border-radius: 10px;
@@ -1682,11 +1718,11 @@ footer b {
   font-weight: 500;
   text-transform: none;
   letter-spacing: normal;
-  color: #b42318;
+  color: var(--color-error);
   font-size: 14px;
 }
 [aria-invalid="true"] {
-  border-color: #b42318 !important;
+  border-color: var(--color-error) !important;
 }
 button:disabled {
   opacity: 0.55;
@@ -1912,17 +1948,6 @@ button:disabled {
   border-radius: 10px;
   font-size: 14px;
 }
-.verification-notice {
-  display: flex;
-  gap: 15px;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  color: var(--color-obsidian);
-  background: var(--color-pure-canvas);
-  padding: 12px 24px;
-  font-size: 14px;
-}
 .pagination {
   display: flex;
   justify-content: center;
@@ -1967,10 +1992,6 @@ button:disabled {
   .remote-form select,
   .remote-form textarea {
     font-size: 16px;
-  }
-  .verification-notice {
-    padding: 10px 18px;
-    font-size: 14px;
   }
   .login-button {
     min-height: 36px;
@@ -2417,11 +2438,6 @@ main:has(.hero) {
   .explore-page {
     padding-top: 40px;
     padding-bottom: 100px;
-  }
-  .verification-notice {
-    font-size: 14px;
-    padding: 12px 20px;
-    gap: 6px 14px;
   }
   footer {
     padding-bottom: 100px;

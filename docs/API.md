@@ -2,6 +2,14 @@
 
 Base: `/api/v1`. Las respuestas son JSON. Los errores contienen `error.code`, `error.message`, campos opcionales e identificador de solicitud. Las rutas de escritura requieren Origin autorizado; las sesiones autenticadas también requieren X-CSRF-Token obtenido en GET /auth/session. La cookie de sesión es HttpOnly y el cliente debe enviar credentials include.
 
+Desde la auditoría del 10 de noviembre de 2026, POST /auth/register devuelve **202** con `message` y `emailDeliveryConfigured` tanto para solicitudes nuevas como para correo o matrícula duplicados. No devuelve perfil, identificador ni confirmación individual de envío. Los errores de formato, dominio y carrera siguen devolviendo 400. El frontend muestra el mensaje genérico y permite iniciar sesión o recuperar acceso.
+
+Desde el 12 de noviembre, GET /auth/session, POST /auth/register y POST /auth/password-reset incluyen `emailDeliveryMode` (`disabled`, `external` o `local_demo`) y `localMailboxUrl` (URL HTTP de loopback solo para demostración activa; `null` en los demás casos). Esta metadata describe el transporte de recuperación, no garantiza disponibilidad instantánea de SMTP. El registro no envía correo ni genera tokens y permite iniciar sesión directamente. Se conserva la respuesta genérica para cuentas duplicadas.
+
+Se retiró la confirmación de correo por solicitud del responsable: POST /auth/verify y POST /auth/verification devuelven 404. Los enlaces antiguos de verificación no pueden consumirse ni usarse para recuperar contraseñas. Los campos históricos `verified` y `verified_at` se conservan sin participar en permisos ni marcarse automáticamente. El dominio exacto autorizado sigue siendo obligatorio al registrar, sin acreditar control del buzón.
+
+El login conserva el límite por IP y añade un máximo de diez fallos por cuenta normalizada en quince minutos. El contador usa un HMAC del correo, también para cuentas inexistentes; los accesos correctos no consumen el contador por cuenta. Los contadores viven en memoria de cada proceso: varias réplicas requieren un almacén compartido.
+
 ## Rutas implementadas y verificadas
 
 | Método        | Ruta                         | Acceso y resultado                                        |
@@ -12,20 +20,18 @@ Base: `/api/v1`. Las respuestas son JSON. Los errores contienen `error.code`, `e
 | POST          | /auth/login                  | Cookie de sesión y token CSRF                             |
 | GET           | /auth/session                | Perfil privado propio y CSRF; no-store                    |
 | POST          | /auth/logout                 | Revoca la sesión                                          |
-| POST          | /auth/verification           | Solicita reenvío al correo propio                         |
-| POST          | /auth/verify                 | Consume enlace de verificación de un uso                  |
 | POST          | /auth/password-reset         | Solicitud genérica de recuperación                        |
 | POST          | /auth/password-reset/confirm | Cambia contraseña y revoca sesiones                       |
 | PATCH         | /me                          | Nombre carrera y semestre; no permite cambiar rol         |
 | GET           | /listings                    | Catálogo público paginado                                 |
 | GET           | /listings/:id                | Detalle y referencias de imágenes                         |
-| POST          | /listings                    | Cuenta verificada; propietario asignado por servidor      |
-| PATCH         | /listings/:id                | Cuenta verificada y propiedad; solo disponible            |
+| POST          | /listings                    | Sesión activa; propietario asignado por servidor          |
+| PATCH         | /listings/:id                | Sesión y propiedad; solo disponible                       |
 | DELETE        | /listings/:id                | Retiro lógico autorizado; conserva historial              |
 | GET           | /me/listings                 | Publicaciones propias                                     |
 | GET           | /me/favorites                | Favoritos propios e identificadores                       |
 | POST y DELETE | /listings/:id/favorites      | Agregar o retirar favorito de forma idempotente           |
-| POST          | /uploads                     | Cuenta verificada; multipart con un archivo image         |
+| POST          | /uploads                     | Sesión activa; multipart con un archivo image             |
 | DELETE        | /uploads/:id                 | Elimina una imagen propia sin publicar                    |
 | GET           | /images/:id                  | Imagen publicada o imagen pendiente del propietario       |
 
@@ -39,13 +45,15 @@ La carga valida formato declarado, extensión, decodificación y tamaño de hast
 
 GET /conversations devuelve hasta cien conversaciones propias ordenadas por actividad. POST /conversations recibe listingId y crea o reutiliza una conversación entre el interesado y el propietario. GET /conversations/:id/messages devuelve mensajes paginados, con los más recientes en la primera página y orden de lectura ascendente. POST en esa ruta recibe body de 1 a 2000 caracteres y asigna el emisor desde la sesión.
 
-Abrir y escribir requiere correo verificado. La lectura exige sesión y participación; terceros no pueden leer ni enviar mensajes. Los textos se conservan como texto, sin HTML ejecutable, y se rechazan caracteres de control.
+Abrir y escribir requiere sesión activa. La lectura y escritura exigen participación; terceros no pueden leer ni enviar mensajes. Los textos se conservan como texto, sin HTML ejecutable, y se rechazan caracteres de control.
 
 ## Operaciones y calificaciones
 
 GET /operations devuelve operaciones del usuario como propietario o solicitante. POST /operations recibe listingId y, según modalidad, rentalStart, rentalEnd u offeredListingId. PATCH /operations/:id recibe status: accepted, rejected, cancelled o completed. Solo el propietario acepta, rechaza y finaliza; los participantes cancelan cuando la transición es válida.
 
 La aceptación bloquea todas las publicaciones relacionadas por UUID ordenado, valida disponibilidad y reserva ambos artículos en un intercambio. Las solicitudes incompatibles pendientes se rechazan. Una restricción parcial evita dos aceptaciones sobre el mismo artículo. Los estados terminales bloquean nuevas solicitudes. La renta admite de 1 a 90 días y conserva el importe acordado. POST /operations/:id/return permite al propietario registrar la devolución de una renta completada.
+
+Al aceptar se revalida que la modalidad de la publicación corresponda a la solicitud y que la oferta de intercambio siga siendo un intercambio del solicitante; si cambió devuelve 409 `OPERATION_CHANGED` sin reservar artículos. Una devolución registrada no puede repetirse aunque el artículo vuelva a rentarse. GET /operations incluye `returned`, derivado de la auditoría persistente, para ocultar esa acción en operaciones anteriores. Estas medidas no requieren una migración de esquema.
 
 POST /operations/:id/ratings recibe score de 1 a 5 y comment de 5 a 1000 caracteres. Solo participa quien intervino en una operación completada y solo puede calificar una vez. GET /users/:id devuelve perfil público y calificaciones; no expone correo ni matrícula.
 
@@ -55,4 +63,4 @@ POST /reports recibe listingId, reason y detail. GET /reports muestra los report
 
 Solo el rol admin accede a GET /admin/overview, PATCH /admin/reports/:id, PATCH /admin/users/:id, DELETE /admin/listings/:id, POST y PATCH /admin/categories y POST y PATCH /admin/careers. Los listados administrativos muestran hasta los cien registros más recientes. El cierre de un reporte exige resolución y conserva auditoría. No pueden retirarse artículos con reserva o renta activa sin resolver antes esa operación. Suspender una cuenta revoca sus sesiones, oculta su catálogo y exige cancelar reservas activas.
 
-El registro público nunca concede administración. El responsable puede promover una cuenta existente, activa y verificada mediante npm run admin --workspace backend -- correo-institucional. Esta ejecución no creó administradores reales ni elevó cuentas de estudiantes.
+El registro público nunca concede administración. El responsable puede promover una cuenta existente y activa mediante npm run admin --workspace backend -- correo-institucional. La herramienta ya no exige correo verificado y conserva la asignación explícita y el registro de auditoría. No existe un endpoint público para solicitar ese rol.

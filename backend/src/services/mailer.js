@@ -1,6 +1,7 @@
 import nodemailer from "nodemailer";
 
 export function createMailer(config) {
+  const localDemo = config.mailDelivery?.mode === "local_demo";
   const available = Boolean(
     (config.resend.key && config.resend.from) ||
     (config.smtp.host && config.smtp.from),
@@ -19,15 +20,13 @@ export function createMailer(config) {
     : null;
   return {
     available,
-    async send({ to, purpose, token }) {
+    async send({ to, token }) {
       if (!available) return false;
       const url = new URL(config.publicUrl);
-      url.hash = `${purpose}=${token}`;
-      const subject =
-        purpose === "verify"
-          ? "Verifica tu correo institucional en CampusTrade"
-          : "Recupera tu acceso a CampusTrade";
-      const text = `${subject}\n\nAbre este enlace: ${url.href}\n\nEl enlace es de un solo uso y caduca. Si no solicitaste esta acción, ignora este mensaje.`;
+      url.hash = `reset=${token}`;
+      const description = "Recupera tu acceso a CampusTrade";
+      const subject = `${localDemo ? "[DEMO LOCAL] " : ""}${description}`;
+      const text = `${subject}\n\n${localDemo ? "Demostración escolar: este mensaje se captura en el buzón local. No se envía a ITESA ni acredita la titularidad del buzón institucional.\n\n" : ""}Abre este enlace: ${url.href}\n\nEl enlace es de un solo uso y caduca. Si no solicitaste esta acción, ignora este mensaje.`;
       if (config.resend.key) {
         const response = await fetch("https://api.resend.com/emails", {
           method: "POST",

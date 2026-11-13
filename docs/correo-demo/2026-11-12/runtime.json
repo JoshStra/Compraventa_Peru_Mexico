@@ -1,0 +1,99 @@
+{
+  "checkedAt": "2026-11-12T23:51:21.720Z",
+  "services": {
+    "app": {
+      "status": "running",
+      "health": "healthy",
+      "imageId": "sha256:c37c36d80e2d43b28405c2f546b00fa9c44d77553ac775250a7071d14cf7beeb",
+      "ports": {
+        "3000/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "3000"
+          }
+        ]
+      },
+      "volumes": [
+        {
+          "name": "campustrade_images_data",
+          "target": "/app/backend/.data/images"
+        }
+      ]
+    },
+    "db": {
+      "status": "running",
+      "health": "healthy",
+      "imageId": "sha256:266d3c257594e195b309ae9d1805e54c788f1d7b375f56bf6c367aac6c917e7b",
+      "ports": {
+        "5432/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "55432"
+          }
+        ]
+      },
+      "volumes": [
+        {
+          "name": "campustrade_postgres_data",
+          "target": "/var/lib/postgresql/data"
+        }
+      ]
+    },
+    "mailpit": {
+      "status": "running",
+      "health": "healthy",
+      "imageId": "sha256:aef2aacc11f075ec0fb6874275ee4a421e688e11a96ebb296134d1735c7761ce",
+      "ports": {
+        "8025/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8025"
+          }
+        ]
+      },
+      "volumes": [
+        {
+          "name": "campustrade_mailpit_data",
+          "target": "/data"
+        }
+      ]
+    }
+  },
+  "healthStatus": 200,
+  "mailboxStatus": 200,
+  "mailDelivery": {
+    "mode": "local_demo",
+    "configured": true,
+    "mailboxUrl": "http://127.0.0.1:8025"
+  },
+  "assets": [
+    {
+      "route": "/assets/ConnectedApp-DJ82OSK8.js",
+      "sha256": "936be3def0c50251023aa8b753681189ee6b073e127285e5ca5af63b44d04e87",
+      "matchesLocalBuild": true
+    },
+    {
+      "route": "/assets/index-BPD849Ao.js",
+      "sha256": "b4c6a38769900ad552a07eac20027ba7f3b9d1ffc24bd03cc3bd46a0444d906c",
+      "matchesLocalBuild": true
+    },
+    {
+      "route": "/assets/index-Dl4OhC67.css",
+      "sha256": "38d498644be8a8ad3577690a3692ffcc9f38339ee5bda3e80998608bfdf4a05b",
+      "matchesLocalBuild": true
+    },
+    {
+      "route": "/assets/inter-latin-wght-normal-Dx4kXJAl.woff2",
+      "sha256": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62",
+      "matchesLocalBuild": true
+    }
+  ],
+  "visualReview": {
+    "desktopWidth": 1280,
+    "mobileWidth": 320,
+    "horizontalOverflow": false,
+    "mailboxEmptyAfterSyntheticCleanup": true
+  },
+  "sourceCheckpoint": "ccf0cb1",
+  "cloudServicesChanged": false
+}

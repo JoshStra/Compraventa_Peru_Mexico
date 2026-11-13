@@ -1,0 +1,26 @@
+
+> campustrade-alpha@0.3.0 test
+> vitest run --reporter=default --reporter=json --outputFile.json=<REPO>\tmp\testing-2026-11-11\frontend.json
+
+
+ RUN  v5.0.5 <REPO>/frontend
+
+ ✓ src/services/listingImage.test.js (3 tests) 9ms
+ ✓ src/domain/catalogNavigation.test.js (5 tests) 6ms
+ ✓ src/services/apiClient.test.js (3 tests) 11ms
+ ✓ src/domain/catalog.test.js (20 tests) 8ms
+ ✓ src/services/campusRepository.test.js (14 tests) 22ms
+ ✓ src/components/MinimalHeader.test.jsx (3 tests) 720ms
+   ✓ envía una búsqueda desde la barra y sincroniza el texto de una URL restaurada 370ms
+ ✓ src/App.test.jsx (7 tests) 5558ms
+   ✓ publica sin errores de evento asíncrono y conserva el artículo al recargar 2215ms
+   ✓ muestra el error de almacenamiento sin cerrar ni borrar el formulario 2020ms
+   ✓ filtra categorías completas y distingue la búsqueda vacía de los favoritos 326ms
+   ✓ guarda mensajes visibles en su conversación y los restaura al recargar 741ms
+
+ Test Files  7 passed (7)
+      Tests  55 passed (55)
+   Start at  10:04:31
+   Duration  9.80s (environment 59%, tests 19%, setup 19%, import 2%, transform 1%)
+
+JSON report written to <REPO>/tmp/testing-2026-11-11/frontend.json

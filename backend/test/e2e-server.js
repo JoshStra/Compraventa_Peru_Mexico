@@ -20,7 +20,7 @@ app.post("/__test/admin", guard, async (req, res) => {
   if (!String(req.body.email).endsWith("@campus.test"))
     return res.sendStatus(400);
   await context.db.query(
-    "UPDATE users SET role='admin' WHERE email=$1 AND verified_at IS NOT NULL",
+    "UPDATE users SET role='admin' WHERE email=$1 AND NOT suspended",
     [req.body.email],
   );
   res.json({ ok: true });

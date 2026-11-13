@@ -1,0 +1,116 @@
+{
+  "documentWidth": 320,
+  "nav": [
+    {
+      "client": 305,
+      "controls": [
+        {
+          "right": 58,
+          "text": "Inicio",
+          "x": 0
+        },
+        {
+          "right": 116,
+          "text": "Explorar",
+          "x": 58
+        },
+        {
+          "right": 174,
+          "text": "Favoritos",
+          "x": 116
+        },
+        {
+          "right": 232,
+          "text": "Mensajes",
+          "x": 174
+        },
+        {
+          "right": 290,
+          "text": "Operaciones",
+          "x": 232
+        },
+        {
+          "right": 348,
+          "text": "Perfil",
+          "x": 290
+        }
+      ],
+      "overflowX": "auto",
+      "rect": {
+        "left": 0,
+        "right": 304.8000183105469
+      },
+      "scroll": 348
+    }
+  ],
+  "textStyles": [
+    {
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(112, 112, 112)",
+      "parentBg": "rgba(0, 0, 0, 0)",
+      "size": "12px",
+      "text": "Una comunidad. Más posibilidades.",
+      "weight": "600"
+    },
+    {
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(3, 135, 58)",
+      "parentBg": "rgba(0, 0, 0, 0)",
+      "size": "43px",
+      "text": "necesita.",
+      "weight": "600"
+    },
+    {
+      "bg": "rgb(0, 113, 227)",
+      "color": "rgb(255, 255, 255)",
+      "parentBg": "rgba(0, 0, 0, 0)",
+      "size": "14px",
+      "text": "Explorar artículos",
+      "weight": "600"
+    },
+    {
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(112, 112, 112)",
+      "parentBg": "rgba(0, 0, 0, 0)",
+      "size": "12px",
+      "text": "Cuatro formas de reutilizar",
+      "weight": "400"
+    },
+    {
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(112, 112, 112)",
+      "parentBg": "rgba(0, 0, 0, 0)",
+      "size": "12px",
+      "text": "Entrega en el campus",
+      "weight": "400"
+    },
+    {
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(255, 255, 255)",
+      "parentBg": "rgb(29, 29, 31)",
+      "size": "12px",
+      "text": "CampusTrade",
+      "weight": "600"
+    },
+    {
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(112, 112, 112)",
+      "parentBg": "rgb(29, 29, 31)",
+      "size": "12px",
+      "text": "Equipo 3 MEX-PER · Versión 0.3.0",
+      "weight": "400"
+    },
+    {
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(112, 112, 112)",
+      "parentBg": "rgb(29, 29, 31)",
+      "size": "12px",
+      "text": "Reutiliza · Comparte · Conecta",
+      "weight": "400"
+    }
+  ],
+  "viewport": {
+    "height": 800,
+    "width": 320
+  }
+}

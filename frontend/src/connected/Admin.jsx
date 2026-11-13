@@ -127,7 +127,6 @@ export function AdminPage({
                     <strong>{user.name}</strong>
                     <p>
                       {user.email} · {user.role} ·{" "}
-                      {user.verified ? "Verificado" : "Sin verificar"} ·{" "}
                       {user.suspended ? "Suspendido" : "Activo"}
                     </p>
                   </div>

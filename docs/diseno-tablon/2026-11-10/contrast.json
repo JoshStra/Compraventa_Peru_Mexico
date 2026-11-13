@@ -1,0 +1,78 @@
+{
+  "at": "2026-11-10T22:38:25.300Z",
+  "criterion": "4.5:1 for measured text pairs; not a full WCAG audit",
+  "contrasts": [
+    {
+      "label": "CTA",
+      "foreground": "#ffffff",
+      "background": "#00716a",
+      "ratio": 5.882068851962868
+    },
+    {
+      "label": "CTA hover",
+      "foreground": "#ffffff",
+      "background": "#005650",
+      "ratio": 8.5821025173221
+    },
+    {
+      "label": "Texto principal",
+      "foreground": "#1f2a29",
+      "background": "#faf7f0",
+      "ratio": 13.807827414031303
+    },
+    {
+      "label": "Texto secundario",
+      "foreground": "#566664",
+      "background": "#faf7f0",
+      "ratio": 5.639631996243437
+    },
+    {
+      "label": "Enlaces",
+      "foreground": "#00716a",
+      "background": "#faf7f0",
+      "ratio": 5.497594013948544
+    },
+    {
+      "label": "Pie",
+      "foreground": "#bcd9d5",
+      "background": "#003d39",
+      "ratio": 8.122556016761752
+    },
+    {
+      "label": "Error",
+      "foreground": "#b42318",
+      "background": "#fdecea",
+      "ratio": 5.748687270229619
+    },
+    {
+      "label": "Aviso verificacion",
+      "foreground": "#4a3100",
+      "background": "#fff3df",
+      "ratio": 11.05914056555246
+    },
+    {
+      "label": "Etiqueta venta",
+      "foreground": "#ffffff",
+      "background": "#00716a",
+      "ratio": 5.882068851962868
+    },
+    {
+      "label": "Etiqueta renta",
+      "foreground": "#ffffff",
+      "background": "#1f4e6b",
+      "ratio": 8.897082389444746
+    },
+    {
+      "label": "Etiqueta intercambio",
+      "foreground": "#3a2400",
+      "background": "#f4a340",
+      "ratio": 7.093362393393411
+    },
+    {
+      "label": "Etiqueta donacion",
+      "foreground": "#24500f",
+      "background": "#e3f1d6",
+      "ratio": 7.99295712874621
+    }
+  ]
+}

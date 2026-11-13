@@ -1,0 +1,54 @@
+{
+  "checkedAt": "2026-11-10T22:54:14.676Z",
+  "registrationFocus": {
+    "field": "Nombre",
+    "insideDialog": true
+  },
+  "returnedFocus": "Iniciar sesión",
+  "mobileResult": {
+    "buttons": [
+      {
+        "height": 64,
+        "name": "Inicio",
+        "width": 50.79999923706055
+      },
+      {
+        "height": 64,
+        "name": "Explorar",
+        "width": 50.79999923706055
+      },
+      {
+        "height": 64,
+        "name": "Favoritos",
+        "width": 50.79999923706055
+      },
+      {
+        "height": 64,
+        "name": "Mensajes",
+        "width": 50.79999923706055
+      },
+      {
+        "height": 64,
+        "name": "Operaciones",
+        "width": 50.79999923706055
+      },
+      {
+        "height": 64,
+        "name": "Perfil",
+        "width": 50.79999923706055
+      }
+    ],
+    "documentWidth": 320,
+    "navClient": 305,
+    "navScroll": 305,
+    "width": 320
+  },
+  "desktopResult": {
+    "background": "rgb(250, 247, 240)",
+    "bodyFont": "\"Inter Variable\", \"Segoe UI\", system-ui, -apple-system, Arial, sans-serif",
+    "h1Count": 1,
+    "titleColor": "rgb(0, 61, 57)",
+    "titleFont": "\"Fraunces Variable\", Georgia, \"Times New Roman\", serif",
+    "width": 1440
+  }
+}

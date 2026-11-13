@@ -1,0 +1,16 @@
+
+> campustrade@0.3.0 test
+> npm run test --workspace frontend
+
+
+> campustrade-alpha@0.3.0 test
+> vitest run
+
+
+ RUN  v5.0.5 <REPO>/frontend
+
+
+ Test Files  8 passed (8)
+      Tests  57 passed (57)
+   Start at  17:39:12
+   Duration  27.87s (environment 63%, setup 28%, tests 5%, import 2%, transform 1%)

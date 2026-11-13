@@ -1,0 +1,17 @@
+
+> campustrade-alpha@0.3.0 test:e2e
+> playwright test design.spec.js --grep siete
+
+[WebServer] (node:32460) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 2 workers
+
+(node:5812) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:33672) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [desktop] › e2e\design.spec.js:153:1 › las siete opciones administrativas caben en 320 px y conservan nombres accesibles (5.9s)
+  ok 2 [mobile] › e2e\design.spec.js:153:1 › las siete opciones administrativas caben en 320 px y conservan nombres accesibles (6.6s)
+
+  2 passed (15.6s)

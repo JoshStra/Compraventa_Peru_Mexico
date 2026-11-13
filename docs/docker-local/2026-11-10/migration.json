@@ -1,0 +1,107 @@
+{
+  "checkedAt": "2026-11-10T16:36:54.652Z",
+  "source": {
+    "database": "Neon",
+    "storage": "Supabase",
+    "preserved": true
+  },
+  "target": {
+    "url": "http://127.0.0.1:3000",
+    "database": "campustrade_docker",
+    "databaseVolume": "campustrade_postgres_data",
+    "imagesVolume": "campustrade_images_data",
+    "image": "sha256:164f38f15a203cdaeae46c35fc2193f16d8c4da7cdd414e276516ebb2c5e7678",
+    "role": {
+      "rolname": "campustrade_app",
+      "rolsuper": false,
+      "rolcreatedb": false,
+      "rolcreaterole": false,
+      "rolbypassrls": false
+    }
+  },
+  "data": {
+    "allFifteenTablesMatched": true,
+    "tables": {
+      "careers": {
+        "rows": 3,
+        "matches": true
+      },
+      "categories": {
+        "rows": 4,
+        "matches": true
+      },
+      "users": {
+        "rows": 1,
+        "matches": true
+      },
+      "sessions": {
+        "rows": 0,
+        "matches": true
+      },
+      "access_tokens": {
+        "rows": 0,
+        "matches": true
+      },
+      "listings": {
+        "rows": 0,
+        "matches": true
+      },
+      "listing_images": {
+        "rows": 0,
+        "matches": true
+      },
+      "favorites": {
+        "rows": 0,
+        "matches": true
+      },
+      "conversations": {
+        "rows": 0,
+        "matches": true
+      },
+      "messages": {
+        "rows": 0,
+        "matches": true
+      },
+      "operations": {
+        "rows": 0,
+        "matches": true
+      },
+      "ratings": {
+        "rows": 0,
+        "matches": true
+      },
+      "reports": {
+        "rows": 0,
+        "matches": true
+      },
+      "audit_events": {
+        "rows": 0,
+        "matches": true
+      },
+      "schema_migrations": {
+        "rows": 2,
+        "matches": true
+      }
+    },
+    "imageObjects": 1,
+    "imageBytes": 76,
+    "imageHashesMatch": true,
+    "migratedSyntheticAccountLogin": true,
+    "syntheticLoginSessionRevokedAfterCheck": true,
+    "realAccountsAutoVerified": false,
+    "finalSourceAndTargetMatch": true
+  },
+  "cloud": {
+    "supabase": "paused; export downloaded",
+    "render": "suspended",
+    "stateVerifiedAt": "2026-11-10T16:41:43.689Z"
+  },
+  "validation": {
+    "backend": 50,
+    "frontend": 47,
+    "docker": 9,
+    "failed": 0
+  },
+  "preSuspensionCommit": "6d56a90",
+  "updatedAt": "2026-11-10T16:45:32.439Z"
+}

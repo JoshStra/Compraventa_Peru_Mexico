@@ -1,0 +1,64 @@
+{
+  "image": "sha256:ea39b0bf3d9cf606b0c2ff5db3e5b1399e84034204429cb2d225cb6ae293789d",
+  "checkedAt": "2026-11-13T04:48:11.061Z",
+  "testProject": "campustrade-smoke-179e09e8",
+  "passed": 9,
+  "failed": 0,
+  "disposableVolumesRemoved": true,
+  "checks": [
+    {
+      "id": "DOCKER-01",
+      "description": "API y frontend compilado responden en contenedores recién creados",
+      "state": "passed",
+      "at": "2026-11-13T04:47:53.807Z"
+    },
+    {
+      "id": "DOCKER-02",
+      "description": "Inicialización automática y rol de aplicación sin privilegios administrativos",
+      "state": "passed",
+      "at": "2026-11-13T04:47:53.830Z"
+    },
+    {
+      "id": "DOCKER-03",
+      "description": "Registro genérico y cookie; una cuenta sin confirmación alcanza la validación de publicación",
+      "state": "passed",
+      "at": "2026-11-13T04:47:54.159Z"
+    },
+    {
+      "id": "DOCKER-04",
+      "description": "Publicación e imagen real procesada con Sharp y guardada en volumen",
+      "state": "passed",
+      "at": "2026-11-13T04:47:54.213Z"
+    },
+    {
+      "id": "DOCKER-05",
+      "description": "Edición propia y bloqueo de terceros y CSRF incorrecto",
+      "state": "passed",
+      "at": "2026-11-13T04:47:54.233Z"
+    },
+    {
+      "id": "DOCKER-06",
+      "description": "Mensajes, reserva, venta y calificación con dos cuentas sintéticas",
+      "state": "passed",
+      "at": "2026-11-13T04:47:54.287Z"
+    },
+    {
+      "id": "DOCKER-07",
+      "description": "Contenedor sin root, sistema de archivos de solo lectura y sin secretos ni fixtures de host",
+      "state": "passed",
+      "at": "2026-11-13T04:47:56.246Z"
+    },
+    {
+      "id": "DOCKER-08",
+      "description": "Recrear API y PostgreSQL conserva sesión, artículo, mensajes e imagen exacta",
+      "state": "passed",
+      "at": "2026-11-13T04:48:09.532Z"
+    },
+    {
+      "id": "DOCKER-09",
+      "description": "Retiro de publicación e imagen pública sin borrar historial de operación",
+      "state": "passed",
+      "at": "2026-11-13T04:48:09.555Z"
+    }
+  ]
+}

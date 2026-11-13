@@ -214,28 +214,36 @@ export function createListings({ db, storage }) {
           "El archivo no contiene una imagen válida o supera el límite de píxeles.",
         );
       }
-      const pending = (
-        await db.query(
-          "SELECT count(*)::int AS count FROM listing_images WHERE owner_id=$1 AND listing_id IS NULL",
-          [user.id],
-        )
-      ).rows[0].count;
-      if (pending >= 20)
-        fail(
-          409,
-          "IMAGE_QUOTA",
-          "Tienes demasiadas imágenes sin publicar. Elimina las que no uses.",
-        );
       const id = randomUUID();
       const key = `${randomUUID()}.webp`;
-      await storage.put(key, buffer);
+      let stored = false;
       try {
-        await db.query(
-          "INSERT INTO listing_images(id,owner_id,object_key,mime_type,size) VALUES($1,$2,$3,'image/webp',$4)",
-          [id, user.id, key, buffer.length],
-        );
+        await db.transaction(async (client) => {
+          // Serialize quota checks across API processes before writing storage.
+          await client.query("SELECT id FROM users WHERE id=$1 FOR UPDATE", [
+            user.id,
+          ]);
+          const pending = (
+            await client.query(
+              "SELECT count(*)::int AS count FROM listing_images WHERE owner_id=$1 AND listing_id IS NULL",
+              [user.id],
+            )
+          ).rows[0].count;
+          if (pending >= 20)
+            fail(
+              409,
+              "IMAGE_QUOTA",
+              "Tienes demasiadas imágenes sin publicar. Elimina las que no uses.",
+            );
+          await storage.put(key, buffer);
+          stored = true;
+          await client.query(
+            "INSERT INTO listing_images(id,owner_id,object_key,mime_type,size) VALUES($1,$2,$3,'image/webp',$4)",
+            [id, user.id, key, buffer.length],
+          );
+        });
       } catch (error) {
-        await storage.remove(key);
+        if (stored) await storage.remove(key);
         throw error;
       }
       return { id, url: `/api/v1/images/${id}` };

@@ -1,0 +1,43 @@
+
+> campustrade@0.3.0 test:e2e
+> npm run test:e2e --workspace frontend
+
+
+> campustrade-alpha@0.3.0 test:e2e
+> playwright test
+
+[WebServer] (node:12440) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] <REPO>\node_modules\pg-pool\index.js:45
+[WebServer]     Error.captureStackTrace(err)
+[WebServer]           ^
+[WebServer]
+[WebServer] Error: connect ECONNREFUSED 127.0.0.1:55432
+[WebServer]     at <REPO>\node_modules\pg-pool\index.js:45:11
+[WebServer]     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+[WebServer]     at async testContext (file:///<REPO>/backend/test/helpers.js:25:3)
+[WebServer]     at async file:///<REPO>/backend/test/e2e-server.js:8:17 {
+[WebServer]   errno: -4078,
+[WebServer]   code: 'ECONNREFUSED',
+[WebServer]   syscall: 'connect',
+[WebServer]   address: '127.0.0.1',
+[WebServer]   port: 55432
+[WebServer] }
+[WebServer]
+[WebServer] Node.js v24.12.0
+[WebServer] npm error Lifecycle script `e2e:server` failed with error:
+[WebServer] npm error code 1
+[WebServer] npm error path <REPO>\backend
+[WebServer] npm error workspace campustrade-api@0.3.0
+[WebServer] npm error location <REPO>\backend
+[WebServer] npm error command failed
+[WebServer] npm error command C:\Windows\system32\cmd.exe /d /s /c node --env-file-if-exists=.env test/e2e-server.js
+Error: Process from config.webServer was not able to start. Exit code: 1
+
+npm error Lifecycle script `test:e2e` failed with error:
+npm error code 1
+npm error path <REPO>\frontend
+npm error workspace campustrade-alpha@0.3.0
+npm error location <REPO>\frontend
+npm error command failed
+npm error command C:\Windows\system32\cmd.exe /d /s /c playwright test

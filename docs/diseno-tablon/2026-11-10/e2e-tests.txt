@@ -1,0 +1,47 @@
+
+> campustrade@0.3.0 test:e2e
+> npm run test:e2e --workspace frontend
+
+
+> campustrade-alpha@0.3.0 test:e2e
+> playwright test
+
+[WebServer] (node:34944) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 24 tests using 2 workers
+
+(node:23356) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:29156) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  2 [desktop] › e2e\design.spec.js:4:1 › rango inválido explicado y asociado sin consultar el catálogo (3.2s)
+  ok  1 [desktop] › e2e\design.spec.js:49:1 › URL conserva consulta, filtros y página al recargar y recorrer el historial (3.3s)
+  ok  3 [desktop] › e2e\design.spec.js:96:1 › registro explica requisitos y permite mostrar la contraseña sin perder el valor (3.6s)
+  ok  4 [desktop] › e2e\design.spec.js:153:1 › las siete opciones administrativas caben en 320 px y conservan nombres accesibles (5.0s)
+  ok  5 [desktop] › e2e\fullstack.spec.js:21:1 › registro verificación publicación con imagen y edición persistentes (8.5s)
+  ok  6 [desktop] › e2e\fullstack.spec.js:115:1 › catálogo y favoritos persisten entre sesiones del navegador (7.5s)
+  ok  7 [desktop] › e2e\fullstack.spec.js:158:1 › una cuenta sin verificar no publica ni obtiene una insignia falsa (3.2s)
+  ok  8 [desktop] › e2e\responsive.spec.js:4:1 › filtros visibles sin recorte y reinicio de criterios (3.0s)
+  ok 10 [desktop] › e2e\security.spec.js:66:1 › SEC-UI-02 historial de rentas ofrece devolución solo para la renta vigente (4.8s)
+  ok  9 [desktop] › e2e\security.spec.js:14:1 › SEC-UI-01 contenido XSS almacenado se representa como texto en catálogo y mensajes (5.4s)
+  ok 12 [desktop] › e2e\workflows.spec.js:130:1 › reporte y resolución real desde la administración (10.2s)
+(node:3256) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 13 [mobile] › e2e\design.spec.js:4:1 › rango inválido explicado y asociado sin consultar el catálogo (3.0s)
+  ok 14 [mobile] › e2e\design.spec.js:49:1 › URL conserva consulta, filtros y página al recargar y recorrer el historial (2.8s)
+  ok 11 [desktop] › e2e\workflows.spec.js:27:1 › mensajes entre dos sesiones y venta con calificación (22.6s)
+  ok 15 [mobile] › e2e\design.spec.js:96:1 › registro explica requisitos y permite mostrar la contraseña sin perder el valor (4.5s)
+(node:31332) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 16 [mobile] › e2e\fullstack.spec.js:21:1 › registro verificación publicación con imagen y edición persistentes (6.3s)
+  ok 17 [mobile] › e2e\design.spec.js:153:1 › las siete opciones administrativas caben en 320 px y conservan nombres accesibles (6.1s)
+  ok 19 [mobile] › e2e\fullstack.spec.js:158:1 › una cuenta sin verificar no publica ni obtiene una insignia falsa (4.4s)
+  ok 18 [mobile] › e2e\fullstack.spec.js:115:1 › catálogo y favoritos persisten entre sesiones del navegador (7.8s)
+  ok 20 [mobile] › e2e\responsive.spec.js:4:1 › filtros visibles sin recorte y reinicio de criterios (5.1s)
+  ok 21 [mobile] › e2e\security.spec.js:14:1 › SEC-UI-01 contenido XSS almacenado se representa como texto en catálogo y mensajes (8.1s)
+  ok 22 [mobile] › e2e\security.spec.js:66:1 › SEC-UI-02 historial de rentas ofrece devolución solo para la renta vigente (6.1s)
+  ok 24 [mobile] › e2e\workflows.spec.js:130:1 › reporte y resolución real desde la administración (10.4s)
+  ok 23 [mobile] › e2e\workflows.spec.js:27:1 › mensajes entre dos sesiones y venta con calificación (19.0s)
+
+  24 passed (1.6m)

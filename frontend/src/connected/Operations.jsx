@@ -190,8 +190,9 @@ export function OperationsPage({
         />
       ) : (
         <div className="operation-list">
-          {items.map((operation) => {
+          {items.map((operation, index) => {
             const owner = operation.sellerId === user.id;
+            const actionClass = `button ${index === 0 ? "button-primary" : "button-secondary"}`;
             return (
               <article
                 className="operation-card"
@@ -232,7 +233,7 @@ export function OperationsPage({
                   {operation.status === "pending" && owner && (
                     <>
                       <button
-                        className="button button-primary"
+                        className={actionClass}
                         onClick={() => onTransition(operation, "accepted")}
                       >
                         Aceptar solicitud
@@ -247,7 +248,7 @@ export function OperationsPage({
                   )}
                   {operation.status === "accepted" && owner && (
                     <button
-                      className="button button-primary"
+                      className={actionClass}
                       onClick={() => onTransition(operation, "completed")}
                     >
                       Finalizar operación
@@ -263,7 +264,7 @@ export function OperationsPage({
                   )}
                   {operation.status === "completed" && !operation.rated && (
                     <button
-                      className="button button-primary"
+                      className={actionClass}
                       onClick={() => onRate(operation)}
                     >
                       Calificar
@@ -271,6 +272,7 @@ export function OperationsPage({
                   )}
                   {operation.status === "completed" &&
                     operation.type === "rental" &&
+                    !operation.returned &&
                     owner &&
                     operation.listingStatus === "rented" && (
                       <button

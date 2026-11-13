@@ -205,7 +205,7 @@ export default function App() {
               onClick={() => setActiveView(label)}
             >
               <Icon name={icon} size={18} />
-              {label}
+              <span className="nav-label">{label}</span>
             </button>
           ))}
         </nav>
@@ -239,7 +239,6 @@ export default function App() {
             <section className="category-section">
               <div className="section-title">
                 <div>
-                  <p className="eyebrow">Encuentra lo que buscas</p>
                   <h2>Explora por categoría</h2>
                 </div>
                 <button className="text-link" onClick={() => browse()}>
@@ -265,7 +264,6 @@ export default function App() {
             <section className="catalog-section home-catalog">
               <div className="section-title">
                 <div>
-                  <p className="eyebrow">Catálogo comunitario</p>
                   <h2>Recién publicados</h2>
                 </div>
                 <button className="text-link" onClick={() => browse()}>
@@ -284,7 +282,6 @@ export default function App() {
           <section className="explore-page">
             <div className="page-heading">
               <div>
-                <p className="eyebrow">CampusTrade</p>
                 <h1>
                   {activeView === "Favoritos"
                     ? "Tus favoritos"
@@ -301,7 +298,7 @@ export default function App() {
                 onClick={() => setEditing({})}
               >
                 <Icon name="plus" size={18} />
-                Publicar
+                Publicar artículo
               </button>
             </div>
             {activeView === "Explorar" && (

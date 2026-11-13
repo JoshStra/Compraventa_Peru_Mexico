@@ -1,0 +1,63 @@
+{
+  "createdUtc": "2026-11-13T22:34:59.902895+00:00",
+  "baseCommit": "0b3f5a4bfd5e1120b7421069976b3fd16467b690",
+  "scope": "Cuatro capturas reales añadidas a los apartados 4 y 7. Las fechas de las pruebas y de Git se conservan. La hora savedUtc indica el guardado del JPEG, no la ejecución de pruebas.",
+  "images": [
+    {
+      "id": "GH01",
+      "file": "issues-cerrados.jpg",
+      "section": 4,
+      "title": "Issues cerrados con comentarios",
+      "description": "Los seis issues aparecen cerrados y cada fila muestra un comentario. La tabla del apartado 4 conserva los enlaces individuales para consultar sus resoluciones.",
+      "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/issues?q=is%3Aissue%20state%3Aclosed%20archived%3Afalse%20reason%3Acompleted",
+      "height": 6.8,
+      "savedUtc": "2026-11-13T22:26:22.794420+00:00",
+      "sha256": "eda3da3ef01a99da419cede77e04ad6a282a0b78a8456a619c438775fef7da04",
+      "widthPx": 490,
+      "heightPx": 810,
+      "captureMethod": "Captura JPEG nativa del navegador sin retoque; recorte de la región relevante"
+    },
+    {
+      "id": "GH02",
+      "file": "issue-6-resolucion.jpg",
+      "section": 4,
+      "title": "Comentario de resolución del issue 6",
+      "description": "El issue 6 conserva el estado cerrado y el comentario de resolución. El comentario relaciona el cambio de registro con el commit 0274f2b y los resultados ejecutados.",
+      "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/issues/6#issuecomment-6844408265",
+      "height": 6.25,
+      "savedUtc": "2026-11-13T22:24:56.526516+00:00",
+      "sha256": "27974af5b7caedaa5f1d70676cabe2d25fe9d6e68942df6366976de33a0bc609",
+      "widthPx": 539,
+      "heightPx": 632,
+      "captureMethod": "Captura JPEG nativa del navegador sin retoque; recorte de la región relevante"
+    },
+    {
+      "id": "GH03",
+      "file": "commit-0274f2b.jpg",
+      "section": 7,
+      "title": "Commit de implementación del registro",
+      "description": "GitHub muestra el commit 0274f2b que retiró la confirmación de correo del registro, su autor, mensaje, relación con la rama y archivos modificados. El dominio institucional y los permisos se conservan.",
+      "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/commit/0274f2b98a376ee67116fd5898ea1c9d14d63092",
+      "height": 5.4,
+      "savedUtc": "2026-11-13T22:27:17.038263+00:00",
+      "sha256": "86583bee779f79df2cc2a3c0bb751d4d75e1ba9708235aaad6f8aa23186d88ab",
+      "widthPx": 515,
+      "heightPx": 449,
+      "captureMethod": "Captura JPEG nativa del navegador sin retoque; recorte de la región relevante"
+    },
+    {
+      "id": "GH04",
+      "file": "historial-commits.jpg",
+      "section": 7,
+      "title": "Historial de la rama publicada",
+      "description": "La rama codex/sin-confirmacion-correo-2026-11-12 muestra los cinco incrementos publicados más recientes al tomar la captura: implementación, reportes, fotografías, unificación y formulario. Este nuevo complemento se registra en un commit posterior.",
+      "url": "https://github.com/JoshStra/Compraventa_Peru_Mexico/commits/codex/sin-confirmacion-correo-2026-11-12/",
+      "height": 6.3,
+      "savedUtc": "2026-11-13T22:31:22.385836+00:00",
+      "sha256": "bad8c6698b79b9bba70496429517cff4b2dd58cb5b5d1dc4312a54f394de84ad",
+      "widthPx": 523,
+      "heightPx": 668,
+      "captureMethod": "Captura JPEG nativa del navegador sin retoque; recorte de la región relevante"
+    }
+  ]
+}

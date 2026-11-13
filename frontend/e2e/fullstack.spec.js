@@ -154,17 +154,38 @@ test("catálogo y favoritos persisten entre sesiones del navegador", async ({
   ).toBeVisible();
 });
 
-test("una cuenta sin verificar no publica ni obtiene una insignia falsa", async ({
+test("perfil sin apartado de verificación conserva la información y los permisos", async ({
   page,
-}) => {
+}, info) => {
   const student = await actor({ prefix: "pending", verified: false });
   clients.push(student.client);
   await login(page, student.input);
+  await navigateSection(page, "Perfil");
   await expect(
-    page.getByText("Tu correo institucional está pendiente de verificación.", {
-      exact: true,
-    }),
+    page.getByRole("heading", { name: student.input.name }),
   ).toBeVisible();
+  await expect(
+    page.getByText(student.input.email, { exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("button", { name: "Editar perfil", exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("button", { name: "Verificación de cuenta" }),
+  ).toHaveCount(0);
+  await expect(
+    page.getByRole("button", { name: "Reenviar enlace" }),
+  ).toHaveCount(0);
+  await expect(page.getByText(/verificación/i)).toHaveCount(0);
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBe(true);
+  await page.screenshot({
+    path: evidencePath(info, "perfil-sin-apartado-verificacion"),
+    fullPage: true,
+  });
   await page
     .getByRole("button", { name: "Publicar artículo", exact: true })
     .first()

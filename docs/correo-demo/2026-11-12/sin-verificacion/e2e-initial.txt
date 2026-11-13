@@ -1,0 +1,24 @@
+
+> campustrade@0.3.0 test:e2e
+> npm run test:e2e --workspace frontend --grep perfil sin apartado|cinco opciones móviles|registro verificación
+
+npm warn "perfil sin apartado|cinco opciones móviles|registro verificación" is being parsed as a normal command line argument.
+npm warn Unknown cli config "--grep". This will stop working in the next major version of npm.
+
+> campustrade-alpha@0.3.0 test:e2e
+> playwright test perfil sin apartado|cinco opciones móviles|registro verificación
+
+[WebServer] npm warn Unknown env config "grep". This will stop working in the next major version of npm.
+[WebServer] (node:30392) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+Error: No tests found.
+Make sure that arguments are regular expressions matching test files.
+You may need to escape symbols like "$" or "*" and quote the arguments.
+
+npm error Lifecycle script `test:e2e` failed with error:
+npm error code 1
+npm error path <REPO>\frontend
+npm error workspace campustrade-alpha@0.3.0
+npm error location <REPO>\frontend
+npm error command failed
+npm error command C:\Windows\system32\cmd.exe /d /s /c playwright test ^^^"perfil^^^ sin^^^ apartado^^^|cinco^^^ opciones^^^ móviles^^^|registro^^^ verificación^^^"

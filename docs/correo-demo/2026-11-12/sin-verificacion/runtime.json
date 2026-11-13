@@ -1,0 +1,25 @@
+{
+  "checkedAt": "2026-11-13T02:10:19.012Z",
+  "healthStatus": 200,
+  "matchingBuildAssets": [
+    {
+      "file": "ConnectedApp-Chp7RyY8.js",
+      "sha256": "4830d5fb6644b049703c3f10d5b52b82dca3ae3fd7b80125f23dbb3c20fcccff"
+    },
+    {
+      "file": "index-BrDJhwrf.css",
+      "sha256": "b2fdb533478fc8172460fdf120c46b157c0cee523f21ac724a97683f08a29014"
+    },
+    {
+      "file": "index-n6FcSNqk.js",
+      "sha256": "c8338a2ac3c201ae8b5ff50a090366bc3ee2f83278cab8f9023439fa5004420c"
+    },
+    {
+      "file": "inter-latin-wght-normal-Dx4kXJAl.woff2",
+      "sha256": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62"
+    }
+  ],
+  "backendAuthorizationChanged": false,
+  "usersModified": false,
+  "sourceCheckpoint": "6c62c63"
+}

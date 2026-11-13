@@ -18,7 +18,7 @@ docker compose up -d --build --wait
 
 La aplicación está en `http://127.0.0.1:3000`. Para una instalación nueva ejecuta antes `npm run docker:setup`, que genera el `.env` privado. Para incluir el buzón escolar ejecuta después `npm run mail:demo:setup`, antes de iniciar Compose. PostgreSQL, las imágenes y el buzón se conservan en volúmenes al detener o recrear los contenedores. La guía [Docker local](docs/DOCKER_LOCAL.md) documenta la base migrada, los respaldos, las pruebas y las diferencias con el entorno de desarrollo anterior.
 
-La instalación de esta computadora ya incluye Mailpit. Para demostrar la verificación: inicia sesión, pulsa **Reenviar enlace**, abre el **buzón de pruebas** y utiliza el enlace de tu mensaje. La interfaz identifica este flujo como demostración local: no envía mensajes a ITESA ni acredita la titularidad del correo institucional. Consulta [uso y límites del correo de demostración](docs/CORREO_DEMO.md).
+La instalación de esta computadora ya incluye Mailpit. El apartado de verificación, sus accesos y el aviso de correo pendiente se retiraron de la interfaz por solicitud del responsable. Se conservan el transporte local y el consumo de enlaces capturados al registrar una cuenta. No se envían mensajes a ITESA ni se acredita la titularidad del correo institucional. Consulta [uso y límites del correo de demostración](docs/CORREO_DEMO.md) y las [opciones para verificación real](docs/OPCIONES_VERIFICACION.md).
 
 ## Desarrollo con Node fuera de Docker
 

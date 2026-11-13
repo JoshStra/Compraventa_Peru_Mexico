@@ -85,7 +85,6 @@ export default function ConnectedApp() {
   const [messageThread, setMessageThread] = useState(null);
   const [conversationOpen, setConversationOpen] = useState(false);
   const [profileTarget, setProfileTarget] = useState(null);
-  const [emailAvailable, setEmailAvailable] = useState(false);
   const [mailDelivery, setMailDelivery] = useState({});
   const demoMail = mailDelivery.emailDeliveryMode === "local_demo";
   const { unread, onRead } = useReadMarkers(user?.id, account.threads);
@@ -116,7 +115,6 @@ export default function ConnectedApp() {
         if (active) {
           setCatalog(metadata);
           setUser(session.user);
-          setEmailAvailable(Boolean(session.emailDeliveryConfigured));
           setMailDelivery({
             emailDeliveryMode: session.emailDeliveryMode,
             localMailboxUrl: session.localMailboxUrl,
@@ -326,23 +324,6 @@ export default function ConnectedApp() {
       setFilters({ ...emptyFilters });
     }, "Sesión cerrada.");
   }
-  async function resend() {
-    await perform(
-      async () => {
-        const response = await api.verification();
-        if (!response.verificationSent)
-          throw new Error(
-            demoMail
-              ? "No se pudo entregar el enlace al buzón local. Comprueba que el servicio de correo de pruebas esté iniciado."
-              : "No se pudo enviar el enlace. Revisa la configuración de correo; tu cuenta seguirá pendiente de verificación.",
-          );
-      },
-      demoMail
-        ? "Revisa el buzón local de pruebas."
-        : "Revisa tu correo institucional.",
-    );
-  }
-
   if (fatal)
     return (
       <main className="load-error">
@@ -419,21 +400,6 @@ export default function ConnectedApp() {
           dialog?.type === "detail" || (conversationOpen && view === "Mensajes")
         }
       />
-      {user && !user.verified && (
-        <div className="verification-notice">
-          <span>Tu correo institucional está pendiente de verificación.</span>
-          <button
-            className="text-link"
-            disabled={busy || !emailAvailable}
-            onClick={resend}
-          >
-            Reenviar enlace
-          </button>
-          {!emailAvailable && (
-            <span>El envío de verificación aún no está disponible.</span>
-          )}
-        </div>
-      )}
       {error && !dialog && (
         <div className="global-error" role="alert">
           <span>{error}</span>
@@ -583,13 +549,7 @@ export default function ConnectedApp() {
             <div className="profile-hero">
               <span className="profile-avatar">{initials(user.name)}</span>
               <div>
-                <p className="eyebrow">
-                  {user.verified
-                    ? demoMail
-                      ? "Verificación de demostración completada"
-                      : "Correo institucional verificado"
-                    : "Verificación pendiente"}
-                </p>
+                <p className="eyebrow">Tu perfil</p>
                 <h1>{user.name}</h1>
                 <p>
                   {user.career} · {user.semester}.º semestre
@@ -614,10 +574,6 @@ export default function ConnectedApp() {
               </button>
               <button onClick={() => navigate("Operaciones")}>
                 Operaciones
-                <Icon name="arrow" />
-              </button>
-              <button onClick={() => navigate("Perfil", "verificacion-cuenta")}>
-                Verificación de cuenta
                 <Icon name="arrow" />
               </button>
               {user.role === "admin" && (
@@ -726,16 +682,9 @@ export default function ConnectedApp() {
                   <p>No has enviado reportes.</p>
                 )}
               </section>
-              <aside className="profile-info" id="verificacion-cuenta">
+              <aside className="profile-info">
                 <h2>Tu información</h2>
                 <p>{user.email}</p>
-                <p>
-                  {user.verified
-                    ? demoMail
-                      ? "Verificación de demostración completada"
-                      : "Correo institucional verificado"
-                    : "Tu cuenta sigue pendiente de verificación."}
-                </p>
                 <p>Entrega acordada dentro del campus.</p>
                 <button
                   className="text-link"

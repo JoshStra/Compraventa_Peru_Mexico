@@ -5,11 +5,12 @@ CampusTrade incluye Mailpit para demostrar el registro, la verificación y la re
 ## Usar la instalación preparada
 
 1. Inicia Docker Desktop y ejecuta `iniciar-docker.cmd` o `docker compose up -d --build --wait`.
-2. Abre [CampusTrade](http://127.0.0.1:3000/) e inicia sesión con tu contraseña existente. Si ya habías iniciado sesión, recarga la página para recibir la configuración nueva.
-3. En el aviso de cuenta sin verificar pulsa **Reenviar enlace**. También puedes abrir **Verificación de cuenta** desde el menú de tu avatar.
-4. Entra a [Mailpit](http://127.0.0.1:8025/) desde su dirección local.
-5. Abre tu mensaje con asunto **[DEMO LOCAL] Verifica tu correo institucional en CampusTrade** y abre su enlace.
-6. En CampusTrade pulsa **Verificar mi correo**. Se mostrará **Verificación de demostración completada**. Reenviar sustituye el enlace anterior; cada enlace se usa una sola vez y tiene caducidad.
+2. Abre [CampusTrade](http://127.0.0.1:3000/). El apartado de verificación y el botón de reenvío se retiraron del perfil, del menú y de la página por solicitud del responsable. Recarga si conservabas una vista anterior.
+3. Para una cuenta de demostración recién registrada, entra a [Mailpit](http://127.0.0.1:8025/) desde su dirección local.
+4. Abre su mensaje con asunto **[DEMO LOCAL] Verifica tu correo institucional en CampusTrade** y abre su enlace.
+5. En CampusTrade pulsa **Verificar mi correo**. Se mostrará **Verificación de demostración completada**. Cada enlace se usa una sola vez y tiene caducidad. Las cuentas anteriores conservan su estado; no se marcan verificadas por retirar el apartado.
+
+El endpoint de reenvío y las restricciones de cuentas sin verificar siguen en la API. La interfaz ya no ofrece el acceso al reenvío; el mecanismo real se decidirá con las [opciones propuestas](OPCIONES_VERIFICACION.md). No se ha contratado ni configurado un nuevo proveedor.
 
 El registro de una cuenta nueva también captura su mensaje en ese buzón. **Olvidé mi contraseña** captura un enlace de recuperación; al completar el cambio se revocan las sesiones anteriores. El buzón es compartido por esta instalación de demostración y muestra mensajes destinados a sus cuentas. Utiliza solo tus propios enlaces y conserva privado su acceso.
 

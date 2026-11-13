@@ -1,0 +1,21 @@
+[WebServer] (node:2192) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 6 tests using 2 workers
+
+(node:22644) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:15012) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [desktop] › frontend\e2e\design.spec.js:162:1 › cinco opciones móviles y acceso a Favoritos, Operaciones y Gestión desde Perfil (3.3s)
+  ok 2 [desktop] › frontend\e2e\fullstack.spec.js:22:1 › registro verificación publicación con imagen y edición persistentes (4.4s)
+(node:39652) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 3 [desktop] › frontend\e2e\fullstack.spec.js:157:1 › perfil sin apartado de verificación conserva la información y los permisos (2.5s)
+(node:25832) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 4 [mobile] › frontend\e2e\design.spec.js:162:1 › cinco opciones móviles y acceso a Favoritos, Operaciones y Gestión desde Perfil (2.8s)
+  ok 5 [mobile] › frontend\e2e\fullstack.spec.js:22:1 › registro verificación publicación con imagen y edición persistentes (3.3s)
+  ok 6 [mobile] › frontend\e2e\fullstack.spec.js:157:1 › perfil sin apartado de verificación conserva la información y los permisos (1.8s)
+
+  6 passed (19.0s)

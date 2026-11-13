@@ -48,10 +48,6 @@ export function MinimalHeader({
     ["Mis publicaciones", () => onNavigate("Perfil", "mis-publicaciones")],
     ["Favoritos", () => onNavigate("Favoritos")],
     ["Operaciones", () => onNavigate("Operaciones")],
-    [
-      "Verificación de cuenta",
-      () => onNavigate("Perfil", "verificacion-cuenta"),
-    ],
     ...(user?.role === "admin"
       ? [["Gestión", () => onNavigate("Gestión")]]
       : []),

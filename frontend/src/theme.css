@@ -774,18 +774,6 @@ main:has(.hero),
   background: var(--color-teal-claro);
   border-color: var(--color-borde);
 }
-.verification-notice {
-  background: var(--color-aviso-fondo);
-  color: var(--color-aviso-texto);
-  padding: 8px var(--page-pad);
-  font-size: 13px;
-  justify-content: flex-start;
-  gap: 8px 20px;
-}
-.verification-notice .text-link {
-  padding: 0;
-  min-height: 32px;
-}
 .toast {
   border-radius: var(--radius-pill);
   background: var(--color-tinta);
@@ -1053,8 +1041,7 @@ main:has(.hero),
 .stat-row strong {
   color: var(--color-tinta);
 }
-#mis-publicaciones,
-#verificacion-cuenta {
+#mis-publicaciones {
   scroll-margin-top: 160px;
 }
 .operation-card,
@@ -1532,9 +1519,6 @@ footer span:first-child {
   }
   .empty-state h2 {
     font-size: 22px;
-  }
-  .verification-notice {
-    padding: 8px 20px;
   }
   .toast {
     bottom: calc(84px + env(safe-area-inset-bottom));

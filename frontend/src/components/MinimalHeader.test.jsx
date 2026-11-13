@@ -71,11 +71,9 @@ it("conserva los accesos de estudiante y muestra las novedades sin cambiar el no
   expect(
     screen.queryByRole("menuitem", { name: "Gestión" }),
   ).not.toBeInTheDocument();
-  for (const name of [
-    "Favoritos",
-    "Operaciones",
-    "Mis publicaciones",
-    "Verificación de cuenta",
-  ])
+  for (const name of ["Favoritos", "Operaciones", "Mis publicaciones"])
     expect(screen.getByRole("menuitem", { name, exact: true })).toBeVisible();
+  expect(
+    screen.queryByRole("menuitem", { name: "Verificación de cuenta" }),
+  ).not.toBeInTheDocument();
 });
